@@ -17,4 +17,4 @@ permalink: /blog
         </h2>
       </li>
     {% endfor %}
-  </ul>
+  </ul> 
