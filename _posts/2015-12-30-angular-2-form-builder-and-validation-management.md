@@ -5,7 +5,7 @@ description: Build a custom component to manage form validation in Angular 2.
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date:   2015-12-30
-permalink: /angular-2-form-builder-and-validation-management
+page.url: /angular-2-form-builder-and-validation-management
 ---
 
 Angular 1 has the handy <a href="https://docs.angularjs.org/api/ngMessages/directive/ngMessages" target="_blank">ngMessages</a> modules to help manage error messages and validation in forms.
