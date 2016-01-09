@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  2015 Year Review of Cory Rylan
+title: 2015 Year Review of Cory Rylan
 description: A review of my blog for 2015 and how things are looking for the future.
 keywords: Cory Rylan, Web, Analytics, Blog
 tags: web
-date:   2015-12-28
+date: 2015-12-28
 updated: 2016-01-01
 permalink: /blog/2015-year-review-of-cory-rylan
 ---

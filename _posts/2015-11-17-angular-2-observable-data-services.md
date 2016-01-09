@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  Angular 2 Observable Data Services
+title: Angular 2 Observable Data Services
 description: A look into Observables and how they can improve your Angular 2 data services.
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
-date:   2015-11-17
+date: 2015-11-17
 updated: 2015-12-15
 permalink: /blog/angular-2-observable-data-services
 ---

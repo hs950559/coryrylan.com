@@ -4,7 +4,7 @@ title:  Emotional Interfaces
 description: My thoughts about Agile Development
 keywords: Cory Rylan, Web, UX, UI, User Experience
 tags: UX, UI
-date:   2013-03-19
+date: 2013-03-19
 permalink: /blog/emotional-interfaces
 ---
 

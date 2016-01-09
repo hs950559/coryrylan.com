@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  2015 Blog Update
+title: 2015 Blog Update
 description: "2014 Blog Update, Cory Rylan"
 keywords: Cory Rylan, Web, Development, 2015
 tags: code, programming
-date:   2015-01-05
+date: 2015-01-05
 permalink: /blog/2015-new-year-update
 ---
 

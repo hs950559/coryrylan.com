@@ -4,7 +4,7 @@ title:  Angular 2 ngFor syntax
 description: A quick look into the new Angular 2 ngFor syntax.
 keywords: Cory Rylan, Web, Angular 2, JavaScript, ng-repeat, ngFor
 tags: angular2, angularjs, javascript
-date:   2015-06-22
+date: 2015-06-22
 updated: 2015-12-15
 permalink: /blog/angular-2-ng-for-syntax
 ---
