@@ -11,7 +11,7 @@ keywords: Cory Rylan, Portfolio
 <figure class="effeckt-caption" data-effeckt-type="quarter-slide-up" itemscope itemtype="http://schema.org/WebPage">
     <meta itemprop="contributor" content="Cory Rylan" />
     <meta itemprop="publisher" content="Vintage Software" />
-    <img src="/assets/images/work/antiquemalls-com.jpg" alt="" class="full-width">
+    <img src="/assets/images/work/antiquemalls-com.jpg" alt="" class="full-width" />
     <figcaption>
         <div class="effeckt-figcaption-wrap">
             <a href="https://www.antiquemalls.com" target="_blank" itemprop="url">
@@ -25,7 +25,7 @@ keywords: Cory Rylan, Portfolio
 <figure class="effeckt-caption" data-effeckt-type="quarter-slide-up" itemscope itemtype="http://schema.org/WebPage">
     <meta itemprop="contributor" content="Cory Rylan" />
     <meta itemprop="publisher" content="Vintage Software" />
-    <img src="/assets/images/work/estatesales-net.jpg" alt="" class="full-width">
+    <img src="/assets/images/work/estatesales-net.jpg" alt="" class="full-width" />
     <figcaption>
         <div class="effeckt-figcaption-wrap">
             <a href="http://www.EstateSales.NET" target="_blank" itemprop="url">
@@ -39,7 +39,7 @@ keywords: Cory Rylan, Portfolio
 <figure class="effeckt-caption" data-effeckt-type="quarter-slide-up" itemscope itemtype="http://schema.org/WebPage">
     <meta itemprop="contributor" content="Cory Rylan" />
     <meta itemprop="publisher" content="Cory Rylan" />
-    <img src="/assets/images/work/angular2-ready.jpg" alt="" class="full-width">
+    <img src="/assets/images/work/angular2-ready.jpg" alt="" class="full-width" />
     <figcaption>
         <div class="effeckt-figcaption-wrap">
             <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank" itemprop="url">
@@ -53,7 +53,7 @@ keywords: Cory Rylan, Portfolio
 <figure class="effeckt-caption" data-effeckt-type="quarter-slide-up" itemscope itemtype="http://schema.org/WebPage">
     <meta itemprop="contributor" content="Cory Rylan" />
     <meta itemprop="publisher" content="Cory Rylan" />
-    <img src="/assets/images/work/core-flex-grid.jpg" alt="" class="full-width">
+    <img src="/assets/images/work/core-flex-grid.jpg" alt="" class="full-width" />
     <figcaption>
         <div class="effeckt-figcaption-wrap">
             <a href="https://splintercode.github.io/core-flex-grid/" target="_blank" itemprop="url">
@@ -67,7 +67,7 @@ keywords: Cory Rylan, Portfolio
 <figure class="effeckt-caption" data-effeckt-type="quarter-slide-up" itemscope itemtype="http://schema.org/WebPage">
     <meta itemprop="contributor" content="Cory Rylan" />
     <meta itemprop="publisher" content="Vintage Software" />
-    <img src="/assets/images/work/estateliquidators-com.jpg" alt="" class="full-width">
+    <img src="/assets/images/work/estateliquidators-com.jpg" alt="" class="full-width" />
     <figcaption>
         <div class="effeckt-figcaption-wrap">
             <a href="http://www.estateliquidators.com" target="_blank" itemprop="url">
@@ -81,7 +81,7 @@ keywords: Cory Rylan, Portfolio
 <figure class="effeckt-caption" data-effeckt-type="quarter-slide-up" itemscope itemtype="http://schema.org/WebPage">
     <meta itemprop="contributor" content="Cory Rylan" />
     <meta itemprop="publisher" content="Cory Rylan" />
-    <img src="/assets/images/work/losemycookies-com.jpg" alt="" class="full-width">
+    <img src="/assets/images/work/losemycookies-com.jpg" alt="" class="full-width" />
     <figcaption>
         <div class="effeckt-figcaption-wrap">
             <a href="http://losemycookies.com" target="_blank" itemprop="url">
