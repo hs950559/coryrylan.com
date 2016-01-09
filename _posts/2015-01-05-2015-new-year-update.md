@@ -5,7 +5,7 @@ description: "2014 Blog Update, Cory Rylan"
 keywords: Cory Rylan, Web, Development, 2015
 tags: code, programming
 date:   2015-01-05
-permalink: /2015-new-year-update
+permalink: /blog/2015-new-year-update
 ---
 
 

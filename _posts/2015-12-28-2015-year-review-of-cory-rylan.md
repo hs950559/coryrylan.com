@@ -6,7 +6,7 @@ keywords: Cory Rylan, Web, Analytics, Blog
 tags: web
 date:   2015-12-28
 updated: 2016-01-01
-permalink: /2015-year-review-of-cory-rylan
+permalink: /blog/2015-year-review-of-cory-rylan
 ---
 
 

@@ -5,7 +5,7 @@ description: My thoughts about Agile Development
 keywords: Cory Rylan, Web, Development, Agile
 tags: agile, programming
 date:   2013-03-19
-permalink: /agile-development-is-not-bad
+permalink: /blog/agile-development-is-not-bad
 ---
 
 I often hear proponents to agile code say that it makes sloppy untested code.
