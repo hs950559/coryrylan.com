@@ -3,7 +3,6 @@ layout: page
 title: Work
 description: My name is Cory Rylan. I build cool things on the Web using JavaScript and HTML5. Here is some of my work.
 keywords: Cory Rylan, Portfolio
-permalink: /work
 ---
 
 #Contributions & Work
