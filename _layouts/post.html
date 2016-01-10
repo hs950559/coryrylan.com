@@ -18,8 +18,8 @@ layout: default
             {% if page.updated %}
             <br />
             Updated
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">
-                {{ page.date | date: "%b %-d, %Y" }}
+            <time datetime="{{ page.updated | date_to_xmlschema }}" itemprop="dateModified">
+                {{ page.updated | date: "%b %-d, %Y" }}
             </time>
             {% else %}
             <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified"></time>
