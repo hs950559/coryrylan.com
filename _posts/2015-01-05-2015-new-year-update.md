@@ -36,7 +36,7 @@ deep diving into front end web development. I don't think this is necessarily a 
 
 I only wrote 12 blog posts. I will be attempting to double that this year if not at least write one post a week.
 
-#Stats for my blog
+##Stats for my blog
 
 My blog this year had 1,473 visitors and almost 10,000 page views. A huge improvement over 2013. My blog was visited from over 90 different countries. My top locations were:
 
@@ -47,7 +47,7 @@ My blog this year had 1,473 visitors and almost 10,000 page views. A huge improv
 
 As I improve on writing more I hope this continues to grow over 2015.
 
-#New for 2015
+##New for 2015
 
 2015 I am setting quite a few goals to work on.
 

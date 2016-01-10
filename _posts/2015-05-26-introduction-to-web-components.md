@@ -21,7 +21,7 @@ Angular has tried to help this with its custom element directives.
 The new HTML5 Web Component Specification is a collection of specifications that
 when combined create a powerful web standard for creating reusable components.
 
-<figure class="col-8-contain">
+<figure class="contain--8 block-center text-center">
     <img src="/assets/images/posts/introduction-to-web-components/div-soup.jpg" alt="div soup" class="full-width" />
     <figcaption>Gmail's div soup</figcaption>
 </figure>
@@ -64,7 +64,7 @@ Wouldn't it be great if we could see markup like this for something like a tab c
 
 ###Templates
 
-Next is the new `&lt;template&gt;` tag. The `&lt;template&gt;` tag simply allows us to store any HTML or JavaScript
+Next is the new `<template>` tag. The `<template>` tag simply allows us to store any HTML or JavaScript
 and have it completely ignored by the browser. This means the HTML will not render nor will any JavaScript execute.
 
 <pre class="language-markup">
@@ -94,7 +94,7 @@ The shadow DOM api helps encapsulate and hide the implementation of a given elem
 The video tag is rather complex out of the box. We have multiple elements within it. There are buttons, ranges and some default styles.
 If you go to Chrome's dev tool settings you can turn on "Show user agent shadow DOM" to be able to inspect the shadow DOM of the video element.
 
-<img src="/assets/images/posts/introduction-to-web-components/video-tag.jpg" alt="Inspection of the video element shadow DOM" class="full-width col-8-contain" />
+<img src="/assets/images/posts/introduction-to-web-components/video-tag.jpg" alt="Inspection of the video element shadow DOM" class="contain--8 block-center text-center" />
 
 As you can see the video tag is not just a single element but composed of its own HTML and CSS that is isolated and hidden
 using the shadow DOM. Inspecting further you can see a input of type range that has its own shadow DOM composed of even more
@@ -236,7 +236,7 @@ components to not have to rely on third party libraries if possible.
 
 Now that we have our tabs dynamically created and click events registered we should have something similar looking to this.
 
-<img src="/assets/images/posts/introduction-to-web-components/tab-no-css.jpg" class="full-width col-7-contain" />
+<img src="/assets/images/posts/introduction-to-web-components/tab-no-css.jpg" class="contain--7 block-center text-center" />
 
 ###Component Styles and CSS
 
@@ -302,13 +302,13 @@ So now we can dig into the new CSS selectors for styling our web components. Fir
 
 Looking at the CSS here it may look very different from anything else you may have seen before.
 The first selector `:host` styles the outer most element of our component.
-In this case it is `&lt;ui-tabs&gt;`. The second selector `:host(.red)` is a extension onto our `:host`
+In this case it is `<ui-tabs>`. The second selector `:host(.red)` is a extension onto our `:host`
 selector. By passing in an argument selector we can style the host dependent if it contains a `.red` class. This is especially useful for theming
 our components. Example we could have a `:host(.dark-theme)` or `:host(.light-theme)`.
 
 The next selector is the `::content` selector. The `::content` selector allows us to style elements that are
-displayed in our element. So in the `&lt;ui-tabs&gt;` we use `::content > button` to style the buttons. Next
-here is our CSS for the `&lt;ui-tab&gt;` element.
+displayed in our element. So in the `<ui-tabs>` we use `::content > button` to style the buttons. Next
+here is our CSS for the `<ui-tab>` element.
 
 <pre class="language-javascript">
 <code>
@@ -354,7 +354,7 @@ here is our CSS for the `&lt;ui-tab&gt;` element.
 
 Now our component should be styled and functional.
 
-<img src="/assets/images/posts/introduction-to-web-components/tab-with-css.jpg" class="full-width col-7-contain" />
+<img src="/assets/images/posts/introduction-to-web-components/tab-with-css.jpg" class="contain--7 block-center text-center" />
 
 Our final component syntax in the HTML
 
