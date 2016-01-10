@@ -20,7 +20,7 @@ web services data. This web service sends the request information in the url.
     BOOL result = YES;
     
     // Create the objects for calling the web service
-    NSString *buildURL = [NSString stringWithFormat:@@"http://www.splintercode.com/web-services/MyWebServices.asmx/myServiceCheck?IDReceived=%@@", ID];
+    NSString *buildURL = [NSString stringWithFormat:@"http://www.splintercode.com/web-services/MyWebServices.asmx/myServiceCheck?IDReceived=%@", ID];
     NSURL *url = [NSURL URLWithString:buildURL];
     
     //Call the request
@@ -44,16 +44,16 @@ web services data. This web service sends the request information in the url.
     
     // Read the xml data returned by the web service
     [parser parse];
-    if([reply isEqualToString:@@"yourErrorResponse"]) //If your service returned ect do this 
+    if([reply isEqualToString:@"yourErrorResponse"]) //If your service returned ect do this 
     {
-        ErrorMessage = @@"Error";
+        ErrorMessage = @"Error";
         return NO;
     }
     
-    if([reply isEqualToString:@@""] || reply == NULL) // Else if no reply do that, or use error object
+    if([reply isEqualToString:@""] || reply == NULL) // Else if no reply do that, or use error object
     {
         //No reply from web service
-        ErrorMessage = @@"Connection Error";
+        ErrorMessage = @"Connection Error";
         return NO;
     }
     return result;	//Else return the result or error

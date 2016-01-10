@@ -48,7 +48,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
 
-@@Injectable()
+@Injectable()
 export class TodosService {
     todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
     private _todosObserver: any;
@@ -108,7 +108,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
 
-@@Injectable()
+@Injectable()
 export class TodosService {
     todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
     private _todosObserver: any;
@@ -157,7 +157,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
      
-@@Injectable()
+@Injectable()
 export class TodosService {
     todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
     private _todosObserver: any;
@@ -217,8 +217,8 @@ follows the idea of unidirectional data flow. Meaning data flow is predictable a
 If you have worked with <a href="https://facebook.github.io/flux/docs/overview.html" target="_blank">Flux</a> based architectures this may seem very familiar.
 
 <figure class="col-9-contain">
-<img src="/assets/images/posts/angular-2-observable-data-services/ng2data-serv.png" alt="Diagram of Angular 2 Data flow with Observables" class="full-width">
-<figcaption>Angular 2 data flow with Observables</figcaption>
+<img src="/assets/images/posts/angular-2-observable-data-services/ng2data-serv.png" alt="Diagram of Angular 2 Data flow with Observables" class="full-width contain--9 block-center">
+<figcaption class="text-center">Angular 2 data flow with Observables</figcaption>
 </figure>
 
 This pattern can ensure data is coming from one place in our application and that every component receives the latest version of that data through our data streams.

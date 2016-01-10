@@ -5,8 +5,13 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
+    "normalize",
     "grid",
+    "prism",
     "base",
     "typography",
+    "buttons",
+    "table",
+    "tabs",
     "layout",
     "syntax-highlighting";

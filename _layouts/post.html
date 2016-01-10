@@ -1,13 +1,95 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+<article id="PostBody" class="post" itemscope itemtype="http://schema.org/Article">
+    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+        <meta itemprop="url" content="http://coryrylan.com/assets/images/cory-rylan.jpg">
+        <meta itemprop="width" content="258">
+        <meta itemprop="height" content="258">
+    </div>
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    
+        <p class="post-meta margin-bottom">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {{ page.date | date: "%b %-d, %Y" }}
+            </time>
+            {% if page.updated %}
+            <br />
+            Updated
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">
+                {{ page.date | date: "%b %-d, %Y" }}
+            </time>
+            {% endif %}
+            
+            - <span id="ReadTime" class="read-time"></span>
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        {{ content }}
+    </div>
+    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Cory Rylan</span>
+    </span>
+    
+    <span class="float-right"><a href="https://twitter.com/share" class="twitter-share-button float-right"{count} data-via="SplinterCode" data-size="large" data-hashtags="{{ page.tags }}">Tweet</a></span>
+    <script async>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="Cory Rylan" />
+        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="http://coryrylan.com/Content/Images/Cory_Rylan.jpg">
+            <meta itemprop="width" content="258">
+            <meta itemprop="height" content="258">
+        </div>
+    </div>
 </article>
+
+{% if jekyll.environment != 'development' %}
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'splintercode';
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div class="clear-both"></div><br /><br />
+
+<div class="flex-row">
+    <div class="contain--8 block-center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- coryrylan.com -->
+        <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5376316241677971"
+                data-ad-slot="4165025244"
+                data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
+<br /><br />
+{% endif %}
+
+<script src="/assets/javascript/libraries/prism/prism.js"></script>
+<script src="/assets/javascript/libraries/countable.js"></script>
+<script>
+    var area = document.getElementById('PostBody');
+
+    Countable.once(area, function (counter) {
+        var wpm = 200;
+        var estimatedRaw = counter.words / wpm;
+        var minutes = Math.round(estimatedRaw);
+        var effectiveTime = (minutes < 1) ? "A few seconds to read" : minutes + " min read";
+        document.getElementById('ReadTime').innerHTML = effectiveTime;
+    });
+</script>

@@ -1,4 +1,45 @@
+body {
+    font-size: 16px;
+    color: $color-text;
+}
+
+h1, h2, h3 {
+    margin: 0 0 12px 0;
+    padding: 0;
+    
+    @media screen and (min-width: 1024px) {
+        margin: 0 0 18px 0;
+    }
+}
+
 h1 {
     font-weight: 300;
-    font-size: 2em;
+    font-size: 2.3em;
+}
+
+h2 a {
+    color: $color-text;
+    text-decoration: none;
+}
+
+p {
+    margin: 0 0 24px 0;
+    padding: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+a {
+    color: darken($green, 8%);
+}
+
+p code {
+    background-color: darken($grey, 2%);
+}
+
+pre[class*="language-"] {
+    margin-bottom: 24px;
+    background-color: lighten($grey, 1%);
 }

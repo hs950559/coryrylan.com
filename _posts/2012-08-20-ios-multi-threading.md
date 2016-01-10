@@ -23,9 +23,9 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,(unsign
 });
 
 // For a separate thread place your method call in the following selector.
-[NSThread detachNewThreadSelector: @@selector(MyMethod) toTarget:self
+[NSThread detachNewThreadSelector: @selector(MyMethod) toTarget:self
 withObject:nil];
 // To break out of the current thread and process something on the main use the following:
-[self performSelectorOnMainThread:@@selector(yourMethod) withObject:nil waitUntilDone:YES];
+[self performSelectorOnMainThread:@selector(yourMethod) withObject:nil waitUntilDone:YES];
 </code>
 </pre>

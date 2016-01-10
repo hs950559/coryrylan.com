@@ -3,12 +3,15 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .site-header {
     background-color: $green;
     color: $white;
-    padding: 10px 20px;
+    padding: 0 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
     left: 0;
     right: 0;
@@ -17,15 +20,83 @@ body {
     position: fixed;
 }
 
+.site-nav {
+    text-align: center;
+}
+
 .site-container {
     margin-top: 80px;
     padding: 0 10px;
+    flex: 1;
 }
 
+.site-footer {
+    background-color: $grey-dark;
+    color: $white;
+    padding: 20px;
+    
+    .container {
+        padding: 0 8px;
+    }
+    
+    a {
+        color: $white;
+        padding: 10px;
+    }
+}
+
+.site-profile-img {
+    width: 100%;
+    max-width: 130px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 12px;
+}
+
+// Cards
 .post {
     border-radius: 2px;
-    padding: 35px 56px;
+    padding: 8px 12px;
     margin-bottom: 80px;
     box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
     background-color: $white;
+    
+    @media (min-width: 460px) {
+        padding: 10px 24px;
+    }
+    
+    @media (min-width: 680px) {
+        padding: 35px 56px;
+    }
+}
+
+.post-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    .card {
+        min-height: 190px;
+    }
+}
+
+.card {
+    border-radius: 2px;
+    padding: 12px;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+    background-color: $white;
+    display: block;
+    width: 100%;
+}
+
+.card-btn-right {
+    position: relative;
+    padding-bottom: 46px;
+    
+    .btn {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
 }

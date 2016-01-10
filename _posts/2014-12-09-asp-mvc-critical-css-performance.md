@@ -32,10 +32,10 @@ This example uses the MVC bundling feature with a no js fallback.
     &lt;script&gt;
         // loadCSS 
         function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}
-        loadCSS("@@Styles.Url("~/bundles/deferred/css")");
+        loadCSS("@Styles.Url("~/bundles/deferred/css")");
     &lt;/script&gt;
     &lt;noscript&gt;
-        @@Styles.Render("~/bundles/deferred/css")
+        @Styles.Render("~/bundles/deferred/css")
     &lt;/noscript&gt;
 &lt;/head&gt;
 </code>
@@ -51,7 +51,7 @@ To inline your CSS you can use the following line in your views.
 <pre class="language-clike">
 <code>
 &lt;style&gt;
-    @@Html.Raw(File.ReadAllText(Server.MapPath("~/Content/Sass/all.min.css")))
+    @Html.Raw(File.ReadAllText(Server.MapPath("~/Content/Sass/all.min.css")))
 &lt;/style&gt;
 </code>
 </pre>

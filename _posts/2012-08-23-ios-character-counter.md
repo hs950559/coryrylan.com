@@ -23,7 +23,7 @@ of characters in a text view that needs to be limited to a maximum amount of cha
         textView.text = [textView.text substringToIndex:500];
     }
     //Count and display amount of chars left
-    CounterBoxLabel.text = [NSString stringWithFormat:@@"Characters left: (%i)", 500 - [[textView text] length]]; 
+    CounterBoxLabel.text = [NSString stringWithFormat:@"Characters left: (%i)", 500 - [[textView text] length]]; 
 }
 </code>
 </pre>

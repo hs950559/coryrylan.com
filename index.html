@@ -4,31 +4,25 @@ title: Cory Rylan, Software Developer and Front End Engineer.
 description: Cory Rylan, Software Developer and Front End Engineer. Building cool things on the web with JavaScript and HTML5
 keywords: Cory Rylan, Blog, Web Development, JavaScript, Angular, HTML5, CSS, TypeScript, Responsive Design
 permalink: /
+tab: index
 ---
 
-<section itemscope itemtype="http://schema.org/Person">
-    <div itemprop="description">
-        <h1>Hello</h1>
-        <p>
-            My name is <a href="http://coryrylan.com" itemprop="url"><span itemprop="name">Cory Rylan</span></a>. I am a
-            Software Developer and <span itemprop="jobTitle">Front End Engineer</span>. I specialize in creating fast, scalable,
-            and responsive web applications. I work daily with JavaScript, TypeScript, Angular, CSS3, Sass and HTML5.
-        </p>
-        <p>
-            I am currently build HTML5 applications and responsive web sites at <a href="https://github.com/vintage-software"
-            target="_blank" itemprop="worksFor">Vintage Software</a>.
-        </p>
-    </div>
-</section>
-
-  <ul class="post-list">
+<div class="post-list">
+    <div class="flex-row--full">
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <div class="col-6--md">
+            <div class="card card-btn-right">
+                <div class="margin-bottom-small">{{ post.date | date: "%b %-d, %Y" }}</div>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+                <h2>
+                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                </h2>
+                <p>
+                    {{ post.description }}
+                </p>
+                <a href="{{ post.url | prepend: site.baseurl }}" class="btn float-right">Read More</a>
+            </div>
+        </div>
     {% endfor %}
-  </ul> 
+    </div>
+</div> 

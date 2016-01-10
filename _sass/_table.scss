@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+caption {
+    padding: 1em;
+}
+
+th, td {
+    padding: 1em;
+    text-align: left;
+}
+
+tr {
+    border-bottom: solid darken($grey, 10%) 1px;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}

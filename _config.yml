@@ -13,9 +13,10 @@ description: > # My name is Cory Rylan.
   I specialize in creating fast, scalable, and responsive web applications. 
   I work daily with JavaScript, Angular, JQuery, CSS3, Sass and HTML5.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://coryrylan.firebaseapp.com/" # the base hostname & protocol for your site
+url: "https://coryrylan.firebaseapp.com" # the base hostname & protocol for your site
 twitter_username: splintercode
 github_username:  splintercode
 
 # Build settings
 markdown: kramdown
+highlighter: null

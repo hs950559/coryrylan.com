@@ -18,7 +18,7 @@ and need to update its information via web service.
 <pre class="language-clike">
 <code>
 [[NSNotificationCenter defaultCenter] addObserver:self
-    selector:@@selector(someMethod:)
+    selector:@selector(someMethod:)
         name:UIApplicationDidBecomeActiveNotification object:nil];
 </code>
 </pre>

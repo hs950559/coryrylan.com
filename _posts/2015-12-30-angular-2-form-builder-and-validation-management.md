@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Angular 2 Form Builder and Validation Management
-description: Build a custom component to manage form validation in Angular 2.
+description: Learn about the new FormBuilder and create a custom component to manage form validation in Angular 2.
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2015-12-30
@@ -17,7 +17,7 @@ This allows us to also explicitly list each form control’s validators.
 In our example we are going to build a simple subscription form with two inputs, name and email.
 
     
-<img src="/assets/images/posts/angular-2-form-builder-and-validation-management/form-1.JPG" alt="A simple user form." />
+<img src="/assets/images/posts/angular-2-form-builder-and-validation-management/form-1.JPG" alt="A simple user form." class="full-width contain--5" />
 
 We will start with creating our Form with the FormBuilder class on our root application component.
 
@@ -29,7 +29,7 @@ import {bootstrap} from 'angular2/platform/browser';
 import {ControlMessages} from './control-messages.component';
 import {ValidationService} from './validation.service';
      
-@@Component({
+@Component({
   selector: 'demo-app',
   templateUrl: 'src/app.html',
   directives: [ControlMessages]
@@ -118,7 +118,7 @@ Here is the same form but with our new component.
 Here our control-messages component takes in a name of the control input to check its validation.
 This is what the rendered form looks like with our validation.
 
-<img src="/assets/images/posts/angular-2-form-builder-and-validation-management/form-2.JPG" alt="Form with validation triggered" />
+<img src="/assets/images/posts/angular-2-form-builder-and-validation-management/form-2.JPG" alt="Form with validation triggered" class="full-width contain--5" />
 
 Here is the example code for our control-messages component.
     
@@ -128,14 +128,14 @@ import {Component, Host} from 'angular2/core';
 import {NgFormModel} from 'angular2/common';
 import {ValidationService} from './validation.service';
      
-@@Component({
+@Component({
     selector: 'control-messages',
     inputs: ['controlName: control'],
     template: `&lt;div *ngIf=&quot;errorMessage !== null&quot;&gt;{{errorMessage}}&lt;/div&gt;`
 })
 export class ControlMessages {
     controlName: string;
-    constructor(@@Host() private _formDir: NgFormModel) { }
+    constructor(@Host() private _formDir: NgFormModel) { }
      
     get errorMessage() {
         // Find the control in the Host (Parent) form
@@ -187,7 +187,7 @@ Here is an example of our validation service:
      
     static emailValidator(control) {
         // RFC 2822 compliant regex
-        if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
+        if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
             return null;
         } else {
             return { 'invalidEmailAddress': true };
@@ -197,7 +197,7 @@ Here is an example of our validation service:
     static passwordValidator(control) {
         // {6,100}           - Assert password is between 6 and 100 characters
         // (?=.*[0-9])       - Assert a string has at least one number
-        if (control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@@#$%^&*]{6,100}$/)) {
+        if (control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
             return null;
         } else {
             return { 'invalidPassword': true };
