@@ -14,7 +14,7 @@
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
         <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
         
-        <link href="https://fonts.googleapis.com/css?family=Roboto:500,400,300" media="none" onload="this.media='all'; window.onload = function() { document.body.className+=' fonts-loaded'; }" rel="stylesheet" type="text/css" >
+        <link href=""  rel="stylesheet" type="text/css" >
         <link href="/assets/images/cory-rylan-logo-mini.png" rel="shortcut icon" type="image/x-icon" />
         
         <meta name="twitter:site" content="@splintercode">
@@ -23,6 +23,22 @@
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image" content="{{ site.url }}/assets/images/cory-rylan.jpg" />
     
+        <!-- lazy load font -->
+        <script>
+        (function() {
+            !function(e){"use strict";var n=function(n,t,o){var l,r=e.document,i=r.createElement("link");if(t)l=t;else{var a=(r.body||r.getElementsByTagName("head")[0]).childNodes;l=a[a.length-1]}var d=r.styleSheets;i.rel="stylesheet",i.href=n,i.media="only x",l.parentNode.insertBefore(i,t?l:l.nextSibling);var f=function(e){for(var n=i.href,t=d.length;t--;)if(d[t].href===n)return e();setTimeout(function(){f(e)})};return i.onloadcssdefined=f,f(function(){i.media=o||"all"}),i};"undefined"!=typeof module?module.exports=n:e.loadCSS=n}("undefined"!=typeof global?global:this);
+            function onloadCSS(n,o){n.onload=function(){n.onload=null,o&&o.call(n)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in n&&n.onloadcssdefined(o)}
+            
+            var stylesheet = loadCSS('https://fonts.googleapis.com/css?family=Roboto:500,400,300');
+            onloadCSS(stylesheet, function() {
+                window.addEventListener('load', function () {
+                    document.body.className = 'fonts-loaded';
+                }, false);
+            });
+        }());
+        </script>
+        <noscript><link href="https://fonts.googleapis.com/css?family=Roboto:500,400,300" rel="stylesheet"></noscript>
+        
         {% for post in site.posts limit:1 %}
             <link rel="prefetch prerender" href="{{ post.permalink }}">
         {% endfor %}
@@ -73,6 +89,7 @@
             {{ content }}
         </main>
 
+        <div class="clear-both"></div>
         {% include footer.html %}
     </body>
 </html>
