@@ -2,7 +2,6 @@ body {
     background-color: $grey;
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -11,13 +10,21 @@ body {
 .site-header {
     background-color: $green;
     color: $white;
-    padding: 0 20px;
+    padding: 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
     left: 0;
     right: 0;
     top: 0;
     z-index: 1;
     position: fixed;
+    
+    .ui-tabs__tab {
+        width: 33.33%;
+        
+        @media screen and (min-width: 1020px) {
+            width: auto;
+        }
+    }
 }
 
 .site-nav {
@@ -42,16 +49,25 @@ body {
     a {
         color: $white;
         padding: 10px;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
 .site-profile-img {
     width: 100%;
-    max-width: 130px;
+    max-width: 110px;
     border-radius: 50%;
     display: block;
     margin: 0 auto;
     margin-bottom: 12px;
+    
+    @media screen and (min-width: 1020px) {
+        max-width: 130px;
+    }
 }
 
 // Cards

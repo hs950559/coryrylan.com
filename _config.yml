@@ -20,3 +20,5 @@ github_username:  splintercode
 # Build settings
 markdown: kramdown
 highlighter: null
+sass:
+    style: compressed

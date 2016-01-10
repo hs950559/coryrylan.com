@@ -4,7 +4,7 @@ layout: default
 
 <article id="PostBody" class="post" itemscope itemtype="http://schema.org/Article">
     <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <meta itemprop="url" content="http://coryrylan.com/assets/images/cory-rylan.jpg">
+        <meta itemprop="url" content="{{ site.url }}/assets/images/cory-rylan.jpg">
         <meta itemprop="width" content="258">
         <meta itemprop="height" content="258">
     </div>
@@ -21,6 +21,8 @@ layout: default
             <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">
                 {{ page.date | date: "%b %-d, %Y" }}
             </time>
+            {% else %}
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified"></time>
             {% endif %}
             
             - <span id="ReadTime" class="read-time"></span>
@@ -40,11 +42,12 @@ layout: default
     <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
         <meta itemprop="name" content="Cory Rylan" />
         <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="http://coryrylan.com/Content/Images/Cory_Rylan.jpg">
+            <meta itemprop="url" content="{{ site.url }}/assets/images/cory-rylan.jpg">
             <meta itemprop="width" content="258">
             <meta itemprop="height" content="258">
         </div>
     </div>
+    <div class="clear-both"></div>
 </article>
 
 {% if jekyll.environment != 'development' %}

@@ -1,6 +1,11 @@
 body {
     font-size: 16px;
     color: $color-text;
+    font-family: Arial, sans-serif;
+}
+
+body.fonts-loaded {
+    font-family: 'Roboto', sans-serif;
 }
 
 h1, h2, h3 {
@@ -14,17 +19,29 @@ h1, h2, h3 {
 
 h1 {
     font-weight: 300;
-    font-size: 3em;
+    font-size: 2.3em;
+    
+    @media screen and (min-width: 680px) {
+        font-size: 3em;
+    }
 }
 
 h2 {
     font-weight: 400;
-    font-size: 2.3em;
+    font-size: 1.6em;
+    
+    @media screen and (min-width: 680px) {
+        font-size: 2.3em;
+    }
 }
 
 h3 {
     font-weight: 400;
-    font-size: 1.6m;
+    font-size: 1.3em;
+        
+    @media screen and (min-width: 680px) {
+        font-size: 1.6em;
+    }
 }
 
 h2 a {
