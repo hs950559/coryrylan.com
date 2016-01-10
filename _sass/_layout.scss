@@ -78,10 +78,6 @@ body {
     
     .card {
         min-height: 190px;
-        
-        h2 {
-            font-size: 1.6em;
-        }
     }
 }
 
@@ -92,15 +88,20 @@ body {
     background-color: $white;
     display: block;
     width: 100%;
+    
+    h2 {
+        font-size: 1.6em;
+    }
 }
 
 .card-btn-right {
     position: relative;
-    padding-bottom: 46px;
+    padding-bottom: 48px;
     
     .btn {
         position: absolute;
-        bottom: 10px;
-        right: 10px;
+        bottom: 12px;
+        right: 12px;
     }
 }
+
