@@ -5,17 +5,18 @@
         <meta name="author" content="Cory Rylan" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
         <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
         <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
         {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
 
+        <link rel="manifest" href="/manifest.json">
         <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
         <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
         
         <link href=""  rel="stylesheet" type="text/css" >
-        <link href="/assets/images/cory-rylan-logo-mini.png" rel="shortcut icon" type="image/x-icon" />
+        <link href="/icon.png" rel="shortcut icon" type="image/x-icon" />
         
         <meta name="twitter:site" content="@splintercode">
         <meta name="twitter:title" content="{{ page.title }}" />
@@ -91,5 +92,13 @@
 
         <div class="clear-both"></div>
         {% include footer.html %}
+        
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                     .register('/serviceworker.js')
+                     .then(function () { console.log("Service Worker Registered"); });
+        }
+    </script>
     </body>
 </html>
