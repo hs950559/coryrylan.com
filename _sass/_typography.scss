@@ -70,3 +70,7 @@ pre[class*="language-"] {
     margin-bottom: 24px;
     background-color: lighten($grey, 1%);
 }
+
+.strike {
+    text-decoration: line-through;
+}
