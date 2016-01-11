@@ -50,13 +50,12 @@ layout: default
     <div class="clear-both"></div>
 </article>
 
-{% if jekyll.environment != 'development' %}
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'splintercode';
     (function () {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
@@ -81,10 +80,9 @@ layout: default
     </div>
 </div>
 <br /><br />
-{% endif %}
 
-<script src="/assets/javascript/libraries/prism/prism.js"></script>
-<script src="/assets/javascript/libraries/countable.js"></script>
+<script src="/assets/javascript/libraries/prism/prism.js?v={{ site.time | date: "%F %H:%M:%S %z" }}"></script>
+<script src="/assets/javascript/libraries/countable.js?v={{ site.time | date: "%F %H:%M:%S %z" }}"></script>
 <script>
     var area = document.getElementById('PostBody');
 
