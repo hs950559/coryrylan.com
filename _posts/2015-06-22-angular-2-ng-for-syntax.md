@@ -18,12 +18,14 @@ First we will take a look at a simple Angular 1.x repeater that displays the ind
 
 <pre class="language-markup">
 <code>
+{% raw %}
 &lt;!-- Angular 1.x --&gt;
 &lt;ul&gt;
     &lt;li ng-repeat=&quot;item in items&quot;&gt;
         {{$index}} {{item}}
     &lt;/li&gt;
 &lt;/ul&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -31,12 +33,14 @@ Here is the new `ngFor` syntax.
 
 <pre class="language-markup">
 <code>
+{% raw %}
 &lt;!-- Angular 2.0 --&gt;
 &lt;ul&gt;
     &lt;li *ngFor=&quot;#item of items; #i = index&quot;&gt;
         {{i}} {{item}}
     &lt;/li&gt;
 &lt;/ul&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -45,10 +49,12 @@ using the new Angular 2 template syntax with the template tag.
 
 <pre class="language-markup">
 <code>
+{% raw %}
 &lt;!-- Angular 2.0 longhand ngFor --&gt;
 &lt;template ngFor #item=&quot;$implicit&quot; [ngForOf]=&quot;items&quot; #i=&quot;index&quot;&gt;
     {{i}} {{item}}
 &lt;/template&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -59,11 +65,13 @@ So below is the typical syntax for an Angular 2 list.
 
 <pre class="language-markup">
 <code>
-    &lt;ul&gt;
-        &lt;li *ngFor=&quot;#item of items; #i = index&quot;&gt;
-            {{i}} {{item}}
-        &lt;/li&gt;
-    &lt;/ul&gt;
+{% raw %}
+&lt;ul&gt;
+    &lt;li *ngFor=&quot;#item of items; #i = index&quot;&gt;
+        {{i}} {{item}}
+    &lt;/li&gt;
+&lt;/ul&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -76,11 +84,13 @@ the `ngFor` simply boils down to the following code.
 
 <pre class="language-markup">
 <code>
-    &lt;ul&gt;
-        &lt;li *ngFor=&quot;#item of items&quot;&gt;
-            {{item}}
-        &lt;/li&gt;
-    &lt;/ul&gt;
+{% raw %}
+&lt;ul&gt;
+    &lt;li *ngFor=&quot;#item of items&quot;&gt;
+        {{item}}
+    &lt;/li&gt;
+&lt;/ul&gt;
+{% endraw %}
 </code>
 </pre>
 

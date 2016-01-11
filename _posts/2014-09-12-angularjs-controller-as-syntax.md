@@ -13,11 +13,13 @@ ways to declare and use a controller. Lets look at the most common way using the
 
 <pre class="language-markup">
 <code>
+{% raw %}
 &lt;section ng-app=&quot;app&quot;&gt;
   &lt;div ng-controller=&quot;ScopeExampleCtrl&quot;&gt;
     {{message}}
   &lt;/div&gt;
 &lt;/section&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -36,11 +38,13 @@ So this works great no issues but lets look at the `Controller As` syntax that w
     
 <pre class="language-markup">
 <code>
+{% raw %}
 &lt;section ng-app=&quot;app&quot;&gt;
   &lt;div ng-controller=&quot;ControllerAsExampleCtrl as example&quot;&gt;
     {{example.message}}
   &lt;/div&gt;
 &lt;/section&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -71,6 +75,7 @@ that happen to have the same property of message?
 
 <pre class="language-markup">
 <code>
+{% raw %}
 &lt;section ng-app=&quot;app&quot;&gt;
   &lt;div ng-controller=&quot;ScopeExampleCtrl1&quot;&gt;
     {{message}}
@@ -79,6 +84,7 @@ that happen to have the same property of message?
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -103,6 +109,7 @@ Take a look at the same controllers but using `Controller As` to bind their valu
 
 <pre class="language-markup">
 <code>
+{% raw %}
 &lt;section ng-app=&quot;app&quot;&gt;
   &lt;div ng-controller=&quot;ControllerAsVmExampleCtrl1 as example1&quot;&gt;
     {{example1.message}}
@@ -111,6 +118,7 @@ Take a look at the same controllers but using `Controller As` to bind their valu
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
+{% endraw %}
 </code>
 </pre>
 

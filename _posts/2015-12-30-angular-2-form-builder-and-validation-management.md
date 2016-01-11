@@ -124,6 +124,7 @@ Here is the example code for our control-messages component.
     
 <pre class="language-javascript">
 <code>
+{% raw %}
 import {Component, Host} from 'angular2/core';
 import {NgFormModel} from 'angular2/common';
 import {ValidationService} from './validation.service';
@@ -152,6 +153,7 @@ export class ControlMessages {
         return null;
     }
 }
+{% endraw %}
 </code>
 </pre>
 
