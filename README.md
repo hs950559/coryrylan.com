@@ -1,1 +1,1 @@
-All and content remain copyright of Cory Rylan.
+Although being open source all content remains copyright of Cory Rylan.
