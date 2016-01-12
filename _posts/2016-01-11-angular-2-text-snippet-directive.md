@@ -17,7 +17,7 @@ Here is an animation of what our final view would like.
 
 <img src="/assets/images/posts/angular-2-text-snippet-directive/snippet-directive.gif" alt="A snippets directive example" class="full-width contain--4 block-center" />
 
-So lets take a look at what our markup would look like tto use our Directive on a textarea input.
+Here is a look at what our markup would look like tto use our Directive on a textarea input.
 
 <pre class="language-markup">
 <code>
@@ -30,6 +30,7 @@ our Component.
 
 <pre class="language-typescript">
 <code>
+{% raw %}
 import {Component} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 import {UISnippets} from 'src/ui-snippets.directive';
@@ -59,5 +60,91 @@ export class App {
 }
 
 bootstrap(App);
+{% endraw %}
 </code>
 </pre>
+
+So now we have our list of text snippets we can start constructing our Directive. First we are going to just get a skeleton of what our directive will look like.
+
+<pre class="language-typescript">
+<code>
+{% raw %}
+import {Directive, Input} from 'angular2/core';
+
+interface Snippet {
+    id?: number;
+    name: string;
+    content: string;
+}
+
+@Directive({
+    selector: '[uiSnippets]',
+    host: {
+        '(input)': 'onChange($event)'
+    }
+})
+export class UISnippets {
+    @Input('uiSnippets') snippetsList: Array&lt;Snippet&gt;;
+    private _snippetKeyRegex: RegExp;
+
+    constructor() {
+        this._snippetKeyRegex = /(?:^|\W)(\w+)(?!\w)`/g;    // Match on given string with a following `
+    }
+}
+{% endraw %}
+</code>
+</pre>
+
+Our directive imports two Decorators from `angular/core`. We use the Directive Decorator to decorate our Class. This lets Angular know that our Class
+should be consumed as a Directive. Next we define a small interface for how our `Snippet` should look. 
+
+<pre class="language-typescript">
+<code>
+{% raw  %}
+interface Snippet {
+    id?: number;
+    name: string;
+    content: string;
+}
+{% endraw %}
+</code>
+</pre>
+
+After that we have our directive decorator with two properties. First we have our selector. This is the name of how we would like 
+our directive to be in our HTML templates. The second property is the `host`. This allows us to hook into the `host` component. The host component 
+is the compoent our directive will be placed on. From here we can define how to hook into the host components events.
+
+<pre class="language-typescript">
+<code>
+{% raw  %}
+@Directive({
+    selector: '[uiSnippets]',
+    host: {
+        '(input)': 'onChange($event)'
+    }
+})
+{% endraw %}
+</code>
+</pre>
+
+In out example we want to be notified on any `onChange` event. Next is our directives class. In our class we create two new properties. The first is
+out `snippetsList`. This list is decorated by `@input` from Angular. This automatically hooks our property to catch any value passed into our directive.
+So our `<textarea [uiSnippets]="mySnippets"></textarea>` is passed in the `mySnippets` list from our component.
+
+<pre class="language-typescript">
+<code>
+{% raw  %}
+export class UISnippets {
+    @Input('uiSnippets') snippetsList: Array&lt;Snippet&gt;;
+    private _snippetKeyRegex: RegExp;
+
+    constructor() {
+        this._snippetKeyRegex = /(?:^|\W)(\w+)(?!\w)`/g;    // Match on given string with a following `
+    }
+}
+{% endraw %}
+</code>
+</pre>
+
+The `_snippetKeyRegex` simply holds onto our regular expression used to match for any word with the <code>`</code> at the end.
+Now we can start to add our functionality to our directive. 
