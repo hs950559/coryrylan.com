@@ -22,7 +22,7 @@ emit multiple values over any given time. This is where Observables really shine
 Observables are cancel-able and can use array like operations. Lets look at a example where we subscribe
 to an Observable.
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
 todosService.todos$.subscribe(updatedTodos => {
     this.todos = updatedTodos;
@@ -40,7 +40,7 @@ This allows us to use array like methods called operators on our Observable such
 In our example we will have a `TodosService`. Our todos service will have basic CRUD operations and a
 Observable stream to subscribe to. This example we will use a REST based API but it can be converted to a real time socket based API with little effort.
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
@@ -87,7 +87,7 @@ In our service we hold onto a Observer as a private property on our service. A O
 new Observable. The Observer allows us to push new values down our Observable data stream. Calling `next()`
 will push a new value to all subscribers to our Observable stream.
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
     // Push a new copy of our todo list to all Subscribers.
     this._todosObserver.next(this._dataStore.todos);
@@ -100,7 +100,7 @@ the new list of todos with our `todosObserver`. Now anytime we call one of these
 to our `todos$` stream will get a value pushed down from the Observable data stream and always have the latest version of the data.
 This also protects the data from being manipulated outside of our service and keeps our data consistent across our application.
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
@@ -139,7 +139,7 @@ export class TodosService {
 
 In our Component constructor we subscribe to the `todo$` data stream then call `load()` to load the latest into the stream.
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
     todosService.todos$.subscribe(updatedTodos => this.todos = updatedTodos);
     todosService.loadTodos();
@@ -149,7 +149,7 @@ In our Component constructor we subscribe to the `todo$` data stream then call `
 We could subsequently call delete and our stream will get a new list with one less todo. So lets add the rest of the code to add CRUD operations to our todos.
 Now lets look at the todos service in its entirety.
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';

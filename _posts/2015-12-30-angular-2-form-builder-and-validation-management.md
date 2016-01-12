@@ -21,7 +21,7 @@ In our example we are going to build a simple subscription form with two inputs,
 
 We will start with creating our Form with the FormBuilder class on our root application component.
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
 import {Component} from 'angular2/core';
 import {FORM_PROVIDERS, FormBuilder, Validators} from 'angular2/common';
@@ -61,7 +61,7 @@ First is our `FORM_PROVIDERS`. This allows us to use Angular 2 forms in our temp
 Forms are a separate module from the core library. Next is our `FormBuilder` class.
 We inject it through our App component constructor. In our constructor is the following:
     
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
 this.userForm = this._formBuilder.group({
     'name': ['', Validators.required],
@@ -122,7 +122,7 @@ This is what the rendered form looks like with our validation.
 
 Here is the example code for our control-messages component.
     
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
 {% raw %}
 import {Component, Host} from 'angular2/core';
@@ -164,7 +164,7 @@ location in the validation service so all validation messages are consistent app
 
 Here is an example of our validation service:
 
-<pre class="language-javascript">
+<pre class="language-typescript">
 <code>
     export class ValidationService {
      
