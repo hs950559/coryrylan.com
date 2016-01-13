@@ -31,6 +31,8 @@
         &:hover {
             border-bottom: 3px solid $white;
             color: rgba(255,255,255,.8);
+            -webkit-transition: border-color .6s, color .6s;
+            transition: border-color .6s, color .6s;
         }
         
         &:active {

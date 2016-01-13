@@ -31,7 +31,7 @@ todosService.todos$.subscribe(updatedTodos => {
 </pre>
 
 In this snippet our `todos$` property on our data service is an Observable. We can subscribe to this
-Observable in our component. Each time we assign it to our component property updating the view.
+Observable in our component. Each time we reassign it to our component's property Angular updates the view.
 
 Observables are treated like arrays. Each value over time is one item in the array.
 This allows us to use array like methods called operators on our Observable such as `map`, `flatmap`,
@@ -68,7 +68,7 @@ export class TodosService {
 </pre>
 
 In Angular 2 we use RxJS a polyfill library for ES7 Observables. RxJS 5 is in alpha and is a peer dependency with Angular 2.
-A slim Observable is used in Angular 2 core. The slim Observable does not have many of the useful operators that make RxJS so productive.
+A slim Observable is used in Angular 2 core. The slim Observable does not have many of the useful operators that makes RxJS so productive.
 The Observable in Angular 2 is slim to keep the byte site of the library down. To use extra operators we import them like
 so: `import 'rxjs/add/operator/share';`.
 This change was introduced in <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#200-alpha48-2015-12-05" target="_blank">Alpha 48</a>.
