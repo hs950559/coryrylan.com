@@ -26,7 +26,7 @@ Here is a look at what our markup would look like to use our Directive on a text
 </code>
 </pre>
 
-Our textarea will have a Directive of `uiSnippets`. The `uiSnippet` uses the Angular property syntax `[]` to add functionality to our text area. 
+Our textarea will have a Directive of `uiSnippets`. The `uiSnippets` uses the Angular property syntax `[]` to add functionality to our text area. 
 We prefix our Directive to follow best practices to prevent it from collisions with existing properties on our Components.
 Our directive is passed in a list of snippets from our top-level Component. 
 
