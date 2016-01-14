@@ -5,14 +5,14 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2015-12-15
+updated: 2016-01-12
 permalink: /blog/angular-2-observable-data-services
 ---
 
 Angular 2 brings many new concepts that can improve our JavaScript applications. The first concept new to Angular is the use of Observables.
 Observables are a proposed feature for ES2016 (ES7).
 I wont go to in depth into Observables but will just cover some of the high level concepts.
-The rest of this post will cover more data and application state management in a Angular 2 application. At the time of this writing Angular is on version <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 0</a>.
+The rest of this post will cover more data and application state management in a Angular 2 application. At the time of this writing Angular is on version <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 1</a>.
 The syntax of how Observables and their operators are imported may change.
 
 Observables can help manage async data and a few other useful patterns. Observables are similar to Promises but with a few key differences. The first is Observables emit
@@ -42,13 +42,11 @@ Observable stream to subscribe to. This example we will use a REST based API but
 
 <pre class="language-typescript">
 <code>
-import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
 
-@Injectable()
 export class TodosService {
     todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
     private _todosObserver: any;
@@ -102,13 +100,11 @@ This also protects the data from being manipulated outside of our service and ke
 
 <pre class="language-typescript">
 <code>
-import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
 
-@Injectable()
 export class TodosService {
     todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
     private _todosObserver: any;
@@ -151,13 +147,11 @@ Now lets look at the todos service in its entirety.
 
 <pre class="language-typescript">
 <code>
-import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
      
-@Injectable()
 export class TodosService {
     todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
     private _todosObserver: any;
