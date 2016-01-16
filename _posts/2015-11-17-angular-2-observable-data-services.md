@@ -5,11 +5,11 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-01-12
+updated: 2016-01-16
 permalink: /blog/angular-2-observable-data-services
 ---
 
-Angular 2 brings many new concepts that can improve our JavaScript applications. The first concept new to Angular is the use of Observables.
+Angular 2 brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
 Observables are a proposed feature for ES2016 (ES7).
 I wont go to in depth into Observables but will just cover some of the high level concepts.
 The rest of this post will cover more data and application state management in a Angular 2 application. At the time of this writing Angular is on version <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 1</a>.
@@ -17,15 +17,15 @@ The syntax of how Observables and their operators are imported may change.
 
 Observables can help manage async data and a few other useful patterns. Observables are similar to Promises but with a few key differences. The first is Observables emit
 multiple values over time. For example a Promise once called will always return one value or one error.
-This is great until you have multiple values over time. Web socket/real time based data or event handlers can
+This is great until you have multiple values over time. Web socket/real-time based data or event handlers can
 emit multiple values over any given time. This is where Observables really shine. Other benefits are
-Observables are cancel-able and can use array like operations. Lets look at a example where we subscribe
-to an Observable.
+Observables are cancel-able and can use array like operations. Observables are used extensively in Angular 2. The new HTTP service and Event system 
+are all Observable based. Lets look at an example where we subscribe to an Observable.
 
 <pre class="language-typescript">
 <code>
 todosService.todos$.subscribe(updatedTodos => {
-    this.todos = updatedTodos;
+    this.componentTodos = updatedTodos;
 });
 </code>
 </pre>
@@ -38,7 +38,7 @@ This allows us to use array like methods called operators on our Observable such
 `reduce`, ect. Next lets take a look at a data service using Observables and dig into some Observable operators.
 
 In our example we will have a `TodosService`. Our todos service will have basic CRUD operations and a
-Observable stream to subscribe to. This example we will use a REST based API but it can be converted to a real time socket based API with little effort.
+Observable stream to subscribe to. This example we will use a REST based API but it could be converted to a real-time socket based API with little effort.
 
 <pre class="language-typescript">
 <code>
@@ -65,7 +65,7 @@ export class TodosService {
 </code>
 </pre>
 
-In Angular 2 we use RxJS a polyfill library for ES7 Observables. RxJS 5 is in alpha and is a peer dependency with Angular 2.
+In Angular 2 we use RxJS a polyfill library for ES7 Observables. RxJS version 5 is in alpha and is a peer dependency with Angular 2.
 A slim Observable is used in Angular 2 core. The slim Observable does not have many of the useful operators that makes RxJS so productive.
 The Observable in Angular 2 is slim to keep the byte site of the library down. To use extra operators we import them like
 so: `import 'rxjs/add/operator/share';`.
@@ -137,7 +137,7 @@ In our Component constructor we subscribe to the `todo$` data stream then call `
 
 <pre class="language-typescript">
 <code>
-    todosService.todos$.subscribe(updatedTodos => this.todos = updatedTodos);
+    todosService.todos$.subscribe(updatedTodos => this.componentTodos = updatedTodos);
     todosService.loadTodos();
 </code>
 </pre>
@@ -205,7 +205,7 @@ export class TodosService {
 </code>
 </pre>
 
-This pattern can also be used in Angular 1. RxJS and Observables are not just a Angular 2 feature. This may seem like a lot
+This pattern can also be used in Angular 1. RxJS and Observables are not just an Angular 2 feature. This may seem like a lot
 of work for a simple todo app but scale this up to a very large app and Observables can really help manage our data. This pattern
 follows the idea of unidirectional data flow. Meaning data flow is predictable and consistently comes from one source. 
 If you have worked with <a href="https://facebook.github.io/flux/docs/overview.html" target="_blank">Flux</a> based architectures this may seem very familiar.
@@ -216,7 +216,7 @@ If you have worked with <a href="https://facebook.github.io/flux/docs/overview.h
 </figure>
 
 This pattern can ensure data is coming from one place in our application and that every component receives the latest version of that data through our data streams.
-Our component logic simple by just subscribing to public data streams on our data services.
+Our component logic simple by just subscribing to public data streams on our data services. A working demo of a Observable data service can be found at this <a href="http://plnkr.co/edit/TiUasGdutCsll1nI6USC?p=preview" target="_blank">plnkr.co</a>
 This service models to a REST based backend but could easily translate to a socket based service like <a href="https://www.firebase.com/" target="_blank">Firebase</a>
 without having to change any components.
 
