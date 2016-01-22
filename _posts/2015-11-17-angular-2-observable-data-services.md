@@ -5,7 +5,7 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-01-16
+updated: 2016-01-22
 permalink: /blog/angular-2-observable-data-services
 ---
 
@@ -133,12 +133,14 @@ export class TodosService {
 </code>
 </pre>
 
-In our Component constructor we subscribe to the `todo$` data stream then call `load()` to load the latest into the stream.
+In our component's <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt4.html#!#the-ngoninit-lifecycle-hook" target="blank">`ngOnInit`</a> we subscribe to the `todo$` data stream then call `load()` to load the latest into the stream.
 
 <pre class="language-typescript">
 <code>
+ngOnInit() {
     todosService.todos$.subscribe(updatedTodos => this.componentTodos = updatedTodos);
     todosService.loadTodos();
+}
 </code>
 </pre>
 
