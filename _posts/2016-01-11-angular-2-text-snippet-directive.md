@@ -6,6 +6,7 @@ keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2016-01-11
 permalink: /blog/angular-2-text-snippet-directive
+demo: http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview
 ---
 
 In this post we will get introduced with Angular 2 Directives. With Angular 2 the Components concepts in Angular have become much simpler. Components have replaced Controllers and the Directives API as we 

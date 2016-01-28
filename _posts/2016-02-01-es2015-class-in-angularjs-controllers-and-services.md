@@ -6,6 +6,7 @@ keywords: Cory Rylan, AngularJS, AngularJS, JavaScript
 tags: angularjs, es2015
 date: 2016-02-01
 permalink: /blog/es2015-class-in-angularjs-controllers-and-services
+demo: http://plnkr.co/edit/D9MEJZe4pF6oztf7DP31?p=preview
 ---
 
 Angular 1.x still has a long life ahead of it even with the beta launch of Angular 2. If you have a large existing Angular 1 application you 

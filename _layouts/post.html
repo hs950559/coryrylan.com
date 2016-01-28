@@ -31,6 +31,10 @@ layout: default
 
     <div class="post-content" itemprop="articleBody">
         {{ content }}
+        
+        {% if page.demo %}
+            <p><a href="{{ page.demo }}" target="_blank" class="btn--raised btn--demo">Demo</a></p>
+        {% endif %}
     </div>
     <span itemprop="author" itemscope itemtype="http://schema.org/Person">
         <span itemprop="name">Cory Rylan</span>

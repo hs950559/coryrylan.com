@@ -6,6 +6,7 @@ keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2016-01-21
 permalink: /blog/introduction-to-angular-2-pipes
+demo: http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview
 ---
 
 Angular 2 has many new concepts and some of the same concepts from Angular 1.x. In Angular 1 we had filter which helped format or transform 

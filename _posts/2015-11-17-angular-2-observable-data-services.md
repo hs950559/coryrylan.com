@@ -7,6 +7,7 @@ tags: angular2, rxjs, javascript
 date: 2015-11-17
 updated: 2016-01-22
 permalink: /blog/angular-2-observable-data-services
+demo: http://plnkr.co/edit/TiUasGdutCsll1nI6USC?p=preview
 ---
 
 Angular 2 brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
