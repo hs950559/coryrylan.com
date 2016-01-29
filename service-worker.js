@@ -1,7 +1,8 @@
 'use strict';
 
-var VERSION = 'v1.0.6';
-const DEBUG = false;
+var VERSION = 'v1.0.1';
+const DEBUG = true;
+// chrome://inspect/#service-workers
 
 console.log('WORKER: Version ' + VERSION);
 
@@ -29,7 +30,7 @@ function handleRequest(event) {
 
     event.respondWith(caches.match(event.request).then(cached => {
         log('WORKER: fetch event', cached ? '(cached)' : '(network)', event.request.url);
-        return cached || fetch(event.request).then(response => { storeInCache(response, event) }, unableToResolveRequest).catch(unableToResolveRequest);
+        return cached || fetch(event.request).then(response => storeInCache(response, event), unableToResolveRequest).catch(unableToResolveRequest);
     }));
 }
 
