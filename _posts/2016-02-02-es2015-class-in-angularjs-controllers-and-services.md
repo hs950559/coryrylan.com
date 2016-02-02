@@ -1,10 +1,10 @@
 ---
 layout: post
 title: ES2015 Class in AngularJS Controllers and Services
-description: Learn how to use ES2015 Classes in you Angular 1 Controllers and Services.
+description: Learn how to use ES2015 Classes in you Angular 1.x Controllers and Services.
 keywords: Cory Rylan, AngularJS, AngularJS, JavaScript
 tags: angularjs, es2015
-date: 2016-02-01
+date: 2016-02-02
 permalink: /blog/es2015-class-in-angularjs-controllers-and-services
 demo: http://plnkr.co/edit/D9MEJZe4pF6oztf7DP31?p=preview
 ---
@@ -128,10 +128,10 @@ and a single function for a click event. Next lets look at the same service but 
 </pre>
 
 The class based controller is a bit simpler now. We have a constructor for initializing our properties and our click function is a method on our `BaseController` class.
-Also note our controller and services are registered after the class is defined. ES2015 Classes are not hoisted so if the are reverenced 
+Also note our controller and services are registered after the class is defined. ES2015 Classes are not hoisted so if the are referenced 
 before we define them we get a reference error.
 
 Now our controllers and services are using ES2015 classes and are that much closer to looking like Angular 2 style components and services. 
 A working demo of this post can be found at this <a href="http://plnkr.co/edit/D9MEJZe4pF6oztf7DP31?p=preview" target="_blank">plnkr</a>.
-Note about using native non transpiled Classes, this is not supported in Angular 1 just yet but it is in the works. 
-See this <a href="https://github.com/angular/angular.js/issues/13510" target="_blank">Github Issue</a>.
+Note using native non transpiled classes, this is not supported in Angular 1 just yet but it is in the works. 
+See this <a href="https://github.com/angular/angular.js/issues/13510" target="_blank">GitHub Issue</a>.
