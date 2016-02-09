@@ -8,11 +8,11 @@ tab: index
 ---
 
 <div class="post-list">
-    <div class="flex-row--full">
+    <div class="flex-row--stretch">
     {% for post in site.posts %}
         <div class="col-6--md">
             <div class="card card-btn-right">
-                <div class="margin-bottom-small">{{ post.date | date: "%b %-d, %Y" }}</div>
+                <div class="margin-bottom">{{ post.date | date: "%b %-d, %Y" }}</div>
 
                 <h2>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

@@ -8,7 +8,7 @@ tab: work
 
 #Work & Contributions
 
-<div class="flex-row--full">
+<div class="flex-row--stretch">
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -35,7 +35,7 @@ tab: work
     </div>    
 </div>
 
-<div class="flex-row--full">
+<div class="flex-row--stretch">
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -63,7 +63,7 @@ tab: work
 </div>
 
 
-<div class="flex-row--full">
+<div class="flex-row--stretch">
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />

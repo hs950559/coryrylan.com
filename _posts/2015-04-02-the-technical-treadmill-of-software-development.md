@@ -14,7 +14,7 @@ In this post I have compiled a list of tips that help me stay up to date and pri
 
 If you are anything like me you kind of feel like this when trying to keep up with all the new things happening in software development.
 
-<img src="/assets/images/posts/the-technical-treadmill-of-software-development/the-technical-treadmill.gif" class="full-width contain--6 block-center" />
+<img src="/assets/images/posts/the-technical-treadmill-of-software-development/the-technical-treadmill.gif" class="full-width col-6--max float-center" />
 <div class="clear-both"></div>
 
 <strong>Its hard.</strong> There is so much for us developers to keep up with. Not only what our day to day jobs require but also keeping up with

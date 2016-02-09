@@ -17,7 +17,7 @@ So lets explore the Directives API by building a AutoText/Snippets directive tha
 The snippet directive will allow the user to type a given keyword followed by a <code>`</code> to quickly generate text in inputs. 
 Here is an animation of what our final view would look like.
 
-<img src="/assets/images/posts/angular-2-text-snippet-directive/snippet-directive.gif" alt="A snippets directive example" class="full-width contain--4 block-center" />
+<img src="/assets/images/posts/angular-2-text-snippet-directive/snippet-directive.gif" alt="A snippets directive example" class="full-width col-4--max float-center" />
 
 Here is a look at what our markup would look like to use our Directive on a textarea input.
 

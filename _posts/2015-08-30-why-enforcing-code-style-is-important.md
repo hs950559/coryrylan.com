@@ -13,7 +13,7 @@ has no affect on the behavior of the code. So a infamous example is using tabs v
 Another example is primitive types with invoked functions are lower case versus upper case, `string.Format("Hello {0}!", value);`. These
 differences have no effect on our codes behavior but can cause slight inconsistency in our code bases.
 
-<img src="/assets/images/posts/why-enforcing-code-style-is-important/tabs-vs-spaces.jpg" alt="tabs vs spaces" class="margin-bottom-small" /><br />
+<img src="/assets/images/posts/why-enforcing-code-style-is-important/tabs-vs-spaces.jpg" alt="tabs vs spaces" class="margin-bottom--small" /><br />
 <small>Image credit unknown</small>
 
 ##Why code styles?
