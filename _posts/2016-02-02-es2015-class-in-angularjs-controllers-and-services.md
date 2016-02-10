@@ -16,6 +16,8 @@ easier and give you benefits of using ES2015 syntax.
 To start using ES2015 you can use a transpiler which helps convert ES2015 code to ES5 code that can run in all the browsers. There are many 
 transpilers but <a href="https://babeljs.io/" target="_blank">Babel</a> and <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> are by far the most popular. So this post we will cover a few simple examples of converting our Angular app to use ES2015 Classes.
 
+##Services
+
 The first example we will try is converting a Factory Service to a Service using a class. Our `BaseService` has a data store property and one method `loadData`. 
 
 <pre class="language-javascript">
@@ -75,6 +77,8 @@ Now take a look at the ES2015 Class example.
 
 We have a constructor that initializes our data store. Next we have one method on our service for populating this data store. 
 This would be commonly where your service would call a web service to fetch data. Next lets take a look at our Controller that will be converted to use a ES2015 Class
+
+##Controllers
 
 <pre class="language-javascript">
 <code>

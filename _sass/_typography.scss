@@ -74,3 +74,10 @@ pre[class*="language-"] {
 .strike {
     text-decoration: line-through;
 }
+
+.post-content {
+    h2, h3 {
+        font-weight: 300;
+        margin: 18px 0;
+    }
+}
