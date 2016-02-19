@@ -22,7 +22,7 @@ The new HTML5 Web Component Specification is a collection of specifications that
 when combined create a powerful web standard for creating reusable components.
 
 <figure class="col-8--max float-center text-center">
-    <img src="/assets/images/posts/introduction-to-web-components/div-soup.jpg" alt="div soup" class="full-width" />
+    <img src="/assets/images/posts/2015-05-26-introduction-to-web-components/div-soup.jpg" alt="div soup" class="full-width" />
     <figcaption>Gmail's div soup</figcaption>
 </figure>
 
@@ -94,7 +94,7 @@ The shadow DOM api helps encapsulate and hide the implementation of a given elem
 The video tag is rather complex out of the box. We have multiple elements within it. There are buttons, ranges and some default styles.
 If you go to Chrome's dev tool settings you can turn on "Show user agent shadow DOM" to be able to inspect the shadow DOM of the video element.
 
-<img src="/assets/images/posts/introduction-to-web-components/video-tag.jpg" alt="Inspection of the video element shadow DOM" class="col-8--max float-center text-center" />
+<img src="/assets/images/posts/2015-05-26-introduction-to-web-components/video-tag.jpg" alt="Inspection of the video element shadow DOM" class="col-8--max float-center text-center" />
 
 As you can see the video tag is not just a single element but composed of its own HTML and CSS that is isolated and hidden
 using the shadow DOM. Inspecting further you can see a input of type range that has its own shadow DOM composed of even more
@@ -236,7 +236,7 @@ components to not have to rely on third party libraries if possible.
 
 Now that we have our tabs dynamically created and click events registered we should have something similar looking to this.
 
-<img src="/assets/images/posts/introduction-to-web-components/tab-no-css.jpg" class="col-7--max float-center text-center" />
+<img src="/assets/images/posts/2015-05-26-introduction-to-web-components/tab-no-css.jpg" class="col-7--max float-center text-center" />
 
 ###Component Styles and CSS
 
@@ -354,7 +354,7 @@ here is our CSS for the `<ui-tab>` element.
 
 Now our component should be styled and functional.
 
-<img src="/assets/images/posts/introduction-to-web-components/tab-with-css.jpg" class="col-7--max float-center text-center" />
+<img src="/assets/images/posts/2015-05-26-introduction-to-web-components/tab-with-css.jpg" class="col-7--max float-center text-center" />
 
 Our final component syntax in the HTML
 

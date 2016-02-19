@@ -18,7 +18,7 @@ This allows us to also explicitly list each form control’s validators.
 In our example we are going to build a simple subscription form with two inputs, name and email.
 
     
-<img src="/assets/images/posts/angular-2-form-builder-and-validation-management/form-1.jpg" alt="A simple user form." class="full-width col-5--max" />
+<img src="/assets/images/posts/2015-12-30-angular-2-form-builder-and-validation-management/form-1.jpg" alt="A simple user form." class="full-width col-5--max" />
 
 We will start with creating our Form with the FormBuilder class on our root application component.
 
@@ -119,7 +119,7 @@ Here is the same form but with our new component.
 Here our control-messages component takes in a name of the control input to check its validation.
 This is what the rendered form looks like with our validation.
 
-<img src="/assets/images/posts/angular-2-form-builder-and-validation-management/form-2.jpg" alt="Form with validation triggered" class="full-width col-5--max" />
+<img src="/assets/images/posts/2015-12-30-angular-2-form-builder-and-validation-management/form-2.jpg" alt="Form with validation triggered" class="full-width col-5--max" />
 
 Here is the example code for our control-messages component.
     

@@ -13,7 +13,7 @@ and the pros and cons to each. Lets first start simple. A brand new project usua
 This is usually where you have your app declaration, app dependencies and route definitions. When first starting out in a new Angular project this is
 actually a very good idea. Just starting with one file will keep things simple while you learn.
 
-<img src="/assets/images/posts/angularjs-application-organization/pic1.jpg" alt="Simple AngularJS example with one file." class="col-5--max full-width float-center" />
+<img src="/assets/images/posts/2014-10-06-angularjs-application-organization/pic1.jpg" alt="Simple AngularJS example with one file." class="col-5--max full-width float-center" />
 
 Lets take our application one step further. We have been adding more to our app and now have multiple Controllers,
 Directives, Filters and Services. So the next organizational method we can choose is to break our single file into
@@ -22,13 +22,13 @@ Services, Directives and Filters along with our `app.js` file. All of these can 
 folder. Now when we are looking for say a Directive we can go look into the `directives.js` file. This
 is good for small applications and still keeps things relatively simple and easy to learn.
 
-<img src="/assets/images/posts/angularjs-application-organization/pic2.jpg" alt="Simple AngularJS example with multiple file types." class="col-5--max full-width float-center" />
+<img src="/assets/images/posts/2014-10-06-angularjs-application-organization/pic2.jpg" alt="Simple AngularJS example with multiple file types." class="col-5--max full-width float-center" />
 
 So looking back at organizing our modules by type what happens when we start getting multiple features? We don't want
 to be working on a single feature and have to sift through multiple Controllers in the Controllers file when we really
 are only focused on one thing. This leads into our next pattern, organizing by feature.
 
-<img src="/assets/images/posts/angularjs-application-organization/pic3.jpg" alt="Simple AngularJS example with multiple features." class="col-5--max full-width float-center" />
+<img src="/assets/images/posts/2014-10-06-angularjs-application-organization/pic3.jpg" alt="Simple AngularJS example with multiple features." class="col-5--max full-width float-center" />
 
 By organizing our code by feature
 we can focus on the specific task at hand without having to search through code that is not relative to the feature we are
@@ -42,7 +42,7 @@ to maintain that given feature. So taking the previous method one step further w
 module types (Controllers, Directives, Services, Filters). Each Angular module gets its own file with a descriptive name inside
 a folder that has a well thought name for that feature.
 
-<img src="/assets/images/posts/angularjs-application-organization/pic4.jpg" alt="AngularJS example with multiple features organized by feature." class="col-5--max full-width float-center" />
+<img src="/assets/images/posts/2014-10-06-angularjs-application-organization/pic4.jpg" alt="AngularJS example with multiple features organized by feature." class="col-5--max full-width float-center" />
 
 This gives us the most flexibility to grow in our application. By each
 feature organized by folder we can quickly drill down to the feature we are looking for. In each folder we have multiple files
@@ -59,7 +59,7 @@ Another advantage to the feature based and individual module files is testing ou
 style we can organize our tests to match the exact same pattern. The tests can all exist in a separate folder
 form the source code. Each module file has a single corresponding test file all the test are in a single folder named by that feature.
 
-<img src="/assets/images/posts/angularjs-application-organization/pic5.jpg" alt="AngularJS example with multiple feature folders organized by feature." class="col-5--max full-width float-center" />
+<img src="/assets/images/posts/2014-10-06-angularjs-application-organization/pic5.jpg" alt="AngularJS example with multiple feature folders organized by feature." class="col-5--max full-width float-center" />
 
 ##IIFE and module closures
 Closures can be very important when in comes to isolating modules and

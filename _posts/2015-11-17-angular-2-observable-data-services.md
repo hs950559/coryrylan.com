@@ -215,8 +215,8 @@ of work for a simple todo app but scale this up to a very large app and Observab
 follows the idea of unidirectional data flow. Meaning data flow is predictable and consistently comes from one source. 
 If you have worked with <a href="https://facebook.github.io/flux/docs/overview.html" target="_blank">Flux</a> based architectures this may seem very familiar.
 
-<figure class="col-9-contain">
-<img src="/assets/images/posts/angular-2-observable-data-services/ng2data-serv.png" alt="Diagram of Angular 2 Data flow with Observables" class="full-width col-9--max float-center">
+<figure>
+<img src="/assets/images/posts/2015-11-17-angular-2-observable-data-services/ng2data-serv.png" alt="Diagram of Angular 2 Data flow with Observables" class="full-width col-9--max float-center">
 <figcaption class="text-center">Angular 2 data flow with Observables</figcaption>
 </figure>
 

@@ -14,7 +14,7 @@ In this post I have compiled a list of tips that help me stay up to date and pri
 
 If you are anything like me you kind of feel like this when trying to keep up with all the new things happening in software development.
 
-<img src="/assets/images/posts/the-technical-treadmill-of-software-development/the-technical-treadmill.gif" class="full-width col-6--max float-center" />
+<img src="/assets/images/posts/2015-04-02-the-technical-treadmill-of-software-development/the-technical-treadmill.gif" class="full-width col-6--max float-center" />
 <div class="clear-both"></div>
 
 <strong>Its hard.</strong> There is so much for us developers to keep up with. Not only what our day to day jobs require but also keeping up with
@@ -27,7 +27,7 @@ They can provide a solid understanding of a given technology. The downside to bo
 of date. The more specific the technology the more likely it will be out of date. I try to buy books that have lasting knowledge that I can apply
 to any technology. Some of these could be '<a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882" target="_blank">Clean Code</a>'
 by Robert Martin (Uncle Bob) or '<a href="http://www.amazon.com/The-Software-Craftsman-Professionalism-Pragmatism/dp/0134052501" target="_blank">The Software Craftsman</a>' by Sandro Mancuso.
-These books teach long lasting knowledge that will make you a better programmer overall.
+These books teach long-lasting knowledge that will make you a better programmer overall.
 
 ###Blogs and Articles 
 

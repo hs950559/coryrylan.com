@@ -129,3 +129,9 @@ body {
 .clear-both {
     clear: both;
 }
+
+video {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 16px;
+}

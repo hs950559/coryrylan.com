@@ -20,7 +20,7 @@ happens more than we would like to think. Spotty 3G mobile connections or going 
 Loading our font can easily add several seconds for the page to be readable on a mobile connection. Below you can see a single custom font has added 1.5 seconds
 to our render time on a 3g mobile connection.
 
-<img src="/assets/images/posts/web-font-performance-a-case-study/font-load-time.jpg" class="full-width col-8-contain" alt="Network slide breakdown of non async loading of font" />
+<img src="/assets/images/posts/2015-01-02-web-font-performance-a-case-study/font-load-time.jpg" class="full-width col-8-contain" alt="Network slide breakdown of non async loading of font" />
 
 I work on a site called <a href="http://www.estatesales.net" target="_blank">EstateSales.NET</a> where people can search and find local estate sales near them.
 Our site is commonly used on mobile as people are out searching for sales. Much of the time these sales can take place in rural areas where you are lucky to
@@ -90,11 +90,11 @@ The benefit here is while the file downloads the browser will display the text w
 
 The first image you can see our font loads before render so the browser must wait until it loads before displaying text.
 
-<img src="/assets/images/posts/web-font-performance-a-case-study/non-deferred-font.jpg" class="full-width" alt="Network breakdown of async loading of font" />
+<img src="/assets/images/posts/2015-01-02-web-font-performance-a-case-study/non-deferred-font.jpg" class="full-width" alt="Network breakdown of async loading of font" />
 
 In the second image is our font deferred using loadCSS. The browser can render the page with a system font until the custom font in our deferred CSS is loaded.
 
-<img src="/assets/images/posts/web-font-performance-a-case-study/deferred-font.jpg" class="full-width" alt="Network breakdown of non async loading of font" />
+<img src="/assets/images/posts/2015-01-02-web-font-performance-a-case-study/deferred-font.jpg" class="full-width" alt="Network breakdown of non async loading of font" />
 
 Async loading our font has really improved our first time rendering speed. There are some pros and cons to this technique. The pros are it speeds up render and is a fairly simple
 technique to implement. The browser will keep our CSS embedded font in cache until we trigger an update. The downsides are FOUT will occur on the first page landing.
