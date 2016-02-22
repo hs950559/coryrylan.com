@@ -12,8 +12,11 @@
 	  "source" : "/blog",
 	  "destination" : "/",
 	  "type" : 301
-    }
-  ],
+    }, {
+	  "source" : "/Blog",
+	  "destination" : "/",
+	  "type" : 301
+    }],
   "headers": [ {
         "source" : "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
         "headers" : [ {
