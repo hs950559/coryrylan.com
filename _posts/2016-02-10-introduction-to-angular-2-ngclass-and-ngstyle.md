@@ -65,7 +65,7 @@ These directives offer syntactic sugar for more complex ways of altering our ele
 In this example using `ngStyle` we can easily style multiple properties of our element. We also can bind these properties to values that can be updated 
 by the user or our components.
 
-<video src="/assets/video/posts/2016-02-10-introduction-to-angular-2-ngclass-and-ngstyle/ng-style-demo.mp4" autoplay loop class="float-center col-3--max"></video>
+<video src="/assets/video/posts/2016-02-10-introduction-to-angular-2-ngclass-and-ngstyle/ng-style-demo.mp4" autoplay loop controls class="float-center col-3--max"></video>
 
 <pre class="language-markup">
 <code>

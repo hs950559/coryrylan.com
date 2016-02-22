@@ -12,7 +12,7 @@ demo: http://codepen.io/splintercode/pen/rxQbzg
 The CSS hover based drop down nav has been a common option when organizing our website's navigation. Simple and easy to build with decent user experience the 
 drop down can seem like reasonable choice. With a small bit of JavaScript we can also get good touch support. Often though when using hover effects to open drop downs users run into something like this:
 
-<video src="/assets/video/posts/2016-02-19-better-ux-css-hover-navigation/hover.mp4" autoplay loop class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-02-19-better-ux-css-hover-navigation/hover.mp4" autoplay loop controls class="float-center col-5--max"></video>
 
 The user saw the bottom link in the sub nav and tried to click it. Because our nav displays on hover, when the cursor leaves the element the
 hover is no longer applied. This in turn the causes our nav to no longer display. Using Pseudo-elements and CSS transforms we can 
@@ -62,7 +62,7 @@ our <a href="http://codepen.io/splintercode/pen/rxQbzg" target="_blank">demo</a>
 The extra element allows our hover state to continue while the user moves their mouse outside of the parent menu button.
 Using `z-index` we place our new element between the nav and the sub nav to get the final result:
 
-<video src="/assets/video/posts/2016-02-19-better-ux-css-hover-navigation/hover2.mp4" autoplay loop class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-02-19-better-ux-css-hover-navigation/hover2.mp4" autoplay loop controls class="float-center col-5--max"></video>
 
 This is not a perfect solution. There is still a chance of the users mouse venturing out too far but this does provide a better user experience with only a little 
 more code. Check out a full working demo on Codepen below with included JavaScript for touch support.
