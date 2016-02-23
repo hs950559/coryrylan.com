@@ -79,7 +79,7 @@ body {
 .post {
     border-radius: 2px;
     padding: 8px 12px;
-    margin-bottom: 80px;
+    margin: 24px 0;
     box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
     background-color: $white;
     
@@ -100,6 +100,14 @@ body {
     .card {
         min-height: 190px;
     }
+}
+
+.google-ad {
+    max-width: 620px;
+    height: 64px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .card {
