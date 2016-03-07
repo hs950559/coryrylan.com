@@ -5,13 +5,14 @@ description: A quick look into the new Angular 2 ngFor syntax.
 keywords: Cory Rylan, Web, Angular 2, JavaScript, ng-repeat, ngFor
 tags: angular2, angularjs, javascript
 date: 2015-06-22
-updated: 2015-12-15
+updated: 2016-03-06
+demo: http://plnkr.co/edit/0s3qtC0TvHdiJLmz4H3m?p=preview
 permalink: /blog/angular-2-ng-for-syntax
 ---
 
 Angular 2 will contain many new changes and improvements over Angular 1.x This post will cover the new `ngFor`
 syntax and a simple comparison of version 1 `ng-repeat` to version 2 `ngFor`. Note Angular 2 is still in Alpha and the API's are actively changing.
-At the writing of this post Angular 2 is at version Beta 0. To get an idea on the progress of the project check
+At the writing of this post Angular 2 is at version Beta 0. This post has been updated to Beta 8. To get an idea on the progress of the project check
 out <a href="http://splintercode.github.io/is-angular-2-ready/" target="_blank">Is Angular 2 Ready?</a>
 
 First we will take a look at a simple Angular 1.x repeater that displays the index of the repeated item and the item value.
@@ -45,7 +46,9 @@ Here is the new `ngFor` syntax.
 </pre>
 
 The new syntax has a couple of things to note. The first is `*ngFor`. The `*` is a shorthand for
-using the new Angular 2 template syntax with the template tag.
+using the new Angular 2 template syntax with the template tag. This is also called a structural Directive.
+It is helpful to know that `*` is just a shorthand to explicitly defining the data bindings on a template tag.
+The template tag prevents the browser from reading or executing the code within it.
 
 <pre class="language-markup">
 <code>
@@ -58,9 +61,6 @@ using the new Angular 2 template syntax with the template tag.
 </code>
 </pre>
 
-This is not something critical to know but it is helpful to know that `*` is just a shorthand to explicitly defining the data bindings on a template.
-The template tag prevents the browser from reading or executing the code within it.
-This allows Angular to generate our template safely without any hacks to try and hide it from the DOM.
 So below is the typical syntax for an Angular 2 list.
 
 <pre class="language-markup">

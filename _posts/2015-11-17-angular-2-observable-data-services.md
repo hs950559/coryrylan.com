@@ -5,15 +5,18 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-01-22
+updated: 2016-03-06
 permalink: /blog/angular-2-observable-data-services
 demo: http://plnkr.co/edit/TiUasGdutCsll1nI6USC?p=preview
 ---
 
 Angular 2 brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
 Observables are a proposed feature for ES2016 (ES7).
-I wont go to in depth into Observables but will just cover some of the high level concepts.
-The rest of this post will cover more data and application state management in a Angular 2 application. At the time of this writing Angular is on version <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 1</a>.
+I wont go to in depth into Observables but will just cover some of the high level concepts. If you want a introduction to
+Observables check out my screen cast on <a href="/blog/intro-to-rxjs-observables-and-angular-2">Intro to RxJS Observables and Angular 2</a>.
+The rest of this post will cover more data and application state management in a Angular 2 application. 
+At the time of this writing Angular is on version <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 1</a>.
+This post has been updated as of <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 8</a>.
 The syntax of how Observables and their operators are imported may change.
 
 Observables can help manage async data and a few other useful patterns. Observables are similar to Promises but with a few key differences. The first is Observables emit
