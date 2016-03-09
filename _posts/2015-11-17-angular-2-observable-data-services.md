@@ -5,9 +5,9 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-03-06
+updated: 2016-03-09
 permalink: /blog/angular-2-observable-data-services
-demo: http://plnkr.co/edit/TiUasGdutCsll1nI6USC?p=preview
+demo: http://plnkr.co/edit/wzocFwRHsCnu46kp8rpJ?p=preview
 ---
 
 Angular 2 brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
@@ -31,6 +31,10 @@ are all Observable based. Lets look at an example where we subscribe to an Obser
 todosService.todos$.subscribe(updatedTodos => {
     this.componentTodos = updatedTodos;
 });
+
+// OR if using the prefered async pipe 
+// https://angular.io/docs/ts/latest/guide/pipes.html
+this.todos = todosService.todos$;
 </code>
 </pre>
 
@@ -48,14 +52,15 @@ Observable stream to subscribe to. This example we will use a REST based API but
 <code>
 import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
 
 export class TodosService {
-    todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
-    private _todosObserver: any;
+    todos$: Observable&lt;Todo[]&gt;;
+    private _todosObserver: Observer&lt;Todo[]&gt;;
     private _dataStore: {
-        todos: Array&lt;Todo&gt;
+        todos: Todo[]
     };
      
     constructor(private _http: Http) {
@@ -106,14 +111,15 @@ This also protects the data from being manipulated outside of our service and ke
 <code>
 import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/share';
 import {Todo} from 'app/interfaces';
 
 export class TodosService {
-    todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
-    private _todosObserver: any;
+    todos$: Observable&lt;Todo[];&gt;;
+    private _todosObserver: Observer&lt;Todo[]&gt;;
     private _dataStore: {
-        todos: Array&lt;Todo&gt;
+        todos: Todo[]
     };
      
     constructor(private _http: Http) {
@@ -155,14 +161,20 @@ Now lets look at the todos service in its entirety.
 <code>
 import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/share';
-import {Todo} from 'app/interfaces';
+
+export interface Todo {
+  id: number;
+  createdAt: number;
+  value: string;
+}
      
 export class TodosService {
-    todos$: Observable&lt;Array&lt;Todo&gt;&gt;;
-    private _todosObserver: any;
+    todos$: Observable&lt;Todo[]&gt;;
+    private _todosObserver: Observer&lt;Todo[]&gt;;
     private _dataStore: {
-        todos: Array&lt;Todo&gt;
+        todos: Todo[];
     };
      
     constructor(private _http: Http) {
@@ -198,8 +210,8 @@ export class TodosService {
         }, error => console.log('Could not update todo.'));
     }
      
-    deleteTodo(todo: Todo) {
-        this._http.delete(`/api/todos/${todo.id}`).subscribe(response => {
+    deleteTodo(todoId: number) {
+        this._http.delete(`/api/todos/${todoId}`).subscribe(response => {
             this._dataStore.todos.forEach((t, index) => {
                 if (t.id === todo.id) { this._dataStore.todos.splice(index, 1); }
             });
