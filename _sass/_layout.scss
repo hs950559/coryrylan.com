@@ -160,6 +160,10 @@ video {
     }
 }
 
+code {
+    background-color: lighten($green, 28%);
+}
+
 .display-block {
     display: block;
 }
