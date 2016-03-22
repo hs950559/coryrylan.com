@@ -1,16 +1,17 @@
 ---
 layout: post
 title: Angular 2 Development with Visual Studio and Windows
-description: A top down intro to developing Angular 2 applications with Visual Studio and Windows. This will cover from downloading Visual Studio to setting up a task runner.
+description: A top down intro to developing Angular 2 applications with Visual Studio and Windows. This will cover from downloading Visual Studio to installing NodeJS for JavaScript tooling support.
 keywords: Cory Rylan, Angular2, CSS
 tags: CSS, angular2
-date: 2016-03-20
+date: 2016-03-21
 permalink: /blog/angular-2-development-with-visual-studio-and-windows
 demo: 
 ---
 
 Angular 2 is quickly gaining popularity in the Microsoft and .NET world. With the cooperation of the Angular Team from Google and the TypeScript team from Microsoft
-a lot of developers have given both sides a second look at the new technology stacks. 
+a lot of developers have given both sides a second look at the new technology stacks. This post will cover the setup work for the Angular 2 tooling and development 
+experience with Visual Studio.
 
 With the proliferation of so many new tools around the JavaScript community 
 it can be overwhelming coming from a monolithic solution stack such as .NET and Visual Studio. Microsoft has been hard at work creating support for the new advanced tooling 
@@ -29,10 +30,10 @@ So in this blog post we are going to cover a few key steps in getting up and run
 
 Visual Studio has had a long history of versions and editions. For modern web development it is highly recommended to use the 2015 edition. 
 Within the 2015 edition there are varying levels of cost based on Enterprise features and team size. The most popular edition is Visual Studio
-Community. This version is a full fledge IDE that is free to use for Education purposes and small development teams. For this post this is the 
-version we will use but the rest of the post could be applied for the paid editions as well. 
+Community. This version is a full fledge IDE that is free to use for education purposes and small development teams. For this post this is the 
+version we will use but the rest of the post could be applied for other editions as well. 
 
-So our first step would be to download Visual Studio Community here. Before installing **STOP** and read this next section. Visual Studio has many 
+So our first step would be to download Visual Studio Community. Before installing **STOP** and read this next section. Visual Studio has many 
 different features and support for a variety of platforms. When installing there are two things we will want to check first during the install.
 First we need to check the Visual C++ option. This will help us later when using NodeJS on windows. We will come back to why this is important.
 Second we will select the Microsoft Web Developer tools. Both of these will give us the basics needed in Visual Studio for Angular 2 development.
@@ -66,12 +67,12 @@ In the top right corner type in the quick launch "External Web Tools". You shoul
 <img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-set-nodejs-version.png" alt="Visual Studio NodeJS version" class="full-width col-8--max float-center display-block" />
 
 Make sure the top two entries are like the entries depicted above. This will force Visual Studio to point to the NodeJS we installed on to our machine. Now when we update Node
-on our machine Visual Studio will use that version and not the one tied to the Visual Studio version.
+on our machine Visual Studio will use that version and not the one tied to the Visual Studio.
 
 
 ## NodeJS and Windows Gotchas
 
-Now if you remember earlier we installed a C++ option with our Visual Studio version. These are for certain NodeJS packages that rely on native C++ compilers.
+Now if you remember earlier we installed a C++ option with our Visual Studio version. There are for certain NodeJS packages that rely on native C++ compilers.
 Until recently on Windows the only way to get those C++ compilers was to install Visual Studio. Now there is a separate
  <a href="https://www.microsoft.com/en-us/download/details.aspx?id=49983" target="_blank">C++ compiler</a> that is in technical preview. The next step for 
  allowing Node to use .NET C++ compiler is to install Python since it is a dependency for Node and the C++ compiler to communicate.
@@ -95,9 +96,10 @@ CSS or compiling our TypeScript to JavaScript. These tools all have their own pr
 and determine what is best for your project and team. I will cover how these command line based tools easily integrate into Visual Studio.
 
 These Task Running tools are all command line based. This make them easy to use and easy to integrate into editors and IDEs. If these tools are used in your project
-Visual Studio will automatically recognize them and add a task runner explorer to the bottom of the IDE.
+Visual Studio will automatically recognize them and add a task runner explorer to the bottom of the IDE. These common task runners will run on the version of Node that is installed
+on your machine and is not tied to the Visual Studio version you are running.
 
-<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-task-runner.png" alt="Visual Studio Task Runner" class="full-width col-8--max float-center display-block" />
+<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-task-runner.png" alt="Visual Studio Task Runner" class="full-width col-9--max float-center display-block" />
 
 Grunt and Gulp support is included automatically. To add NPM script support you can download the extension 
 <a href="https://visualstudiogallery.msdn.microsoft.com/8f2f2cbc-4da5-43ba-9de2-c9d08ade4941" target="_blank">here</a>.
@@ -119,7 +121,10 @@ NPM <a href="https://www.npmjs.com/package/typescript" target="_blank">here</a>.
 <a href="https://www.npmjs.com/package/typescript" target="_blank" class="btn float-center display-block col-4--max">TypeScript NPM Package</a>
 
 One thing to note if you compile your TypeScript outside of Visual Studio make sure to keep the version in Visual Studio close to the same version as your build task.
-This will help make sure that any new language features are both in the IDE and build step.
+This will help make sure that any new language features are both in the IDE and build step. 
+
+Visual Studio recognizes and supports the new <a href="https://github.com/typings/typings" target="_blank">Typings tool</a>. This tool is a way to easily download TypeScript type definitions of libraries that give Visual Studio 
+improved intellisense to our projects. Visual Studio also recognizes TypeScript definition files from node modules installed in the project. 
 
 ## Project Structure
 
@@ -144,11 +149,25 @@ The new .NET core can work with Angular 2. Using Angular 2 with .NET core means 
 need to be bundled and moved into the <code>wwwroot</code> folder along with any other static files such as HTML and CSS. This is where .NET core serves static files. 
 To read more about .NET Core check out <a href="https://dotnet.github.io/" target="_blank">dotnet.github.io</a>. 
 
-For tutorials of Angular 2 and .NET Core set up I recommend checking out the following 
-<a href="http://wildermuth.com/2016/02/01/Angular_2_and_ASP_NET_Core_-_A_Webcast" target="_blank">Angular 2 and ASP.NET Core - A Webcast by Shawn Wildermuth</a>.
+For tutorials of Angular 2 and .NET Core set up I recommend checking out the following:
 
-As .NET Core and Angular 2 stabilize there will be more community driven start-up projects and templates for these two technologies. Until then it's up to us
+1. <a href="http://wildermuth.com/2016/02/01/Angular_2_and_ASP_NET_Core_-_A_Webcast" target="_blank">Angular 2 and ASP.NET Core - A Webcast by Shawn Wildermuth</a>.
+1. <a href="https://github.com/DanWahlin/Angular2-BareBones?platform=hootsuite" target="_blank">Angular2 BareBones by Dan Wahlin</a>
+1. <a href="http://blog.nbellocam.me/2016/03/21/routing-angular-2-asp-net-core/" target="_blank">Routing in Angular 2 with ASP.NET Core by Nicolas Bello Camilletti</a>
+
+As .NET Core and Angular 2 stabilizes there will be more community driven start-up projects and templates for these two technologies. Until then it's up to us
 to connect the dots.
 
-### Comments
-Please feel free to comment and let me know of any missing steps or important points.
+## Conclusion
+
+<a href="https://code.visualstudio.com/" target="_blank">
+<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-code-angular-2.png" alt="Visual Studio Code" class="full-width col-2--max float-center display-block" />
+</a>
+
+Visual Studio can be a powerful IDE but also can be overwhelming especially with all the new JavaScript tooling being introduced. If your Angular 2 
+project is not tied to .NET I recommend taking a look at <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> a new lightweight editor from Microsoft. 
+Visual Studio Code can now <a href="https://code.visualstudio.com/docs/runtimes/aspnet5" target="_blank">support .NET core</a> apps without the need of Visual Studio.
+
+If you do rely on .NET for you app then focus on <a href="https://www.pluralsight.com/courses/angular-2-first-look" target="_blank">learning Angular 2</a> and the tooling for it
+before trying to integrate into a .NET stack.  This will go a long way in learning how Angular 2 works without a IDE getting in the way.
+Please feel free to comment and let me know of any additional steps or tips that can be added.
