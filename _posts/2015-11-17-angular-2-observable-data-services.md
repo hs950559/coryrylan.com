@@ -57,6 +57,7 @@ import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/startWith';
 import {Todo} from 'app/interfaces';
 
 export class TodosService {
@@ -67,11 +68,12 @@ export class TodosService {
     };
      
     constructor(private _http: Http) {
-        // Create Observable Stream to output our data
-        this.todos$ = new Observable(observer => 
-            this._todosObserver = observer).share();
-     
         this._dataStore = { todos: [] };
+        
+        // Create Observable Stream to output our data
+        this.todos$ = new Observable(observer => this._todosObserver = observer)
+                        .startWith(this._dataStore.todos)
+                        .share();
     }
 }
 </code>
@@ -89,7 +91,10 @@ its simply just holds onto our list of todos.
 
 Next is our `todos$` Observable. It is common practice
 in Reactive programing to end Observables/streams of data with a `$`. This is what our todo component
-will subscribe to. Also we call the `share()` operator. This will allow multiple Subscribers to one
+will subscribe to. 
+
+We call two operators after our Observable. The first is the `startWith` operator which initializes our Observable with a initial value of 
+our data store. Next we call the `share()` operator. This will allow multiple Subscribers to one
 Observable. Since services in Angular 2 are singletons and tend to hold our data model/state we want to share
 this data stream with all our components.
 
@@ -116,6 +121,7 @@ import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/startWith';
 import {Todo} from 'app/interfaces';
 
 export class TodosService {
@@ -126,11 +132,12 @@ export class TodosService {
     };
      
     constructor(private _http: Http) {
-        // Create Observable Stream to output our data
-        this.todos$ = new Observable(observer => 
-            this._todosObserver = observer).share();
-     
         this._dataStore = { todos: [] };
+        
+        // Create Observable Stream to output our data
+        this.todos$ = new Observable(observer =>  this._todosObserver = observer)
+                            .startWith(this._dataStore.todos)
+                            .share();
     }
      
     loadTodos() {
@@ -167,6 +174,7 @@ import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/startWith';
 
 export interface Todo {
   id: number;
@@ -182,10 +190,11 @@ export class TodosService {
     };
      
     constructor(private _http: Http) {
-        this.todos$ = new Observable(observer => 
-            this._todosObserver = observer).share();
-     
         this._dataStore = { todos: [] };
+        
+        this.todos$ = new Observable(observer =>  this._todosObserver = observer)
+                            .startWith(this._dataStore.todos)
+                            .share();
     }
      
     loadTodos() {
