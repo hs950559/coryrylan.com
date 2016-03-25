@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Contact
+title: Contact Cory Rylan
 tab: contact
 ---
 

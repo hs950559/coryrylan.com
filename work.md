@@ -252,16 +252,9 @@ tab: work
         <meta itemprop="publisher" content="Cory Rylan" />
     </section>
     <section itemscope itemtype="http://schema.org/Code">
-        <a href="/xna" itemprop="url codeRepository"><span itemprop="name">XNA <span itemprop="programmingLanguage">C#</span> Game Programming</span></a>
-        <p itemprop="about">These are some game demos of the game projects I contributed in for my game programming while in school.</p>
-        <meta itemprop="contributor" content="Cory Rylan" />
-        <meta itemprop="publisher" content="Cory Rylan" />
-    </section>
-    <section itemscope itemtype="http://schema.org/Code">
         <a href="http://github.com/splintercode" itemprop="url codeRepository" target="_blank"><span itemprop="name">Git Hub</span></a>
         <p itemprop="about">Any open source projects that I may be contributing to will be at my github page <a href="http://github.com/splintercode" target="_blank">here.</a></p>
         <meta itemprop="contributor" content="Cory Rylan" />
         <meta itemprop="publisher" content="Cory Rylan" />
     </section>
 </div>
-<br /><br />
