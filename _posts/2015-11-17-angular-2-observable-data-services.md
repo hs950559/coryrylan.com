@@ -5,25 +5,28 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-03-09
+updated: 2016-03-25
 permalink: /blog/angular-2-observable-data-services
 demo: http://plnkr.co/edit/wzocFwRHsCnu46kp8rpJ?p=preview
 ---
 
 Angular 2 brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
 Observables are a proposed feature for ES2016 (ES7).
-I wont go to in depth into Observables but will just cover some of the high level concepts. If you want a introduction to
-Observables check out my screen cast on <a href="/blog/intro-to-rxjs-observables-and-angular-2">Intro to RxJS Observables and Angular 2</a>.
+I wont go in depth into Observables but will just cover some of the high level concepts. If you want a introduction to
+Observables check out my screen cast. 
+
+<a href="/blog/intro-to-rxjs-observables-and-angular-2" class="btn display-block float-center col-5--max">Intro to RxJS Observables and Angular 2</a>
+
 The rest of this post will cover more data and application state management in a Angular 2 application. 
 At the time of this writing Angular is on version <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 1</a>.
-This post has been updated as of <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 8</a>.
+This post has been updated as of <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 12</a>.
 The syntax of how Observables and their operators are imported may change.
 
 Observables can help manage async data and a few other useful patterns. Observables are similar to Promises but with a few key differences. The first is Observables emit
 multiple values over time. For example a Promise once called will always return one value or one error.
 This is great until you have multiple values over time. Web socket/real-time based data or event handlers can
-emit multiple values over any given time. This is where Observables really shine. Other benefits are
-Observables are cancel-able and can use array like operations. Observables are used extensively in Angular 2. The new HTTP service and Event system 
+emit multiple values over any given time. This is where Observables really shine. 
+Observables are used extensively in Angular 2. The new HTTP service and Event system 
 are all Observable based. Lets look at an example where we subscribe to an Observable.
 
 <pre class="language-typescript">
@@ -39,7 +42,7 @@ this.todos = todosService.todos$;
 </pre>
 
 In this snippet our `todos$` property on our data service is an Observable. We can subscribe to this
-Observable in our component. Each time we reassign it to our component's property Angular updates the view.
+Observable in our component. Each time there is a new value emitted from our Observable Angular updates the view.
 
 Observables are treated like arrays. Each value over time is one item in the array.
 This allows us to use array like methods called operators on our Observable such as `map`, `flatmap`,
@@ -74,7 +77,7 @@ export class TodosService {
 </code>
 </pre>
 
-In Angular 2 we use RxJS a polyfill library for ES7 Observables. RxJS version 5 is in alpha and is a peer dependency with Angular 2.
+In Angular 2 we use RxJS a polyfill/util library for the proposed Observables primitive in the next new version JavaScript. RxJS version 5 is in alpha and is a peer dependency with Angular 2.
 A slim Observable is used in Angular 2 core. The slim Observable does not have many of the useful operators that makes RxJS so productive.
 The Observable in Angular 2 is slim to keep the byte site of the library down. To use extra operators we import them like
 so: `import 'rxjs/add/operator/share';`.
@@ -91,8 +94,8 @@ Observable. Since services in Angular 2 are singletons and tend to hold our data
 this data stream with all our components.
 
 In our service we hold onto a Observer as a private property on our service. A Observer instance is generated when creating a
-new Observable. The Observer allows us to push new values down our Observable data stream. Calling `next()`
-will push a new value to all subscribers to our Observable stream.
+new Observable and subscribing to it. The Observer allows us to push new values down our Observable data stream. Calling `next()`
+will push a new value to all subscribers of the Observable stream.
 
 <pre class="language-typescript">
 <code>
@@ -143,7 +146,8 @@ export class TodosService {
 </code>
 </pre>
 
-In our component's <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt4.html#!#the-ngoninit-lifecycle-hook" target="blank">`ngOnInit`</a> we subscribe to the `todo$` data stream then call `load()` to load the latest into the stream.
+In our component's <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt4.html#!#the-ngoninit-lifecycle-hook" target="blank">`ngOnInit`</a> 
+we subscribe to the `todo$` data stream then call `load()` to load the latest into the stream.
 
 <pre class="language-typescript">
 <code>
@@ -237,7 +241,7 @@ If you have worked with <a href="https://facebook.github.io/flux/docs/overview.h
 
 This pattern can ensure data is coming from one place in our application and that every component receives the latest version of that data through our data streams.
 Our component logic simple by just subscribing to public data streams on our data services. A working demo of a Observable data service can be found at this <a href="http://plnkr.co/edit/TiUasGdutCsll1nI6USC?p=preview" target="_blank">plnkr.co</a>
-This service models to a REST based backend but could easily translate to a socket based service like <a href="https://www.firebase.com/" target="_blank">Firebase</a>
+This service conforms to a REST based backend but could easily translate to a socket based service like <a href="https://www.firebase.com/" target="_blank">Firebase</a>
 without having to change any components.
 
 To set up loading extra operators for the Observable included in Angular 2 core check out this <a href="https://github.com/escardin/angular2-community-faq/blob/master/rxjs_operators.md" target="_blank">GitHub Doc</a>.
