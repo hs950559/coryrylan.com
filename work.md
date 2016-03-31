@@ -6,7 +6,7 @@ keywords: Cory Rylan, Portfolio
 tab: work
 ---
 
-#Work & Contributions
+# Work & Contributions
 
 <div class="flex-row--stretch">
     <div class="col-6--md">
