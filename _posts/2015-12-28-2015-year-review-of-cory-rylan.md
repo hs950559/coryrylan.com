@@ -17,7 +17,7 @@ on the font end of web development and plan on continuing while deep diving into
 Just wanted to say thank you for all who took the time to read my blog. I hope to continue to provide useful posts in the
 future!
 
-##Google Analytics
+## Google Analytics
 
 I just wanted to share how much my blog has grown this past year. Here are some stats from Google Analytics.
 
@@ -40,7 +40,7 @@ Page Views: 28,029
 
 As you can see my blog has received substantially more traffic this year!
 
-###Top Pages
+### Top Pages
 Here were the top posts this year.
 
 <table>
@@ -74,7 +74,7 @@ Here were the top posts this year.
 </tbody>
 </table>
 
-###Referral Traffic
+### Referral Traffic
 <table>
 <caption>Referrals</caption>
 <tbody>

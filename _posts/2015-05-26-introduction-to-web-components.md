@@ -26,7 +26,7 @@ when combined create a powerful web standard for creating reusable components.
     <figcaption>Gmail's div soup</figcaption>
 </figure>
 
-###Custom Elements
+### Custom Elements
 
 So lets start digging into the new web component spec that will help solve some of these issues.
 First is the custom elements spec. The HTML5 spec says custom elements can be used if the contain a hyphen.
@@ -62,7 +62,7 @@ Wouldn't it be great if we could see markup like this for something like a tab c
 </code>
 </pre>
 
-###Templates
+### Templates
 
 Next is the new `<template>` tag. The `<template>` tag simply allows us to store any HTML or JavaScript
 and have it completely ignored by the browser. This means the HTML will not render nor will any JavaScript execute.
@@ -78,7 +78,7 @@ and have it completely ignored by the browser. This means the HTML will not rend
 
 Inline templates can help us easily store HTML to clone into our components. Next is understanding the Shadow DOM.
 
-###The Shadow DOM
+### The Shadow DOM
 
 Now the shadow DOM sounds like some cool cutting edge tech but really the idea has been around for a while.
 The shadow DOM api helps encapsulate and hide the implementation of a given element. Let take a look at the video tag for an example.
@@ -104,7 +104,7 @@ Shadow DOM also encapsulates CSS. This can be very helpful from preventing compo
 and styled with a few special selectors. We will cover these special selectors later in our example component. The "light DOM" would be any
 DOM that is not inside a existing shadow DOM.
 
-###Tab Component Example Tutorial
+### Tab Component Example Tutorial
 
 Note this tutorial will use some of the newer ES6 JavaScript syntax features as they compliment well with Web Components.
 
@@ -238,7 +238,7 @@ Now that we have our tabs dynamically created and click events registered we sho
 
 <img src="/assets/images/posts/2015-05-26-introduction-to-web-components/tab-no-css.jpg" class="col-7--max float-center text-center" />
 
-###Component Styles and CSS
+### Component Styles and CSS
 
 No our component does not look very pretty but if you inspect the DOM you will see our shadow roots and click events all hooked up.
 So now we can dig into the new CSS selectors for styling our web components. First we will style our `ui-tabs` element.
@@ -350,7 +350,7 @@ here is our CSS for the `<ui-tab>` element.
 </code>
 </pre>
 
-###The Result
+### The Result
 
 Now our component should be styled and functional.
 
@@ -374,7 +374,7 @@ Our final component syntax in the HTML
 </code>
 </pre>
 
-###HTML Imports
+### HTML Imports
 
 HTML Imports is the last peice of the Web Components. Imports allow us to import a component into a page. This loads the component and any dependencies
 into the document. A HTML import would look similar to this.

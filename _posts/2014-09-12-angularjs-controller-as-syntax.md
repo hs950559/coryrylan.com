@@ -64,7 +64,7 @@ We can directly add any properties we want on our view by using <code>this</code
 if you need to use other things such as `$watch` or `$on`.
 This allows you to easily be able to see controllers that may have special exceptions than your average controller.
 
-##Nesting Controllers
+## Nesting Controllers
 
 In the view the `ControllerAsExampleCtrl as example` the `example` creates a instance of
 the `ControllerAsExampleCtrl` for that controller's view. So lets look at why this is important.
@@ -143,7 +143,7 @@ When you declare with `Controller As` we get a single instance of that controlle
 `ControllerAsVmExampleCtrl1` named "example1" and a instance of `ControllerAsVmExampleCtrl2` named "example2". This prevents the `name`
 properties from possibly colliding with each other.
 
-##Controller as VM
+## Controller as VM
 
 Attaching  our models using `this` on our controllers leads to a clean syntax but what happens when the context of `this`
 changes?

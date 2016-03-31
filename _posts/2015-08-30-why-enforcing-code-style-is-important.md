@@ -16,7 +16,7 @@ differences have no effect on our codes behavior but can cause slight inconsiste
 <img src="/assets/images/posts/2015-08-30-why-enforcing-code-style-is-important/tabs-vs-spaces.jpg" alt="tabs vs spaces" class="margin-bottom--small" /><br />
 <small>Image credit unknown</small>
 
-##Why code styles?
+## Why code styles?
 
 Why should we care about code styles? Isn't it enough that our code works? Well there are a couple of reasons to care about
 our code styles. The first is consistency. Any large code base with multiple team members should looks as if only one programmer wrote it.
@@ -33,13 +33,13 @@ some say is not needed as our IDE's know its an interface and prefixing them is 
 needed in modern IDE environments. Even though prefixing object types is not common anymore this is the convention with C# so it is widely followed
 in the community.
 
-##Getting Started
+## Getting Started
 
 When team or company decides code style decisions are made they should be well documented and easily accessible. At <a href="https://github.com/vintage-software">Vintage Software</a>
 we use github markdown to make it simple and easy to document our code style guide. People can link to certain rules in the style guide. People can also
 leave bug issues and have discussions on any changes to the guide.
 
-##Enforcing Styles and Tools
+## Enforcing Styles and Tools
 
 Code styles are great to have but when developers have a million other things to worry about like deadlines and bug fixes we tend to
 get sloppy with code style. Using tools called code linters or code style checkers can help. There are a wide range of tools but all work in
@@ -52,7 +52,7 @@ of code style violations in our JavaScript. There are many other tools for all k
 Make sure the style configs for your style checkers and linters are easy to access. At Vintage Software we have the linter config files source controlled directly with
 our code style guide repo.
 
-##Integration
+## Integration
 
 Integrating these tools is usually pretty straight forward whether you use an IDE extension or use a
 build task runner like <a href="http://gulpjs.com/">GulpJS</a>. If you are adding these tools to a large or legacy code base it may be best to turn the tool on

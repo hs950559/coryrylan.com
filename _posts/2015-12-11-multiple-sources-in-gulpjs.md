@@ -60,7 +60,7 @@ Our Gulp file is reusable and can be dropped into another project. Just create a
 that projects folder/path structure. These examples are simplified as there would be many
 more tasks and paths in a moderately large project.
 
-##Project Complexity
+## Project Complexity
 
 So now what if our project is a little more complex? Say we have a few different bundles we would like to generate.
 We would like a public bundle and account bundle with our assets for when the user is logged in behind a account wall.
@@ -84,7 +84,7 @@ So how would we accomplish this with our Gulp tasks? We could create additional 
 Maybe a `styles.account` and `styles.public` Gulp task. Each task takes in the files for that specific area.
 This would work but then our tasks aren’t DRY. We can’t reuse them or use our gulpfile in another project. It’s now specific to this project.
 
-##Multi Config Support
+## Multi Config Support
 
 Ideally we would like a `gulp.config.public.js` and a `gulp.config.account.js`. Each config specifies what assets
 we need for that area of our project. One config for all of the public facing assets then the other for our account section.
@@ -161,7 +161,7 @@ function isProd() {
 
 So our gulpfile now can support one to any number of config files in a given project while keeping the task DRY and reusable.
 
-##Watch Task Performance
+## Watch Task Performance
 
 So what happens as our project grows in size? Well our build time will slowly get longer and longer yes but how can we optimize
 our watch task? For example when I watch the project every time a file changes I want it to run through the tasks whether

@@ -28,7 +28,7 @@ First lets look at a simple pipe built into Angular 2 the date pipe. The date pi
 
 The date `Wed Jan 20 2016 22:01:58 GMT-0600 (Central Standard Time)` would be formated to `1/20/2016` and `January 20, 2016`.
 
-##Custom Pipes
+## Custom Pipes
 
 Now lets build our own custom pipe. In our use case we get dynamic content from an API. We would like the content to 
 be shortened if it is past a certain length and add an ellipsis at the end. So our example would take a 100 character string 

@@ -35,7 +35,7 @@ xhrReq.send();
 
 Pretty ugly syntax. It's not using promises to handle the response which makes complex asynchronous code a real pain.
 
-##The Fetch API
+## The Fetch API
 
 Lets look at the new Fetch API to get some JSON.
 

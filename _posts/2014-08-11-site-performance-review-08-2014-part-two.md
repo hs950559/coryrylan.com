@@ -48,7 +48,7 @@ I started optimizing my pages.
     </tbody>
 </table>
 
-##Gzip and SVG
+## Gzip and SVG
      
 So the first major issue for slowing my site down was my SVG images not gzipping. I load a large background SVG onto the site that was
 about 23kb. I looked into why my Azure server configuration was not gzipping SVGs and I came up with a solution. Unfortunately this was the most
@@ -56,7 +56,7 @@ difficult issue to resolve. I wrote a blog post on what I did to fix this here,
 <a href="/blog/svg-gzip-windows-azure" target="_blank">SVG gzip Windows Azure</a>.
 After resolving this I was able to compress the SVG background down to 7.6kb.
 
-##Fonts 
+## Fonts 
 
 The next fix to improve performance was to optimize my fonts. I use Roboto as my font site wide. Loading in a custom web font really
 slows down the text render time on the page especially on mobile. So the first thing I did was go to fontsquirrel.com and subset my copy of
@@ -68,7 +68,7 @@ browser will be using the default system font until the custom web font is loade
 <a href="https://github.com/filamentgroup/loadCSS" target="_blank">LoadCSS</a>. Something I noticed is if you use the HTML5 prerender/prefetch
 feature it can minimize FOUT on the next page. I only noticed this in Chrome.
 
-##CSS 
+## CSS 
 
 Deferring your non critical CSS and inlining critical CSS in the head of the document can greatly
 improve your render times. The idea is if you inline your CSS the document the CSS will arrive with the document and the browser
@@ -85,7 +85,7 @@ to get the first time render to the screen. I used the LoadCSS script to load in
 unnecessary ones as needed.
 
 
-##The Aftermath
+## The Aftermath
 
 Here are my performance test scores now after all of the optimizations.
      

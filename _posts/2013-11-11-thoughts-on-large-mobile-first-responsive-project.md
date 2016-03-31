@@ -10,7 +10,7 @@ permalink: /blog/thoughts-on-large-mobile-first-responsive-project
 
 These are just some of my thoughts after working on a large mobile first responsive design project. These are some key points or highlights that I feel were most important in the project construction.
 
-##Design
+## Design
 
 - Ensure a designer or dev with design experience designs features not devs or clients to prevent poor typography and missing design fundamentals
 - Include front end engineers with the design aspects to be an advocate for performance but able to contribute to the design
@@ -19,12 +19,12 @@ These are just some of my thoughts after working on a large mobile first respons
 - Have style guide created with html and css before project begins.
 - Do not allow client to make last minute design changes, causes rendering bugs to be introduced unexpectedly
 
-##Styles
+## Styles
 
 - Use SASS, helps keep your code DRY
 - Only 1 to 2 people on Styles ( CSS, SASS, LESS) ( issues will duplicate styles and poor render performance ) or Module out your application between designers
 
-##Implementation
+## Implementation
 
 - Design mobile first and performance first
 - Have a Performance Advocate

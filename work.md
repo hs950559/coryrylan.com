@@ -224,7 +224,7 @@ tab: work
 </div>
 <br />
 
-##Code/Projects
+## Code/Projects
 
 <div class="card">
     <section itemscope itemtype="http://schema.org/Code">

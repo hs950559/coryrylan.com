@@ -16,7 +16,7 @@ There are many different variations of the module pattern so for now I will be c
 Something to note, the next version of JavaScript ES6 has a new specification for asynchronous module loading.
 You can use the module patterns that will be covered with the new ES6 module loading syntax.
 
-##Creating a module
+## Creating a module
 
 First we start using a anonymous closure. Anonymous closures are just functions that wrap our code and create an enclosed scope around it. Closures
 help keep any state or privacy within that function. Closures are one of the best and most powerful features of JavaScript.
@@ -35,7 +35,7 @@ This pattern is well known as a <strong>Immediately Invoked Function Expression<
 also a good practice to run your modules in ES5 strict mode. Strict mode will protect you from some of the more dangerous parts in JavaScript.
 
 
-##Exporting our module
+## Exporting our module
 
 Next we will want to export our module. This basically assigns the module to a variable that we can use to call our modules methods.
 
@@ -66,7 +66,7 @@ myModule.publicMethod();    // outputs 'Hello World'
 </code>
 </pre>
 
-##Private methods & properties
+## Private methods & properties
 
 JavaScript does not have a private keyword by default but using closures we can create private methods and private state.
 
@@ -99,7 +99,7 @@ This gives us ability to create private state and encapsulation within our code.
 
 You may have noticed the `_` before our private methods and properties. Because JavaScript does not have a private keyword its common to prefix private properties with an underscore.
 
-##Revealing Module Pattern
+## Revealing Module Pattern
 
 The Revealing Module Pattern is one of the most popular ways of creating modules. Using the return statement we can return a object literal that 'reveals' only the methods or properties we
 want to be publicly available.

@@ -61,7 +61,7 @@ Google Analytics and Disqus because they are usually async and are outside of th
     </tbody>
 </table>
 
-##JavaScript
+## JavaScript
 
 If you closely you will notice I have 0kb of JavaScript. Excluding Google Analytics this is correct. I have other JavaScript dependencies
 on my site I load only when needed. I use Disqus for blog comments. I also use Prism.js for code examples on my blog as well. On my
@@ -93,7 +93,7 @@ Contact page I use JQuery & JQuery Unobtrusive Validation library for my contact
     </tbody>
 </table>
 
-##CSS
+## CSS
 
 I only have one CSS file that is minified. I use Sass as a preprocessor for my CSS. I generate a seperate CSS file for ie8 non media query support.
 
@@ -122,7 +122,7 @@ Performance side note, because my CSS is so small I can inline this in the head 
 because the server will not need to go get a CSS file to start rendering the screen. I have tried this and it does improve speed but I
 have not yet found a build process that I am happy with to automate this.
 
-##HTML
+## HTML
 
 I have one HTML page requested from a prerendered view on the server. I do not
 pull any dynamic content except on blog post comments.
@@ -143,7 +143,7 @@ pull any dynamic content except on blog post comments.
     </tbody>
 </table>
 
-##Images
+## Images
 
 I have two images on my home page currently. I have one JPG and one SVG background. I do have images
 on other pages of my site such as blog posts. All my images are compressed and gzipped.
@@ -174,7 +174,7 @@ on other pages of my site such as blog posts. All my images are compressed and g
     </tbody>
 </table>
 
-##SVG
+## SVG
 
 Performance side note, currently SVG images are not gzipping on my Azure host and I am working on a solution. This causes
 a extra ~15kb to be downloaded. If anyone knows of a solution please feel free to comment.

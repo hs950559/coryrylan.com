@@ -12,7 +12,7 @@ demo: http://plnkr.co/edit/HyB1rg7xxWqCNwTuZCYV?p=preview
 Creating dynamic styles in web applications can be a real pain. Luckily with Angular 2 we have multiple ways to handle our dynamic CSS and CSS classes
 with the new template syntax as well as some built in directives.
 
-##Angular Template Property Syntax
+## Angular Template Property Syntax
 First lets look at how we would change a `<div>` color property in pure JavaScript.
 
 <pre class="language-javascript">
@@ -48,7 +48,7 @@ We can also use the Angular 2 property syntax to add CSS classes to elements.
 </code>
 </pre>
 
-##ngStyle and ngClass
+## ngStyle and ngClass
 Out of the box with the new syntax we don't need special `ng-class` or `ng-style` directives like in Angular 1. But with Angular 2 we still have these built in directives.
 These directives offer syntactic sugar for more complex ways of altering our element styles. First lets look at `ngStyle`.
 

@@ -17,7 +17,7 @@ Something I cannot stress enough is the new `Class` is syntactic sugar on protot
 are still using prototypal inheritance. If you are unfamiliar with prototypes I would suggest you read my previous post on
 <a href="/blog/javascript-prototypal-inheritance">JavaScript Prototypal Inheritance</a>.
 
-##Constructors
+## Constructors
 
 In ES5 or the current widely supported version of JavaScript we use prototypes to create object inheritance. Prior to ES6 we
 used function constructors similar to this.
@@ -54,7 +54,7 @@ console.log(bob.name);  // Outputs 'Bob'
 The new syntax gives us a dedicated constructor statement that runs on object creation. Constructors are helpful for any object
 initialization logic.
 
-##Methods
+## Methods
 Next lets look at adding a function to our Person. In ES5 we would of had something like this.
 
 <pre class="language-javascript">
@@ -89,7 +89,7 @@ console.log(bob.name);  // Outputs 'Bob is walking'
 </code>
 </pre>
 
-##Get &amp; Set
+## Get &amp; Set
 ES6 classes brings a new syntax for getters and setters on object properties. Get and set allows us to run code on the reading or writing of a property.
 ES5 had getters and setters as well but was not widely used because of older IE browsers.
 ES5 getters and setters did not have as nice of a syntax that ES6 brings us. So lets create a `get` and `set` for our name property.
@@ -127,7 +127,7 @@ Something to note is that our backing field `this._name` is not private. Someone
 To achieve private state on objects you would use ES6 `symbol` and `module` to create true encapsulation and private state. Private methods can be created
 using `module` or traditional closures using an IIFE. Private properties and functions using symbols and modules will be covered in a follow up post.
 
-##Inheritance
+## Inheritance
 
 Now lets look into inheritance using traditional prototypes in ES5 syntax. We will create a `Programmer` object to inherit our `Person` object.
 Our programmer object will inherit person and also have a `writeCode()` method.
@@ -180,7 +180,7 @@ objects but there are occasions where it is appropriate to use. In this case it 
 constructor contained any logic, custom getters or setters for the name property we would want to use the super and not duplicate the logic in the Programmer class.
 If a constructor is not defined on a child class the super class constructor will be invoked by default.
 
-##Overview
+## Overview
 
 Here is on final look at our Person and Programmer classes. The getters and setters are not necessary in this use case but are there to demonstrate the new syntax.
 

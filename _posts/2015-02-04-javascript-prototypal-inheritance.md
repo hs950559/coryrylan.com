@@ -73,7 +73,7 @@ A side note it is usually bad practice to alter or extend native JavaScript obje
 Manipulating these object prototypes could result in conflicts with future versions or methods added to these native objects.
 Exceptions to this practice would be to pollyfill newer JavaScript features for browser support such as `Array.Map`, `Array.ForEach`, ect.
 
-##Object Inheritance
+## Object Inheritance
 
 So what if we want to create a `Programmer` object that inherits our `Person` object? First lets make a
 `Programmer` constructor.
@@ -154,7 +154,7 @@ cory.writeCode();   // Outputs 'Cory is coding in JavaScript.'
 So now we have created a Programmer object that inherits a Person object. Our Programmer object can now `walk` from inheriting the Person object
 but can also `writeCode` from its own method and `programmingLanguage` property.
 
-##Private Members in Constructors
+## Private Members in Constructors
 
 
 So what if we wanted private properties on our objects that only the object itself can alter? For example we have a skill level property on our Programmer object

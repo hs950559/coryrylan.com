@@ -5,7 +5,7 @@ description: A introduction to Angular 2 routing including basic routes, nested 
 keywords: Cory Rylan, Angular2, AngularJS
 tags: AngularJS, angular2
 
-date: 2016-03-31
+date: 2016-04-01
 permalink: /blog/introduction-to-angular-2-routing
 demo: http://plnkr.co/edit/2f8afYkIS2i9UgoWj9xO?p=preview
 ---

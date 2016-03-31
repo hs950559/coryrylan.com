@@ -61,7 +61,7 @@ form the source code. Each module file has a single corresponding test file all 
 
 <img src="/assets/images/posts/2014-10-06-angularjs-application-organization/pic5.jpg" alt="AngularJS example with multiple feature folders organized by feature." class="col-5--max full-width float-center" />
 
-##IIFE and module closures
+## IIFE and module closures
 Closures can be very important when in comes to isolating modules and
 bugs in any JavaScript application. As we follow the pattern of each Angular module receiving its own file I'll show you my preferred
 method of structuring that module. Using the Immediately Invoked Function Expression Pattern (IIFE) we can close off our module from
@@ -94,7 +94,7 @@ in our IIFE. The `"use strict"` is a ES5 optional property that gives us some pr
 If a object or variable is used without a definition that normally would be created on the global object `"use strict"` with
 cause a runtime exception protecting us from accidentally polluting the global scope.
 
-##File Naming
+## File Naming
 
 The last thing I want to cover is file naming. There are some unofficial Angular naming conventions you can follow. You do not have to
 follow these but just make sure your project is consistent in the naming and any team members understand this as well. First we can start
@@ -116,7 +116,7 @@ The last naming convention to cover is Directives. Directives when registered in
 So we have covered naming our angular modules and defining our file structure based on our application size. There are many ways
 to set up a Angular JS application just remember stay consistent and try to follow the community conventions whenever possible.
 
-###TL;DR
+### TL;DR
 
 - all one file in app.js
 - all in one folder, multiple files ordered by type
