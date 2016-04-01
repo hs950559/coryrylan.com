@@ -4,7 +4,7 @@ title: Introduction to Angular 2 Routing
 description: Learn how to manage large Angular 2 applications and navigation with the new component router using features such as child routing and route parameters.
 keywords: Cory Rylan, Angular2, AngularJS, routing, router
 tags: angular2, angularjs
-date: 2016-04-01
+date: 2016-04-02
 permalink: /blog/introduction-to-angular-2-routing
 demo: http://plnkr.co/edit/2f8afYkIS2i9UgoWj9xO?p=preview
 ---
@@ -137,7 +137,7 @@ in our template.
 
 So now lets take a look at our rendered view.
 
-<video src="/assets/video/posts/2016-04-01-introduction-to-angular-2-routing/angular-2-simple-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-simple-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
 
 ### Hash Routing vs HTML5 Routing
 
@@ -158,12 +158,12 @@ route would be the default about page but the more route would offer another vie
 
 So lets take a look at what that looks like rendered out.
 
-<video src="/assets/video/posts/2016-04-01-introduction-to-angular-2-routing/angular-2-nested-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-nested-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
 
 So as above we can see the About view has its own `router-outlet` highlighted in blue. The about view also
 has its own links that navigate between two nested about child components. We can think of this as a tree structure.
 
-<img src="/assets/images/posts/2016-04-01-introduction-to-angular-2-routing/angular-2-router-tree.png" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree.png" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
 
 So lets take a look at our App component and it's updated Route config.
 
@@ -219,7 +219,7 @@ Route parameters allow us to pass values in our url to our component so we can d
 So in our example we will have a route that can take an id and then display it on our AboutItem
 component. So lets take a look at what the rendered output would be.
 
-<video src="/assets/video/posts/2016-04-01-introduction-to-angular-2-routing/angular-2-route-parameters.mp4" autoplay loop controls class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-route-parameters.mp4" autoplay loop controls class="float-center col-5--max"></video>
 
 Our URLs would be the following: `/about/`, `/about/1`, and `/about/2`. We can swap out any number in our URL and 
 our item component can pull that value out and display it in the view. Let's take a look at the code.
@@ -277,7 +277,7 @@ and display it in our template. This value can be changed via the URL directly o
 
 So now lets take a look at our diagram of our application's routes.
 
-<img src="/assets/images/posts/2016-04-01-introduction-to-angular-2-routing/angular-2-router-tree-2.png" alt="Example of Route Tree in Angular 2 with Route Parameters" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree-2.png" alt="Example of Route Tree in Angular 2 with Route Parameters" class="full-width float-center col-6--max" />
 
 ## Recap
 
