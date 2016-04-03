@@ -85,6 +85,7 @@ So lets walk through our app component step by step and see what this code is do
 <pre class="language-javascript">
 <code>
 {% raw %}
+// Router Goodies
 import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink, ROUTER_BINDINGS, ROUTER_PRIMARY_COMPONENT, LocationStrategy, HashLocationStrategy} from &#39;angular2/router&#39;;`
 {% endraw %}
 </code>
