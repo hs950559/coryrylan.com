@@ -48,7 +48,7 @@ app component and see how we can use the new Router to route between these two c
 {% raw %}
 import {Component, bind} from &#39;angular2/core&#39;;
 import {bootstrap} from &#39;angular2/platform/browser&#39;;
-import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink, ROUTER_BINDINGS, ROUTER_PRIMARY_COMPONENT, LocationStrategy, HashLocationStrategy} from &#39;angular2/router&#39;;
+import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink, LocationStrategy, HashLocationStrategy} from &#39;angular2/router&#39;;
 
 import {About} from &#39;src/about&#39;;
 import {Home} from &#39;src/home&#39;;
@@ -73,7 +73,6 @@ export class App { }
 
 bootstrap(App, [
   ROUTER_PROVIDERS,
-  bind(ROUTER_PRIMARY_COMPONENT).toValue(App),
   bind(LocationStrategy).toClass(HashLocationStrategy),
 ]);
 {% endraw %}
@@ -86,7 +85,7 @@ So lets walk through our app component step by step and see what this code is do
 <code>
 {% raw %}
 // Router Goodies
-import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink, ROUTER_BINDINGS, ROUTER_PRIMARY_COMPONENT, LocationStrategy, HashLocationStrategy} from &#39;angular2/router&#39;;`
+import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink, LocationStrategy, HashLocationStrategy} from &#39;angular2/router&#39;;`
 {% endraw %}
 </code>
 </pre>
@@ -164,7 +163,7 @@ So lets take a look at what that looks like rendered out.
 So as above we can see the About view has its own `router-outlet` highlighted in blue. The about view also
 has its own links that navigate between two nested about child components. We can think of this as a tree structure.
 
-<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree.png" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree.svg" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
 
 So lets take a look at our App component and it's updated Route config.
 
@@ -278,7 +277,7 @@ and display it in our template. This value can be changed via the URL directly o
 
 So now lets take a look at our diagram of our application's routes.
 
-<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree-2.png" alt="Example of Route Tree in Angular 2 with Route Parameters" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree-2.svg" alt="Example of Route Tree in Angular 2 with Route Parameters" class="full-width float-center col-6--max" />
 
 ## Recap
 
