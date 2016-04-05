@@ -9,7 +9,7 @@ permalink: /blog/converting-angular-1-components-to-angular-2
 demo: 
 ---
 
-With Angular 2 fast approaching, Angular 1.5 introduced a new components syntax that mimics similar
+With Angular 2 fast approaching, Angular 1.5 introduced a new component syntax that mimics similar
 behavior to Angular 2 components. In this example we will take an Angular 1 component and convert it to 
 an Angular 2 component. First we are going to take a look at a simple Angular 1 component
 how it accepts inputs and emits output events to other Angular 1 components.
@@ -17,8 +17,8 @@ how it accepts inputs and emits output events to other Angular 1 components.
 ## Angular 1 Component
 
 In this example we have a simple application that lists a list of products for sale. We have two components a root 
-app component and a `product-item` component. Using components our apps are formed into a tree of components. 
-With this tree like structure it is easier to understand how an app is structured and data is passed between components.
+`app` component and a `product-item` component. Using components our apps are formed into a tree structure of components. 
+With this tree like structure it is easier to understand how an app is composed and data is passed between components.
 Lets take a look at what the rendered output will look like.
 
 <video src="/assets/video/posts/2016-04-03-converting-angular-1-components-to-angular-2/angular-component.mp4" autoplay loop controls class="float-center col-4--max"></video>
@@ -84,20 +84,20 @@ Looking at our `product-item` component we have a propery called `bindings` defi
 component for how it will interact with other components. The first binding we have is `product` this is the 
 product that is passed into the component from our parent app component. `<product-item product="product">` The
 binding `'<'` is for binding it as a <a href="https://docs.angularjs.org/guide/component#component-based-application-architecture" target="_blank">one way property</a> 
-passing a reference to the product. 
+passing a reference of the product. 
 
 The next binding is the `onSelect` which uses the `'&'` notation. This means the incoming value should be 
 treated as a expression or function to be executed. This allows the `product-item` to call a function that is being passed
 in to notify our parent app component. `<product-item on-select="$ctrl.selectedProduct = $event">`.
 
 So when we click a buy button we call the `onSelect` and pass back the selected item to the parent component. This 
-data flow is strongly recommended and encouraged in Angular 2. We can visualize how the data flows through our app
+data flow is common and encouraged in Angular 2. We can visualize how the data flows through our app
 with the diagram below. 
 
 <img src="/assets/images/posts/2016-04-04-converting-angular-1-components-to-angular-2/angular-component-comunication.svg" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
 
 So we can see we pass data along down to child components and the child components use events to notify their parent of 
-a change or user action. We will see how this pattern is renforced in Angular 2.
+a change or user action. We will see how this pattern is renforced in our Angular 2 version.
 
 ## Angular 2 Component
 
@@ -142,9 +142,9 @@ bootstrap(App);
 </code>
 </pre>
 
-In our Angular 2 app we are taking advantage of ES6 and TypeScript to give us a nice clean syntax. I wont
-be covering setup on an Angular 2 project but you can check out the running demos and any number of Angular 2
-seed projects. First we are importing
+In our Angular 2 app we are taking advantage of ES6 and TypeScript to give us a nice clean syntax with improved
+IDE tooling. I wont be covering setup on an Angular 2 project but you can check out the running demos and any 
+number of Angular 2 seed projects. First we are importing
 Angular 2 modules and our `ProductItemComponent` using ES6 module syntax. 
 
 <pre class="language-javascript">
@@ -157,7 +157,7 @@ import {ProductItemComponent} from &#39;src/product-item.component&#39;;
 </code>
 </pre>
 
-Next we have whats called a decorator `Component()` on our Class. This decorator tells Angular that this ES6 claass
+Next we have what is called a decorator `Component()` on our Class. This decorator tells Angular that this ES6 class
 is a component and allows us to add meta data such as what our template is and what other components it may need to work. 
 
 <pre class="language-javascript">
@@ -179,9 +179,14 @@ is a component and allows us to add meta data such as what our template is and w
 </code>
 </pre>
 
+The first property in the component decorator is the `selector` this simply tells Angular what the HTML element should be.
+Ex: `<demo-app></demo-app>`.
+
 Looking at our template it looks similar to the Angular 1 component with some slight differences. First `ng-repeat` is now
 `ngFor`. The `*` is used to signal that this directive is a structural directive and will change the DOM structure of our template.
 Next look at the `product-item` component.
+
+### Template Syntax, Properties and Events
 
 <pre class="language-html">
 <code>
@@ -191,6 +196,86 @@ Next look at the `product-item` component.
 </code>
 </pre>
 
+This is where things get a bit strange but it actually is a great improvement over Angular 1. First is our `[]` notation
+we see wrapped around `[product]`. This means we are passing in a product to our `product-item` component via a 
+custom property. So in Angular 2 when we want to pass data into components we use the brackets to signify that we are
+passing in data `[product]`. 
 
+Next is the `(onSelect)` on the `produt-item`. The `onSelect` is a custom event our `product-item` component raises to 
+notify it's parent component. When we want to hook into properties we reference using the `()` parens synax. This 
+applies to all events even browser events like click, ex: `(click)`. We will see more of this once we go over our `produt-item`
+component. 
+
+So whats the benifit of this syntax? Well we can easily describe our components API. Data flows in as *inputs* to the componet
+via [properties] and data flows as an *outputs* via `(events)`. We can look at a template and quickly understand the 
+data flow between components. This will also help IDEs understand and statically see what our template to offer hints such
+as possible referenced missing properties and events on our components.
+
+Now lets look at the class definition of the app component. This is a simple ES6/ES2015 class with a bit of TypeScript.
+We will ignore the TypeScript bit for now.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+export class App {
+  selectedProduct: any;  // TypeScript specific code defining that this prop can be of type any
+  
+  constructor() { 
+    this.products = [
+      { name: &#39;iPhone&#39;, price: 500.00 },
+      { name: &#39;iPad&#39;, price: 800.00 },
+      { name: &#39;Macbook&#39;, price: 1200.00 }
+    ];
+    
+    this.selectedProduct = this.products[1];
+  }
+}
+
+bootstrap(App); // This starts our Angular 2 app (equvilent to ng-app in Angular 1.x)
+{% endraw %}
+</code>
+</pre>
+
+So here we can see we are defining some properties on our component class. First is a list of products that 
+we will pass into our `ngFor`. Next is the `selectedProduct` property. We set this value to the selected property
+our `product-item` component emits. 
+
+So lets look into the `product-item` source code and then dig into the template syntax a bit more.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
+
+@Component({
+  selector: 'product-item',
+  template: `
+    &lt;div class="product"&gt;
+      &lt;button (click)="select()">Buy&lt;/button&gt;
+      {{product.name}}
+    &lt;/div&gt;
+  `
+})
+export class ProductItemComponent {
+  @Input() product: any;
+  @Output() onSelect: EventEmitter;
+  
+  constructor() {
+    this.onSelect = new EventEmitter();
+  }
+  
+  select() {
+    this.onSelect.emit(this.product);
+  }
+}
+{% endraw %}
+</code>
+</pre>
+
+The first line we are importing the peices we need from Angular once again using the new ES6 module syntax.
+Next is our component decorator that we covered earlier. The template is fairly small. We display the product 
+we get from our input property. The next part is the click event we create. Using the event syntax we don't need 
+a bunch of Angularisms like `ng-click`, `ng-whatever-event`. The `()` lets angular know we simply want a browser 
+click event. Our click event calls a method on the component called `select`.
 
 ## Migration Strategies
