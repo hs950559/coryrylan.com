@@ -4,9 +4,9 @@ title: Comparing Angular 1 Components to Angular 2 Components
 description: A comparison of Angular 1 components to Angular 2 components and migration strategies.
 keywords: Cory Rylan, Angular2, AngularJS, Components
 tags: angular2, angularjs
-date: 2016-04-05
+date: 2016-04-06
 permalink: /blog/comparing-angular-1-components-to-angular-2-components
-demo: 
+demo:
 ---
 
 With Angular 2 fast approaching, Angular 1.5 introduced a new component syntax that mimics similar
@@ -22,7 +22,7 @@ In this example we have a simple application that lists a list of products for s
 With this tree like structure it is easier to understand how an app is composed and data is passed between components.
 Lets take a look at what the rendered output will look like.
 
-<video src="/assets/video/posts/2016-04-05-comparing-angular-1-components-to-angular-2-components/angular-component.mp4" autoplay loop controls class="float-center col-4--max"></video>
+<video src="/assets/video/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component.mp4" autoplay loop controls class="float-center col-4--max"></video>
 
 Now lets take a look at the app component source code. Our Angular 1 code is in ES5 while our Angular 2 code will
 be written in ES6/TypeScript.
@@ -84,7 +84,7 @@ angular
 Looking at our `product-item` component we have a property called `bindings` defined. This let us define an API to our
 component for how it will interact with other components. The first binding we have is `product` this is the 
 product that is passed into the component from our parent app component. `<product-item product="product">` The
-binding `'<'` is for binding it as a <a href="https://docs.angularjs.org/guide/component#component-based-application-architecture" target="_blank">one way property</a> 
+binding `'<'` is for binding as a <a href="https://docs.angularjs.org/guide/component#component-based-application-architecture" target="_blank">one way property</a> 
 passing a reference of the product. 
 
 The next binding is the `onSelect` which uses the `'&'` notation. This means the incoming value should be 
@@ -95,7 +95,7 @@ So when we click a buy button we call the `onSelect` and pass back the selected 
 data flow is common and encouraged in Angular 2. We can visualize how the data flows through our app
 with the diagram below. 
 
-<img src="/assets/images/posts/2016-04-05-comparing-angular-1-components-to-angular-2-components/angular-component-comunication.svg" alt="Example of Angular 2 component data flow" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication.svg" alt="Example of Angular 2 component data flow" class="full-width float-center col-6--max" />
 
 So we can see we pass data along down to child components and the child components use events to notify their parent of 
 a change or user action. We will see how this pattern is renforced in our Angular 2 version.
@@ -205,11 +205,12 @@ passing in data `[product]`.
 Next is the `(onSelect)` on the `product-item`. The `onSelect` is a custom event our `product-item` component raises to 
 notify it's parent component. When we want to hook into events we reference using the `()` parens syntax. This 
 applies to all events even browser events like click, ex: `(click)`. We will see more of this once we go over our `product-item`
-component. 
+component. One thing to note our `(onSelect)` uses camel casing vs dashes. This is because of Angular 2's new
+HTML parser that allows our HTML to be case-sensitive. This removes the need of case conversions that we had in Angular 2.
 
-So whats the benefit of this syntax? Well we can easily describe our components API. Data flows in as *inputs* to the component
-via [properties] and data flows as an *outputs* via `(events)`. We can look at a template and quickly understand the 
-data flow between components. This will also help IDEs understand and statically understand our template and give us
+So whats the benefit of this syntax? Well we can easily describe our components API. Data flows in as **inputs** to the component
+via [properties] and data flows as **outputs** via `(events)`. We can look at a template and quickly understand the 
+data flow between components. This will also help IDEs statically analyze and understand our template and give us
  hints such as possible missing properties and events on our component.
 
 Now lets look at the class definition of the app component. This is a simple ES6/ES2015 class with a bit of TypeScript.
@@ -301,7 +302,7 @@ export class ProductItemComponent {
 </pre>
 
 As you can see we have two properties defined on our component. They are `product` and `onSelect`. These properties 
-are decorated with `@Input` and `@Output` decorators. This syntax is currently and TypeScript feature but there
+are decorated with `@Input` and `@Output` decorators. This syntax is currently a TypeScript feature but there
 is an equivalent syntax for ES2015 code. These property decorators tell Angular their purpose. So the `product` is
 an input to our component accepting a product object. `[product]` -> `@Input() product: any` The `onSelect` is an output
 and tells Angular that we will be outputting values using the `EventEmitter` class. `(onSelect)` -> `@Output() onSelect: EventEmitter`.
@@ -313,7 +314,7 @@ event which will be our selected product. The `select` method is called in our `
 
 So lets take another look at our data flow diagram now with the updated Angular 2 syntax.
 
-<img src="/assets/images/posts/2016-04-05-comparing-angular-1-components-to-angular-2-components/angular-component-comunication-2.svg" alt="Example of Angular 2 component data flow" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication-2.svg" alt="Example of Angular 2 component data flow" class="full-width float-center col-6--max" />
 
 As we can see the new Angular 2 syntax directly corresponds to how data flows in our application making it 
 easier to understand and debug. Here is a code snippet of our component with the Angular 1 and Angular 2 versions.
