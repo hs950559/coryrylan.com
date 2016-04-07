@@ -100,7 +100,9 @@ this data stream with all our components.
 
 In our service we hold onto a Observer as a private property on our service. A Observer instance is generated when creating a
 new Observable and subscribing to it. The Observer allows us to push new values down our Observable data stream. Calling `next()`
-will push a new value to all subscribers of the Observable stream.
+will push a new value to all subscribers of the Observable stream. One side note, if you are familiar with RxJS you can
+use <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/subjects.md" target="_blank">Subjects</a> 
+if you would like. For this tutorial we will stick to plain Observables.
 
 <pre class="language-typescript">
 <code>
