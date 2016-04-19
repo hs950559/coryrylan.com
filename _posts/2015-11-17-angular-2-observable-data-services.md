@@ -47,7 +47,7 @@ Observable in our component. Each time there is a new value emitted from our Obs
 <pre class="language-html">
 <code>
 {% raw %}
-<!-- Async pipe is used to bind an observable directly in our template -->
+&lt;!-- Async pipe is used to bind an observable directly in our template --&gt;
 &lt;div *ngFor=&quot;#todo of todos$ | async&quot;&gt;
     {{ todo.value }} &lt;button (click)=&quot;deleteTodo(todo.id)&quot;&gt;x&lt;/button&gt;
 &lt;/div&gt;
@@ -189,9 +189,9 @@ import {Observer} from 'rxjs/Observer';
 import 'rxjs/add/operator/share';
 
 export interface Todo {
-  id: number;
-  createdAt: number;
-  value: string;
+    id: number;
+    createdAt: number;
+    value: string;
 }
      
 export class TodosService {
@@ -214,7 +214,7 @@ export class TodosService {
         }, error => console.log('Could not load todos.'));
     }
     
-    load(id: any): Observable<any> {
+    load(id: any) {
         this._http.get(`${this._baseUrl}/todos/${id}`).subscribe(data => {
             let notFound = true;
     
@@ -262,7 +262,7 @@ export class TodosService {
 }
 </code>
 </pre>
-
+ 
 ## Overview
 
 This pattern can also be used in Angular 1. RxJS and Observables are not just an Angular 2 feature. This may seem like a lot
