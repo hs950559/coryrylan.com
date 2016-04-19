@@ -41,7 +41,7 @@ export class App {
   constructor(private _formBuilder: FormBuilder) {  
     this.userForm = this._formBuilder.group({
         'name': ['', Validators.required],
-        'email': ['', Validators.compose([Validators.required, ValidationService.emailValidator])
+        'email': ['', Validators.compose([Validators.required, ValidationService.emailValidator])]
     });
   }
   
@@ -66,7 +66,7 @@ We inject it through our App component constructor. In our constructor is the fo
 <code>
 this.userForm = this._formBuilder.group({
     'name': ['', Validators.required],
-    'email': ['', Validators.compose([Validators.required, ValidationService.emailValidator])
+    'email': ['', Validators.compose([Validators.required, ValidationService.emailValidator])]
 });
 </code>
 </pre>
