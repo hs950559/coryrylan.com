@@ -206,7 +206,7 @@ Next is the `(onSelect)` on the `product-item`. The `onSelect` is a custom event
 notify it's parent component. When we want to hook into events we reference using the `()` parens syntax. This 
 applies to all events even browser events like click, ex: `(click)`. We will see more of this once we go over our `product-item`
 component. One thing to note our `(onSelect)` uses camel casing vs dashes. This is because of Angular 2's new
-HTML parser that allows our HTML to be case-sensitive. This removes the need of case conversions that we had in Angular 2.
+HTML parser that allows our HTML to be case-sensitive. This removes the need of case conversions that we had in Angular 1.x.
 
 So whats the benefit of this syntax? Well we can easily describe our components API. Data flows in as **inputs** to the component
 via [properties] and data flows as **outputs** via `(events)`. We can look at a template and quickly understand the 
