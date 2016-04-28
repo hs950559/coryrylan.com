@@ -215,7 +215,7 @@ export class TodosService {
     }
     
     load(id: any) {
-        this._http.get(`${this._baseUrl}/todos/${id}`).subscribe(data => {
+        this._http.get(`${this._baseUrl}/todos/${id}`).map(response => response.json()).subscribe(data => {
             let notFound = true;
     
             this._dataStore.todos.forEach((item, index) => {
@@ -228,6 +228,8 @@ export class TodosService {
             if (notFound) {
                 this._dataStore.todos.push(data);
             }
+            
+            this._todosObserver.next(this._dataStore.todos);
         }, error => console.log('Could not load todo.'));
     }
      
