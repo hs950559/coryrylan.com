@@ -37,7 +37,7 @@ Here is the new `ngFor` syntax.
 {% raw %}
 &lt;!-- Angular 2.0 --&gt;
 &lt;ul&gt;
-    &lt;li *ngFor=&quot;#item of items; #i = index&quot;&gt;
+    &lt;li *ngFor=&quot;let item of items; let i = index&quot;&gt;
         {{i}} {{item}}
     &lt;/li&gt;
 &lt;/ul&gt;
@@ -54,7 +54,7 @@ The template tag prevents the browser from reading or executing the code within 
 <code>
 {% raw %}
 &lt;!-- Angular 2.0 longhand ngFor --&gt;
-&lt;template ngFor #item=&quot;$implicit&quot; [ngForOf]=&quot;items&quot; #i=&quot;index&quot;&gt;
+&lt;template ngFor let-item=&quot;$implicit&quot; [ngForOf]=&quot;items&quot; let-i=&quot;index&quot;&gt;
     {{i}} {{item}}
 &lt;/template&gt;
 {% endraw %}
@@ -67,7 +67,7 @@ So below is the typical syntax for an Angular 2 list.
 <code>
 {% raw %}
 &lt;ul&gt;
-    &lt;li *ngFor=&quot;#item of items; #i = index&quot;&gt;
+    &lt;li *ngFor=&quot;let item of items; let i = index&quot;&gt;
         {{i}} {{item}}
     &lt;/li&gt;
 &lt;/ul&gt;
@@ -75,18 +75,18 @@ So below is the typical syntax for an Angular 2 list.
 </code>
 </pre>
 
-Looking back at our `ngFor` the next interesting thing to note is `#item of items;`. The `#`
-hash key is part of the Angular 2 template syntax. `#` creates a local variable that can be referenced anywhere in our template.
-So in our case we are creating a local variable `#item`.
+Looking back at our `ngFor` the next interesting thing to note is `let item of items;`. The `let`
+key is part of the Angular 2 template syntax. `let` creates a local variable that can be referenced anywhere in our template.
+So in our case we are creating a local variable `let item`.
 
-The `#i` creates a template local variable to get the index of the array. If you do not need access to the index in your list
+The `let i` creates a template local variable to get the index of the array. If you do not need access to the index in your list
 the `ngFor` simply boils down to the following code.
 
 <pre class="language-markup">
 <code>
 {% raw %}
 &lt;ul&gt;
-    &lt;li *ngFor=&quot;#item of items&quot;&gt;
+    &lt;li *ngFor=&quot;let item of items&quot;&gt;
         {{item}}
     &lt;/li&gt;
 &lt;/ul&gt;

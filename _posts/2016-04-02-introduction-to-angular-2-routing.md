@@ -48,7 +48,8 @@ app component and see how we can use the new Router to route between these two c
 {% raw %}
 import {Component, bind} from &#39;angular2/core&#39;;
 import {bootstrap} from &#39;angular2/platform/browser&#39;;
-import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink, LocationStrategy, HashLocationStrategy} from &#39;angular2/router&#39;;
+import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink} from &#39;angular2/router&#39;;
+import {LocationStrategy, HashLocationStrategy} from &#39;angular2/platform/common&#39;;
 
 import {About} from &#39;src/about&#39;;
 import {Home} from &#39;src/home&#39;;
@@ -85,7 +86,8 @@ So lets walk through our app component step by step and see what this code is do
 <code>
 {% raw %}
 // Router Goodies
-import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink, LocationStrategy, HashLocationStrategy} from &#39;angular2/router&#39;;`
+import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink} from &#39;angular2/router&#39;;`
+import {LocationStrategy, HashLocationStrategy} from &#39;angular2/platform/common&#39;;
 {% endraw %}
 </code>
 </pre>

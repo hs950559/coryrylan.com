@@ -54,12 +54,12 @@ import {Pipe} from 'angular2/core';
 })
 export class EllipsisPipe {
     transform(val, args) {
-        if (args[0] === -1) {
+        if (args === undefined) {
             return val;
         }
 
-        if (val.length > args[0]) {
-            return val.substring(0, args[0]) + '...';
+        if (val.length > args) {
+            return val.substring(0, args) + '...';
         } else {
             return val;
         }
