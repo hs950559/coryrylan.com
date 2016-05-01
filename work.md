@@ -6,9 +6,29 @@ keywords: Cory Rylan, Portfolio
 tab: work
 ---
 
-# Work & Contributions
+# Work & Speaking
+
+You can find me teaching via [Angular Bootcamp Training](http://angularbootcamp.com/) and speaking
+in the St.Louis area about Angular and JavaScript.
+
+- [Angular Lunch Meetup Angular 2 and RxJS](https://angularlunch.wordpress.com/2016/02/06/lunch-wed-feb-17-2016-rxobservable-in-angular-2/)
+- [Angular Lunch Meetup Angular 2 and Visual Studio](https://angularlunch.wordpress.com/2016/03/12/lunch-wed-march-16-2016-visual-studio-with-angular-2/)
+
+<br />
 
 <div class="flex-row--stretch">
+    <div class="col-6--md">
+        <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
+            <meta itemprop="contributor" content="Cory Rylan" />
+            <meta itemprop="publisher" content="Cory Rylan" />
+            <img src="/assets/images/work/focus.jpg" alt="" class="full-width" />
+
+            <h2 itemprop="name"><a href="https://splintercode.github.io/focus/" target="_blank" itemprop="url">Focus</a></h2>
+            
+            <p itemprop="about">#Angular2 #TypeScript #RxJS</p>
+            <a href="https://splintercode.github.io/focus/" target="_blank" class="btn">Explore</a>
+        </div>
+    </div>
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -21,6 +41,9 @@ tab: work
             <a href="https://splintercode.github.io/core-flex-grid/" target="_blank" class="btn">Explore</a>
         </div>
     </div>
+</div>
+
+<div class="flex-row--stretch">
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -32,10 +55,7 @@ tab: work
             <p itemprop="about">#JavaScript #Angular2 #AngularJS</p>
             <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank" class="btn">Explore</a>
         </div>
-    </div>    
-</div>
-
-<div class="flex-row--stretch">
+    </div>
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -47,7 +67,11 @@ tab: work
             <p itemprop="about">#JavaScript, #Sass, #ProjectManagement</p>
             <a href="https://www.antiquemalls.com" target="_blank" class="btn">Explore</a>
         </div>
-    </div>
+    </div>    
+</div>
+
+
+<div class="flex-row--stretch">
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -59,11 +83,7 @@ tab: work
             <p itemprop="about">#JavaScript #Sass #HTML #Responsive #Performance #UI #UX #CSharp</p>
             <a href="http://www.EstateSales.NET" target="_blank" class="btn">Explore</a>
         </div>
-    </div>    
-</div>
-
-
-<div class="flex-row--stretch">
+    </div>
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -75,7 +95,9 @@ tab: work
             <p itemprop="about">#JavaScript #Sass #HTML #Responsive #Performance #UI #UX #CSharp </p>
             <a href="http://www.estateliquidators.com" target="_blank" class="btn">Explore</a>
         </div>
-    </div>
+    </div>   
+</div>
+<div class="flex-row--stretch">
     <div class="col-6--md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
@@ -87,12 +109,27 @@ tab: work
             <p itemprop="about">#JavaScript #AngularJS #Sass #HTML #Responsive</p>
             <a href="http://losemycookies.com" target="_blank" class="btn">Explore</a>
         </div>
-    </div>    
+    </div> 
 </div>
 <br />
 <h2>Places I've been</h2>
 
 <div class="card">
+    <section itemscope itemtype="http://schema.org/Event">
+        <a href="https://www.ng-conf.org/" target="_blank"><span itemprop="name">Angular ng-conf 2016</span></a>
+        <p>
+            Attended ng-conf Conference in Salt Lake City UT
+            <span itemprop="location" itemscope itemtype="http://schema.org/Place">
+                <meta itemprop="name" content="Salt Lake City" />
+                <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="addressLocality">Salt Lake City</span>,
+                    <span itemprop="addressRegion">UT</span>
+                </span>
+            </span>
+            <meta itemprop="startDate" content="2016-05-04">
+            <meta itemprop="endDate" content="2016-05-07">
+        </p>
+    </section>
     
     <section itemscope itemtype="http://schema.org/Event">
         <a href="http://www.stldodn.com/" target="_blank"><span itemprop="name">Days of Dot Net 2015</span></a>
