@@ -1,0 +1,51 @@
+---
+title: Missing
+---
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Cory Rylan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Offline Reading</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        main {
+            width: 100%;
+            max-width: 920px;
+            padding: 10px;
+            margin: 20px auto;
+        }
+        
+        pre {
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Offline Reading</h1>
+        <p>
+            Hey it looks like you are offline! Here are the latest couple of posts you 
+            can read until your connection is back up!
+        </p>
+        
+        <button onclick="document.location.reload(true);" class="btn">Retry Connection</button>
+            
+        {% for post in site.posts limit:2 %}
+            <h2>{{ post.title }}</h2>    
+            <small>{{ post.date | date: "%b %-d, %Y" }}</small><br/>
+
+            {{ post.content }}
+            
+            <br /><hr /><br />
+        {% endfor %}
+    </main>
+</body>
+</html>
