@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Converting Angular 1 services to Angular 2 services
+title: Converting Angular 1 Services to Angular 2 Services
 description: Learn how to convert Angular 1 service factories the most common Angular 1 service pattern to Angular 2 services.
 keywords: Cory Rylan, Angular2, AngularJS, TypeScript
 tags: angular2, angularjs, typescript
