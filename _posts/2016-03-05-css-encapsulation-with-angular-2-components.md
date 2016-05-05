@@ -5,6 +5,7 @@ description: A intro on how to better encapsulate your CSS in Angular 2 componen
 keywords: Cory Rylan, Angular2, CSS
 tags: CSS, angular2
 date: 2016-03-05
+updated: 2016-05-05
 permalink: /blog/css-encapsulation-with-angular-2-components
 demo: http://plnkr.co/edit/JYbmizTKUd29zfmmMmLc?p=preview
 ---
@@ -21,10 +22,9 @@ In our Angular 2 app we will have three components. First is our App component, 
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {FirstComponent} from 'src/first.component.ts';
-import {SecondComponent} from 'src/second.component.ts';
+import { Component } from '@angular/core';
+import { FirstComponent } from 'app/first.component.ts';
+import { SecondComponent } from 'app/second.component.ts';
 
 @Component({
   selector: 'demo-app',
@@ -41,8 +41,6 @@ import {SecondComponent} from 'src/second.component.ts';
 export class App {
   constructor() { }
 }
-
-bootstrap(App);
 {% endraw %}
 </code>
 </pre>
@@ -69,7 +67,7 @@ Now lets take a look at our `FirstComponent` and `SecondComponent` and see the o
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component} from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'first-cmp',
@@ -123,7 +121,7 @@ This is true native CSS encapsulation but is not enabled by default in Angular 2
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component, ViewEncapsulation} from 'angular2/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'second-cmp',
@@ -172,7 +170,7 @@ Angular offers an easy way to disable CSS encapsulation. So lets disable this on
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component, ViewEncapsulation} from 'angular2/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'second-cmp',
