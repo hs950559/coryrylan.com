@@ -28,27 +28,27 @@ of methods.
 <code>
 {% raw %}
 (function() {
-    'use strict';
+  'use strict';
 
-    angular.module('app').factory('dataService', dataService);
+   angular.module('app').factory('dataService', dataService);
 
-    function dataService() {
-        var service = {
-            data: data
-            loadData: loadData
-        };
+   function dataService() {
+     var service = {
+       data: data,
+       loadData: loadData
+     };
         
-        var data = {
-            items: []
-        };
+     var data = {
+       items: []
+     };
 
-        return service;
+     return service;
 
-        function loadData() {
-            // Commonly where Http calls are made
-            data.items = ['one', 'two', 'three'];
-        }
-    }
+     function loadData() {
+       // Commonly where Http calls are made
+       data.items = ['one', 'two', 'three'];
+     }
+  }
 }());
 {% endraw %}
 </code>
@@ -66,21 +66,21 @@ So now that we have our Angular 1.x Factory lets convert this to a Service and u
 <code>
 {% raw %}
 (function() {
-    'use strict';
+  'use strict';
 
-    class DataService {
-        constructor() {
-            this.data = {
-            items: []
-            };
-        }
-
-        loadData() {
-            this.data.items = ['one', 'two', 'three'];
-        }
+  class DataService {
+    constructor() {
+      this.data = {
+        items: []
+       };
     }
 
-    angular.module('app').service('DataService', DataService);
+    loadData() {
+      this.data.items = ['one', 'two', 'three'];
+    }
+  }
+
+  angular.module('app').service('DataService', DataService);
 }());
 {% endraw %}
 </code>
@@ -104,17 +104,17 @@ So lets take a look at our Angular 2 version of this same service.
 <code>
 {% raw %}
 export class DataService {
-	data: { items: string[] };
+  data: { items: string[] };
 	
-    constructor() {
-        this.data = {
-            items: []
-        };
-    }
+  constructor() {
+    this.data = {
+      items: []
+    };
+  }
 
-    loadData() {
-        this.data.items = ['one', 'two', 'three'];
-    }
+  loadData() {
+    this.data.items = ['one', 'two', 'three'];
+  }
 }
 
 // data.service.ts file

@@ -32,9 +32,9 @@ to the bottom of our page.
 <code>
 {% raw %}
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-            .register('/service-worker.js')
-            .then(function () { console.log('Service Worker Registered'); });
+  navigator.serviceWorker
+           .register('/service-worker.js')
+           .then(function () { console.log('Service Worker Registered'); });
 }
 {% endraw %}
 </code>
@@ -140,7 +140,7 @@ service worker like so:
 
 const CACHE_VERSION = '{{ site.time }}';
 let CURRENT_CACHES = {
-    offline: 'offline-v' + CACHE_VERSION
+  offline: 'offline-v' + CACHE_VERSION
 };
 {% endraw %}
 </code>
@@ -166,22 +166,22 @@ example we are using [Jekyll](https://jekyllrb.com/) but the same principle coul
 &lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-	&lt;title&gt;Offline Reading&lt;/title&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;Offline Reading&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;main&gt;        
-        &lt;button onclick=&quot;document.location.reload(true);&quot; class=&quot;btn&quot;&gt;Retry Connection&lt;/button&gt;
+  &lt;main&gt;        
+    &lt;button onclick=&quot;document.location.reload(true);&quot; class=&quot;btn&quot;&gt;Retry Connection&lt;/button&gt;
             
-        {% for post in site.posts limit:2 %}
-            &lt;h2&gt;{{ post.title }}&lt;/h2&gt;    
-            &lt;small&gt;{{ post.date | date: &quot;%b %-d, %Y&quot; }}&lt;/small&gt;&lt;br/&gt;
+    {% for post in site.posts limit:2 %}
+      &lt;h2&gt;{{ post.title }}&lt;/h2&gt;    
+        &lt;small&gt;{{ post.date | date: &quot;%b %-d, %Y&quot; }}&lt;/small&gt;&lt;br/&gt;
 
-            {{ post.content }}
+        {{ post.content }}
             
-            &lt;br /&gt;&lt;hr /&gt;&lt;br /&gt;
-        {% endfor %}
-    &lt;/main&gt;
+        &lt;br /&gt;&lt;hr /&gt;&lt;br /&gt;
+    {% endfor %}
+  &lt;/main&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 {% endraw %}

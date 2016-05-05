@@ -5,6 +5,7 @@ description: A comparison of Angular 1 components to Angular 2 components and mi
 keywords: Cory Rylan, Angular2, AngularJS, Components
 tags: angular2, angularjs
 date: 2016-04-06
+updated: 2016-05-05
 permalink: /blog/comparing-angular-1-components-to-angular-2-components
 demo:
 ---
@@ -108,14 +109,13 @@ First we will look at our root app component.
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component} from &#39;angular2/core&#39;;
-import {bootstrap} from &#39;angular2/platform/browser&#39;;
-import {ProductItemComponent} from &#39;src/product-item.component&#39;;
+import { Component } from &#39;@angular/core&#39;;
+import { ProductItemComponent } from &#39;app/product-item.component&#39;;
 
 @Component({
   selector: &#39;demo-app&#39;,
   template: `
-    &lt;div *ngFor=&quot;#product of products&quot;&gt;
+    &lt;div *ngFor=&quot;let product of products&quot;&gt;
       &lt;product-item [product]=&quot;product&quot; (onSelect)=&quot;selectedProduct = $event&quot;&gt;&lt;/product-item&gt;
     &lt;/div&gt;
     &lt;hr /&gt;
@@ -124,7 +124,7 @@ import {ProductItemComponent} from &#39;src/product-item.component&#39;;
   `,
   directives: [ProductItemComponent]
 })
-export class App {
+export class AppComponent {
   selectedProduct: any;
   
   constructor() { 
@@ -133,12 +133,10 @@ export class App {
       { name: &#39;iPad&#39;, price: 800.00 },
       { name: &#39;Macbook&#39;, price: 1200.00 }
     ];
-    
-    this.selectedProduct = this.products[1];
+
+    this.selectedProduct = this.products[0];
   }
 }
-
-bootstrap(App);
 {% endraw %}
 </code>
 </pre>
@@ -151,9 +149,8 @@ Angular 2 modules and our `ProductItemComponent` using ES6 module syntax.
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component} from &#39;angular2/core&#39;;
-import {bootstrap} from &#39;angular2/platform/browser&#39;;
-import {ProductItemComponent} from &#39;src/product-item.component&#39;;
+import { Component } from &#39;@angular/core&#39;;
+import { ProductItemComponent } from &#39;app/product-item.component&#39;;
 {% endraw %}
 </code>
 </pre>
@@ -169,10 +166,10 @@ is a component and allows us to add meta data such as what our template is and w
   template: `
     &lt;div *ngFor=&quot;#product of products&quot;&gt;
       &lt;product-item [product]=&quot;product&quot; (onSelect)=&quot;selectedProduct = $event&quot;&gt;&lt;/product-item&gt;
-    &lt;/div&gt;
-    &lt;hr /&gt;
-    &lt;h3&gt;{{selectedProduct.name}}&lt;/h3&gt;
-    &lt;p&gt;{{selectedProduct.price | currency:&#39;USD&#39;:true:&#39;1.2-2&#39;}}&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;hr /&gt;
+      &lt;h3&gt;{{selectedProduct.name}}&lt;/h3&gt;
+      &lt;p&gt;{{selectedProduct.price | currency:&#39;USD&#39;:true:&#39;1.2-2&#39;}}&lt;/p&gt;
   `,
   directives: [ProductItemComponent]
 })
@@ -219,21 +216,19 @@ We will ignore the TypeScript bit for now.
 <pre class="language-javascript">
 <code>
 {% raw %}
-export class App {
+export class AppComponent {
   selectedProduct: any;  // TypeScript specific code defining that this prop can be of type any
-  
+
   constructor() { 
     this.products = [
       { name: &#39;iPhone&#39;, price: 500.00 },
       { name: &#39;iPad&#39;, price: 800.00 },
       { name: &#39;Macbook&#39;, price: 1200.00 }
     ];
-    
+
     this.selectedProduct = this.products[0];
   }
 }
-
-bootstrap(App); // This starts our Angular 2 app (sort of like ng-app in Angular 1.x)
 {% endraw %}
 </code>
 </pre>
@@ -247,13 +242,13 @@ So lets look into the `product-item` source code and then dig into the template 
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import { Component, Input, Output, EventEmitter } from &#39;@angular/core&#39;;
 
 @Component({
   selector: 'product-item',
   template: `
     &lt;div class="product"&gt;
-      &lt;button (click)="select()">Buy&lt;/button&gt;
+       &lt;button (click)="select()">Buy&lt;/button&gt;
       {{product.name}}
     &lt;/div&gt;
   `
@@ -263,7 +258,7 @@ export class ProductItemComponent {
   @Output() onSelect: EventEmitter;
   
   constructor() {
-    this.onSelect = new EventEmitter();
+      this.onSelect = new EventEmitter();
   }
   
   select() {
@@ -292,7 +287,7 @@ export class ProductItemComponent {
   constructor() {
     this.onSelect = new EventEmitter();
   }
-  
+
   select() {
     this.onSelect.emit(this.product);
   }
@@ -340,25 +335,25 @@ angular
   });
        
 // Angular 2    
-import {Component, Input, Output, EventEmitter} from &#39;angular2/core&#39;;
+import { Component, Input, Output, EventEmitter } from &#39;@angular/core&#39;;
 
 @Component({
   selector: &#39;product-item&#39;,
   template: `
     &lt;div class=&quot;product&quot;&gt;
-      &lt;button (click)=&quot;select()&quot;&gt;Buy&lt;/button&gt;
-      {{product.name}}
+    &lt;button (click)=&quot;select()&quot;&gt;Buy&lt;/button&gt;
+    {{product.name}}
     &lt;/div&gt;
-  `
+    `
 })
 export class ProductItemComponent {
   @Input() product: any;
   @Output() onSelect: EventEmitter;
-  
+
   constructor() {
     this.onSelect = new EventEmitter();
   }
-  
+
   select() {
     this.onSelect.emit(this.product);
   }
