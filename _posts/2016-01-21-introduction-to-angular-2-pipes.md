@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Introduction to Angular 2 Pipes
-description: Learn how to create your own custom Angular 2 pipe.
+description: Learn Angular 2 pipes and how to create your own custom pipe.
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2016-01-21
+updated: 2016-05-06
 permalink: /blog/introduction-to-angular-2-pipes
 demo: http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview
 ---
@@ -47,23 +48,23 @@ In our template the pipe takes in a parameter of how long we would like the text
 <pre class="language-typescript">
 <code>
 {% raw %}
-import {Pipe} from 'angular2/core';
+import { Pipe } from '@angular/core';
 
 @Pipe({
     name: 'ellipsis'
 })
 export class EllipsisPipe {
-    transform(val, args) {
-        if (args === undefined) {
-            return val;
-        }
-
-        if (val.length > args) {
-            return val.substring(0, args) + '...';
-        } else {
-            return val;
-        }
+  transform(val, args) {
+    if (args === undefined) {
+      return val;
     }
+
+    if (val.length > args) {
+      return val.substring(0, args) + '...';
+    } else {
+      return val;
+    }
+  }
 }
 {% endraw %}
 </code>
@@ -80,9 +81,8 @@ trims of extra characters and adds the ellipsis. Next take a look at our root ap
 <pre class="language-typescript">
 <code>
 {% raw %}
-import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {EllipsisPipe} from 'src/ellipsis.pipe';
+import { Component } from '@angular/core';
+import { EllipsisPipe } from 'app/ellipsis.pipe';
 
 @Component({
   selector: 'demo-app',
@@ -94,8 +94,6 @@ export class App {
     this.longText = 'Bacon ipsum dolor amet bacon t-bone tongue ball tip salami, flank capicola. Leberkas ribeye pork pork loin. Biltong porchetta picanha capicola tri-tip boudin. Tenderloin leberkas chicken, ham pig pork loin flank salami ham hock chuck meatball kevin. Meatloaf capicola landjaeger ground round ham hock ball tip boudin shank pork chop ribeye rump frankfurter turkey. Spare ribs short loin pork chop, biltong capicola shoulder pig drumstick pork porchetta brisket venison turducken sausage. Pig alcatra short loin jowl, prosciutto leberkas ham chuck.';
   }
 }
-
-bootstrap(App);
 {% endraw %}
 </code>
 </pre>
