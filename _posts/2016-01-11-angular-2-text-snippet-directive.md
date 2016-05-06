@@ -5,6 +5,7 @@ description: Learn about the new Directive API and build a text snippet directiv
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2016-01-11
+updated: 2016-05-05
 permalink: /blog/angular-2-text-snippet-directive
 demo: http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview
 ---
@@ -34,16 +35,15 @@ Our directive is passed in a list of snippets from our top-level Component.
 <pre class="language-typescript">
 <code>
 {% raw %}
-import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {UISnippets} from 'src/ui-snippets.directive';
+import { Component } from '@angular/core';
+import { UISnippets } from 'app/ui-snippets.directive';
 
 @Component({
   selector: 'demo-app',
-  templateUrl: 'src/app.html',
+  templateUrl: 'app/app.component.html',
   directives: [UISnippets]
 })
-export class App {
+export class AppComponent {
   constructor() { 
     this.mySnippets = [
       {
@@ -61,8 +61,6 @@ export class App {
     ];
   }
 }
-
-bootstrap(App);
 {% endraw %}
 </code>
 </pre>
@@ -72,7 +70,7 @@ So now we have our list of text snippets we can start constructing our Directive
 <pre class="language-typescript">
 <code>
 {% raw %}
-import {Directive, Input} from 'angular2/core';
+import { Directive, Input } from '@angular/core';
 
 interface Snippet {
     id?: number;
@@ -156,7 +154,7 @@ Now we can start to add our functionality to our directive.
 <pre class="language-typescript">
 <code>
 {% raw  %}
-import {Directive, Input} from 'angular2/core';
+import { Directive, Input } from '@angular/core';
 
 interface Snippet {
     id?: number;

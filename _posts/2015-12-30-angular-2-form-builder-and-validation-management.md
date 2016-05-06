@@ -5,6 +5,7 @@ description: Learn about the new FormBuilder and create a custom component to ma
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2015-12-30
+updated: 2016-05-06
 permalink: /blog/angular-2-form-builder-and-validation-management
 demo: http://plnkr.co/edit/6RkM0eRftf3KQpoDCktz?p=preview
 ---
@@ -20,22 +21,39 @@ In our example we are going to build a simple subscription form with two inputs,
     
 <img src="/assets/images/posts/2015-12-30-angular-2-form-builder-and-validation-management/form-1.jpg" alt="A simple user form." class="full-width col-5--max" />
 
-We will start with creating our Form with the FormBuilder class on our root application component.
+We will start with looking at our `main.ts` file.
 
 <pre class="language-typescript">
 <code>
-import {Component} from 'angular2/core';
-import {FORM_PROVIDERS, FormBuilder, Validators} from 'angular2/common';
-import {bootstrap} from 'angular2/platform/browser';
-import {ControlMessages} from './control-messages.component';
-import {ValidationService} from './validation.service';
+{% raw %}
+import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { FORM_PROVIDERS } from '@angular/common';
+import { AppComponent } from 'app/app.component';
+
+bootstrap(AppComponent, [
+  FORM_PROVIDERS
+]);
+{% endraw %}
+</code>
+</pre>
+
+Here is our root main component. We import `FORM_PROVIDERS` and register it in our bootstrap. This allows us to use Angular 2 forms in our templates as
+Forms are a separate module from the core library. Next lets look at the app component.
+
+<pre class="language-typescript">
+<code>
+{% raw %}
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/common';
+import { ControlMessages } from './control-messages.component';
+import { ValidationService } from './validation.service';
      
 @Component({
   selector: 'demo-app',
-  templateUrl: 'src/app.html',
+  templateUrl: 'app/app.component.html',
   directives: [ControlMessages]
 })
-export class App {
+export class AppComponent {
   userForm: any;
   
   constructor(private _formBuilder: FormBuilder) {  
@@ -51,23 +69,21 @@ export class App {
     }
   }
 }
-bootstrap(App, [
-  FORM_PROVIDERS
-]);
+{% endraw %}
 </code>
 </pre>
 
-Here is our root app component. We are importing a few modules we need to be aware of.
-First is our `FORM_PROVIDERS`. This allows us to use Angular 2 forms in our templates as
-Forms are a separate module from the core library. Next is our `FormBuilder` class.
-We inject it through our App component constructor. In our constructor is the following:
+First is our `FormBuilder` class. We inject it through our App component constructor. 
+In our constructor is the following:
     
 <pre class="language-typescript">
 <code>
+{% raw %}
 this.userForm = this._formBuilder.group({
     'name': ['', Validators.required],
     'email': ['', Validators.compose([Validators.required, ValidationService.emailValidator])]
 });
+{% endraw %}
 </code>
 </pre>
 
@@ -126,33 +142,33 @@ Here is the example code for our control-messages component.
 <pre class="language-typescript">
 <code>
 {% raw %}
-import {Component, Host} from 'angular2/core';
-import {NgFormModel} from 'angular2/common';
-import {ValidationService} from './validation.service';
+import { Component, Host } from '@angular/core';
+import { NgFormModel } from '@angular/common';
+import { ValidationService } from 'app/validation.service';
      
 @Component({
-    selector: 'control-messages',
-    inputs: ['controlName: control'],
-    template: `&lt;div *ngIf=&quot;errorMessage !== null&quot;&gt;{{errorMessage}}&lt;/div&gt;`
+  selector: 'control-messages',
+  inputs: ['controlName: control'],
+  template: `&lt;div *ngIf=&quot;errorMessage !== null&quot;&gt;{{errorMessage}}&lt;/div&gt;`
 })
 export class ControlMessages {
-    controlName: string;
-    constructor(@Host() private _formDir: NgFormModel) { }
+  controlName: string;
+  constructor(@Host() private _formDir: NgFormModel) { }
      
-    get errorMessage() {
-        // Find the control in the Host (Parent) form
-        let c = this._formDir.form.find(this.controlName);
+  get errorMessage() {
+    // Find the control in the Host (Parent) form
+    let c = this._formDir.form.find(this.controlName);
      
-        for (let propertyName in c.errors) {
-	        // If control has a error
-            if (c.errors.hasOwnProperty(propertyName) && c.touched) {
- 		        // Return the appropriate error message from the Validation Service
-                return ValidationService.getValidatorErrorMessage(propertyName);
-            }
-        }
-        
-        return null;
+    for (let propertyName in c.errors) {
+	  // If control has a error
+      if (c.errors.hasOwnProperty(propertyName) && c.touched) {
+ 	    // Return the appropriate error message from the Validation Service
+        return ValidationService.getValidatorErrorMessage(propertyName);
+      }
     }
+        
+    return null;
+  }
 }
 {% endraw %}
 </code>
@@ -167,46 +183,48 @@ Here is an example of our validation service:
 
 <pre class="language-typescript">
 <code>
-    export class ValidationService {
+{% raw %}
+export class ValidationService {
      
-    static getValidatorErrorMessage(code: string) {
-        let config = {
-            'required': 'Required',
-            'invalidCreditCard': 'Is invalid credit card number',
-            'invalidEmailAddress': 'Invalid email address',
-            'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.'
-        };
-        return config[code];
-    }
+  static getValidatorErrorMessage(code: string) {
+    let config = {
+      'required': 'Required',
+      'invalidCreditCard': 'Is invalid credit card number',
+      'invalidEmailAddress': 'Invalid email address',
+      'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.'
+    };
+    return config[code];
+  }
 
-    static creditCardValidator(control) {
-        // Visa, MasterCard, American Express, Diners Club, Discover, JCB
-        if (control.value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/)) {
-            return null;
-        } else {
-            return { 'invalidCreditCard': true };
-        }
+  static creditCardValidator(control) {
+    // Visa, MasterCard, American Express, Diners Club, Discover, JCB
+    if (control.value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/)) {
+      return null;
+    } else {
+      return { 'invalidCreditCard': true };
+    }
+  }
+     
+  static emailValidator(control) {
+    // RFC 2822 compliant regex
+    if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
+      return null;
+    } else {
+        return { 'invalidEmailAddress': true };
+      }
     }
      
-    static emailValidator(control) {
-        // RFC 2822 compliant regex
-        if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
-            return null;
-        } else {
-            return { 'invalidEmailAddress': true };
-        }
-    }
-     
-    static passwordValidator(control) {
-        // {6,100}           - Assert password is between 6 and 100 characters
-        // (?=.*[0-9])       - Assert a string has at least one number
-        if (control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-            return null;
-        } else {
-            return { 'invalidPassword': true };
-        }
-    }
+   static passwordValidator(control) {
+     // {6,100}           - Assert password is between 6 and 100 characters
+     // (?=.*[0-9])       - Assert a string has at least one number
+     if (control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
+       return null;
+     } else {
+       return { 'invalidPassword': true };
+     }
+  }
 }
+{% endraw %}
 </code>
 </pre>
 

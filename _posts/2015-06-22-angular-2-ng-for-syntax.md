@@ -5,14 +5,14 @@ description: A quick look into the new Angular 2 ngFor syntax.
 keywords: Cory Rylan, Web, Angular 2, JavaScript, ng-repeat, ngFor
 tags: angular2, angularjs, javascript
 date: 2015-06-22
-updated: 2016-03-06
+updated: 2016-05-06
 demo: http://plnkr.co/edit/0s3qtC0TvHdiJLmz4H3m?p=preview
 permalink: /blog/angular-2-ng-for-syntax
 ---
 
 Angular 2 will contain many new changes and improvements over Angular 1.x This post will cover the new `ngFor`
-syntax and a simple comparison of version 1 `ng-repeat` to version 2 `ngFor`. Note Angular 2 is still in Alpha and the API's are actively changing.
-At the writing of this post Angular 2 is at version Beta 0. This post has been updated to Beta 8. To get an idea on the progress of the project check
+syntax and a simple comparison of version 1 `ng-repeat` to version 2 `ngFor`. Note Angular 2 is still in development and the API's are actively changing.
+At the writing of this post Angular 2 is at RC 1. To get an idea on the progress of the project check
 out <a href="http://splintercode.github.io/is-angular-2-ready/" target="_blank">Is Angular 2 Ready?</a>
 
 First we will take a look at a simple Angular 1.x repeater that displays the index of the repeated item and the item value.
@@ -22,9 +22,9 @@ First we will take a look at a simple Angular 1.x repeater that displays the ind
 {% raw %}
 &lt;!-- Angular 1.x --&gt;
 &lt;ul&gt;
-    &lt;li ng-repeat=&quot;item in items&quot;&gt;
-        {{$index}} {{item}}
-    &lt;/li&gt;
+  &lt;li ng-repeat=&quot;item in items&quot;&gt;
+    {{$index}} {{item}}
+  &lt;/li&gt;
 &lt;/ul&gt;
 {% endraw %}
 </code>
@@ -37,9 +37,9 @@ Here is the new `ngFor` syntax.
 {% raw %}
 &lt;!-- Angular 2.0 --&gt;
 &lt;ul&gt;
-    &lt;li *ngFor=&quot;let item of items; let i = index&quot;&gt;
-        {{i}} {{item}}
-    &lt;/li&gt;
+  &lt;li *ngFor=&quot;let item of items; let i = index&quot;&gt;
+    {{i}} {{item}}
+  &lt;/li&gt;
 &lt;/ul&gt;
 {% endraw %}
 </code>
@@ -55,7 +55,7 @@ The template tag prevents the browser from reading or executing the code within 
 {% raw %}
 &lt;!-- Angular 2.0 longhand ngFor --&gt;
 &lt;template ngFor let-item=&quot;$implicit&quot; [ngForOf]=&quot;items&quot; let-i=&quot;index&quot;&gt;
-    {{i}} {{item}}
+  {{i}} {{item}}
 &lt;/template&gt;
 {% endraw %}
 </code>
@@ -67,9 +67,9 @@ So below is the typical syntax for an Angular 2 list.
 <code>
 {% raw %}
 &lt;ul&gt;
-    &lt;li *ngFor=&quot;let item of items; let i = index&quot;&gt;
-        {{i}} {{item}}
-    &lt;/li&gt;
+  &lt;li *ngFor=&quot;let item of items; let i = index&quot;&gt;
+    {{i}} {{item}}
+  &lt;/li&gt;
 &lt;/ul&gt;
 {% endraw %}
 </code>
@@ -86,9 +86,9 @@ the `ngFor` simply boils down to the following code.
 <code>
 {% raw %}
 &lt;ul&gt;
-    &lt;li *ngFor=&quot;let item of items&quot;&gt;
-        {{item}}
-    &lt;/li&gt;
+  &lt;li *ngFor=&quot;let item of items&quot;&gt;
+    {{item}}
+  &lt;/li&gt;
 &lt;/ul&gt;
 {% endraw %}
 </code>

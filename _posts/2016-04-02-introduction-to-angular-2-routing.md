@@ -5,15 +5,17 @@ description: Learn how to manage large Angular 2 applications and navigation wit
 keywords: Cory Rylan, Angular2, AngularJS, routing, router
 tags: angular2, angularjs
 date: 2016-04-02
+updated: 2016-05-06
 permalink: /blog/introduction-to-angular-2-routing
-demo: http://plnkr.co/edit/2f8afYkIS2i9UgoWj9xO?p=preview
+demo: http://plnkr.co/edit/mWwhzJptV24uZwZeSrHX?p=preview
 ---
 
 Angular 2 brings many improved modules to the Angular ecosystem including a new router called the Component Router. 
 The component router is a highly configurable and feature packed router. Features included are routing, child routes, 
 named routes, route parameters and auxiliary routes. This post we will cover basic routing, route parameters and nested 
 child routes. With these basics we can build a great navigation experience for users
-that is easy to reason about. 
+that is easy to reason about. Note this post has been updated to the new RC release router that is currently being 
+documented on the Angular website.
 
 ## Basic Routing
 
@@ -23,59 +25,56 @@ Lets take a look at these two components first.
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component} from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-home',
-    template: `&lt;h2&gt;Home&lt;/h2&gt;`
+  selector: 'app-home',
+  template: `&lt;h2&gt;Home&lt;/h2&gt;`
 })
 export class Home { }
 
 @Component({
-    selector: 'app-about',
-    template: `&lt;h2&gt;About&lt;/h2&gt;`
+  selector: 'app-about',
+  template: `&lt;h2&gt;About&lt;/h2&gt;`
 })
 export class About { }
 {% endraw %}
 </code>
 </pre>
 
-So we can see that our two components are very simple just displaying some text. Now lets look at our root
+So we can see that our two components are very simple just displaying some text. Now lets look at our
 app component and see how we can use the new Router to route between these two components.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
-import {Component, bind} from &#39;angular2/core&#39;;
-import {bootstrap} from &#39;angular2/platform/browser&#39;;
-import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink} from &#39;angular2/router&#39;;
-import {LocationStrategy, HashLocationStrategy} from &#39;angular2/platform/common&#39;;
+import { Component } from '@angular/core';
 
-import {About} from &#39;src/about&#39;;
-import {Home} from &#39;src/home&#39;;
+// import router goodies
+import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
+
+// import our two components we will route between
+import { AboutComponent } from 'app/about.component';
+import { HomeComponent } from 'app/home.component';
 
 @Component({
-  selector: &#39;demo-app&#39;,
+  selector: 'demo-app',
   template: `
-    &lt;!-- This is a router link --&gt;
-      &lt;a [routerLink]=&quot;[&#39;./Home&#39;]&quot;&gt;Home&lt;/a&gt;
-	  &lt;a [routerLink]=&quot;[&#39;./About&#39;]&quot;&gt;About&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/&#39;]&quot;&gt;Home&lt;/a&gt;
+	  &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;About&lt;/a&gt;
     &lt;div class=&quot;outer-outlet&quot;&gt;
       &lt;router-outlet&gt;&lt;/router-outlet&gt;
     &lt;/div&gt;
   `,
-  directives: [RouterOutlet, RouterLink]
+  // add our router directives we will be using
+  directives: [ROUTER_DIRECTIVES]
 })
-@RouteConfig([
-    { path: &#39;/&#39;, component: Home, as: &#39;Home&#39; },
-    { path: &#39;/about&#39;, component: About, as: &#39;About&#39; }
+@Routes([
+    // these are our two routes
+    { path: '/', component: HomeComponent }, // , useAsDefault: true}, // coming soon
+    { path: '/about', component: AboutComponent }
 ])
-export class App { }
-
-bootstrap(App, [
-  ROUTER_PROVIDERS,
-  bind(LocationStrategy).toClass(HashLocationStrategy),
-]);
+export class AppComponent { }
 {% endraw %}
 </code>
 </pre>
@@ -86,13 +85,12 @@ So lets walk through our app component step by step and see what this code is do
 <code>
 {% raw %}
 // Router Goodies
-import {ROUTER_PROVIDERS, RouteConfig, RouterOutlet, RouterLink} from &#39;angular2/router&#39;;`
-import {LocationStrategy, HashLocationStrategy} from &#39;angular2/platform/common&#39;;
+import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
 {% endraw %}
 </code>
 </pre>
 
-So this import is pulling in all of the pieces we need to set up our Angular app for routing. We will walk through each
+So this import is pulling in all of the pieces we need to set up our app component for routing. We will walk through each
 of these pieces below. Next is the component template.
 
 <pre class="language-javascript">
@@ -101,41 +99,39 @@ of these pieces below. Next is the component template.
 @Component({
   selector: &#39;demo-app&#39;,
   template: `
-    &lt;a [routerLink]=&quot;[&#39;./Home&#39;]&quot;&gt;Home&lt;/a&gt;
-	&lt;a [routerLink]=&quot;[&#39;./About&#39;]&quot;&gt;About&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/&#39;]&quot;&gt;Home&lt;/a&gt;
+	  &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;About&lt;/a&gt;
     &lt;div class=&quot;outer-outlet&quot;&gt;
       &lt;router-outlet&gt;&lt;/router-outlet&gt;
     &lt;/div&gt;
   `,
   
   // add our router directives we will be using
-  directives: [RouterOutlet, RouterLink]
+  directives: [ROUTER_DIRECTIVES]
 })
 {% endraw %}
 </code>
 </pre>
 
-So the first part is the `[routerLink]`. This directive generates our link based on the route name. 
-This name is defined by a route config decorator. By referencing a named route instead of a path we can easily move
-components around without having to update paths throughout our template. The second part is the `router-outlet`, 
+So the first part is the `[routerLink]`. This directive generates our link based on the route path. 
+This path is defined by a `@Route()` decorator. The second part is the `router-outlet`, 
 this is the location where Angular will insert the component we want to route to on 
-the view. Next lets look at the `RouteConfig()`.
+the view. Next lets look at the `@Route()` decorator.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
-@RouteConfig([
+@Routes([
     // these are our two routes
-    { path: '/', component: Home, as: 'Home' },
-    { path: '/about', component: About, as: 'About' }
+    { path: '/', component: HomeComponent },
+    { path: '/about', component: AboutComponent }
 ])
 {% endraw %}
 </code>
 </pre>
 
-Our route config decorator takes and array of routes. Each route has a path which is the string that will be used in the
-browser URL. Then each route has a component that we will route to. Last we name our route so we can reference it
-in our template.
+Our route decorator takes and array of routes. Each route has a path which is the string that will be used in the
+browser URL. Then each route has a component that we will route to.
 
 So now lets take a look at our rendered view.
 
@@ -143,8 +139,27 @@ So now lets take a look at our rendered view.
 
 ### Hash Routing vs HTML5 Routing
 
-Our url also updates to `/` and `/about` depending on what view we are on. If you noticed in our app component we
-set this `bind(LocationStrategy).toClass(HashLocationStrategy),` in our bootstrap method. This is for hash routing.
+Our url also updates to `/` and `/about` depending on what view we are on. Lets take a look at our `main.ts` file.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { provide } from '@angular/core';
+import { ROUTER_PROVIDERS } from '@angular/router';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AppComponent } from './app.component';
+
+bootstrap(AppComponent, [
+  ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass: HashLocationStrategy})
+]);
+{% endraw %}
+</code>
+</pre>
+
+If you noticed in our main file we
+set this `provide(LocationStrategy, {useClass: HashLocationStrategy})` in our bootstrap method. This is for hash routing.
 This adds a `#` hash in front of our routes to prevent the browser from posting to the server. Ex: `/#about` 
 This is turned off by default. To allow HTML5 routing without the hash you will need to have some 
 kind of redirect rule set up on the server to redirect all routes back to the index.html of your Angular app.
@@ -167,23 +182,7 @@ has its own links that navigate between two nested about child components. We ca
 
 <img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree.svg" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
 
-So lets take a look at our App component and it's updated Route config.
-
-<pre class="language-javascript">
-<code>
-{% raw %}
-@RouteConfig([
-    { path: '/', component: Home, as: 'Home' },
-    { path: '/about/...', component: About, as: 'About' }
-])
-export class App { }
-{% endraw %}
-</code>
-</pre>
-
-On our App route there is a slight change. We have added a `...` to the end of our about route. This tells
-Angular's router to look at the About component and check for child routes. Here is the code for our new
-About component.
+So lets take a look at our About component.
 
 <pre class="language-javascript">
 <code>
@@ -200,17 +199,17 @@ About component.
     `,
     directives: [RouterOutlet, RouterLink]
 })
-@RouteConfig([
-  { path: '/', component: AboutHome, as: 'AboutHome', useAsDefault: true },
-  { path: '/item', component: AboutItem, as: 'AboutItem' }
+@Route([
+  { path: '/', component: AboutHomeComponent } //  useAsDefault: true }, coming soon!
+  { path: '/item', component: AboutItemComponent }
 ])
-export class About { }
+export class AboutComponent { }
 {% endraw %}
 </code>
 </pre>
 
-So our About template looks very similar to the App component template. Our About route config
-has two routes a default home route and a item view route. These pull in two simple components that
+So our About template looks very similar to the App component template. Our about component routes
+we two routes, a default home route and a item view route. These pull in two simple components that
 just display the rendered text above. Notice our route paths start at the root of the about component.
 The rendered URLs would be `/about/` and `/about/item`.
 
@@ -233,49 +232,50 @@ our item component can pull that value out and display it in the view. Let's tak
     selector: &#39;app-about&#39;,
     template: `
       &lt;h2&gt;About&lt;/h2&gt;
-	    &lt;a [routerLink]=&quot;[&#39;./AboutHome&#39;]&quot;&gt;Home&lt;/a&gt;
-	    &lt;a [routerLink]=&quot;[&#39;./AboutItem&#39;, {id: 1}]&quot;&gt;Item 1&lt;/a&gt;
-	    &lt;a [routerLink]=&quot;[&#39;./AboutItem&#39;, {id: 2}]&quot;&gt;Item 2&lt;/a&gt;
+	    &lt;a [routerLink]=&quot;[&#39;/&#39;]&quot;&gt;Home&lt;/a&gt;
+	    &lt;a [routerLink]=&quot;[&#39;/about/item&#39;, 1]&quot;&gt;Item 1&lt;/a&gt;
+	    &lt;a [routerLink]=&quot;[&#39;/about/item&#39;, 2]&quot;&gt;Item 2&lt;/a&gt;
       &lt;div class=&quot;inner-outlet&quot;&gt;
         &lt;router-outlet&gt;&lt;/router-outlet&gt;
       &lt;/div&gt;
     `,
-    directives: [RouterOutlet, RouterLink]
+    directives: [ROUTER_DIRECTIVES]
 })
-@RouteConfig([
-  { path: &#39;/&#39;, component: AboutHome, as: &#39;AboutHome&#39;, useAsDefault: true },
-  { path: &#39;/item/:id&#39;, component: AboutItem, as: &#39;AboutItem&#39; }
+@Routes([
+  { path: &#39;/&#39;, component: AboutHomeComponent }, // , useAsDefault: true}, // coming soon
+  { path: &#39;/item/:id&#39;, component: AboutItemComponent }
 ])
-export class About { }
+export class AboutComponent { }
 {% endraw %}
 </code>
 </pre>
 
-So the first part in our about template our new `[routerLink]`'s have a second parameter `{id: 1}`. This allows
-us to pass in a variable amount of parameters to the router. Now taking a look at the route decorator
+So the first part in our about template our new `[routerLink]`'s have a second parameter of the id value ex: `['/about/item', 2]`. 
+This allows us to pass in parameters to the router. Now taking a look at the route decorator
 we now have `'/item/:id'` the `:` denotes that this is a route parameter and the router should get the value
-in the URL. So now lets take a look at the AboutItem component and see how we can get the id from the URL.
+in the URL. So now lets take a look at the `AboutItemComponent` and see how we can get the id from the URL.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
 @Component({
-  selector: 'about-item',
+  selector: &#39;about-item&#39;,
   template: `&lt;h3&gt;About Item Id: {{id}}&lt;/h3&gt;`
 })
-class AboutItem { 
+class AboutItemComponent { 
   id: any;
-  constructor(routeParams: RouteParams) {
-    this.id = routeParams.get('id');
+  constructor(routeSegment: RouteSegment) {
+    this.id = routeSegment.getParam(&#39;id&#39;);
   }
 }
 {% endraw %}
 </code>
 </pre>
 
-We import the `RouteParams` class and inject it into our component. Then we can easily pass in the route param name that
-we defined in the parent route config to get the id value in the URL. Then we set the value to a property on our component
-and display it in our template. This value can be changed via the URL directly or the `routerLink`.
+We import the `RouteSegment` class and inject it into our component. Note this is yet to be documented as of RC1.
+Now we can pass in the route param name that we defined in the parent route to get the id value in the URL. 
+Then we set the value to a property on our component and display it in our template. 
+This value can be changed via the URL directly or the `routerLink`.
 
 So now lets take a look at our diagram of our application's routes.
 
@@ -284,4 +284,5 @@ So now lets take a look at our diagram of our application's routes.
 ## Recap
 
 So we learned how to do basic routing between components, child/nested routing and route parameters. With these features mastered
-you can quickly build large scalable Angular 2 apps in no time. Take a look at full working demo in the link below.
+you can quickly build large scalable Angular 2 apps in no time. As the new Release Candidate router is documented I will
+update this post accordingly. Take a look at full working demo in the link below.
