@@ -14,7 +14,7 @@ Angular 2 brings many improved modules to the Angular ecosystem including a new 
 The component router is a highly configurable and feature packed router. Features included are routing, child routes, 
 named routes, route parameters and auxiliary routes. This post we will cover basic routing, route parameters and nested 
 child routes. With these basics we can build a great navigation experience for users
-that is easy to reason about. Note this post has been updated to the new RC release router that is currently being 
+that is easy to reason about. Note this post has been updated to the new RC 1 release router that is currently being 
 documented on the Angular website.
 
 ## Basic Routing
