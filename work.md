@@ -23,10 +23,10 @@ in the St.Louis area about Angular and JavaScript.
             <meta itemprop="publisher" content="Cory Rylan" />
             <img src="/assets/images/work/focus.jpg" alt="" class="full-width" />
 
-            <h2 itemprop="name"><a href="https://splintercode.github.io/focus/" target="_blank" itemprop="url">Focus</a></h2>
+            <h2 itemprop="name"><a href="https://focus-app.firebaseapp.com/" target="_blank" itemprop="url">Focus</a></h2>
             
             <p itemprop="about">#Angular2 #TypeScript #RxJS</p>
-            <a href="https://splintercode.github.io/focus/" target="_blank" class="btn">Explore</a>
+            <a href="https://focus-app.firebaseapp.com/" target="_blank" class="btn">Explore</a>
         </div>
     </div>
     <div class="col-6--md">
