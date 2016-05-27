@@ -27,7 +27,7 @@ First we need to install ChartJS from npm.
 <pre class="language-javascript">
 <code>
 {% raw %}
-npm install chart.js
+npm install chart.js --save
 {% endraw %}
 </code>
 </pre>
