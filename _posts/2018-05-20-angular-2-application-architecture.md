@@ -13,11 +13,11 @@ In this post I am going to cover some of the common architecture patterns for an
 application. There are numerous design patterns but we will focus mainly on state management and communitcation.
 With the rise of single page apps (SPA) managing data and state has become one of the most difficult parts to 
 manage. Before SPAs server rendering guarenteeded the view the user saw was the latest data available. Now 
-with SPAs we have caching, multiple views/ components and severall ways data can be retrieved. Making sure 
-data is structured and communicated throughout our application is critical for a great use expereince.
+with SPAs we have caching, multiple views/ components and several ways data can be retrieved. Making sure 
+data is structured and communicated throughout our application is critical for a great use experience.
 
 In this post I will summarize certain patterns and reference other articles for learning and digging into.
-This post will most certainly evolve and update as the Angular community has time to try variouse patterns and 
+This post will most certainly evolve and update as the Angular community has time to try various patterns and 
 ideas. In this post I will also give each pattern its pros/cons and suggestions of when its appropriate to use.
 These are the various patterns I will cover:
 
@@ -29,7 +29,7 @@ These are the various patterns I will cover:
 ## Component Data Binding
 
 The first and one of the most simple ways to pass data along in Angular 2 is through component bindings.
-With the new binding template syntax we can easily define an API for our components to communicate to eachother.
+With the new binding template syntax we can easily define an API for our components to communicate to each other.
 Our example component a `products-list` allows us to bind a list of products and hook into a custom `selected` 
 event.
 
