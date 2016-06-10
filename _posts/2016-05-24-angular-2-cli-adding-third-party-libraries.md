@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Angular 2 CLI - Adding Third Party Libraries
-description: Learn how to add third party libraries to your Angular 2 application using the Angular CLI
+description: Learn how to add third party libraries to your Angular 2 application using the Angular CLI.
 keywords: Cory Rylan, Angular 2, CLI, Angular CLI
 tags: Angular2, Angularjs
 date: 2016-05-24

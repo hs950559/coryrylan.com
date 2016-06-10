@@ -5,7 +5,7 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-05-06
+updated: 2016-06-09
 permalink: /blog/angular-2-observable-data-services
 demo: http://plnkr.co/edit/wzocFwRHsCnu46kp8rpJ?p=preview
 ---
@@ -18,9 +18,7 @@ Observables check out my screen cast.
 <a href="/blog/intro-to-rxjs-observables-and-angular-2" class="btn display-block float-center col-5--max">Intro to RxJS Observables and Angular 2</a>
 
 The rest of this post will cover more data and application state management in a Angular 2 application. 
-At the time of this writing Angular is on version <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 1</a>.
-This post has been updated as of <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Beta 15</a>.
-The syntax of how Observables and their operators are imported may change.
+This post has been updated as of <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank">Release Candidate 1</a>.
 
 Observables can help manage async data and a few other useful patterns. Observables are similar to Promises but with a few key differences. The first is Observables emit
 multiple values over time. For example a Promise once called will always return one value or one error.
@@ -75,16 +73,16 @@ import { Todo } from 'app/interfaces';
 
 export class TodosService {
   todos$: Observable&lt;Todo[]&gt;;
-  private _todosObserver: Observer&lt;Todo[]&gt;;
-  private _dataStore: {
+  private todosObserver: Observer&lt;Todo[]&gt;;
+  private dataStore: {
     todos: Todo[]
   };
      
-  constructor(private _http: Http) {
-    this._dataStore = { todos: [] };
+  constructor(private http: Http) {
+    this.dataStore = { todos: [] };
         
     // Create Observable Stream to output our data
-    this.todos$ = new Observable(observer => this._todosObserver = observer).share();
+    this.todos$ = new Observable(observer => this.todosObserver = observer).share();
   }
 }
 {% endraw %}
@@ -118,12 +116,12 @@ if you would like. For this tutorial we will stick to plain Observables.
 <code>
 {% raw %}
     // Push a new copy of our todo list to all Subscribers.
-    this._todosObserver.next(this._dataStore.todos);
+    this.todosObserver.next(this.dataStore.todos);
 {% endraw %}
 </code>
 </pre>
  
-Now in our public methods we can load, create, update, and remove    todos. Lets start off with loading the todos. Instead of these methods returning new
+Now in our public methods we can load, create, update, and remove todos. Lets start off with loading the todos. Instead of these methods returning new
 values of our todos list they update our internal data store. Once the data store of todos is updated we push
 the new list of todos with our `todosObserver`. Now anytime we call one of these methods any component subscribed
 to our `todos$` stream will get a value pushed down from the Observable data stream and always have the latest version of the data.
@@ -140,25 +138,25 @@ import { Todo } from 'app/interfaces';
 
 export class TodosService {
   todos$: Observable&lt;Todo[];&gt;;
-  private _todosObserver: Observer&lt;Todo[]&gt;;
-  private _dataStore: {
+  private todosObserver: Observer&lt;Todo[]&gt;;
+  private dataStore: {
     todos: Todo[]
   };
      
-  constructor(private _http: Http) {
-    this._dataStore = { todos: [] };
+  constructor(private http: Http) {
+    this.dataStore = { todos: [] };
         
     // Create Observable Stream to output our data
-    this.todos$ = new Observable(observer =>  this._todosObserver = observer).share();
+    this.todos$ = new Observable(observer =>  this.todosObserver = observer).share();
   }
      
   loadAll() {
-    this._http.get('/api/todos').map(response => response.json()).subscribe(data => {
+    this.http.get('/api/todos').map(response => response.json()).subscribe(data => {
       // Update data store
-      this._dataStore.todos = data;
+      this.dataStore.todos = data;
      
       // Push the new list of todos into the Observable stream
-      this._todosObserver.next(this._dataStore.todos);
+      this.todosObserver.next(this.dataStore.todos);
     }, error => console.log('Could not load todos.'));
   }
 }
@@ -175,13 +173,13 @@ and the various reasons why this is a best practice.
 <code>
 {% raw %}
 ngOnInit() {
-  this.todos$ = this._todoService.todos$; // subscribe to entire collection
-  this.singleTodo$ = this._todoService.todos$
+  this.todos$ = this.todoService.todos$; // subscribe to entire collection
+  this.singleTodo$ = this.todoService.todos$
                          .map(todos => todos.find(item => item.id === '1'));  
                          // subscribe to only one todo 
     
-  this._todoService.loadAll();    // load all todos
-  this._todoService.load('1');    // load only todo with id of '1'
+  this.todoService.loadAll();    // load all todos
+  this.todoService.load('1');    // load only todo with id of '1'
 }{% endraw %}
 </code>
 </pre>
@@ -206,69 +204,69 @@ export interface Todo {
      
 export class TodosService {
   todos$: Observable&lt;Todo[]&gt;;
-  private _todosObserver: Observer&lt;Todo[]&gt;;
-  private _dataStore: {
+  private todosObserver: Observer&lt;Todo[]&gt;;
+  private dataStore: {
     todos: Todo[];
   };
      
-  constructor(private _http: Http) {
-    this._dataStore = { todos: [] };
+  constructor(private http: Http) {
+    this.dataStore = { todos: [] };
         
-    this.todos$ = new Observable(observer =>  this._todosObserver = observer).share();
+    this.todos$ = new Observable(observer =>  this.todosObserver = observer).share();
   }
      
   loadAll() {
-    this._http.get('/api/todos').map(response => response.json()).subscribe(data => {
-      this._dataStore.todos = data;
-      this._todosObserver.next(this._dataStore.todos);
+    this.http.get('/api/todos').map(response => response.json()).subscribe(data => {
+      this.dataStore.todos = data;
+      this.todosObserver.next(this.dataStore.todos);
     }, error => console.log('Could not load todos.'));
   }
     
   load(id: any) {
-    this._http.get(`${this._baseUrl}/todos/${id}`).map(response => response.json()).subscribe(data => {
+    this.http.get(`${this.baseUrl}/todos/${id}`).map(response => response.json()).subscribe(data => {
       let notFound = true;
     
-      this._dataStore.todos.forEach((item, index) => {
+      this.dataStore.todos.forEach((item, index) => {
         if(item.id === data.id) {
-          this._dataStore.todos[index] = data;
+          this.dataStore.todos[index] = data;
           notFound = false;
         }
       });
     
       if (notFound) {
-        this._dataStore.todos.push(data);
+        this.dataStore.todos.push(data);
       }
             
-      this._todosObserver.next(this._dataStore.todos);
+      this.todosObserver.next(this.dataStore.todos);
     }, error => console.log('Could not load todo.'));
   }
      
   create(todo: Todo) {
-    this._http.post('/api/todos', todo)
+    this.http.post('/api/todos', todo)
         .map(response => response.json()).subscribe(data => {
-          this._dataStore.todos.push(data);   
-          this._todosObserver.next(this._dataStore.todos);
+          this.dataStore.todos.push(data);   
+          this.todosObserver.next(this.dataStore.todos);
         }, error => console.log('Could not create todo.'));
     }
      
   update(todo: Todo) {
-    this._http.put(`/api/todos/${todo.id}`, todo)
+    this.http.put(`/api/todos/${todo.id}`, todo)
         .map(response => response.json()).subscribe(data => {
-          this._dataStore.todos.forEach((todo, i) => {
-            if (todo.id === data.id) { this._dataStore.todos[i] = data; }
+          this.dataStore.todos.forEach((todo, i) => {
+            if (todo.id === data.id) { this.dataStore.todos[i] = data; }
           });
      
-          this._todosObserver.next(this._dataStore.todos);
+          this.todosObserver.next(this.dataStore.todos);
         }, error => console.log('Could not update todo.'));
   }
      
   remove(todoId: number) {
-    this._http.delete(`/api/todos/${todoId}`).subscribe(response => {
-      this._dataStore.todos.forEach((t, index) => {
-        if (t.id === todo.id) { this._dataStore.todos.splice(index, 1); }
+    this.http.delete(`/api/todos/${todoId}`).subscribe(response => {
+      this.dataStore.todos.forEach((t, index) => {
+        if (t.id === todo.id) { this.dataStore.todos.splice(index, 1); }
       });
      
-      this._todosObserver.next(this._dataStore.todos);
+      this.todosObserver.next(this.dataStore.todos);
   }, error => console.log('Could not delete todo.'));
 }
 {% endraw %}
