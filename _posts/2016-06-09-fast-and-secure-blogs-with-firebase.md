@@ -16,7 +16,7 @@ JavaScript, CSS and HTML. This is great for single page apps that go well with t
 such as their real-time database. 
 
 <img src="/assets/images/posts/2016-05-31-fast-and-secure-blogs-with-firebase/firebase-logo.png" 
-        alt="Firebase logo" style="background-color: #2d2d2d; width: 100%; max-width: 400px;" class="float-center" />
+        alt="Firebase logo" style="background-color: #2d2d2d;" class="float-center col-6--max full-width" />
 
 We wont get into the details of all of the awesomness of Firebase but we will use the Hosting service. 
 With Firebase hosting we can host our blog and even get a SSL certificate to secure our site for free.
@@ -47,7 +47,7 @@ jekyll serve
 Now that we have created our site lets run it locally by running <code>jekyll serve</code>. Now you should see something similar to this:
 
 <img src="/assets/images/posts/2016-05-31-fast-and-secure-blogs-with-firebase/jekyll-site.png" 
-        alt="Example Jekyll Site" class="float-center col-8--max" />
+        alt="Example Jekyll Site" class="float-center col-8--max full-width" />
         
 Jekyll has a built-in templating system that allows us to create reusable templates and use markdown files for our blog posts. 
 I won't go into the details of how Jekyll all works but I recommend checking out the getting started page
@@ -64,14 +64,14 @@ If you don't already have an account sign up for a free Firebase account at [fir
 head over to the [app console](https://console.firebase.google.com/).
 
 <img src="/assets/images/posts/2016-05-31-fast-and-secure-blogs-with-firebase/firebase-console.png" 
-        alt="Firebase Console" class="float-center col-8--max" />
+        alt="Firebase Console" class="float-center col-8--max full-width" />
         
 Select "Create New Project" and give your project a name. Now we will deploy our site.  
 To deploy we will need to install the Firebase CLI tool. To install make sure to have the latest [NodeJS](https://nodejs.org) installed and then run <code>npm install -g firebase-tools</code>.
 Now that Firebase Tools are installed we can run <code>firebase init</code> inside our website project.
 
 <img src="/assets/images/posts/2016-05-31-fast-and-secure-blogs-with-firebase/firebase-cli.png" 
-        alt="Firebase CLI" class="float-center col-8--max" />
+        alt="Firebase CLI" class="float-center col-8--max full-width" />
 
 Firebase will guide through a few setup options. First we want to select the hosting option to deploy to.
 Next it will ask about our database rules, we can leave the default for now. Next it will ask what directory to 
@@ -92,7 +92,7 @@ In the Firebase console go to your newly created project and select the hosting 
 Now select the Custom Domain button. You should see something similar to this:
 
 <img src="/assets/images/posts/2016-05-31-fast-and-secure-blogs-with-firebase/firebase-custom-domains.png" 
-        alt="Firebase CLI" class="float-center col-8--max" />
+        alt="Firebase CLI" class="float-center col-8--max full-width" />
 
 Now follow the steps and add your Domain information and Firebase will automatically partition a SSL
 certificate for your domain for free. Now you have a fast, free and secure blog built on Firebase and Jekyll!

@@ -5,12 +5,13 @@ description: Cory Rylan, Software Developer and Front End Engineer. Building coo
 keywords: Cory Rylan, Blog, Web Development, JavaScript, Angular, HTML5, CSS, TypeScript, Responsive Design
 permalink: /
 tab: index
+nocontain: true
 ---
 
 <div class="post-list">
     <div class="flex-row--stretch">
     {% for post in site.posts %}
-        <div class="col-6--md">
+        <div class="col-6@md col-4@lg">
             <div class="card card-btn-right">
                 <div class="margin-bottom">{{ post.date | date: "%b %-d, %Y" }}</div>
 

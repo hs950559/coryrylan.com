@@ -11,13 +11,14 @@ tab: work
 You can find me teaching via [Angular Bootcamp Training](http://angularbootcamp.com/) and speaking
 in the St.Louis area about Angular and JavaScript.
 
+- [Outlier Developer, Improve Your Technical Reading Skills](http://outlierdeveloper.com/improve-your-technical-reading-skills/)
 - [Angular Lunch Meetup Angular 2 and RxJS](https://angularlunch.wordpress.com/2016/02/06/lunch-wed-feb-17-2016-rxobservable-in-angular-2/)
 - [Angular Lunch Meetup Angular 2 and Visual Studio](https://angularlunch.wordpress.com/2016/03/12/lunch-wed-march-16-2016-visual-studio-with-angular-2/)
 
 <br />
 
 <div class="flex-row--stretch">
-    <div class="col-6--md">
+    <div class="col-6@md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
             <meta itemprop="publisher" content="Cory Rylan" />
@@ -29,7 +30,7 @@ in the St.Louis area about Angular and JavaScript.
             <a href="https://focus-app.firebaseapp.com/" target="_blank" class="btn">Explore</a>
         </div>
     </div>
-    <div class="col-6--md">
+    <div class="col-6@md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
             <meta itemprop="publisher" content="Cory Rylan" />
@@ -44,7 +45,7 @@ in the St.Louis area about Angular and JavaScript.
 </div>
 
 <div class="flex-row--stretch">
-    <div class="col-6--md">
+    <div class="col-6@md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
             <meta itemprop="publisher" content="Cory Rylan" />
@@ -56,7 +57,7 @@ in the St.Louis area about Angular and JavaScript.
             <a href="https://splintercode.github.io/is-angular-2-ready/" target="_blank" class="btn">Explore</a>
         </div>
     </div>
-    <div class="col-6--md">
+    <div class="col-6@md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
             <meta itemprop="publisher" content="Vintage Software" />
@@ -72,7 +73,7 @@ in the St.Louis area about Angular and JavaScript.
 
 
 <div class="flex-row--stretch">
-    <div class="col-6--md">
+    <div class="col-6@md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
             <meta itemprop="publisher" content="Vintage Software" />
@@ -84,7 +85,7 @@ in the St.Louis area about Angular and JavaScript.
             <a href="http://www.EstateSales.NET" target="_blank" class="btn">Explore</a>
         </div>
     </div>
-    <div class="col-6--md">
+    <div class="col-6@md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
             <meta itemprop="publisher" content="Vintage Software" />
@@ -98,7 +99,7 @@ in the St.Louis area about Angular and JavaScript.
     </div>   
 </div>
 <div class="flex-row--stretch">
-    <div class="col-6--md">
+    <div class="col-6@md">
         <div class="card card-btn-right" itemscope itemtype="http://schema.org/WebPage">
             <meta itemprop="contributor" content="Cory Rylan" />
             <meta itemprop="publisher" content="Cory Rylan" />

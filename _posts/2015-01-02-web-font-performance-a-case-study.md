@@ -20,7 +20,7 @@ happens more than we would like to think. Spotty 3G mobile connections or going 
 Loading our font can easily add several seconds for the page to be readable on a mobile connection. Below you can see a single custom font has added 1.5 seconds
 to our render time on a 3g mobile connection.
 
-<img src="/assets/images/posts/2015-01-02-web-font-performance-a-case-study/font-load-time.jpg" class="full-width col-8-contain" alt="Network slide breakdown of non async loading of font" />
+<img src="/assets/images/posts/2015-01-02-web-font-performance-a-case-study/font-load-time.jpg" class="full-width col-8--max" alt="Network slide breakdown of non async loading of font" />
 
 I work on a site called <a href="http://www.estatesales.net" target="_blank">EstateSales.NET</a> where people can search and find local estate sales near them.
 Our site is commonly used on mobile as people are out searching for sales. Much of the time these sales can take place in rural areas where you are lucky to

@@ -1,0 +1,22 @@
+{
+  "name": "coryrylan.com",
+  "version": "1.0.0",
+  "description": "Cory Rylan's Blog",
+  "main": "service-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/splintercode/coryrylan.com.git"
+  },
+  "author": "Cory Rylan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/splintercode/coryrylan.com/issues"
+  },
+  "homepage": "https://github.com/splintercode/coryrylan.com#readme",
+  "dependencies": {
+    "core-flex-grid": "^0.9.7"
+  }
+}
