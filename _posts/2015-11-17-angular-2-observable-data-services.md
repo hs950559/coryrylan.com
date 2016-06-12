@@ -5,9 +5,9 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-06-09
+updated: 2016-06-12
 permalink: /blog/angular-2-observable-data-services
-demo: http://plnkr.co/edit/wzocFwRHsCnu46kp8rpJ?p=preview
+demo: http://plnkr.co/edit/yMBoVkxohwhPig5COgkU?p=preview
 ---
 
 Angular 2 brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
@@ -57,106 +57,85 @@ Observable in our component. Each time there is a new value emitted from our Obs
 
 Observables are treated like arrays. Each value over time is one item in the array.
 This allows us to use array like methods called operators on our Observable such as `map`, `flatmap`,
-`reduce`, ect. Next lets take a look at a data service using Observables and dig into some Observable operators.
+`reduce`, ect. In our service we will be using a special type of an Observable called a Subject.
+A Subject allows us to push and pull values to the underlying Observable. We will see how this will
+help us construct our service. 
+
+In Angular 2 we use RxJS a polyfill/util library for the proposed Observables primitive in the next new version JavaScript. RxJS version 5 is in beta and is a peer dependency with Angular 2.
+A slim Observable is used in Angular 2 core. The slim Observable does not have many of the useful operators that makes RxJS so productive.
+The Observable in Angular 2 is slim to keep the byte site of the library down. To use extra operators we import them like
+so: `import 'rxjs/add/operator/map';`.
 
 In our example we will have a `TodosService`. Our todos service will have basic CRUD operations and a
-Observable stream to subscribe to. This example we will use a REST based API but it could be converted to a real-time socket based API with little effort.
+Observable stream to subscribe to. This example we will use a REST based API but it could be converted 
+to a real-time socket based API with little effort. Next lets take a look at a the constructor of our 
+service.
 
 <pre class="language-typescript">
 <code>
 {% raw %}
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/share';
-import { Todo } from 'app/interfaces';
-
-export class TodosService {
-  todos$: Observable&lt;Todo[]&gt;;
-  private todosObserver: Observer&lt;Todo[]&gt;;
-  private dataStore: {
+@Injectable() 
+export class TodoService {
+  private _todos$: Subject&lt;Todo[]&gt;; 
+  private baseUrl: string;
+  private dataStore: {  // This is where we will store our data in memory
     todos: Todo[]
   };
-     
+    
+  // Using Angular DI we use the HTTP service
   constructor(private http: Http) {
+    this.baseUrl  = 'http://56e05c3213da80110013eba3.mockapi.io/api';
     this.dataStore = { todos: [] };
-        
-    // Create Observable Stream to output our data
-    this.todos$ = new Observable(observer => this.todosObserver = observer).share();
+    this._todos$ = &lt;Subject&lt;Todo[]&gt;&gt;new Subject();
+  }
+
+  get todos$() {
+    return this._todos$.asObservable();
   }
 }
 {% endraw %}
 </code>
 </pre>
 
-In Angular 2 we use RxJS a polyfill/util library for the proposed Observables primitive in the next new version JavaScript. RxJS version 5 is in beta and is a peer dependency with Angular 2.
-A slim Observable is used in Angular 2 core. The slim Observable does not have many of the useful operators that makes RxJS so productive.
-The Observable in Angular 2 is slim to keep the byte site of the library down. To use extra operators we import them like
-so: `import 'rxjs/add/operator/share';`.
-
 In our todo service we have a few moving parts. First we have a private data store. This is where we store our
 list of todos in memory. We can return this list immediately for faster rendering or when off-line. For now
-its simply just holds onto our list of todos.
+its simply just holds onto our list of todos. Since services in Angular 2 are singletons we can use them 
+to hold our data model/state we want to share.
 
-Next is our `todos$` Observable. It is common practice
-in Reactive programing to end Observables/streams of data with a `$`. This is what our todo component
-will subscribe to. 
+Next is our `todos$` Subject. Our Subject can recieve and emit new Todo lists. We don't want subscribers of
+our service to be able to push new values to our subject without going through our CRUD methods. To prevent
+the data from being altered we expose the Subject through a getter and cast it to an Observable. This will
+allow components to receive updates but not push new values. We will see how that is done in further in 
+the example. Note, it is common practice in reactive programing to end Observables/Subject 
+streams of data with a `$`.
 
-We call one operators after our Observable. We call the `share()` operator, this will allow multiple Subscribers to one
-Observable. Since services in Angular 2 are singletons and tend to hold our data model/state we want to share
-this data stream with all our components.
-
-In our service we hold onto a `Observer` as a private property on our service. A Observer instance is generated when creating a
-new Observable and subscribing to it. The Observer allows us to push new values down our Observable data stream. Calling `next()`
-will push a new value to all subscribers of the Observable stream. One side note, if you are familiar with RxJS you can
-use the varrious <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/subjects.md" target="_blank">Subject</a> types
-if you would like. For this tutorial we will stick to plain Observables.
+Now in our public methods we can load, create, update, and remove todos. Lets start off with loading the todos.
 
 <pre class="language-typescript">
 <code>
 {% raw %}
-    // Push a new copy of our todo list to all Subscribers.
-    this.todosObserver.next(this.dataStore.todos);
-{% endraw %}
-</code>
-</pre>
- 
-Now in our public methods we can load, create, update, and remove todos. Lets start off with loading the todos. Instead of these methods returning new
-values of our todos list they update our internal data store. Once the data store of todos is updated we push
-the new list of todos with our `todosObserver`. Now anytime we call one of these methods any component subscribed
-to our `todos$` stream will get a value pushed down from the Observable data stream and always have the latest version of the data.
-This helps keeps our data consistent across our application.
-
-<pre class="language-typescript">
-<code>
-{% raw %}
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/share';
-import { Todo } from 'app/interfaces';
-
-export class TodosService {
-  todos$: Observable&lt;Todo[];&gt;;
-  private todosObserver: Observer&lt;Todo[]&gt;;
+@Injectable() 
+export class TodoService {
+  private _todos$: Subject&lt;Todo[]&gt;; 
+  private baseUrl: string;
   private dataStore: {
     todos: Todo[]
   };
-     
+    
   constructor(private http: Http) {
+    this.baseUrl  = 'http://56e05c3213da80110013eba3.mockapi.io/api';
     this.dataStore = { todos: [] };
-        
-    // Create Observable Stream to output our data
-    this.todos$ = new Observable(observer =>  this.todosObserver = observer).share();
+    this._todos$ = &lt;Subject&lt;Todo[]&gt;&gt;new Subject();
   }
-     
+  
+  get todos$() {
+    return this._todos$.asObservable();
+  }
+    
   loadAll() {
-    this.http.get('/api/todos').map(response => response.json()).subscribe(data => {
-      // Update data store
+    this.http.get(`${this.baseUrl}/todos`).map(response => response.json()).subscribe(data => {
       this.dataStore.todos = data;
-     
-      // Push the new list of todos into the Observable stream
-      this.todosObserver.next(this.dataStore.todos);
+      this._todos$.next(this.dataStore.todos);
     }, error => console.log('Could not load todos.'));
   }
 }
@@ -164,14 +143,31 @@ export class TodosService {
 </code>
 </pre>
 
+Notice instead of these methods returning new values of our todos list they update our internal data store. 
+
+<pre class="language-typescript">
+<code>
+{% raw %}
+  // Push a new copy of our todo list to all Subscribers.
+  this._todos$.next(this.dataStore.todos);
+{% endraw %}
+</code>
+</pre>
+ 
+Once the data store of todos is updated we push the new list of todos with our private `_todos$` Subject. 
+Now anytime we call one of these methods any component subscribed to our public `todos$` Observable stream 
+will get a value pushed down and always have the latest version of the data.
+This helps keeps our data consistent across our application.
+
 In our component's <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt4.html#!#the-ngoninit-lifecycle-hook" target="blank">`ngOnInit`</a> 
-we subscribe to the `todo$` data stream then call `load()` to load the latest into the stream. We can also load a single
-item by mapping out the value we want. The `ngOnInit` is the ideal place for loading in data. You can read into the docs
+method we subscribe to the `todos$` data stream then call `load()` to load the latest into the stream. 
+The `ngOnInit` is the ideal place for loading in data. You can read into the docs
 and the various reasons why this is a best practice. 
 
 <pre class="language-typescript">
 <code>
 {% raw %}
+// In our todo component
 ngOnInit() {
   this.todos$ = this.todoService.todos$; // subscribe to entire collection
   this.singleTodo$ = this.todoService.todos$
@@ -191,83 +187,90 @@ Now lets look at the todos service in its entirety.
 <pre class="language-typescript">
 <code>
 {% raw %}
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/share';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
 
 export interface Todo {
-  id: number;
+  id: any;
   createdAt: number;
   value: string;
 }
-     
-export class TodosService {
-  todos$: Observable&lt;Todo[]&gt;;
-  private todosObserver: Observer&lt;Todo[]&gt;;
+
+@Injectable()
+export class TodoService {
+  private _todos$: Subject<Todo[]>;
+  private baseUrl: string;
   private dataStore: {
-    todos: Todo[];
+    todos: Todo[]
   };
-     
+
   constructor(private http: Http) {
+    this.baseUrl  = 'http://56e05c3213da80110013eba3.mockapi.io/api';
     this.dataStore = { todos: [] };
-        
-    this.todos$ = new Observable(observer =>  this.todosObserver = observer).share();
+    this._todos$ = &lt;Subject&lt;Todo[]&gt;&gt;new Subject();
   }
-     
+
+  get todos$() {
+    return this._todos$.asObservable();
+  }
+
   loadAll() {
-    this.http.get('/api/todos').map(response => response.json()).subscribe(data => {
+    this.http.get(`${this.baseUrl}/todos`).map(response => response.json()).subscribe(data => {
       this.dataStore.todos = data;
-      this.todosObserver.next(this.dataStore.todos);
+      this._todos$.next(this.dataStore.todos);
     }, error => console.log('Could not load todos.'));
   }
-    
+
   load(id: any) {
     this.http.get(`${this.baseUrl}/todos/${id}`).map(response => response.json()).subscribe(data => {
       let notFound = true;
-    
+
       this.dataStore.todos.forEach((item, index) => {
-        if(item.id === data.id) {
+        if (item.id === data.id) {
           this.dataStore.todos[index] = data;
           notFound = false;
         }
       });
-    
+
       if (notFound) {
         this.dataStore.todos.push(data);
       }
-            
-      this.todosObserver.next(this.dataStore.todos);
+
+      this._todos$.next(this.dataStore.todos);
     }, error => console.log('Could not load todo.'));
   }
-     
+
   create(todo: Todo) {
-    this.http.post('/api/todos', todo)
-        .map(response => response.json()).subscribe(data => {
-          this.dataStore.todos.push(data);   
-          this.todosObserver.next(this.dataStore.todos);
-        }, error => console.log('Could not create todo.'));
-    }
-     
-  update(todo: Todo) {
-    this.http.put(`/api/todos/${todo.id}`, todo)
-        .map(response => response.json()).subscribe(data => {
-          this.dataStore.todos.forEach((todo, i) => {
-            if (todo.id === data.id) { this.dataStore.todos[i] = data; }
-          });
-     
-          this.todosObserver.next(this.dataStore.todos);
-        }, error => console.log('Could not update todo.'));
+    this.http.post(`${this.baseUrl}/todos`, JSON.stringify(todo))
+      .map(response => response.json()).subscribe(data => {
+        this.dataStore.todos.push(data);
+        this._todos$.next(this.dataStore.todos);
+      }, error => console.log('Could not create todo.'));
   }
-     
+
+  update(todo: Todo) {
+    this.http.put(`${this.baseUrl}/todos/${todo.id}`, JSON.stringify(todo))
+      .map(response => response.json()).subscribe(data => {
+        this.dataStore.todos.forEach((todo, i) => {
+          if (todo.id === data.id) { this.dataStore.todos[i] = data; }
+        });
+
+        this._todos$.next(this.dataStore.todos);
+      }, error => console.log('Could not update todo.'));
+  }
+
   remove(todoId: number) {
-    this.http.delete(`/api/todos/${todoId}`).subscribe(response => {
-      this.dataStore.todos.forEach((t, index) => {
-        if (t.id === todo.id) { this.dataStore.todos.splice(index, 1); }
+    this.http.delete(`${this.baseUrl}/todos/${todoId}`).subscribe(response => {
+      this.dataStore.todos.forEach((t, i) => {
+        if (t.id === todoId) { this.dataStore.todos.splice(i, 1); }
       });
-     
-      this.todosObserver.next(this.dataStore.todos);
-  }, error => console.log('Could not delete todo.'));
+
+      this._todos$.next(this.dataStore.todos);
+    }, error => console.log('Could not delete todo.'));
+  }
 }
 {% endraw %}
 </code>
