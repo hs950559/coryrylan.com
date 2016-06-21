@@ -5,21 +5,25 @@ description: Learn how to manage large Angular 2 applications and navigation wit
 keywords: Cory Rylan, Angular2, AngularJS, routing, router
 tags: angular2, angularjs
 date: 2016-04-02
-updated: 2016-05-06
+updated: 2016-06-20
 permalink: /blog/introduction-to-angular-2-routing
-demo: http://plnkr.co/edit/mWwhzJptV24uZwZeSrHX?p=preview
+demo: http://plnkr.co/edit/RPvgcUdiLFP4Mtig9Q7n?p=preview
 ---
 
 Angular 2 brings many improved modules to the Angular ecosystem including a new router called the Component Router. 
-The component router is a highly configurable and feature packed router. Features included are routing, child routes, 
-named routes, route parameters and auxiliary routes. This post we will cover basic routing, route parameters and nested 
+The Component Router is a highly configurable and feature packed router. Features included are standard view routing, nested child routes, 
+named routes, and route parameters. This post we will cover standard routing, route parameters and nested 
 child routes. With these basics we can build a great navigation experience for users
-that is easy to reason about. Note this post has been updated to the new RC 1 release router that is currently being 
-documented on the Angular website.
+that is easy to reason about. This post has been updated to the new RC router (3.0.0-alpha.7) that is 
+<a href="https://angular.io/docs/ts/latest/guide/router.html" target="_blank">documented</a> on the Angular website.
 
 ## Basic Routing
 
-So first lets start with a single app component that has two routes. We will have a home view and a about view.
+So now lets take a look at what our first rendered view will look like.
+
+<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-simple-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
+
+We will start with single app component that has two routes. We will have a home view and a about view.
 Lets take a look at these two components first.
 
 <pre class="language-javascript">
@@ -49,19 +53,13 @@ app component and see how we can use the new Router to route between these two c
 <code>
 {% raw %}
 import { Component } from '@angular/core';
-
-// import router goodies
-import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
-
-// import our two components we will route between
-import { AboutComponent } from 'app/about.component';
-import { HomeComponent } from 'app/home.component';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'demo-app',
   template: `
     &lt;a [routerLink]=&quot;[&#39;/&#39;]&quot;&gt;Home&lt;/a&gt;
-	  &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;About&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;About&lt;/a&gt;
     &lt;div class=&quot;outer-outlet&quot;&gt;
       &lt;router-outlet&gt;&lt;/router-outlet&gt;
     &lt;/div&gt;
@@ -69,11 +67,6 @@ import { HomeComponent } from 'app/home.component';
   // add our router directives we will be using
   directives: [ROUTER_DIRECTIVES]
 })
-@Routes([
-    // these are our two routes
-    { path: '/', component: HomeComponent }, // , useAsDefault: true}, // coming soon
-    { path: '/about', component: AboutComponent }
-])
 export class AppComponent { }
 {% endraw %}
 </code>
@@ -84,14 +77,13 @@ So lets walk through our app component step by step and see what this code is do
 <pre class="language-javascript">
 <code>
 {% raw %}
-// Router Goodies
-import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 {% endraw %}
 </code>
 </pre>
 
-So this import is pulling in all of the pieces we need to set up our app component for routing. We will walk through each
-of these pieces below. Next is the component template.
+So this import is pulling in the Route Directives that will be used on this view. We 
+must list this it our component's `directives` list.
 
 <pre class="language-javascript">
 <code>
@@ -100,7 +92,7 @@ of these pieces below. Next is the component template.
   selector: &#39;demo-app&#39;,
   template: `
     &lt;a [routerLink]=&quot;[&#39;/&#39;]&quot;&gt;Home&lt;/a&gt;
-	  &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;About&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;About&lt;/a&gt;
     &lt;div class=&quot;outer-outlet&quot;&gt;
       &lt;router-outlet&gt;&lt;/router-outlet&gt;
     &lt;/div&gt;
@@ -114,62 +106,55 @@ of these pieces below. Next is the component template.
 </pre>
 
 So the first part is the `[routerLink]`. This directive generates our link based on the route path. 
-This path is defined by a `@Route()` decorator. The second part is the `router-outlet`, 
-this is the location where Angular will insert the component we want to route to on 
-the view. Next lets look at the `@Route()` decorator.
+The second part is the `router-outlet`, this is the location where Angular will insert the component 
+we want to route to on the view. Next lets take a look at our route config file `routes.app.ts`.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
-@Routes([
-    // these are our two routes
-    { path: '/', component: HomeComponent },
-    { path: '/about', component: AboutComponent }
-])
+import { provideRouter, RouterConfig } from '@angular/router';
+
+import { AboutComponent } from 'app/about.component';
+import { HomeComponent } from 'app/home.component';
+
+export const routes: RouterConfig = [
+  { path: '', component: HomeComponent }
+  { path: 'about', component: AboutComponent }
+];
+
+export const APP_ROUTER_PROVIDERS = [
+  provideRouter(routes)
+];
 {% endraw %}
 </code>
 </pre>
 
-Our route decorator takes and array of routes. Each route has a path which is the string that will be used in the
-browser URL. Then each route has a component that we will route to.
-
-So now lets take a look at our rendered view.
-
-<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-simple-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
-
-### Hash Routing vs HTML5 Routing
-
-Our url also updates to `/` and `/about` depending on what view we are on. Lets take a look at our `main.ts` file.
+Our route config defines all the routes in our application. The first route is our default home route.
+The second one is our `AboutComponent`. The path value is the path that we referenced in our template.
+We export our routes as a `Provider` to bootstrap into our application. 
 
 <pre class="language-javascript">
 <code>
 {% raw %}
 import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { provide } from '@angular/core';
-import { ROUTER_PROVIDERS } from '@angular/router';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [
-  ROUTER_PROVIDERS,
-  provide(LocationStrategy, {useClass: HashLocationStrategy})
+  APP_ROUTER_PROVIDERS
 ]);
 {% endraw %}
 </code>
 </pre>
 
-If you noticed in our main file we
-set this `provide(LocationStrategy, {useClass: HashLocationStrategy})` in our bootstrap method. This is for hash routing.
-This adds a `#` hash in front of our routes to prevent the browser from posting to the server. Ex: `/#about` 
-This is turned off by default. To allow HTML5 routing without the hash you will need to have some 
-kind of redirect rule set up on the server to redirect all routes back to the index.html of your Angular app.
+Now that our routes are registered we have our standard routing working. Next lets look at nested routes.
 
-## Child Routing
+## Nested Child Routes
 
 Child/Nested routing is a powerful new feature in the new Angular 2 router. We can think of our application as
 a tree structure, components nested in more components. We can think the same way with our routes and URLs.
 
-So we have the following routes, `/` and `/about`. Maybe our about page is extensive and there are couple of different views
+So we have the following routes, `/` and `/about`. Maybe our about page is extensive and there are a couple of different views
 we would like to display as well. The URLs would look something like `/about` and `/about/item`. The first
 route would be the default about page but the more route would offer another view with more details. 
 
@@ -182,48 +167,89 @@ has its own links that navigate between two nested about child components. We ca
 
 <img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree.svg" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
 
-So lets take a look at our About component.
+So lets take a look at our About components.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
+import { Component } from &#39;@angular/core&#39;;
+import { ROUTER_DIRECTIVES } from &#39;@angular/router&#39;;
+
 @Component({
-    selector: 'app-about',
+  selector: &#39;about-home&#39;,
+  template: `&lt;h3&gt;About Home&lt;/h3&gt;`
+})
+export class AboutHomeComponent { }
+
+@Component({
+  selector: &#39;about-item&#39;,
+  template: `&lt;h3&gt;About Item&lt;/h3&gt;`
+})
+export class AboutItemComponent { }
+
+@Component({
+    selector: &#39;app-about&#39;,
     template: `
       &lt;h2&gt;About&lt;/h2&gt;
-      &lt;a [routerLink]=&quot;[&#39;./AboutHome&#39;]&quot;&gt;About Home&lt;/a&gt;
-	  &lt;a [routerLink]=&quot;[&#39;./AboutItem&#39;]&quot;&gt;About Item&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;Home&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/about/item&#39;]&quot;&gt;Item&lt;/a&gt;
       &lt;div class=&quot;inner-outlet&quot;&gt;
         &lt;router-outlet&gt;&lt;/router-outlet&gt;
       &lt;/div&gt;
     `,
-    directives: [RouterOutlet, RouterLink]
+    directives: [ROUTER_DIRECTIVES]
 })
-@Route([
-  { path: '/', component: AboutHomeComponent } //  useAsDefault: true }, coming soon!
-  { path: '/item', component: AboutItemComponent }
-])
 export class AboutComponent { }
 {% endraw %}
 </code>
 </pre>
 
-So our About template looks very similar to the App component template. Our about component routes
-we two routes, a default home route and a item view route. These pull in two simple components that
+So our About template looks very similar to the App component template. Our about component has
+two child routes, `about/` and `about/item` These pull in two simple components that
 just display the rendered text above. Notice our route paths start at the root of the about component.
-The rendered URLs would be `/about/` and `/about/item`.
+The rendered URLs would be `/about/` and `/about/item`. Lets now take a look at the updated route config.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+import { provideRouter, RouterConfig } from '@angular/router';
+
+import { AboutComponent, AboutHomeComponent, AboutItemComponent } from 'app/about.component';
+import { HomeComponent } from 'app/home.component';
+
+export const routes: RouterConfig = [
+  { path: '', component: HomeComponent }
+  {
+    path: 'about',
+    component: AboutComponent,
+    children: [
+      { path: '', component: AboutHomeComponent }, // url: about/
+      { path: 'item', component: AboutItemComponent } // url: about/item
+    ]
+  }
+];
+
+export const APP_ROUTER_PROVIDERS = [
+  provideRouter(routes)
+];
+{% endraw %}
+</code>
+</pre>
+
+Notice our path in our About component is now relative for all the child components.
+Next we will learn how to dynamically change data in our component via route parameters.
 
 ## Route Parameters
 
-Building on top of our demo app we are now going to add a component that takes in a route parameter or route param.
+Building on top of our demo app we are now going to add a component that takes in a route parameter.
 Route parameters allow us to pass values in our url to our component so we can dynamically change our view content. 
-So in our example we will have a route that can take an id and then display it on our AboutItem
+So in our example we will have a route that can take an id and then display it on our `AboutItemComponent`
 component. So lets take a look at what the rendered output would be.
 
 <video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-route-parameters.mp4" autoplay loop controls class="float-center col-5--max"></video>
 
-Our URLs would be the following: `/about/`, `/about/1`, and `/about/2`. We can swap out any number in our URL and 
-our item component can pull that value out and display it in the view. Let's take a look at the code.
+Our URLs would be the following: `/about/`, `/about/item/1`, and `/about/item/2`. We can swap out any number in our URL and 
+our item component can pull that value out and display it in the view. Let's take a look at the code for the root about component.
 
 <pre class="language-javascript">
 <code>
@@ -232,50 +258,82 @@ our item component can pull that value out and display it in the view. Let's tak
     selector: &#39;app-about&#39;,
     template: `
       &lt;h2&gt;About&lt;/h2&gt;
-	    &lt;a [routerLink]=&quot;[&#39;/&#39;]&quot;&gt;Home&lt;/a&gt;
-	    &lt;a [routerLink]=&quot;[&#39;/about/item&#39;, 1]&quot;&gt;Item 1&lt;/a&gt;
-	    &lt;a [routerLink]=&quot;[&#39;/about/item&#39;, 2]&quot;&gt;Item 2&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;Home&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/about/item&#39;, 1]&quot;&gt;Item 1&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/about/item&#39;, 2]&quot;&gt;Item 2&lt;/a&gt;
       &lt;div class=&quot;inner-outlet&quot;&gt;
         &lt;router-outlet&gt;&lt;/router-outlet&gt;
       &lt;/div&gt;
     `,
     directives: [ROUTER_DIRECTIVES]
 })
-@Routes([
-  { path: &#39;/&#39;, component: AboutHomeComponent }, // , useAsDefault: true}, // coming soon
-  { path: &#39;/item/:id&#39;, component: AboutItemComponent }
-])
 export class AboutComponent { }
 {% endraw %}
 </code>
 </pre>
 
 So the first part in our about template our new `[routerLink]`'s have a second parameter of the id value ex: `['/about/item', 2]`. 
-This allows us to pass in parameters to the router. Now taking a look at the route decorator
-we now have `'/item/:id'` the `:` denotes that this is a route parameter and the router should get the value
-in the URL. So now lets take a look at the `AboutItemComponent` and see how we can get the id from the URL.
+This allows us to pass in parameters to the router. For now we are just passing in a number. Now lets take a look at the 
+updated route config.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
+export const routes: RouterConfig = [
+  { path: '', component: HomeComponent }
+  {
+    path: 'about',
+    component: AboutComponent,
+    children: [
+      { path: '', component: AboutHomeComponent },
+      { path: 'item/:id', component: AboutItemComponent }
+    ]
+  }
+];
+{% endraw %}
+</code>
+</pre>
+
+Now taking a look at the item route we now have `'item/:id'` the `:` denotes that this is a route parameter and the r
+outer should get the value in the URL. So now lets take a look at the `AboutItemComponent` and see how we can get the id from the URL.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: &#39;about-item&#39;,
   template: `&lt;h3&gt;About Item Id: {{id}}&lt;/h3&gt;`
 })
-class AboutItemComponent { 
+export class AboutItemComponent { 
   id: any;
-  constructor(routeSegment: RouteSegment) {
-    this.id = routeSegment.getParam(&#39;id&#39;);
+  paramsSub: any;
+  
+  constructor(private activatedRoute: ActivatedRoute) { }
+  
+  ngOnInit() {
+    this.paramsSub = this.activatedRoute.params.subscribe(params =&gt; this.id = parseInt(params[&#39;id&#39;], 10));
+  }
+  
+  ngOnDestroy() {
+    this.paramsSub.unsubscribe();
   }
 }
 {% endraw %}
 </code>
 </pre>
 
-We import the `RouteSegment` class and inject it into our component. Note this is yet to be documented as of RC1.
-Now we can pass in the route param name that we defined in the parent route to get the id value in the URL. 
-Then we set the value to a property on our component and display it in our template. 
-This value can be changed via the URL directly or the `routerLink`.
+We import the `ActivatedRoute` class and inject it into our component. The parameters are wrapped in an Observable
+that will push the current route parameter value whenever the parameter is updated. We subscribe for any changes.
+When a new value is recieved we set the value to a property on our template. We could just as easily taken this value
+as an ID to retrieve some data from a API. We capture the subscription in a property so when the component is destroyed 
+we unsubscribe preventing any memory leaks. 
+
+Using Observables to get route params works well when the component persists on the same screen without having 
+to be destroyed and recreated each time. If you are certain your component will be destroyed before a new 
+parameter is updated you can use the `snapshot` api option documented 
+<a href="https://angular.io/docs/ts/latest/guide/router.html#!#snapshot" target="_blank">here</a>.
 
 So now lets take a look at our diagram of our application's routes.
 
