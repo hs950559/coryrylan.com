@@ -5,7 +5,7 @@ description: A quick look into the new Angular 2 ngFor syntax.
 keywords: Cory Rylan, Web, Angular 2, JavaScript, ng-repeat, ngFor
 tags: angular2, angularjs, javascript
 date: 2015-06-22
-updated: 2016-05-06
+updated: 2016-07-31
 demo: http://plnkr.co/edit/0s3qtC0TvHdiJLmz4H3m?p=preview
 permalink: /blog/angular-2-ng-for-syntax
 ---
@@ -96,6 +96,22 @@ the `ngFor` simply boils down to the following code.
 
 One thing to note the camelCase syntax was introduced in <a href="https://github.com/angular/angular/blob/master/modules/angular2/docs/migration/kebab-case.md" target="_blank">Alpha 52</a>.
 A new custom HTML parser was introduced that allowed camelCasing in templates to replace the kebab-case syntax.
+
+## Track By
+Angular 2 also includes the `trackBy` feature from Angular 1.x that allows performance improvements in our list rendering by tracking a unique identifier
+on our list items.
+
+<pre class="language-markup">
+<code>
+{% raw %}
+&lt;ul&gt;
+  &lt;li *ngFor=&quot; let item of items; trackBy:item.id;&quot;&gt;
+    {{item}}
+  &lt;/li&gt;
+&lt;/ul&gt;
+{% endraw %}
+</code>
+</pre>
 
 The new angular syntax will allow Angular to work with native web components and gain the
 benefits of using <a href="http://coryrylan.com/blog/introduction-to-web-components">Web Components</a>.

@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/splintercode/coryrylan.com#readme",
   "dependencies": {
-    "core-flex-grid": "^0.9.7"
+    "core-flex-grid": "0.9.9"
   }
 }
