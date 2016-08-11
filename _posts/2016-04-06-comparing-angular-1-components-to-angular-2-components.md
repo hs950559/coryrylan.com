@@ -5,7 +5,7 @@ description: A comparison of Angular 1 components to Angular 2 components and mi
 keywords: Cory Rylan, Angular2, AngularJS, Components
 tags: angular2, angularjs
 date: 2016-04-06
-updated: 2016-05-05
+updated: 2016-08-10
 permalink: /blog/comparing-angular-1-components-to-angular-2-components
 demo:
 ---

@@ -5,13 +5,14 @@ description: A intro on how to better encapsulate your CSS in Angular 2 componen
 keywords: Cory Rylan, Angular2, CSS
 tags: CSS, angular2
 date: 2016-03-05
-updated: 2016-05-05
+updated: 2016-08-10
 permalink: /blog/css-encapsulation-with-angular-2-components
 demo: http://plnkr.co/edit/JYbmizTKUd29zfmmMmLc?p=preview
 ---
 
 CSS encapsulation has always been something developers have wanted in their web applications. The ability to scope CSS to a specific component without affecting other components 
-has been difficult to achieve. This post we will cover how to use Angular 2 components to encapsulate our CSS and learn the pros and cons to each technique.
+has been difficult to achieve. This post we will cover how to use Angular 2 components to encapsulate our CSS and learn the pros and cons to each technique. This post
+has been updated to the latest Angular 2 RC5.
 
 In our Angular 2 app we will have three components. First is our App component, it will have two child components `FirstComponent` and `SecondComponent`.
 
@@ -23,8 +24,6 @@ In our Angular 2 app we will have three components. First is our App component, 
 <code>
 {% raw %}
 import { Component } from '@angular/core';
-import { FirstComponent } from 'app/first.component.ts';
-import { SecondComponent } from 'app/second.component.ts';
 
 @Component({
   selector: 'demo-app',
@@ -35,8 +34,7 @@ import { SecondComponent } from 'app/second.component.ts';
       &lt;first-cmp&gt;&lt;/first-cmp&gt;
       &lt;second-cmp&gt;&lt;/second-cmp&gt;
     &lt;/div&gt;
-  `,
-  directives: [FirstComponent, SecondComponent]
+  `
 })
 export class App {
   constructor() { }
@@ -46,7 +44,6 @@ export class App {
 </pre>
 
 We link a separate style sheet into our `index.html` that has a  single global style rule that will be applied to any element with the CSS class of `cmp`.
-
 
 <pre class="language-css">
 <code>

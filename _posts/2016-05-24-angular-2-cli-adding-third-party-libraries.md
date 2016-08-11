@@ -18,7 +18,7 @@ has been the default module loader for the Angular CLI and the Angular documenta
 and mimics a proposed module loader spec for browsers. The down side to SystemJS is it does require more configuration than other options 
 which makes adding third party libraries in a Angular CLI project a bit tricky. 
 
-As of this writing the Angular CLI is in Beta (beta 5). So lets start with adding a popular library, [ChartJS](http://www.chartjs.org/).
+As of this writing the Angular CLI is in Beta (beta 10). So lets start with adding a popular library, [ChartJS](http://www.chartjs.org/).
 ChartJS is a small library that offers canvas based charts and graphs.
 
 ## Step 1: NPM

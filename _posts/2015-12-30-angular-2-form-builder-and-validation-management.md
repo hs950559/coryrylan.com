@@ -5,10 +5,9 @@ description: Learn about the new FormBuilder and create a custom component to ma
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2015-12-30
-updated: 2016-06-25
+updated: 2016-08-10
 permalink: /blog/angular-2-form-builder-and-validation-management
 demo: http://plnkr.co/edit/WTu5G9db3p4pKzs0WvW6?p=preview
-olddemo: http://plnkr.co/edit/6RkM0eRftf3KQpoDCktz?p=preview
 ---
 
 Angular 1 has the handy <a href="https://docs.angularjs.org/api/ngMessages/directive/ngMessages" target="_blank">ngMessages</a> modules to help manage error messages and validation in forms.
@@ -22,38 +21,53 @@ In our example we are going to build a small form with three inputs, user name, 
     
 <img src="/assets/images/posts/2015-12-30-angular-2-form-builder-and-validation-management/simple-form-1.png" alt="A simple user form." class="full-width col-5--max" />
 
-We will start with looking at our `main.ts` file.
+We will start with looking at our `app.module.ts` file.
 
 <pre class="language-typescript">
 <code>
 {% raw %}
-import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-bootstrap(AppComponent, [
-  disableDeprecatedForms(),
-  provideForms(),
-]);
+import { AppComponent } from './app.component';
+import { ControlMessagesComponent } from './control-messages.component';
+import { ValidationService } from './validation.service';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
+  declarations: [
+    ControlMessagesComponent,
+    AppComponent
+  ],
+  providers: [ ValidationService ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {
+}
 {% endraw %}
 </code>
 </pre>
 
-Here is our root main component. We are importing two provider functions to configure our app to use the latest 
-version of Angular 2 forms and disable the deprecated versions. At the time of this writing `@angular/forms` is at `0.1.1`.
-Now lets look at our top level app component.
+In our `AppModule` we are registering our components and services for our application. Once registered we can bootstrap 
+our `AppModule` for our application. For us to use the form features in this post we will use the `ReactiveFormsModule`.
+To read more about `@NgModule` check out the [documentation](https://angular.io/docs/ts/latest/guide/ngmodule.html).
+Now lets take a look at our `AppComponent`.
 
 <pre class="language-typescript">
 <code>
 {% raw %}
 import { Component } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ValidationService } from 'app/validation.service';
 
 @Component({
   selector: 'demo-app',
-  templateUrl: 'app/app.component.html',
-  directives: [REACTIVE_FORM_DIRECTIVES]
+  templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
   userForm: any;
@@ -77,8 +91,7 @@ export class AppComponent {
 </code>
 </pre>
 
-First we import `REACTIVE_FORM_DIRECTIVES` and register it to our component's directives list.
-Next we import the `FormBuilder` class. We inject it through our App component constructor. 
+First we import the `FormBuilder` class. We inject it through our App component constructor. 
 In our constructor is the following:
     
 <pre class="language-typescript">

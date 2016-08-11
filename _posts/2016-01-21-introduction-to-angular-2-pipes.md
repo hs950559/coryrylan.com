@@ -5,7 +5,7 @@ description: Learn Angular 2 pipes and how to create your own custom pipe.
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2016-01-21
-updated: 2016-05-06
+updated: 2016-08-10
 permalink: /blog/introduction-to-angular-2-pipes
 demo: http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview
 ---
@@ -76,18 +76,49 @@ For our pipe we only have a name property in our decorator. This simply tells An
 or piped in and the second a list of parameters/ arguments passed into our pipe.
 
 In the method we check if there was anything passed in. If no length was defined we just return back the string. The second statement takes the string and 
-trims of extra characters and adds the ellipsis. Next take a look at our root app component and how the pipe is imported.
+trims of extra characters and adds the ellipsis. Next take a look at our `AppModule` imports and registers the pipe.
+
+<pre class="language-typescript">
+<code>
+{% raw %}
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { EllipsisPipe } from './ellipsis.pipe';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  declarations: [
+    EllipsisPipe,
+    AppComponent
+  ],
+  providers: [ ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {
+}
+{% endraw %}
+</code>
+</pre>
+
+Our `AppModule` is where we register all the Components, Pipes and Services of our app. We then bootstrap our app from
+our `AppModule`. Read more about [@NgModule here](https://angular.io/docs/ts/latest/guide/ngmodule.html). Next lets
+look at our `AppComponent` using the eillipsis pipe.
 
 <pre class="language-typescript">
 <code>
 {% raw %}
 import { Component } from '@angular/core';
-import { EllipsisPipe } from 'app/ellipsis.pipe';
 
 @Component({
   selector: 'demo-app',
-  template: '&lt;p&gt;{{longText | ellipsis:50 }}&lt;/p&gt;',
-  pipes: [EllipsisPipe]
+  template: '&lt;p&gt;{{longText | ellipsis:50 }}&lt;/p&gt;'
 })
 export class App {
   constructor() { 
@@ -98,7 +129,6 @@ export class App {
 </code>
 </pre>
 
-We import our Pipe into the component to use it. Notice we explicitly tell Angular in the components decorator what pipes this component uses.
 So our output for the long string above would be `Bacon ipsum dolor amet bacon t-bone tongue ball ti...`.
 
 Take a look a this <a href="http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview" target="_blank">Plnkr</a> for a working demo of the ellipsis pipe. Angular 2 pipes are not much different from AngularJS 1.x filters

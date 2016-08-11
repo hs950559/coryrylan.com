@@ -5,7 +5,7 @@ description: Learn how to manage large Angular 2 applications and navigation wit
 keywords: Cory Rylan, Angular2, AngularJS, routing, router
 tags: angular2, angularjs
 date: 2016-04-02
-updated: 2016-06-20
+updated: 2016-08-10
 permalink: /blog/introduction-to-angular-2-routing
 demo: http://plnkr.co/edit/RPvgcUdiLFP4Mtig9Q7n?p=preview
 ---
@@ -14,7 +14,7 @@ Angular 2 brings many improved modules to the Angular ecosystem including a new 
 The Component Router is a highly configurable and feature packed router. Features included are standard view routing, nested child routes, 
 named routes, and route parameters. This post we will cover standard routing, route parameters and nested 
 child routes. With these basics we can build a great navigation experience for users
-that is easy to reason about. This post has been updated to the new RC router (3.0.0-alpha.7) that is 
+that is easy to reason about. This post has been updated to the new RC router (3.0.0-rc.1) and Angular 2 RC5 that is 
 <a href="https://angular.io/docs/ts/latest/guide/router.html" target="_blank">documented</a> on the Angular website.
 
 ## Basic Routing
@@ -53,7 +53,6 @@ app component and see how we can use the new Router to route between these two c
 <code>
 {% raw %}
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'demo-app',
@@ -63,9 +62,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     &lt;div class=&quot;outer-outlet&quot;&gt;
       &lt;router-outlet&gt;&lt;/router-outlet&gt;
     &lt;/div&gt;
-  `,
-  // add our router directives we will be using
-  directives: [ROUTER_DIRECTIVES]
+  `
 })
 export class AppComponent { }
 {% endraw %}
@@ -73,17 +70,6 @@ export class AppComponent { }
 </pre>
 
 So lets walk through our app component step by step and see what this code is doing. 
-
-<pre class="language-javascript">
-<code>
-{% raw %}
-import { ROUTER_DIRECTIVES } from '@angular/router';
-{% endraw %}
-</code>
-</pre>
-
-So this import is pulling in the Route Directives that will be used on this view. We 
-must list this it our component's `directives` list.
 
 <pre class="language-javascript">
 <code>
@@ -96,10 +82,7 @@ must list this it our component's `directives` list.
     &lt;div class=&quot;outer-outlet&quot;&gt;
       &lt;router-outlet&gt;&lt;/router-outlet&gt;
     &lt;/div&gt;
-  `,
-  
-  // add our router directives we will be using
-  directives: [ROUTER_DIRECTIVES]
+  `
 })
 {% endraw %}
 </code>
@@ -107,12 +90,12 @@ must list this it our component's `directives` list.
 
 So the first part is the `[routerLink]`. This directive generates our link based on the route path. 
 The second part is the `router-outlet`, this is the location where Angular will insert the component 
-we want to route to on the view. Next lets take a look at our route config file `routes.app.ts`.
+we want to route to on the view. Next lets take a look at our route config file `app.routes.ts`.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
-import { provideRouter, RouterConfig } from '@angular/router';
+import { RouterConfig } from '@angular/router';
 
 import { AboutComponent } from 'app/about.component';
 import { HomeComponent } from 'app/home.component';
@@ -121,28 +104,61 @@ export const routes: RouterConfig = [
   { path: '', component: HomeComponent }
   { path: 'about', component: AboutComponent }
 ];
-
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
 {% endraw %}
 </code>
 </pre>
 
 Our route config defines all the routes in our application. The first route is our default home route.
 The second one is our `AboutComponent`. The path value is the path that we referenced in our template.
-We export our routes as a `Provider` to bootstrap into our application. 
+We export our routes to be added to our App Module.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
-import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { APP_ROUTER_PROVIDERS } from './app.routes';
-import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-bootstrap(AppComponent, [
-  APP_ROUTER_PROVIDERS
-]);
+import { routes } from './app.routes';
+import { AppComponent } from './app.component';
+import { AboutComponent } from './about.component';
+import { HomeComponent } from './home.component';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
+  ],
+  declarations: [
+    AboutComponent,
+    HomeComponent,
+    AppComponent
+  ],
+  providers: [ ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {
+}
+{% endraw %}
+</code>
+</pre>
+
+<p>
+  Our `AppModule` is where we create a new `@NgModule`. A NgModule is a way to bundle components, services and pipes 
+  into a single module for Angular to consume. So we will register all of our components to our `AppModule`
+  then boostrap the module like below.
+</p>
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+import { browserDynamicPlatform } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app.module';
+
+browserDynamicPlatform().bootstrapModule(AppModule);
 {% endraw %}
 </code>
 </pre>
@@ -173,7 +189,6 @@ So lets take a look at our About components.
 <code>
 {% raw %}
 import { Component } from &#39;@angular/core&#39;;
-import { ROUTER_DIRECTIVES } from &#39;@angular/router&#39;;
 
 @Component({
   selector: &#39;about-home&#39;,
@@ -196,8 +211,7 @@ export class AboutItemComponent { }
       &lt;div class=&quot;inner-outlet&quot;&gt;
         &lt;router-outlet&gt;&lt;/router-outlet&gt;
       &lt;/div&gt;
-    `,
-    directives: [ROUTER_DIRECTIVES]
+    `
 })
 export class AboutComponent { }
 {% endraw %}
@@ -207,12 +221,13 @@ export class AboutComponent { }
 So our About template looks very similar to the App component template. Our about component has
 two child routes, `about/` and `about/item` These pull in two simple components that
 just display the rendered text above. Notice our route paths start at the root of the about component.
-The rendered URLs would be `/about/` and `/about/item`. Lets now take a look at the updated route config.
+The rendered URLs would be `/about/` and `/about/item`. Note remember to add our newly created 
+components to the `declarations` in our `AppModule`.  Lets now take a look at the updated route config.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
-import { provideRouter, RouterConfig } from '@angular/router';
+import { RouterConfig } from '@angular/router';
 
 import { AboutComponent, AboutHomeComponent, AboutItemComponent } from 'app/about.component';
 import { HomeComponent } from 'app/home.component';
@@ -227,10 +242,6 @@ export const routes: RouterConfig = [
       { path: 'item', component: AboutItemComponent } // url: about/item
     ]
   }
-];
-
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
 ];
 {% endraw %}
 </code>
@@ -264,8 +275,7 @@ our item component can pull that value out and display it in the view. Let's tak
       &lt;div class=&quot;inner-outlet&quot;&gt;
         &lt;router-outlet&gt;&lt;/router-outlet&gt;
       &lt;/div&gt;
-    `,
-    directives: [ROUTER_DIRECTIVES]
+    `
 })
 export class AboutComponent { }
 {% endraw %}
@@ -326,7 +336,7 @@ export class AboutItemComponent {
 
 We import the `ActivatedRoute` class and inject it into our component. The parameters are wrapped in an Observable
 that will push the current route parameter value whenever the parameter is updated. We subscribe for any changes.
-When a new value is recieved we set the value to a property on our template. We could just as easily taken this value
+When a new value is received we set the value to a property on our template. We could just as easily taken this value
 as an ID to retrieve some data from a API. We capture the subscription in a property so when the component is destroyed 
 we unsubscribe preventing any memory leaks. 
 

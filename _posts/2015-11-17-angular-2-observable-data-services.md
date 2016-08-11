@@ -5,7 +5,7 @@ description: A look into Observables and how they can improve your Angular 2 dat
 keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
 tags: angular2, rxjs, javascript
 date: 2015-11-17
-updated: 2016-06-12
+updated: 2016-08-10
 permalink: /blog/angular-2-observable-data-services
 demo: http://plnkr.co/edit/yMBoVkxohwhPig5COgkU?p=preview
 ---

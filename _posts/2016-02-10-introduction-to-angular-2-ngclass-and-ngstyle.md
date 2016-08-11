@@ -5,6 +5,7 @@ description: Learn how to dynamically control CSS and CSS classes and in Angular
 keywords: Cory Rylan, Angular 2, AngularJS, CSS
 tags: angular2, css
 date: 2016-02-10
+updated: 2016-08-10
 permalink: /blog/introduction-to-angular-2-ngclass-and-ngstyle
 demo: http://plnkr.co/edit/HyB1rg7xxWqCNwTuZCYV?p=preview
 ---

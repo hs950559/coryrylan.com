@@ -5,7 +5,7 @@ description: Learn about the new Directive API and build a text snippet directiv
 keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
 tags: angular2, typescript
 date: 2016-01-11
-updated: 2016-05-05
+updated: 2016-08-10
 permalink: /blog/angular-2-text-snippet-directive
 demo: http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview
 ---
@@ -36,12 +36,10 @@ Our directive is passed in a list of snippets from our top-level Component.
 <code>
 {% raw %}
 import { Component } from '@angular/core';
-import { UISnippets } from 'app/ui-snippets.directive';
 
 @Component({
   selector: 'demo-app',
-  templateUrl: 'app/app.component.html',
-  directives: [UISnippets]
+  templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
   constructor() { 
@@ -209,6 +207,7 @@ export class UISnippets {
 Our Directive has a `onChange($event)` method that is called on the `onChange` event defined in our Decorator. The method takes in the value of our input.
 Once we have the input value we use regular expressions and a little logic to iterate through our list of snippets that is passed in and look for a match.
 If a snippet name is matched we replace it with the corresponding snippet's content and set the inputs value with the new text.
+As of RC 5 your directives will need to be registered with your `AppModule`. Read more about [@NgModule](https://angular.io/docs/ts/latest/guide/ngmodule.html).
 
 The new Directive API in Angular 2 is much simpler than what was know in Angular 1.x. See a working demo of the `uiSnippet` Directive here on 
 <a href="http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview" target="_blank">plnkr.co</a>.
