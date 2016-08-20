@@ -11,9 +11,10 @@ tab: work
 You can find me teaching via [Angular Bootcamp Training](http://angularbootcamp.com/) and speaking
 in the St.Louis area about Angular and JavaScript.
 
+- [Angular Lunch Meetup - Intro to the Angular 2 CLI](https://www.youtube.com/watch?v=4BRT6054nCM&feature=youtu.be)
 - [Outlier Developer, Improve Your Technical Reading Skills](http://outlierdeveloper.com/improve-your-technical-reading-skills/)
-- [Angular Lunch Meetup Angular 2 and RxJS](https://angularlunch.wordpress.com/2016/02/06/lunch-wed-feb-17-2016-rxobservable-in-angular-2/)
-- [Angular Lunch Meetup Angular 2 and Visual Studio](https://angularlunch.wordpress.com/2016/03/12/lunch-wed-march-16-2016-visual-studio-with-angular-2/)
+- [Angular Lunch Meetup - Angular 2 and RxJS](https://angularlunch.wordpress.com/2016/02/06/lunch-wed-feb-17-2016-rxobservable-in-angular-2/)
+- [Angular Lunch Meetup - Angular 2 and Visual Studio](https://angularlunch.wordpress.com/2016/03/12/lunch-wed-march-16-2016-visual-studio-with-angular-2/)
 
 <br />
 
