@@ -285,7 +285,7 @@ in the St.Louis area about Angular and JavaScript.
         <meta itemprop="publisher" content="Cory Rylan" />
     </section>
     <section itemscope itemtype="http://schema.org/Code">
-        <a href="http://codepen.io/splintercode" itemprop="url codeRepository"><span itemprop="name"><span itemprop="programmingLanguage">CSS</span>/<span itemprop="programmingLanguage">Javascript</span></span></a>
+        <a href="http://codepen.io/coryrylan" itemprop="url codeRepository"><span itemprop="name"><span itemprop="programmingLanguage">CSS</span>/<span itemprop="programmingLanguage">Javascript</span></span></a>
         <p itemprop="about">Some css and js demos I have created will be here.</p>
         <meta itemprop="author" content="Cory Rylan" />
         <meta itemprop="publisher" content="Cory Rylan" />

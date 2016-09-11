@@ -126,7 +126,7 @@ Here are my performance test scores now after all of the optimizations.
 </table>
 
 <blockquote class="twitter-tweet" lang="en"><p>First paint with text to screen in less than 1 second on a good 3G connection. 
-<a href="https://twitter.com/hashtag/perfmatters?src=hash">#perfmatters</a> <a href="http://t.co/HqNg493Z3O">pic.twitter.com/HqNg493Z3O</a></p>&mdash; Cory Rylan (@SplinterCode) <a href="https://twitter.com/SplinterCode/statuses/495618360089268224">August 2, 2014</a></blockquote>
+<a href="https://twitter.com/hashtag/perfmatters?src=hash">#perfmatters</a> <a href="http://t.co/HqNg493Z3O">pic.twitter.com/HqNg493Z3O</a></p>&mdash; Cory Rylan (@coryrylan) <a href="https://twitter.com/coryrylan/statuses/495618360089268224">August 2, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
  
 Overall the work was well work it. My site can now render in one second on a good 3G connection and half a second on a cable connection.

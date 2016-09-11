@@ -233,7 +233,7 @@ console.log(cory.name);
 </code>
 </pre>
 
-A codepen.io demo of the code above can be found <a href="http://codepen.io/splintercode/pen/PwOKWp">here</a>.
+A codepen.io demo of the code above can be found <a href="http://codepen.io/coryrylan/pen/PwOKWp">here</a>.
 ES6 classes bring some syntactical sugar to prototypes. Just remember that is all ES6 classes are, syntactic sugar.
 Remember classes are just one of many options to organize and structure code. There are many other great design patterns for
 code reuse such as the <a href="/blog/javascript-module-pattern-basics">module pattern</a>.

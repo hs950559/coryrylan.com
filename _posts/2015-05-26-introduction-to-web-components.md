@@ -390,7 +390,7 @@ decided to not implement HTML Imports in Firefox. Mozilla currently wants to wai
 as they may fulfill the needs HTML imports are trying to solve. For now you can use pollyfills to solve this or use
 JavaScript ES6 modules to manage your web components.
 
-This introduction only scratches the surface of the Web Component API.You can find a working demo of the tab component on <a href="http://codepen.io/splintercode/pen/LVZwWW" target="_blank">codepen.io</a>.
+This introduction only scratches the surface of the Web Component API.You can find a working demo of the tab component on <a href="http://codepen.io/coryrylan/pen/LVZwWW" target="_blank">codepen.io</a>.
 Check out <a href="http://webcomponents.org/" target="_blank">http://webcomponents.org/</a>
 for the latest on web components and deep dive tutorials. Also check out Google's <a href="https://www.polymer-project.org" target="_blank">Polymer</a> project. Polymer
 adds some syntactic sugar, pollyfills and pre-built components.

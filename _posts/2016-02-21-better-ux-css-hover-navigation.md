@@ -6,7 +6,7 @@ keywords: Cory Rylan, CSS, Sass
 tags: ux, css
 date: 2016-02-21
 permalink: /blog/better-ux-css-hover-navigation
-demo: http://codepen.io/splintercode/pen/rxQbzg
+demo: http://codepen.io/coryrylan/pen/rxQbzg
 ---
 
 The CSS hover based drop down nav has been a common option when organizing our website's navigation. Simple and easy to build with decent user experience the 
@@ -22,7 +22,7 @@ So we will have something like this:
 <img src="/assets/images/posts/2016-02-19-better-ux-css-hover-navigation/hover.png" class="float-center full-width col-4--max" />
 
 Below is a snippet example from
-our <a href="http://codepen.io/splintercode/pen/rxQbzg" target="_blank">demo</a> of how this would look. 
+our <a href="http://codepen.io/coryrylan/pen/rxQbzg" target="_blank">demo</a> of how this would look. 
 
 <pre class="language-css">
 <code>
