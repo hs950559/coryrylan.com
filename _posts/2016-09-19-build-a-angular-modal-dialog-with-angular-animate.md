@@ -4,21 +4,22 @@ title: Build a Angular 2 modal dialog with Angular Animate
 description: Learn how to build your own Angular 2 modal dialog with Angular Animate
 keywords: Cory Rylan, Angular 2, Angular, Animate
 tags: Angular, Angular2
-date: 2016-09-18
+date: 2016-09-19
 permalink: /blog/build-a-angular-modal-dialog-with-angular-animate
 demo: http://plnkr.co/edit/AuFMJVHpk9OaLr62puS1?p=preview
 ---
 
-Angular being a full fledged framework provides a lot of functionality for us developers right out of the box.
-In this post we are going to build our own modal dialog. This will be simplistic example compared to 
+Angular is full fledged framework which provides a lot of functionality for developers right out of the box.
+In this post we are going to build our own modal dialog in the latest Angular 2.x. This will be simplistic example compared to 
 a modal dialog from a UI kit like [Kendo UI](http://www.telerik.com/kendo-angular-ui/). In our example 
 we will learn how to use Angular Animate, two way data binding, and ngContent for easy integration into our application.
-If you want to skip to the live code example check out the link at the bottom of the page.
+If you want to skip to the live code example check out the link at the bottom of the page. This post is slightly 
+more advanced and assumes the basic knowledge of Angular 2 and its template syntax.
 Here is a brief look at what our final component will look like.
 
 <video src="/assets/video/posts/2016-15-09-build-a-angular-modal-dialog-with-angular-animate/angular-modal-dialog.mp4" autoplay loop controls class="float-center col-5--max" style="border: 2px solid #ccc;"></video>
 
-Fist lets start with our top level app component template. In this template we will have just a single button
+First lets start with our top level app component template. In this template we will have just a single button
 to toggle our dialog to open and close. Here we will also see how we interact with our custom dialog in other components.
 
 <pre class="language-html">
@@ -35,14 +36,16 @@ to toggle our dialog to open and close. Here we will also see how we interact wi
 </pre>
 
 Looking at our app template we have a single button that toggles a `showDialog` property on our app component.
-The next line is our `app-dialog` component. We can see the `[(visible)]="showDialog"` on our dialog component.
+The next line is our `app-dialog` component. Notice the `[(visible)]="showDialog"` on our dialog component.
 We are using the two way data binding syntax or also known as "bananas in a box". This binds the value of the `showDialog`
-to the `app-dialog` and allows us to communicate to the `app-dialog` of when to show and hide. 
+to the `app-dialog` and allows us to communicate to the `app-dialog` when to show and hide. 
 
-## Modal Dialog Component
 
 Inside the `app-dialog` we have the content we would like to be displayed in our dialog. This is a feature called
 ngContent. This allow content between component tags to be injected in specific parts of our `app-dialog` template.
+
+## Modal Dialog Component
+
 Lets take a look at the `app-dialog` template.
 
 <pre class="language-html">
@@ -55,7 +58,7 @@ Lets take a look at the `app-dialog` template.
 </code>
 </pre>
 
-So Our first line we see a interesting syntax `[@dialog]`. This is a special property syntax for the Angular Animations
+So our first line we see a interesting syntax `[@dialog]`. This is a special property syntax for the Angular Animations
 to target specific elements. We will come back to this in a bit. The next line is an `ngIf` to toggle the 
 visibility of our dialog.
 
@@ -65,7 +68,9 @@ that when clicked toggle the visible property on the dialog component. Next lets
 
 <pre class="language-javascript">
 <code>
-import { Component, OnInit, Input, Output, OnChanges, EventEmitter, trigger, state, style, animate, transition } from &#39;@angular/core&#39;;
+import { 
+  Component, OnInit, Input, Output, OnChanges, EventEmitter, 
+  trigger, state, style, animate, transition } from &#39;@angular/core&#39;;
 
 @Component({
   selector: &#39;app-dialog&#39;,
@@ -102,7 +107,7 @@ export class DialogComponent implements OnInit {
 
 So looking at our `app-dialog` component there is quite a bit going on the first few lines
 are describing where our CSS and template files are. In our CSS file we just have some CSS
-for the dialog box. The animations are controlled by Angular Animate. So lets take a look
+for the dialog box styles. The animations are controlled by Angular Animate. So lets take a look
 at the `animations` property on the component decorator.
 
 ## Animation
@@ -126,7 +131,7 @@ animations: [
 The Angular Animation is based on the Web Animation API instead of traditional CSS. This allows 
 fine grain control of our animation timing in JavaScript and great performance. The first line we have
 a trigger value: `dialog`. This is the value that matches the `[@dialog]` property in our template.
-When the trigger is seen in the template Angular will apply the animation.
+When the trigger is seen in the template Angular will apply the animation to that element.
 
 Next is the `transition` function. This takes in a value of how the animation should occur. In our example
 we are using the `*` wildcard syntax which means in any state change of the applied element it should
@@ -165,15 +170,16 @@ On our `app-dialog` we have a few properties. Using the `Input` and `Output` dec
 defining the API for other components to interact with the `app-dialog`. The first input allows 
 us to set the dialog to show or hide the close button, which is a common scenario for dialogs.
 
-The input and output `visible` and `visibleChange` allows us to create custom two way data binding
+The input and output `visible` and `visibleChange` allows us to create custom two way binding
 so we can toggle the visibility of the dialog. Why two way? Could we not just set the visibility from the 
-app component? Well if we keep it two way using the `EventEmitter` we can set the app `showDialog` property 
-when the close button is clicked. This allows the `showDialog` property to stay in sync whether its the
-app component or the dialog component setting it. The `visibleChange` follows the Angular convention
-adding `Change` to the end for properties that are for two way data binding. If you are unfamiliar with the Angular 2 template syntax
+app component with just the `[property]` syntax? Well if we keep it two way using the `EventEmitter` 
+we can set the app `showDialog` property when the close button is clicked. This allows 
+the `showDialog` property to stay in sync whether its the app component or the dialog component setting it. 
+The `visibleChange` follows the Angular convention adding `Change` to the end for properties that are for 
+two way data binding. If you are unfamiliar with the Angular 2 template syntax
 I recommend checking out the [documentation](https://angular.io).
 
-## Conclusion 
+## Conclusion
 
-Theres three main features, animations, ngContent, and two way data binding that when combined allows us
-to create complex a feature rich components for our applications. Check out the live working demo below!
+The three main features we used, animations, ngContent, and two way data binding, when combined allows us
+to create easy to use feature rich components. Check out the live working demo below!
