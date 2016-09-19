@@ -121,8 +121,7 @@ import { ProductItemComponent } from &#39;app/product-item.component&#39;;
     &lt;hr /&gt;
     &lt;h3&gt;{{selectedProduct.name}}&lt;/h3&gt;
     &lt;p&gt;{{selectedProduct.price | currency:&#39;USD&#39;:true:&#39;1.2-2&#39;}}&lt;/p&gt;
-  `,
-  directives: [ProductItemComponent]
+  `
 })
 export class AppComponent {
   selectedProduct: any;
@@ -170,8 +169,7 @@ is a component and allows us to add meta data such as what our template is and w
       &lt;hr /&gt;
       &lt;h3&gt;{{selectedProduct.name}}&lt;/h3&gt;
       &lt;p&gt;{{selectedProduct.price | currency:&#39;USD&#39;:true:&#39;1.2-2&#39;}}&lt;/p&gt;
-  `,
-  directives: [ProductItemComponent]
+  `
 })
 {% endraw %}
 </code>
