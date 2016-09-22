@@ -4,9 +4,9 @@ title: Angular Custom Form Inputs with Reactive Forms and NgModel
 description: Learn how to build your own Angular 2 custom form input with reactive forms and ngModel.
 keywords: Cory Rylan, Angular 2, Angular, Forms, NgModel
 tags: Angular, Angular2
-date: 2016-09-20
+date: 2016-09-23
 permalink: /blog/angular-custom-form-inputs-with-reactive-forms-and-ngmodel
-demo: http://plnkr.co/edit/AuFMJVHpk9OaLr62puS1?p=preview
+demo: http://plnkr.co/edit/Yj93mh5ZnX6ONtaMQPAQ?p=preview
 ---
 
 Custom form inputs are a common pattern in complex front end applications. Its common to want to encapsulate
