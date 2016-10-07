@@ -326,7 +326,7 @@ angular
       &#39;&lt;/div&gt;&#39;
     ].join(&#39;&#39;),
     bindings: {
-      product: &#39;=&#39;,
+      product: &#39;<&#39;,
       onSelect: &#39;&amp;&#39;
     },
     controller: function () { }
