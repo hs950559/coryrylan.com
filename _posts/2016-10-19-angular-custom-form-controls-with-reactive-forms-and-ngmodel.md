@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Angular Custom Form Controls with Reactive Forms and NgModel
+title: Angular 2 Custom Form Controls with Reactive Forms and NgModel
 description: Learn how to build your own Angular 2 custom form input with reactive forms and ngModel.
 keywords: Cory Rylan, Angular 2, Angular, Forms, NgModel
 tags: Angular, Angular2
-date: 2016-10-18
+date: 2016-10-19
 permalink: /blog/angular-custom-form-controls-with-reactive-forms-and-ngmodel
 demo: http://plnkr.co/edit/Yj93mh5ZnX6ONtaMQPAQ?p=preview
 ---
@@ -154,32 +154,36 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class SwitchComponent implements ControlValueAccessor {
+  @Input() label = 'switch';
+  @Input('value') _value = false;
+  onChange: any = () => { };
+  onTouched: any = () => { };
+
   get value() {
     return this._value;
   }
 
   set value(val) {
     this._value = val;
-    this.propagateChange(val);
+    this.onChange(val);
+    this.onTouched();
   }
 
-  @Input() label = 'switch';
-  @Input('value') _value = false;
-  propagateChange: any = () => { };
-
   constructor() { }
+
+  registerOnChange(fn) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn) { 
+    this.onTouched = fn;
+  }
 
   writeValue(value) {
     if (value) {
       this.value = value;
     }
   }
-
-  registerOnChange(fn) {
-    this.propagateChange = fn;
-  }
-
-  registerOnTouched() { }
 
   switch() {
     this.value = !this.value;
@@ -214,41 +218,46 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 </code>
 </pre>
 
-So the fisrt part of our decorator is defining our component template, css and selector. The API we are interested in is under providers.
+So the fisrt part of our decorator is defining our component template, CSS and selector. The API we are interested in is under providers.
 Under providers we are telling the Angular DI to extend the existing `NG_VALUE_ACCESSOR` token and use SwitchComponent when requested. 
 We then set multi to true. This mechanisim enables `multi providers`. Essentailly allowing multiple values for a single DI token. This allows 
-easy extensions to existing APIs for devs. Next lets look at our component class.
+easy extensions to existing APIs for devs. This essentially registers our custom component as a custom form control for Angular to
+process in our templates. Next lets look at our component class.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
 export class SwitchComponent implements ControlValueAccessor {
+  @Input() label = 'switch';
+  @Input('value') _value = false;
+  onChange: any = () => { };
+  onTouched: any = () => { };
+
   get value() {
     return this._value;
   }
 
   set value(val) {
     this._value = val;
-    this.propagateChange(val);
+    this.onChange(val);
+    this.onTouched();
   }
 
-  @Input() label = 'switch';
-  @Input('value') _value = false;
-  propagateChange: any = () => { };
-
   constructor() { }
+
+  registerOnChange(fn) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn) { 
+    this.onTouched = fn;
+  }
 
   writeValue(value) {
     if (value) {
       this.value = value;
     }
   }
-
-  registerOnChange(fn) {
-    this.propagateChange = fn;
-  }
-
-  registerOnTouched() { }
 
   switch() {
     this.value = !this.value;
@@ -273,9 +282,60 @@ export interface ControlValueAccessor {
 </code>
 </pre>
 
-The `ControlValueAccessor` `writeValue` method is called whenever we need to set the control value of our component. 
-The second `registerOnChange` fires whenever the view value is updated. This mechanisim notifies our form to update its 
-values. The last `registerOnTouched` is called when the custom control is touched. For our use we will only implements
-`writeValue` and `registerOnChange`.
+We will go over the pourpose of each one of these methods below. Our component takes in a couple of `@Inputs`. One is a label 
+value so our component has the appropriate label markup and the second is for setting the component value. 
+The `@Input('input')` allows us to take a input value named `input` and map it to the `_input` backing field. We will see the 
+role of `onChange` and `onTouched` in a few. Next we have the following getters and setters.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+get value() {
+  return this._value;
+}
+
+set value(val) {
+  this._value = val;
+  this.onChange(val);
+  this.onTouched();
+}
+{% endraw %}
+</code>
+</pre>
+
+We use getters and setters to set our value on our component in a backing field named `_value`. This allows us to call 
+`this.onChange(val)` and `.onTouched()`. 
+
+The next method `registerOnChange` passes in a callback function as a paramter for us to call whenever the value has changed.
+We set the property `onChange` to the callback so we can call it whenever our setter on the `value` property is called.
+The `registerOnTouched` method passes back a callback to call whenever the custom control has been touched by the user.
+When we call this callback it notifies Angular to apply the appropriate CSS classes and validation logic to our control.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+registerOnChange(fn) {
+  this.onChange = fn;
+}
+
+registerOnTouched(fn) { 
+  this.onTouched = fn;
+}
+
+writeValue(value) {
+  if (value) {
+    this.value = value;
+  }
+}
+{% endraw %}
+</code>
+</pre>
+
+The last method to impliment from the ControlValueAccessor is `writeValue`. This is called by Angular when the 
+value of the control is set either by a parent component or form. The final method `switch()` is called on the click 
+event triggered from our switch component template. 
 
 ## Summary
+As a quick summary, custom form controls are simply components that impliment the `ControlValueAccessor` interface. 
+By implimenting this interface our custom controlls can now work with `ngModel` and the Reactive Forms API. 
+Check out the working demo below which has the cooresponding CSS that creates the toggle animation effect.
