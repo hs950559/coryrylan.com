@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/splintercode/coryrylan.com#readme",
   "dependencies": {
-    "core-flex-grid": "1.0.1"
+    "blueprint-css": "1.1.3"
   }
 }
