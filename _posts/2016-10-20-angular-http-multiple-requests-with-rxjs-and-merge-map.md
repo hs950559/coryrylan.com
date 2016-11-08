@@ -4,7 +4,7 @@ title: Angular 2 HTTP Multiple Requests with RxJS and mergeMap
 description: Learn how to handle muttiple http requests with the Angular 2 Http service and RxJS mergeMap.
 keywords: Cory Rylan, Angular 2, Angular, RxJS, Observables, Http
 tags: Angular, RxJS
-date: 2016-11-03
+date: 2017-11-04
 permalink: /blog/angular-http-multiple-requests-with-rxjs-merge-map-and-fork-join
 demo: http://plnkr.co/edit/Yj93mh5ZnX6ONtaMQPAQ?p=preview
 ---
