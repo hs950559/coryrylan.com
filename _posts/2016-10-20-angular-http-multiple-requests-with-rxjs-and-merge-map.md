@@ -32,7 +32,7 @@ export class AppComponent {
   constructor(private http: Http) { }
   
   ngOnInit() {
-    this.http.get('/api/user/1').subscribe(response => conole.log(response));
+    this.http.get('/api/pokemon/1').subscribe(response => conole.log(response));
   }
 }
 {% endraw %}
@@ -44,7 +44,7 @@ will give us a instance of the Http service when its sees the signature in our c
 
 Now that we have the service we call the service to fetch some data from our test api. We do this in the `ngOnInit`. 
 This is a life cycle hook where its ideal to fetch data. You can read more about `ngOnInit` in the <a href="#">docs</a>. 
-For now lets focus on the http call. We can see we have `http.get()` that makes a GET request to `/api/user/1`. We then 
+For now lets focus on the http call. We can see we have `http.get()` that makes a GET request to `/api/pokemon/1`. We then 
 call `subscribe` to subscribe to the data when it comes back. When the data comes back we just log the
 response to the console. So this is the simplest snippet of code to make a single request. Let's next look at 
 making two requests.
@@ -52,17 +52,17 @@ making two requests.
 ## MergeMap Operator
 
 ** Use the POKEMON API for example **
-In our next example we will have the following use case: We need to retreive user notes from a REST API. 
-To do this we have only the user ID so we must 
-When we get the user back we then need to fetch that users notes from the same API but a different REST endpoint. This example is sequntial. 
-Do one request then the next.
+In our next example we will have the following use case: We need to retreive a pokemon from 
+the <a href="https://pokeapi.co/">PokeAPI</a>. To start we have the id of the desired pokemon we want to request.
+
+When we get the pokemon back we then need to fetch that pokemons anilities from the same API but a different REST endpoint. 
+This example is sequntial. Make one request then the next.
 
 <pre class="language-javascript">
 <code>
 {% raw %}
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -70,14 +70,18 @@ import 'rxjs/add/operator/map';
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
-
+  loadedPokemon: {};
   constructor(private http: Http) { }
   
   ngOnInit() {
-    this.http.get('/api/people/1')
-      .map(res => res.data.person.id)
-      .mergeMap(userId => this.http.get(`/api/user-notes/${userId}`))
-      .subscribe(response => conole.log(response));
+    this.http.get('/api/pokemon/1')
+      .map(res => res.json())
+      .subscribe(pokemon => {
+        this.http.get(`/api/pokemon/${pokemon.id}/abilities`).subscribe(abilities => {
+          pokemon.abilties = abilities;
+          this.loadedPokemon = pokemon;
+        });
+      });
   }
 }
 {% endraw %}
@@ -86,4 +90,46 @@ export class AppComponent {
 
 So looking at the `ngOnInit` method we see our http requests. First we make a request to get
 a user from `/api/user/1`. We then call `.map()` instead of subscribe. This allows us to map over the 
-value and pull out  
+value and pull out the raw JSON from the Response object. Once loaded we the make a second request a fetch the abilites
+of that particular pokemon. Once we get the abilties we add it to the pokemon object and set the <code>loadedPokemon</code>
+property on our component to display it on our template. This works but there are two things to notice here. First
+we are starting to see this nested pyramid stucture in nesting our Observables which isnt very readable. second
+our two requests were sequntial. We have the id already we can make the requests parralel and speed up loading the
+data. 
+
+## ForkJoin
+
+So in this next example we are going to use an operator called <code>forkJoin</code>. If you are familliar with 
+Promises this is very similar to <code>Promise.all()</code>. The <code>forkJoin()</code> operator allows us take a list
+of Observables and execute the in parralel. Once every Observable in the list emits a value the <code>forkJoin</code>
+with emit a single Observable value containing a list of all the resolved values from the Observables in the list.
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+import { Component } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/forkJoin';
+import 'rxjs/add/operator/map';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app/app.component.html'
+})
+export class AppComponent {
+  loadedPokemon: {};
+  constructor(private http: Http) { }
+  
+  ngOnInit() {
+    const id = 1;
+    let pokemon = this.http.get(`/api/pokemon/${id}`);
+    let pokemonAbilities = this.http.get(`/api/pokemon/${id}/abilities`)
+
+    Observable.forkJoin(pokemon, pokemonAbilities)subscribe(results => {
+      this.loadedPokemon = [0].abilites = [1];
+    });
+  }
+}
+{% endraw %}
+</code>
+</pre>
