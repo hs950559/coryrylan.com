@@ -5,7 +5,7 @@ description: A quick look into the new Angular 2 ngFor syntax.
 keywords: Cory Rylan, Web, Angular 2, JavaScript, ng-repeat, ngFor
 tags: angular2, angularjs, javascript
 date: 2015-06-22
-updated: 2016-07-31
+updated: 2016-11-10
 demo: http://plnkr.co/edit/0s3qtC0TvHdiJLmz4H3m?p=preview
 permalink: /blog/angular-2-ng-for-syntax
 ---
@@ -99,16 +99,28 @@ A new custom HTML parser was introduced that allowed camelCasing in templates to
 
 ## Track By
 Angular 2 also includes the `trackBy` feature from Angular 1.x that allows performance improvements in our list rendering by tracking a unique identifier
-on our list items.
+on our list items. The `trackBy` in Angular 2 is slightly different than Angular 1. To use track by you must
+pass a function as a parameter from your component.
 
 <pre class="language-markup">
 <code>
 {% raw %}
 &lt;ul&gt;
-  &lt;li *ngFor=&quot; let item of items; trackBy:item.id;&quot;&gt;
+  &lt;li *ngFor=&quot; let item of items; trackBy: trackByFn;&quot;&gt;
     {{item}}
   &lt;/li&gt;
 &lt;/ul&gt;
+{% endraw %}
+</code>
+</pre>
+
+<pre class="language-javascript">
+<code>
+{% raw %}
+// Method in component class
+trackByFn(index, item) {
+  return item.id;
+}
 {% endraw %}
 </code>
 </pre>
