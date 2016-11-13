@@ -4,7 +4,7 @@ title: Angular 2 HTTP Multiple Requests with RxJS and mergeMap
 description: Learn how to handle muttiple http requests with the Angular 2 Http service and RxJS mergeMap.
 keywords: Cory Rylan, Angular 2, Angular, RxJS, Observables, Http
 tags: Angular, RxJS
-date: 2017-11-04
+date: 2016-11-13
 permalink: /blog/angular-http-multiple-requests-with-rxjs-merge-map-and-fork-join
 demo: http://plnkr.co/edit/Yj93mh5ZnX6ONtaMQPAQ?p=preview
 ---
@@ -32,7 +32,7 @@ export class AppComponent {
   constructor(private http: Http) { }
   
   ngOnInit() {
-    this.http.get('/api/pokemon/1').subscribe(response => conole.log(response));
+    this.http.get('/api/people/1').subscribe(response => conole.log(response));
   }
 }
 {% endraw %}
@@ -44,18 +44,17 @@ will give us a instance of the Http service when its sees the signature in our c
 
 Now that we have the service we call the service to fetch some data from our test api. We do this in the `ngOnInit`. 
 This is a life cycle hook where its ideal to fetch data. You can read more about `ngOnInit` in the <a href="#">docs</a>. 
-For now lets focus on the http call. We can see we have `http.get()` that makes a GET request to `/api/pokemon/1`. We then 
+For now lets focus on the http call. We can see we have `http.get()` that makes a GET request to `/api/people/1`. We then 
 call `subscribe` to subscribe to the data when it comes back. When the data comes back we just log the
 response to the console. So this is the simplest snippet of code to make a single request. Let's next look at 
 making two requests.
 
 ## MergeMap Operator
 
-** Use the POKEMON API for example **
-In our next example we will have the following use case: We need to retreive a pokemon from 
-the <a href="https://pokeapi.co/">PokeAPI</a>. To start we have the id of the desired pokemon we want to request.
+In our next example we will have the following use case: We need to retreive a character from 
+the <a href="https://swapi.co/">Star Wars API</a>. To start we have the id of the desired character we want to request.
 
-When we get the pokemon back we then need to fetch that pokemons anilities from the same API but a different REST endpoint. 
+When we get the character back we then need to fetch that character's homeworld from the same API but a different REST endpoint. 
 This example is sequntial. Make one request then the next.
 
 <pre class="language-javascript">
@@ -70,16 +69,16 @@ import 'rxjs/add/operator/map';
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
-  loadedPokemon: {};
+  loadedCharacter: {};
   constructor(private http: Http) { }
   
   ngOnInit() {
-    this.http.get('/api/pokemon/1')
+    this.http.get('/api/person/1')
       .map(res => res.json())
-      .subscribe(pokemon => {
-        this.http.get(`/api/pokemon/${pokemon.id}/abilities`).subscribe(abilities => {
-          pokemon.abilties = abilities;
-          this.loadedPokemon = pokemon;
+      .subscribe(person => {
+        this.http.get(person.homeworld).subscribe(homeworld => {
+          person.homeworld = homeworld;
+          this.loadedPerson = person;
         });
       });
   }
@@ -90,8 +89,8 @@ export class AppComponent {
 
 So looking at the `ngOnInit` method we see our http requests. First we make a request to get
 a user from `/api/user/1`. We then call `.map()` instead of subscribe. This allows us to map over the 
-value and pull out the raw JSON from the Response object. Once loaded we the make a second request a fetch the abilites
-of that particular pokemon. Once we get the abilties we add it to the pokemon object and set the <code>loadedPokemon</code>
+value and pull out the raw JSON from the Response object. Once loaded we the make a second request a fetch the homeworld
+of that particular person. Once we get the abilties we add it to the person object and set the <code>loadedPerson</code>
 property on our component to display it on our template. This works but there are two things to notice here. First
 we are starting to see this nested pyramid stucture in nesting our Observables which isnt very readable. second
 our two requests were sequntial. We have the id already we can make the requests parralel and speed up loading the
@@ -117,16 +116,18 @@ import 'rxjs/add/operator/map';
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
-  loadedPokemon: {};
+  loadedPerson: {};
   constructor(private http: Http) { }
   
   ngOnInit() {
-    const id = 1;
-    let pokemon = this.http.get(`/api/pokemon/${id}`);
-    let pokemonAbilities = this.http.get(`/api/pokemon/${id}/abilities`)
+    const personId = 1;
+    const homeworldId = 1;
 
-    Observable.forkJoin(pokemon, pokemonAbilities)subscribe(results => {
-      this.loadedPokemon = [0].abilites = [1];
+    let person = this.http.get(`/api/person/${personId}`);
+    let personHomeworld = this.http.get(`http://swapi.co/api/planets/${homeworldId}/`)
+
+    Observable.forkJoin(person, personHomeworld)subscribe(results => {
+      this.loadedPerson = [0].abilites = [1];
     });
   }
 }
