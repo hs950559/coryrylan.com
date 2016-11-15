@@ -41,7 +41,7 @@ if ('serviceWorker' in navigator) {
 </pre>
 
 This script will check if the browser supports service workers and if so register the service worker.
-This is a great behavior as our site will work just fine if the browser doesnt support 
+This is a great behavior as our site will work just fine if the browser doesn't support 
 service workers. Next lets take a look at our `service-worker.js` file. We wont dig deep into the details 
 as the service worker spec is a lower level API that is quite robust.
 

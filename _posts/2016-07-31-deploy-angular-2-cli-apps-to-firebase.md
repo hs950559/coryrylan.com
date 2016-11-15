@@ -26,7 +26,7 @@ Next open your app in your favorite editor and you should see something similar 
 
 ### Starting the CLI
 
-Now runing a command prompt at the root of our project we can run the following command: `ng serve`.
+Now running a command prompt at the root of our project we can run the following command: `ng serve`.
 This will build our project and start a live reload server for development. So if we browse to `localhost:4200`
 we should see the following:
 

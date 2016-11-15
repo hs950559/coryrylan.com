@@ -8,8 +8,8 @@ date: 2016-11-03
 permalink: /blog/angular-local-development-setup
 ---
 
-Angular 2 has moved from a framework to now a platform to develop rich UIs accross mobile
-and desktop. There are many ways to set up a development enviroment and build process for 
+Angular 2 has moved from a framework to now a platform to develop rich UIs across mobile
+and desktop. There are many ways to set up a development environment and build process for 
 Angular apps. In this short post I'll go over my personal setup that I use on both my Linux/MacOS and Windows
 machines.
 
@@ -32,7 +32,7 @@ but is well worth it.
 <img src="/assets/images/posts/2016-11-03-angular-local-development-setup/visual-studio-code.png" class="full-width col-3--max float-center" alt="Angular CLI" />
 
 Next is my favorite editor that I use all the time, 
-<a href="https://code.visualstudio.com/">Visual Studio Code</a>. Visual Studio Code is a free cross platorm editor 
+<a href="https://code.visualstudio.com/">Visual Studio Code</a>. Visual Studio Code is a free cross platform editor 
 with great TypeScript support which is critical for a good Angular 2 development experience. Visual Studio Code is very fast and
 light weight. It has a great plugin system as well. Here is a screenshot of some of the plugins I use that give a really 
 good editor experience for Angular 2 apps.
@@ -41,7 +41,7 @@ good editor experience for Angular 2 apps.
 
 ## Deployment
 
-Angular is not very optinionated on how its deployed and what backend stack its hosted on.
+Angular is not very opinionated on how its deployed and what backend stack its hosted on.
 I deploy Angular apps a couple different ways. Some on .NET stacks and others on NodeJS. 
 My favorite is <a href="https://firebase.google.io">Firebase</a>. Firebase has a hosting feature 
 that is great for single page apps and has HTTP2 support for great performance. Learn more

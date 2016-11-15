@@ -21,9 +21,9 @@ such as their real-time database.
 We wont get into the details of all of the awesomness of Firebase but we will use the Hosting service. 
 With Firebase hosting we can host our blog and even get a SSL certificate to secure our site for free.
 Now since our host is for static files it means they are really fast at downloading but it also means 
-our site isnt dynamic or has a database. So we will use a static site generator.
+our site isn't dynamic or has a database. So we will use a static site generator.
 
-Static site generators are great for sites that dont have content that changes often.
+Static site generators are great for sites that don't have content that changes often.
 Sites such as blogs or simple company sites work great with static site generators.
 One of the most popular static site generators is called Jekyll. 
 Jekyll is designed specifically for blogs. There are many different static site generators with 

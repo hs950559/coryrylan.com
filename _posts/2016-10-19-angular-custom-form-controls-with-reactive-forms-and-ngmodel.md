@@ -11,7 +11,7 @@ demo: http://plnkr.co/edit/Yj93mh5ZnX6ONtaMQPAQ?p=preview
 
 Custom form controls/inputs are a common pattern in complex front end applications. Its common to want to encapsulate
 HTML, CSS and accessibility in a component to make it easier to use in forms throughout the application. Common examples
-of this are datepickers, switches, dropdowns, and typeaheads. All of these types of inputs are not naitive 
+of this are datepickers, switches, dropdowns, and typeaheads. All of these types of inputs are not native 
 HTML inputs. We would like them to easily integrate into Angular's form system to make them easy to use
 with other form inputs. 
 
@@ -23,7 +23,7 @@ output will look like.
 <video src="/assets/video/posts/2016-10-15-angular-custom-form-controls-with-reactive-forms-and-ngmodel/angular-custom-form-control.mp4" autoplay loop controls class="float-center col-4--max" style="border: 2px solid #ccc;"></video>
 
 So our switch component is essentially the behavior of a checkbox. It toggles a boolean value in our forms.
-In this component we will use a naitive checkbox and some HTML and CSS to create the switch effect. In Angular 2
+In this component we will use a native checkbox and some HTML and CSS to create the switch effect. In Angular 2
 there are two different ways to interact with form controls/inputs. The first recommended default is the 
 Reactive Form API and the other is the NgModel. We will use a special API Angular exposes to allow us to 
 support both API interactions with our custom switch component.
@@ -218,9 +218,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 </code>
 </pre>
 
-So the fisrt part of our decorator is defining our component template, CSS and selector. The API we are interested in is under providers.
+So the first part of our decorator is defining our component template, CSS and selector. The API we are interested in is under providers.
 Under providers we are telling the Angular DI to extend the existing `NG_VALUE_ACCESSOR` token and use SwitchComponent when requested. 
-We then set multi to true. This mechanisim enables `multi providers`. Essentailly allowing multiple values for a single DI token. This allows 
+We then set multi to true. This mechanism enables `multi providers`. Essentially allowing multiple values for a single DI token. This allows 
 easy extensions to existing APIs for devs. This essentially registers our custom component as a custom form control for Angular to
 process in our templates. Next lets look at our component class.
 
@@ -282,7 +282,7 @@ export interface ControlValueAccessor {
 </code>
 </pre>
 
-We will go over the pourpose of each one of these methods below. Our component takes in a couple of `@Inputs`. One is a label 
+We will go over the purpose of each one of these methods below. Our component takes in a couple of `@Inputs`. One is a label 
 value so our component has the appropriate label markup and the second is for setting the component value. 
 The `@Input('input')` allows us to take a input value named `input` and map it to the `_input` backing field. We will see the 
 role of `onChange` and `onTouched` in a few. Next we have the following getters and setters.
@@ -331,11 +331,11 @@ writeValue(value) {
 </code>
 </pre>
 
-The last method to impliment from the ControlValueAccessor is `writeValue`. This is called by Angular when the 
+The last method to implement from the ControlValueAccessor is `writeValue`. This is called by Angular when the 
 value of the control is set either by a parent component or form. The final method `switch()` is called on the click 
 event triggered from our switch component template. 
 
 ## Summary
-As a quick summary, custom form controls are simply components that impliment the `ControlValueAccessor` interface. 
-By implimenting this interface our custom controlls can now work with `ngModel` and the Reactive Forms API. 
+As a quick summary, custom form controls are simply components that implement the `ControlValueAccessor` interface. 
+By implementing this interface our custom controls can now work with `ngModel` and the Reactive Forms API. 
 Check out the working demo below which has the cooresponding CSS that creates the toggle animation effect.

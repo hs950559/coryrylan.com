@@ -16,7 +16,7 @@ currency format to users in different geo locations/regions.
 If you have played with Angular 2 at all you may of run into a strange error about `Intl` being undefined in certain browsers.
 This is because under the hood Angular uses the new [Internationalization](https://github.com/andyearnshaw/Intl.js) 
 standard built into JavaScript and the browser. The benefits
-of this is that Angular doesnt have to bloat itself with Intl specific code and can use the Intl API provided by
+of this is that Angular doesn't have to bloat itself with Intl specific code and can use the Intl API provided by
 the browser. The downside to this is not every browser supports `Intl` just yet. So to fix this there are a couple
 of things we need to do to support those browsers.
 
@@ -41,7 +41,7 @@ The first option which is also the easiest is simply adding a script tag to your
 Now you have `Intl` support in all your browsers. 
 [polyfill.io](https://polyfill.io) is a nifty service that will only load the polyfill if the requested browser actually needs it. 
 This is a pretty good solution but what if you want your polyfill to be bundled with your scripts? You potentially get better performance
-and your application doesnt rely on a third party CDN that if it goes down it takes your app down with it. So whats the 
+and your application doesn't rely on a third party CDN that if it goes down it takes your app down with it. So whats the 
 next option?
 
 Well with the Angular CLI its actually quite easy. First we will use `npm` to install the `Intl` polyfill directly 

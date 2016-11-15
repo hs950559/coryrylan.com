@@ -99,7 +99,7 @@ with the diagram below.
 <img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication.svg" alt="Example of Angular 2 component data flow" class="full-width float-center col-6--max" />
 
 So we can see we pass data along down to child components and the child components use events to notify their parent of 
-a change or user action. We will see how this pattern is renforced in our Angular 2 version.
+a change or user action. We will see how this pattern is reenforced in our Angular 2 version.
 
 ## Angular 2 Component
 

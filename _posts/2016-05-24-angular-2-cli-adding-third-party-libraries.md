@@ -35,7 +35,7 @@ npm install lodash --save
 
 Now that we have installed Lodash we need to install the TypeScript type definitions to allow 
 our code to have better auto-competion and development experience. If you use a library that 
-was written in TypeScript such as [RxJS]() you dont have to worry about installing the type 
+was written in TypeScript such as [RxJS]() you don't have to worry about installing the type 
 definitions.
 
 <pre class="language-javascript">
