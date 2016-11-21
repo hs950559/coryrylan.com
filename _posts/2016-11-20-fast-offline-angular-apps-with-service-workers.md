@@ -235,7 +235,7 @@ So next let's look at a slightly larger app that has some Angular performance kn
 ## Service Workers, AOT Compilation, Change Detection and Pokémon
 
 Now that we have some basics down of how to make our app offline capable, let's look at a demo application I created.
-For this post I created [https://ng-pokedex.firebaseapp.com](NG-Pokédex). This is a small app that lists Pokémon and
+For this post I created [NG-Pokédex](https://ng-pokedex.firebaseapp.com). This is a small app that lists Pokémon and
 details about each kind. This app has basic routing, components and works completely offline using the same techniques we
 learned above. This app has a couple of special features turned on to make this app really fast.
 
