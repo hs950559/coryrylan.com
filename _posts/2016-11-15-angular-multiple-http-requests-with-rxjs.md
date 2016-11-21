@@ -15,7 +15,7 @@ can be tricky but with the Angular 2's Http service and a little help from the i
 it can be accomplished in just a few of lines of code. There are multiple ways to handle multiple requests, 
 they can be sequential or in parallel. In this post we will cover both.
 
-So lets start with a simple http request using the Angular 2 Http service.
+Let's start with a simple http request using the Angular 2 Http service.
 
 <pre class="language-javascript">
 <code>
@@ -39,7 +39,7 @@ export class AppComponent {
 </code>
 </pre>
 
-So in our app we have just a single component that pulls in Angular's Http service via Dependency Injection. Angular 
+In our app we have just a single component that pulls in Angular's Http service via Dependency Injection. Angular 
 will give us a instance of the Http service when its sees the signature in our component's constructor. 
 
 Now that we have the service we call the service to fetch some data from our test api. We do this in the `ngOnInit`. 
@@ -87,7 +87,7 @@ export class AppComponent {
 </code>
 </pre>
 
-So looking at the `ngOnInit` method we see our http requests. First we make a request to get
+Looking at the `ngOnInit` method we see our http requests. First we make a request to get
 a user from `/api/user/1`. We then call `.map()` instead of subscribe. Map is a special function 
 called an operator. This particular map allows us to map/iterate over the 
 value and pull out the raw JSON from the Response object. Once loaded we the make a second request a fetch the homeworld
@@ -129,7 +129,7 @@ export class AppComponent {
 </code>
 </pre>
 
-So in this example we use the `mergeMap` also known as `flatMap` to map/iterate over the Observable values. 
+In this example we use the `mergeMap` also known as `flatMap` to map/iterate over the Observable values. 
 So in our example when we get the homeworld we are getting back an Observable inside our character 
 Observable stream. This creates a nested Observable in a Observable. The `mergeMap` operator helps 
 us by subscribing and pulling the value out of the inner Observable and passing it back to the parent stream. 
@@ -139,7 +139,7 @@ take a look at multiple parallel requests with RxJS.
 
 ## ForkJoin
 
-So in this next example we are going to use an operator called `forkJoin`. If you are familiar with 
+In this next example we are going to use an operator called `forkJoin`. If you are familiar with 
 Promises this is very similar to `Promise.all()`. The `forkJoin()` operator allows us take a list
 of Observables and execute them in parallel. Once every Observable in the list emits a value the `forkJoin`
 with emit a single Observable value containing a list of all the resolved values from the Observables in the list.
@@ -179,7 +179,7 @@ export class AppComponent {
 </code>
 </pre>
 
-So in our example we capture the character and characterHomeworld Observable in variables. Observables are lazy
+In our example we capture the character and characterHomeworld Observable in variables. Observables are lazy
 so they wont execute until someone subscribes. When we pass them into `forkJoin` the `forkJoin` operator will
 subscribe and run each Observable, gathering up each value emitted and finally emitting a single array
 value containing all the completed HTTP requests. This is a very common pattern with JavaScript UI programming.
