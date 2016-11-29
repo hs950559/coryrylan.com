@@ -21,7 +21,7 @@ that is easy to reason about. This post has been updated to the new RC router (3
 
 So now lets take a look at what our first rendered view will look like.
 
-<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-simple-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-simple-routing.mp4" autoplay loop controls bp-layout="float-center 5--max"></video>
 
 We will start with single app component that has two routes. We will have a home view and a about view.
 Lets take a look at these two components first.
@@ -176,12 +176,12 @@ route would be the default about page but the more route would offer another vie
 
 So lets take a look at what that looks like rendered out.
 
-<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-nested-routing.mp4" autoplay loop controls class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-nested-routing.mp4" autoplay loop controls bp-layout="float-center 5--max"></video>
 
 So as above we can see the About view has its own `router-outlet` highlighted in blue. The about view also
 has its own links that navigate between two nested about child components. We can think of this as a tree structure.
 
-<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree.svg" alt="Example of Route Tree in Angular 2" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree.svg" alt="Example of Route Tree in Angular 2" bp-layout="full-width float-center 6--max" />
 
 So lets take a look at our About components.
 
@@ -257,7 +257,7 @@ Route parameters allow us to pass values in our url to our component so we can d
 So in our example we will have a route that can take an id and then display it on our `AboutItemComponent`
 component. So lets take a look at what the rendered output would be.
 
-<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-route-parameters.mp4" autoplay loop controls class="float-center col-5--max"></video>
+<video src="/assets/video/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-route-parameters.mp4" autoplay loop controls bp-layout="float-center 5--max"></video>
 
 Our URLs would be the following: `/about/`, `/about/item/1`, and `/about/item/2`. We can swap out any number in our URL and 
 our item component can pull that value out and display it in the view. Let's take a look at the code for the root about component.
@@ -347,7 +347,7 @@ parameter is updated you can use the `snapshot` api option documented
 
 So now lets take a look at our diagram of our application's routes.
 
-<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree-2.svg" alt="Example of Route Tree in Angular 2 with Route Parameters" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-02-introduction-to-angular-2-routing/angular-2-router-tree-2.svg" alt="Example of Route Tree in Angular 2 with Route Parameters" bp-layout="full-width float-center 6--max" />
 
 ## Recap
 

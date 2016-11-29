@@ -20,7 +20,7 @@ a checkbox with additional CSS and markup to get a physical switch effect. This 
 integrate into the new Angular 2 Reactive Forms and ngModel. So first lets take a look at what our final
 output will look like.
 
-<video src="/assets/video/posts/2016-10-15-angular-custom-form-controls-with-reactive-forms-and-ngmodel/angular-custom-form-control.mp4" autoplay loop controls class="float-center col-4--max" style="border: 2px solid #ccc;"></video>
+<video src="/assets/video/posts/2016-10-15-angular-custom-form-controls-with-reactive-forms-and-ngmodel/angular-custom-form-control.mp4" autoplay loop controls bp-layout="float-center 4--max" style="border: 2px solid #ccc;"></video>
 
 So our switch component is essentially the behavior of a checkbox. It toggles a boolean value in our forms.
 In this component we will use a native checkbox and some HTML and CSS to create the switch effect. In Angular 2

@@ -20,7 +20,7 @@ currently use the <a href="https://cli.angular.io">Angular CLI</a>. The Angular 
 allows developers to quickly create, scaffold and build Angular 2 applications. The CLI is still 
 in beta but is quickly gaining traction and a lot of support/improvements from the Angular team.
 
-<img src="/assets/images/posts/2016-11-03-angular-local-development-setup/angular-cli.svg" class="full-width col-4--max float-center" alt="Angular CLI" />
+<img src="/assets/images/posts/2016-11-03-angular-local-development-setup/angular-cli.svg" bp-layout="full-width 4--max float-center" alt="Angular CLI" />
 
 ## Editor
 
@@ -29,7 +29,7 @@ First is <a href="https://www.jetbrains.com/webstorm/">Webstorm</a>. Webstorm is
 IDE for JavaScript development and has all the bells and whistles. Webstorm does have a paid licence 
 but is well worth it. 
 
-<img src="/assets/images/posts/2016-11-03-angular-local-development-setup/visual-studio-code.png" class="full-width col-3--max float-center" alt="Angular CLI" />
+<img src="/assets/images/posts/2016-11-03-angular-local-development-setup/visual-studio-code.png" bp-layout="full-width 3--max float-center" alt="Angular CLI" />
 
 Next is my favorite editor that I use all the time, 
 <a href="https://code.visualstudio.com/">Visual Studio Code</a>. Visual Studio Code is a free cross platform editor 
@@ -37,7 +37,7 @@ with great TypeScript support which is critical for a good Angular 2 development
 light weight. It has a great plugin system as well. Here is a screenshot of some of the plugins I use that give a really 
 good editor experience for Angular 2 apps.
 
-<img src="/assets/images/posts/2016-11-03-angular-local-development-setup/visual-studio-code-plugins-angular.png" class="full-width col-4--max float-center" alt="Angular CLI" />
+<img src="/assets/images/posts/2016-11-03-angular-local-development-setup/visual-studio-code-plugins-angular.png" bp-layout="full-width 4--max float-center" alt="Angular CLI" />
 
 ## Deployment
 

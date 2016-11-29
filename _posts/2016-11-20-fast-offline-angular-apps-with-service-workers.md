@@ -20,7 +20,7 @@ can run in your browser. This Service Worker can handle background/network tasks
 Why would this be useful? Well with Service Workers we can have fine grain control of our outgoing and 
 incoming network requests as well as our browser cache.
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/service-worker.svg" alt="Service Worker" class="full-width col-7--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/service-worker.svg" alt="Service Worker" bp-layout="full-width 7--max float-center" />
 
 We can think of our Service Worker as a middle man between our app and the network. With this control we can 
 programmatically control how our app should respond in certain network situations. What should we do if the 
@@ -29,7 +29,7 @@ We can even create scenarios such as using the network first and if that fails f
 our apps behavior with the network. Service Workers allow us to explicitly tell the browser 
 what to do in situations of low to no connectivity instead of seeing this:
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/offline.png" alt="Offline Dino" class="full-width col-3--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/offline.png" alt="Offline Dino" bp-layout="full-width 3--max float-center" />
 
 I won't go into all the specifics of the Service Worker API and all the offline patterns but I highly recommend reading Jake Archibald's
 fantastic [Offline Cookbook](https://jakearchibald.com/2014/offline-cookbook/). We will cover more of the ideas of the Service Worker
@@ -41,7 +41,7 @@ you have been using this pattern and not know it's name. It simply is that we ha
 the app including the header, footer and navigation. We load the content dynamically typically through calling
 an API of some kind. 
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/app-shell.png" alt="Offline Dino" class="full-width col-3--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/app-shell.png" alt="Offline Dino" bp-layout="full-width 3--max float-center" />
 
 Most of this part of our app is unchanging. The content in the middle is dynamic and is swapped around
 via templates or API requests. So ideally we would like to tell the browser to hold onto that unchanging content
@@ -68,7 +68,7 @@ Once everything is installed (it may take a little bit) you can cd into your
 root folder that the CLI created and run `ng serve`. This will spin up a local development server and watch our source
 code files for changes to compile. Once running, browse to `localhost:4200` and you should see something like this in your browser:
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/app-start.png" alt="App Start" class="full-width col-4--max float-center" style="border: 1px solid #ccc;" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/app-start.png" alt="App Start" bp-layout="full-width 4--max float-center" style="border: 1px solid #ccc;" />
 
 So now we have a working Angular 2 app. I won't get too deep into the details of the CLI, but it does create a lot of files for
 us to use and test our project with. Next we are going to add a simple Service Worker to our app. First in your 
@@ -110,7 +110,7 @@ source directory. Then in your `angular-cli.json` add the following to the asset
 This tells the CLI to copy over the `service-worker.js` file over to the root dist of the project when it builds.
 Now if we restart our `ng serve` command we should see the same "app works!" message. Let's look in the Chrome Dev tools.
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/registered-service-worker.png" alt="Registered Service Worker" class="full-width col-6--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/registered-service-worker.png" alt="Registered Service Worker" bp-layout="full-width 6--max float-center" />
 
 If we look at the application tab in the Chrome dev tools we can see our Service Worker was successfully installed. Once
 installed the browser will always use this copy of the Service Worker. The browser will check on the server for 
@@ -136,7 +136,7 @@ So for our Angular CLI project we need to build our project to generate our stat
 analyze. In our CLI project we will run the following: `ng build --prod`. This will cause the CLI
 to build a production bundle of our app. After it runs we should see something similar to this:
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/prod-build.png" alt="Production output" class="full-width col-6--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/prod-build.png" alt="Production output" bp-layout="full-width 6--max float-center" />
 
 This dist folder contains all the generated compiled code we need to deploy and serve our Angular app. 
 We build the project so the files are written to disk so the SW Precache library can analyze our apps assets.
@@ -194,7 +194,7 @@ static files we would like the browser to cache and use.
 
 Now lets run our npm command `npm run sw`. We should get the following output:
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/sw-precache-output.png" alt="sw precache output" class="full-width col-6--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/sw-precache-output.png" alt="sw precache output" bp-layout="full-width 6--max float-center" />
 
 If we look in our generated Service Worker in our dist directory we should see some generated code. If we look through 
 it we can get a idea of how the code is handling all the cache logic for our application.
@@ -225,7 +225,7 @@ Now run `npm run static-serve`. Browse to `localhost:4200` and we should see the
 If we go back to the application tab we can see our Service Worker is now installed and running. 
 Let's go to the network tab and click the offline check mark and reload the page.
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/offline-angular-app.png" alt="Offline Angular App" class="full-width col-9--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/offline-angular-app.png" alt="Offline Angular App" bp-layout="full-width 9--max float-center" />
  
 We can see our app still works! Congrats you have created your first offline capable Angular 2 application!
 We can see in the network response times they are very fast since we immediately serve the content from memory 
@@ -239,7 +239,7 @@ For this post I created [NG-Pokédex](https://ng-pokedex.firebaseapp.com). This 
 details about each kind. This app has basic routing, components and works completely offline using the same techniques we
 learned above. This app has a couple of special features turned on to make this app really fast.
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/ng-pokedex.png" alt="NG-Pokédex" class="full-width col-3--max float-center" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/ng-pokedex.png" alt="NG-Pokédex" bp-layout="full-width 3--max float-center" />
 
 First, the app uses the Angular ahead of time compilation (AOT). AOT allows us to take the template compilation feature 
 of Angular and makes it a build step. This allows our bundle to be smaller. Also because the templates are pre-compiled
@@ -263,13 +263,13 @@ Firebase hosting is a lightning fast CDN that leverages HTTP2.
 So with these performance features built into Angular and Service Workers, what does this mean for our Pokedéx application? Let's
 take a look at the Chrome Dev tools.
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/ng-pokedex-test-1.png" alt="NG-Pokédex test results" class="full-width col-8--max float-center" style="border: 1px solid #ccc;" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/ng-pokedex-test-1.png" alt="NG-Pokédex test results" bp-layout="full-width 8--max float-center" style="border: 1px solid #ccc;" />
 
 With the first test, we can see after the Service Worker is installed subsequent reloads are very fast to render. 
 This test is on a Macbook Pro, clearly it's going to be fast. But let's set the network to offline and in the 
 timeline tab set the CPU throttle down to 5x slower to emulated low end mobile devices.
 
-<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/ng-pokedex-test-2.png" alt="NG-Pokédex test results high performance" class="full-width col-8--max float-center" style="border: 1px solid #ccc;" />
+<img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/ng-pokedex-test-2.png" alt="NG-Pokédex test results high performance" bp-layout="full-width 8--max float-center" style="border: 1px solid #ccc;" />
  
 As we can see here in an offline situation on an emulated low end device, we can get a render 
 page in less than 3 seconds. We get time to interactive in just over 3 seconds. This is quite impressive for an app built 
@@ -282,7 +282,7 @@ Using Angular Server Side rendering we could get this even faster on
 first time renders. Subsequent views render in just a second or two thanks to our Service Worker.
 
 <a href="https://www.webpagetest.org/result/161121_0G_5JD/">
-  <img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/web-page-test.png" alt="NG-Pokédex test results web page test" class="full-width col-8--max float-center" style="border: 1px solid #ccc;" />
+  <img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/web-page-test.png" alt="NG-Pokédex test results web page test" bp-layout="full-width 8--max float-center" style="border: 1px solid #ccc;" />
 </a>
 
 ## Conclusion

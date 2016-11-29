@@ -17,7 +17,7 @@ If you want to skip to the live code example check out the link at the bottom of
 more advanced and assumes the basic knowledge of Angular 2 and its template syntax.
 Here is a brief look at what our final component will look like.
 
-<video src="/assets/video/posts/2016-15-09-build-a-angular-modal-dialog-with-angular-animate/angular-modal-dialog.mp4" autoplay loop controls class="float-center col-5--max" style="border: 2px solid #ccc;"></video>
+<video src="/assets/video/posts/2016-15-09-build-a-angular-modal-dialog-with-angular-animate/angular-modal-dialog.mp4" autoplay loop controls bp-layout="float-center 5--max" style="border: 2px solid #ccc;"></video>
 
 First lets start with our top level app component template. In this template we will have just a single button
 to toggle our dialog to open and close. Here we will also see how we interact with our custom dialog in other components.

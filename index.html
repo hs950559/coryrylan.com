@@ -9,11 +9,11 @@ nocontain: true
 ---
 
 <div class="post-list">
-    <div class="flex-row--stretch">
+    <div bp-layout="row stretch">
     {% for post in site.posts %}
-        <div class="col-6@md col-4@lg">
+        <div bp-layout="col 6@md 4@lg">
             <div class="card card-btn-right">
-                <div class="margin-bottom">{{ post.date | date: "%b %-d, %Y" }}</div>
+                <div bp-layout="margin-bottom">{{ post.date | date: "%b %-d, %Y" }}</div>
 
                 <h2>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

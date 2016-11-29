@@ -42,11 +42,11 @@ Second we will select the Microsoft Web Developer tools. Both of these will give
 
 Installing Visual Studio should not mess with any previously installed NodeJS instances.
 
-<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-nodejs.png" alt="Visual Studio install with NodeJS" class="full-width col-6--max float-center display-block" />
+<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-nodejs.png" alt="Visual Studio install with NodeJS" bp-layout="full-width 6--max float-center display-block" />
 
 Ok now you can go download the latest Visual Studio here. Make sure to also have Update 1 installed before continuing.
 
-<a href="https://www.visualstudio.com/products/visual-studio-community-vs" target="_blank" class="btn float-center display-block col-4--max">Visual Studio Community Download</a>
+<a href="https://www.visualstudio.com/products/visual-studio-community-vs" target="_blank" class="btn" bp-layout="float-center display-block 4--max">Visual Studio Community Download</a>
 
 
 ## NodeJS and Visual Studio
@@ -64,7 +64,7 @@ There are two major versions of NodeJS. I recommend using the latest 5.x branch.
 Ok, now that we have Node installed, we need to adjust Visual Studio to use the local Node version that we just installed to our machine. 
 In the top right corner type in the quick launch "External Web Tools". You should get a dialog like this.
 
-<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-set-nodejs-version.png" alt="Visual Studio NodeJS version" class="full-width col-8--max float-center display-block" />
+<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-set-nodejs-version.png" alt="Visual Studio NodeJS version" bp-layout="full-width 8--max float-center display-block" />
 
 Make sure the top two entries are like the entries depicted above. This will force Visual Studio to point to the NodeJS we installed on to our machine. Now when we update Node
 on our machine Visual Studio will use that version and not the one tied to the Visual Studio.
@@ -103,7 +103,7 @@ These Task Running tools are all command line based. This makes them easy to use
 Visual Studio will automatically recognize them and add a task runner explorer to the bottom of the IDE. These common task runners will run on the version of Node that is installed
 on your machine and is not tied to the Visual Studio version you are running.
 
-<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-task-runner.png" alt="Visual Studio Task Runner" class="full-width col-9--max float-center display-block" />
+<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-task-runner.png" alt="Visual Studio Task Runner" bp-layout="full-width 9--max float-center display-block" />
 
 Grunt and Gulp support is included automatically. To add NPM script support you can download the extension 
 <a href="https://visualstudiogallery.msdn.microsoft.com/8f2f2cbc-4da5-43ba-9de2-c9d08ade4941" target="_blank">here</a>.
@@ -114,7 +114,7 @@ Angular 2 is written in TypeScript and encourages its use in development. Visual
 features. To get the latest TypeScript version install the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48593" target="_blank">extension here</a>. It is ideal to run the latest version as this is 
 what Angular 2 usually uses. 
 
-<a href="https://www.microsoft.com/en-us/download/details.aspx?id=48593" target="_blank" class="btn float-center display-block col-4--max">TypeScript for Visual Studio</a>
+<a href="https://www.microsoft.com/en-us/download/details.aspx?id=48593" target="_blank" class="btn" bp-layout="float-center display-block 4--max">TypeScript for Visual Studio</a>
 
 ### Building with TypeScript
 There are a few different ways to build your TypeScript code. Visual Studio can build it for you in the IDE. I do not recommend this. 
@@ -122,7 +122,7 @@ Once you need to build your project on another machine like a build server you w
 system of some sort like Grunt or Gulp or anything else you can easily use the TypeScript command line tool. You can download this tool via 
 NPM <a href="https://www.npmjs.com/package/typescript" target="_blank">here</a>. This will allow you to compile your TypeScript with almost any build system.
 
-<a href="https://www.npmjs.com/package/typescript" target="_blank" class="btn float-center display-block col-4--max">TypeScript NPM Package</a>
+<a href="https://www.npmjs.com/package/typescript" target="_blank" class="btn" bp-layout="float-center display-block 4--max">TypeScript NPM Package</a>
 
 One thing to note: if you compile your TypeScript outside of Visual Studio, make sure to keep the version in Visual Studio close to the same version as your build task.
 This will help make sure that any new language features are both in the IDE and build step. 
@@ -165,7 +165,7 @@ to connect the dots.
 ## Conclusion
 
 <a href="https://code.visualstudio.com/" target="_blank">
-<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-code-angular-2.png" alt="Visual Studio Code" class="full-width col-2--max float-center display-block" />
+<img src="/assets/images/posts/2016-03-21-angular-2-development-with-visual-studio-and-windows/visual-studio-code-angular-2.png" alt="Visual Studio Code" bp-layout="full-width 2--max float-center display-block" />
 </a>
 
 Visual Studio can be a powerful IDE but also can be overwhelming especially with all the new JavaScript tooling being introduced. If your Angular 2 

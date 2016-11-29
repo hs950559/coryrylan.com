@@ -34,7 +34,7 @@ There could be some significant technical advantages. So how would we go about d
 what is called proxies. A proxy is server that can retrieve assets and data from another server on the 
 clients behalf.
 
-<img src="/assets/images/posts/2016-08-19-angular-2-upgrade-strategies-with-reverse-proxies/proxy.svg" class="full-width col-7--max float-center" alt="Server Proxy" />
+<img src="/assets/images/posts/2016-08-19-angular-2-upgrade-strategies-with-reverse-proxies/proxy.svg" bp-layout="full-width 7--max float-center" alt="Server Proxy" />
 
 For our use case we want a particular type a of proxy called a reverse proxy. A reverse proxy allows us to have a proxy 
 that can take in requests and route them to several different web applications. Example: `https://example.com/feature-1` 
@@ -42,7 +42,7 @@ can route to our traditional web application and `https://example.com/feature-2`
 in our Angular 2 application. The client/browser stays on the same URL/Domain without ever knowing the proxy is requesting from
 multiple servers/projects. So our server set up would look similar to this:
 
-<img src="/assets/images/posts/2016-08-19-angular-2-upgrade-strategies-with-reverse-proxies/reverse-proxy.svg" class="full-width col-7--max float-center" alt="Reverse Server Proxy"/>
+<img src="/assets/images/posts/2016-08-19-angular-2-upgrade-strategies-with-reverse-proxies/reverse-proxy.svg" bp-layout="full-width 7--max float-center" alt="Reverse Server Proxy"/>
 
 ### Benefits
 

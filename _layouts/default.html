@@ -78,11 +78,11 @@ layout: compress
 
         {% include header.html %}
 
-        <main class="site-container container">
+        <main class="site-container" bp-layout="container">
             <section itemscope itemtype="http://schema.org/Person">
                 <div itemprop="description">
                     <img src="/assets/images/cory-rylan-4.jpg" alt="Cory Rylan" class="site-profile-img" itemprop="image" />
-                    <p class="col-6--max float-center text-center margin-bottom">
+                    <p bp-layout="6--max float-center text-center margin-bottom">
                         My name is <a href="https://coryrylan.com" itemprop="url"><span itemprop="name">Cory Rylan</span></a>,
                         <span itemprop="jobTitle">Senior Front End Engineer</span> at <a href="https://github.com/vintage-software"
                         target="_blank" itemprop="worksFor">Vintage Software</a> and  
@@ -97,14 +97,14 @@ layout: compress
                 <meta itemprop="sameAs" content="https://plus.google.com/u/0/102986296317731631979?rel=author" />
                 <meta itemprop="sameAs" content="https://www.youtube.com/channel/UC2psqmFgEHGQ3PnfUf1j8vw" />
                 
-                <div class="text-center margin-bottom--lg" style="height: 26px;"><a href="https://twitter.com/coryrylan" class="twitter-follow-button" data-show-count="false">Follow @coryrylan</a></div>
+                <div bp-layout="text-center margin-bottom--lg" style="height: 26px;"><a href="https://twitter.com/coryrylan" class="twitter-follow-button" data-show-count="false">Follow @coryrylan</a></div>
                 <script async>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </section>
 
             {{ content }}
         </main>
 
-        <div class="clear-both"></div>
+        <div bp-layout="clear-both"></div>
         {% include footer.html %}
         
     <script>

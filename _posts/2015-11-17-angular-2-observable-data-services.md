@@ -15,7 +15,7 @@ Observables are a proposed feature coming to the JavaScript specification.
 I wont go in depth into Observables but will just cover some of the high level concepts. If you want a introduction to
 Observables check out my screen cast. 
 
-<a href="/blog/intro-to-rxjs-observables-and-angular-2" class="btn display-block float-center col-5--max">Intro to RxJS Observables and Angular 2</a>
+<a href="/blog/intro-to-rxjs-observables-and-angular-2" class="btn display-block" bp-layout="float-center 5--max">Intro to RxJS Observables and Angular 2</a>
 
 The rest of this post will cover more data and application state management in a Angular 2 application. 
 This post has been updated to the latest stable 2.0 release of Angular.
@@ -284,7 +284,7 @@ This pattern follows the idea of unidirectional data flow. Meaning data flow is 
 If you have worked with <a href="https://facebook.github.io/flux/docs/overview.html">Flux</a>/<a href="http://redux.js.org/">Redux</a> based architectures this may seem very familiar.
 
 <figure>
-<img src="/assets/images/posts/2015-11-17-angular-2-observable-data-services/observable-service-data-flow.svg" alt="Diagram of Angular 2 Data flow with Observables" class="full-width col-9--max float-center margin-bottom">
+<img src="/assets/images/posts/2015-11-17-angular-2-observable-data-services/observable-service-data-flow.svg" alt="Diagram of Angular 2 Data flow with Observables" bp-layout="full-width 9--max float-center margin-bottom">
 <figcaption class="text-center">Angular 2 data flow with Observables</figcaption>
 </figure>
 

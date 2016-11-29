@@ -23,7 +23,7 @@ In this example we have a simple application that lists a list of products for s
 With this tree like structure it is easier to understand how an app is composed and data is passed between components.
 Lets take a look at what the rendered output will look like.
 
-<video src="/assets/video/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component.mp4" autoplay loop controls class="float-center col-4--max"></video>
+<video src="/assets/video/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component.mp4" autoplay loop controls bp-layout="float-center 4--max"></video>
 
 Now lets take a look at the app component source code. Our Angular 1 code is in ES5 while our Angular 2 code will
 be written in ES6/TypeScript.
@@ -96,7 +96,7 @@ So when we click a buy button we call the `onSelect` and pass back the selected 
 data flow is common and encouraged in Angular 2. We can visualize how the data flows through our app
 with the diagram below. 
 
-<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication.svg" alt="Example of Angular 2 component data flow" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication.svg" alt="Example of Angular 2 component data flow" bp-layout="full-width float-center 6--max" />
 
 So we can see we pass data along down to child components and the child components use events to notify their parent of 
 a change or user action. We will see how this pattern is reenforced in our Angular 2 version.
@@ -307,7 +307,7 @@ event which will be our selected product. The `select` method is called in our `
 
 So lets take another look at our data flow diagram now with the updated Angular 2 syntax.
 
-<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication-2.svg" alt="Example of Angular 2 component data flow" class="full-width float-center col-6--max" />
+<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication-2.svg" alt="Example of Angular 2 component data flow" bp-layout="full-width float-center 6--max" />
 
 As we can see the new Angular 2 syntax directly corresponds to how data flows in our application making it 
 easier to understand and debug. Here is a code snippet of our component with the Angular 1 and Angular 2 versions.
@@ -370,11 +370,11 @@ closer to the vision of Angular 2.
 
 You can check out both versions of the demo below.
 
-<div class="flex-row--center">
-    <div class="col-3">
+<div bp-layout="row center">
+    <div bp-layout="col 3">
         <a href="http://plnkr.co/edit/O2DSd7dH7akOgXD1pD0P?p=preview" target="_blank" class="btn--raised">Angular 1 Example</a>
     </div>
-    <div class="col-3">
+    <div bp-layout="col 3">
         <a href="http://plnkr.co/edit/ISusP30dkrA8rJJ6aQjG?p=preview" target="_blank" class="btn--raised">Angular 2 Example</a>
     </div>
 </div>

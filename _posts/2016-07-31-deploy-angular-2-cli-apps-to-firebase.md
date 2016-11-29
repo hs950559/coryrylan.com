@@ -22,7 +22,7 @@ to help us create new Angular projects.
 Once installed we can create a new Angular 2 app by running the following command: `ng new my-cool-app`.
 Next open your app in your favorite editor and you should see something similar to this (as of CLI beta 10):
 
-<img class="full-width col-8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/project.png" alt="New Angular 2 CLI project Structure" />
+<img bp-layout="full-width 8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/project.png" alt="New Angular 2 CLI project Structure" />
 
 ### Starting the CLI
 
@@ -30,7 +30,7 @@ Now running a command prompt at the root of our project we can run the following
 This will build our project and start a live reload server for development. So if we browse to `localhost:4200`
 we should see the following:
 
-<img class="full-width col-8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/running-angular-2-cli-app.png" alt="Running Angular 2 CLI app" />
+<img bp-layout="full-width 8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/running-angular-2-cli-app.png" alt="Running Angular 2 CLI app" />
 
 ### Build for Production
 
@@ -47,7 +47,7 @@ use the Firebase CLI to create a live hosting project to deploy to.
 First you will want to log into Firebase and go to [https://console.firebase.google.com/](https://console.firebase.google.com/).
 Once in the console select "Create New Project". For our project we will name it "my-cool-app".
 
-<img class="full-width col-8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/new-firebase-project.png" alt="Creating a Firebase Project" />
+<img bp-layout="full-width 8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/new-firebase-project.png" alt="Creating a Firebase Project" />
 
 Now that we have a project created lets go back to the command line. Next we next install the Firebase CLI
 via NPM. In your console run the following command: `npm install -g firebase-tools`. Once installed run
@@ -58,7 +58,7 @@ via NPM. In your console run the following command: `npm install -g firebase-too
 Now that Firebase CLI is installed, at the root of your Angular CLI project run `firebase init`. This will 
 walk through the steps of setting up your app to be deployable to Firebase Hosting.
 
-<img class="full-width col-8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/firebase-cli.png" alt="Creating a Firebase Hosting Project" />
+<img bp-layout="full-width 8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/firebase-cli.png" alt="Creating a Firebase Hosting Project" />
 
 Select the Hosting option in the command line. Next select our project `my-cool-app` that we created earlier.
 Next it will ask what file to use for the Firebase real time database rules. For now you can just use the default.
@@ -73,7 +73,7 @@ In the root of your app you should have a new file `firebase.json` file that hel
 how to deploy our application. Now run `firebase deploy`. Firebase will provide domain that you can 
 configure to a custom domain in the console. Now if we open our browser we will see something similar to the following:
 
-<img class="full-width col-8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/live-angular-2-firebase-project.png" alt="Live Angular 2 Firebase project" />
+<img bp-layout="full-width 8--max float-center" src="/assets/images/posts/2016-09-31-deploy-angular-2-cli-apps-to-firebase/live-angular-2-firebase-project.png" alt="Live Angular 2 Firebase project" />
 
 Now that we have created an Angular 2 project and deployed it to Firebase I recommend digging into more 
 of the [Angular 2 CLI](https://cli.angular.io) and the [Firebase Features](https://firebase.google.com/features/).

@@ -29,4 +29,4 @@ Whatever your reasons are for side projects make sure you share it with the worl
 Blog and share what you have learned. Side projects can be as serious or goofy as you make them. Just remember to
 have fun and learn something new!
 
-<img src="/assets/images/posts/2014-12-09-why-i-have-side-projects/learning.gif" alt="Remember kids the only difference between screwing around and science is writing it down. - Mythbusters" class="full-width col-6--max float-center" />
+<img src="/assets/images/posts/2014-12-09-why-i-have-side-projects/learning.gif" alt="Remember kids the only difference between screwing around and science is writing it down. - Mythbusters" bp-layout="full-width 6--max float-center" />
