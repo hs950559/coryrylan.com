@@ -1,25 +1,27 @@
 ---
 layout: post
-title: Angular 2 Form Builder and Validation Management
-description: Learn about the new FormBuilder and create a custom component to manage form validation in Angular 2.
-keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
-tags: angular2, typescript
+title: Angular Form Builder and Validation Management
+description: Learn about the new FormBuilder and create a custom component to manage form validation in Angular.
+keywords: Cory Rylan, Angular, TypeScript, JavaScript
+tags: angular, typescript
 date: 2015-12-30
-updated: 2016-08-10
-permalink: /blog/angular-2-form-builder-and-validation-management
+updated: 2016-12-19
+permalink: /blog/angular-form-builder-and-validation-management
 demo: http://plnkr.co/edit/WTu5G9db3p4pKzs0WvW6?p=preview
 ---
 
-Angular 1 has the handy <a href="https://docs.angularjs.org/api/ngMessages/directive/ngMessages" target="_blank">ngMessages</a> modules to help manage error messages and validation in forms.
-This post I’ll show how to build a custom messages component in Angular 2 to easily manage validation similar to ng1’s ngMessages.
+{% include ng-version.html %}
 
-Angular 2 has a new helper Class called <code>FormBuilder</code>. <code>FormBuilder</code> allows us to explicitly declare forms in our components.
+Angular 1 has the handy <a href="https://docs.angularjs.org/api/ngMessages/directive/ngMessages" target="_blank">ngMessages</a> modules to help manage error messages and validation in forms.
+This post I’ll show how to build a custom messages component in Angular to easily manage validation similar to ng1’s ngMessages.
+
+Angular has a new helper Class called <code>FormBuilder</code>. <code>FormBuilder</code> allows us to explicitly declare forms in our components.
 This allows us to also explicitly list each form control’s validators.
 
 In our example we are going to build a small form with three inputs, user name, email and profile description.
 
     
-<img src="/assets/images/posts/2015-12-30-angular-2-form-builder-and-validation-management/simple-form-1.png" alt="A simple user form." bp-layout="full-width 5--max" />
+<img src="/assets/images/posts/2015-12-30-angular-form-builder-and-validation-management/simple-form-1.png" alt="A simple user form." bp-layout="full-width 5--max" />
 
 We will start with looking at our `app.module.ts` file.
 
@@ -162,7 +164,7 @@ Here is the same form but with our new component.
 Here our control-messages component takes in a reference of the control input to check its validation.
 This is what the rendered form looks like with our validation.
 
-<img src="/assets/images/posts/2015-12-30-angular-2-form-builder-and-validation-management/simple-form-2.png" alt="Form with validation triggered" bp-layout="full-width 5--max" />
+<img src="/assets/images/posts/2015-12-30-angular-form-builder-and-validation-management/simple-form-2.png" alt="Form with validation triggered" bp-layout="full-width 5--max" />
 
 Here is the example code for our control-messages component.
     
@@ -256,4 +258,4 @@ be shown in given use case.
 
 Our control-messages component can now be used across our application and help prevent us from writing extra markup
 and template logic for validation messages.
-Read more about Angular 2 forms in the <a href="https://angular.io/docs/ts/latest/guide/forms.html" target="_blank">documentation</a>.
+Read more about Angular forms in the <a href="https://angular.io/docs/ts/latest/guide/forms.html" target="_blank">documentation</a>.

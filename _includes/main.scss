@@ -1,12 +1,13 @@
-@charset "utf-8";
+@charset 'utf-8';
 
-@import "../node_modules/blueprint-css/src/blueprint";
+@import '../node_modules/blueprint-css/src/blueprint';
 @import
-    "normalize",
-    "prism",
-    "base",
-    "typography",
-    "buttons",
-    "table",
-    "tabs",
-    "layout";
+    'normalize',
+    'prism',
+    'base',
+    'typography',
+    'buttons',
+    'table',
+    'tabs',
+    'layout',
+    'messages';

@@ -1,30 +1,31 @@
 ---
 layout: post
-title: Angular 2 Observable Data Services
-description: A look into Observables and how they can improve your Angular 2 data services.
-keywords: Cory Rylan, Angular 2, JavaScript, Observables, Flux, TypeScript
-tags: angular2, rxjs, javascript
+title: Angular Observable Data Services
+description: A look into Observables and how they can improve your Angular data services.
+keywords: Cory Rylan, Angular, JavaScript, Observables, Flux, TypeScript
+tags: angular, rxjs
 date: 2015-11-17
-updated: 2016-11-04
-permalink: /blog/angular-2-observable-data-services
+updated: 2016-12-19
+permalink: /blog/angular-observable-data-services
 demo: http://plnkr.co/edit/jgDTXknPzAaqcg9XA9zq?p=preview
 ---
 
-Angular 2 brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
+{% include ng-version.html %}
+
+Angular brings many new concepts that can can improve our JavaScript applications. The first new concept to Angular is the use of Observables.
 Observables are a proposed feature coming to the JavaScript specification.
 I wont go in depth into Observables but will just cover some of the high level concepts. If you want a introduction to
 Observables check out my screen cast. 
 
-<a href="/blog/intro-to-rxjs-observables-and-angular-2" class="btn display-block" bp-layout="float-center 5--max">Intro to RxJS Observables and Angular 2</a>
+<a href="/blog/introduction-to-rxjs-observables-and-angular" class="btn display-block" bp-layout="float-center 5--max">Intro to RxJS Observables and Angular</a>
 
-The rest of this post will cover more data and application state management in a Angular 2 application. 
-This post has been updated to the latest stable 2.0 release of Angular.
+The rest of this post will cover more data and application state management in a Angular application. 
 
 Observables can help manage async data and a few other useful patterns. Observables are similar to Promises but with a few key differences. The first is Observables emit
 multiple values over time. For example a Promise once called will always return one value or one error.
 This is great until you have multiple values over time. Web socket/real-time based data or event handlers can
 emit multiple values over any given time. This is where Observables really shine. 
-Observables are used extensively in Angular 2. The new HTTP service and EventEmitter system 
+Observables are used extensively in Angular. The new HTTP service and EventEmitter system 
 are all Observable based. Lets look at an example where we subscribe to an Observable.
 
 <pre class="language-typescript">
@@ -61,9 +62,9 @@ This allows us to use array like methods called operators on our Observable such
 A BehaviorSubject allows us to push and pull values to the underlying Observable. We will see how this will
 help us construct our service. 
 
-In Angular 2 we use RxJS a polyfill/util library for the proposed Observables primitive in the next new version JavaScript. RxJS version 5 is in beta and is a peer dependency with Angular 2.
-A slim Observable is used in Angular 2 core. The slim Observable does not have many of the useful operators that makes RxJS so productive.
-The Observable in Angular 2 is slim to keep the byte site of the library down. To use extra operators we import them like
+In Angular we use RxJS a polyfill/util library for the proposed Observables primitive in the next new version JavaScript. RxJS version 5 is a peer dependency with Angular.
+A slim Observable is used in Angular 2+ core. The slim Observable does not have many of the useful operators that makes RxJS so productive.
+The Observable in Angular is slim to keep the byte site of the library down. To use extra operators we import them like
 so: `import 'rxjs/add/operator/map';`.
 
 In our example we will have a `TodosService`. Our todos service will have basic CRUD operations and a
@@ -99,7 +100,7 @@ export class TodoService {
 
 In our todo service we have a few moving parts. First we have a private data store. This is where we store our
 list of todos in memory. We can return this list immediately for faster rendering or when off-line. For now
-its simply just holds onto our list of todos. Since services in Angular 2 are singletons we can use them 
+its simply just holds onto our list of todos. Since services in Angular are singletons we can use them 
 to hold our data model/state we want to share.
 
 Next is our `todos` BehaviorSubject. Our BehaviorSubject can recieve and emit new Todo lists. 
@@ -278,14 +279,14 @@ export class TodoService {
  
 ## Overview
 
-This pattern can also be used in Angular 1. RxJS and Observables are not just an Angular 2 feature. This may seem like a lot
+This pattern can also be used in Angular 1. RxJS and Observables are not just an Angular feature. This may seem like a lot
 of work for a simple todo app but scale this up to a very large app and Observables can really help manage our data and application state. 
 This pattern follows the idea of unidirectional data flow. Meaning data flow is predictable and consistently comes from one source. 
 If you have worked with <a href="https://facebook.github.io/flux/docs/overview.html">Flux</a>/<a href="http://redux.js.org/">Redux</a> based architectures this may seem very familiar.
 
 <figure>
-<img src="/assets/images/posts/2015-11-17-angular-2-observable-data-services/observable-service-data-flow.svg" alt="Diagram of Angular 2 Data flow with Observables" bp-layout="full-width 9--max float-center margin-bottom">
-<figcaption class="text-center">Angular 2 data flow with Observables</figcaption>
+<img src="/assets/images/posts/2015-11-17-angular-observable-data-services/observable-service-data-flow.svg" alt="Diagram of Angular 2 Data flow with Observables" bp-layout="full-width 9--max float-center margin-bottom">
+<figcaption class="text-center">Angular data flow with Observables</figcaption>
 </figure>
 
 This pattern can ensure data is coming from one place in our application and that every component receives the latest version of that data through our data streams.

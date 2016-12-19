@@ -21,6 +21,46 @@
         "source": "/Blog",
         "destination": "/",
         "type": 301
+      },
+      {
+        "source": "/blog/angular-2-ng-for-syntax",
+        "destination": "/blog/angular-ng-for-syntax",
+        "type": 301
+      },
+      {
+        "source": "/blog/angular-2-observable-data-services",
+        "destination": "/blog/angular-observable-data-services",
+        "type": 301
+      },
+      {
+        "source": "/blog/intro-to-rxjs-observables-and-angular-2",
+        "destination": "/blog/introduction-to-rxjs-observables-and-angular",
+        "type": 301
+      },
+      {
+        "source": "/blog/angular-2-form-builder-and-validation-management",
+        "destination": "/blog/angular-form-builder-and-validation-management",
+        "type": 301
+      },
+      {
+        "source": "/blog/angular-2-text-snippet-directive",
+        "destination": "/blog/creating-an-angular-directive",
+        "type": 301
+      },
+      {
+        "source": "/blog/angular-2-text-snippet-directive",
+        "destination": "/blog/creating-an-angular-directive",
+        "type": 301
+      },
+      {
+        "source": "/blog/introduction-to-angular-2-pipes",
+        "destination": "/blog/introduction-to-angular-pipes",
+        "type": 301
+      },
+      {
+        "source": "/blog/introduction-to-angular-2-ngclass-and-ngstyle",
+        "destination": "/blog/introduction-to-angular-ngclass-and-ngstyle",
+        "type": 301
       }
     ],
     "headers": [

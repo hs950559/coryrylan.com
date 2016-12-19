@@ -1,24 +1,26 @@
 ---
 layout: post
-title: Angular 2 Text Snippet Directive
+title: Creating an Angular Directive
 description: Learn about the new Directive API and build a text snippet directive.
-keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
-tags: angular2, typescript
+keywords: Cory Rylan, Angular, TypeScript, JavaScript
+tags: angular, typescript
 date: 2016-01-11
-updated: 2016-08-10
-permalink: /blog/angular-2-text-snippet-directive
+updated: 2016-12-19
+permalink: /blog/creating-an-angular-directive
 demo: http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview
 ---
 
-In this post we will get introduced with Angular 2 Directives. With Angular 2 the Components concepts in Angular have become much simpler. Components have replaced Controllers and the Directives API as we 
-know it in Angular 1.x. In Angular 2 we still have Directives but you can think of them as Components without views. Directives are still used whenever
+{% include ng-version.html %}
+
+In this post we will get introduced with Angular Directives. With Angular 2.x and later the Components concepts in Angular have become much simpler. Components have replaced Controllers and the Directives API as we 
+know it in Angular 1.x. In Angular 2.x and later we still have Directives but you can think of them as Components without views. Directives are still used whenever
 we need to modify the DOM directly. Directives are also primarily used in the form of HTML attributes to decorate Components with.
 So lets explore the Directives API by building a AutoText/Snippets directive that allows users to generate text snippets.
 
 The snippet directive will allow the user to type a given keyword followed by a <code>`</code> to quickly generate text in inputs. 
 Here is an animation of what our final view would look like.
 
-<img src="/assets/images/posts/2016-01-11-angular-2-text-snippet-directive/snippet-directive.gif" alt="A snippets directive example" bp-layout="full-width 4--max float-center" />
+<img src="/assets/images/posts/2016-01-11-creating-an-angular-directive/snippet-directive.gif" alt="A snippets directive example" bp-layout="full-width 4--max float-center" />
 
 Here is a look at what our markup would look like to use our Directive on a textarea input.
 
@@ -209,5 +211,5 @@ Once we have the input value we use regular expressions and a little logic to it
 If a snippet name is matched we replace it with the corresponding snippet's content and set the inputs value with the new text.
 As of RC 5 your directives will need to be registered with your `AppModule`. Read more about [@NgModule](https://angular.io/docs/ts/latest/guide/ngmodule.html).
 
-The new Directive API in Angular 2 is much simpler than what was know in Angular 1.x. See a working demo of the `uiSnippet` Directive here on 
+The new Directive API in Angular is much simpler than what was know in Angular 1.x. See a working demo of the `uiSnippet` Directive here on 
 <a href="http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview" target="_blank">plnkr.co</a>.

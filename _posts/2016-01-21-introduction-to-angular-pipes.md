@@ -1,21 +1,23 @@
 ---
 layout: post
-title: Introduction to Angular 2 Pipes
-description: Learn Angular 2 pipes and how to create your own custom pipe.
-keywords: Cory Rylan, Angular 2, AngularJS, TypeScript, JavaScript
-tags: angular2, typescript
+title: Introduction to Angular Pipes
+description: Learn Angular pipes and how to create your own custom pipe.
+keywords: Cory Rylan, Angular, TypeScript, JavaScript
+tags: angular, typescript
 date: 2016-01-21
-updated: 2016-08-10
-permalink: /blog/introduction-to-angular-2-pipes
+updated: 2016-12-19
+permalink: /blog/introduction-to-angular-pipes
 demo: http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview
 ---
 
-Angular 2 has many new concepts and some of the same concepts from Angular 1.x. In Angular 1 we had filter which helped format or transform 
-how data was displayed in our templates. In Angular 2 we have a very similar feature but renamed to Pipes. This rename was to better align of what
-the feature does. Coming from the Unix background we `|` pipe together commands. So in Angular 2 we use the same `|` pipe character to format our
+{% include ng-version.html %}
+
+Angular 2.x and later has many new concepts and some of the same concepts from Angular 1.x. In Angular 1 we had filter which helped format or transform 
+how data was displayed in our templates. In Angular 2.x and later we have a very similar feature but renamed to Pipes. This rename was to better align of what
+the feature does. Coming from the Unix background we `|` pipe together commands. So in Angular we use the same `|` pipe character to format our
 data.
 
-First lets look at a simple pipe built into Angular 2 the date pipe. The date pipe simply formats our date in our templates.
+First lets look at a simple pipe built into Angular the date pipe. The date pipe simply formats our date in our templates.
 
 <pre class="language-markup">
 <code>
@@ -132,4 +134,4 @@ export class App {
 So our output for the long string above would be `Bacon ipsum dolor amet bacon t-bone tongue ball ti...`.
 
 Take a look a this <a href="http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview" target="_blank">Plnkr</a> for a working demo of the ellipsis pipe. Angular 2 pipes are not much different from AngularJS 1.x filters
-but align with new EcmaScript2015 and EcmaScript2016 syntax used in Angular 2.
+but align with new EcmaScript2015 and EcmaScript2016 syntax used in Angular.

@@ -1,16 +1,18 @@
 ---
 layout: post
-title: Introduction to Angular 2 ngClass and ngStyle
-description: Learn how to dynamically control CSS and CSS classes and in Angular 2
-keywords: Cory Rylan, Angular 2, AngularJS, CSS
-tags: angular2, css
+title: Introduction to Angular ngClass and ngStyle
+description: Learn how to dynamically control CSS and CSS classes and in Angular
+keywords: Cory Rylan, Angular, CSS
+tags: angular, css
 date: 2016-02-10
-updated: 2016-08-10
-permalink: /blog/introduction-to-angular-2-ngclass-and-ngstyle
+updated: 2016-12-19
+permalink: /blog/introduction-to-angular-ngclass-and-ngstyle
 demo: http://plnkr.co/edit/HyB1rg7xxWqCNwTuZCYV?p=preview
 ---
 
-Creating dynamic styles in web applications can be a real pain. Luckily with Angular 2 we have multiple ways to handle our dynamic CSS and CSS classes
+{% include ng-version.html %}
+
+Creating dynamic styles in web applications can be a real pain. Luckily with Angular we have multiple ways to handle our dynamic CSS and CSS classes
 with the new template syntax as well as some built in directives.
 
 ## Angular Template Property Syntax
@@ -25,7 +27,7 @@ myDiv.style.color = 'orange';   // updating the div via its properties
 </code>
 </pre>
 
-Now lets look at the primitives the new Angular 2 syntax gives us out of the box. Using the `[property]` syntax we can easily access
+Now lets look at the primitives the Angular syntax gives us out of the box. Using the `[property]` syntax we can easily access
 any element or component properties. 
 
 <pre class="language-markup">
@@ -39,7 +41,7 @@ any element or component properties.
 In the example above we can directly access the style property of our div element. This is different than an attribute. Properties 
 are the properties defined on our DOM object just like the one we updated in our first example with just plain JavaScript.
 
-We can also use the Angular 2 property syntax to add CSS classes to elements.
+We can also use the Angular property syntax to add CSS classes to elements.
 
 <pre class="language-markup">
 <code>
@@ -50,7 +52,7 @@ We can also use the Angular 2 property syntax to add CSS classes to elements.
 </pre>
 
 ## ngStyle and ngClass
-Out of the box with the new syntax we don't need special `ng-class` or `ng-style` directives like in Angular 1. But with Angular 2 we still have these built in directives.
+Out of the box with the new syntax we don't need special `ng-class` or `ng-style` directives like in Angular 1. But with Angular we still have these built in directives.
 These directives offer syntactic sugar for more complex ways of altering our element styles. First lets look at `ngStyle`.
 
 <pre class="language-markup">
@@ -66,7 +68,7 @@ These directives offer syntactic sugar for more complex ways of altering our ele
 In this example using `ngStyle` we can easily style multiple properties of our element. We also can bind these properties to values that can be updated 
 by the user or our components.
 
-<video src="/assets/video/posts/2016-02-10-introduction-to-angular-2-ngclass-and-ngstyle/ng-style-demo.mp4" autoplay loop controls bp-layout="float-center 3--max"></video>
+<video src="/assets/video/posts/2016-02-10-introduction-to-angular-ngclass-and-ngstyle/ng-style-demo.mp4" autoplay loop controls bp-layout="float-center 3--max"></video>
 
 <pre class="language-markup">
 <code>
@@ -95,5 +97,5 @@ Next lets look at the `ngClass` directive and the options it provides to update 
 </pre>
 
 Same as `ngStyle` the `ngClass` allows multiple ways to add and toggle our CSS. We can bind these classes directly to our component properties to 
-update them dynamically as needed. Between the new template syntax and a few more directives our Angular 2 apps are easier than ever to style.
+update them dynamically as needed. Between the new template syntax and a few more directives our Angular apps are easier than ever to style.
 Click the demo button below to see a working plnkr of the code.
