@@ -61,6 +61,51 @@
         "source": "/blog/introduction-to-angular-2-ngclass-and-ngstyle",
         "destination": "/blog/introduction-to-angular-ngclass-and-ngstyle",
         "type": 301
+      },
+      {
+        "source": "/blog/css-encapsulation-with-angular-2-components",
+        "destination": "/blog/css-encapsulation-with-angular-components",
+        "type": 301
+      },
+      {
+        "source": "/blog/angular-2-development-with-visual-studio-and-windows",
+        "destination": "/blog/angular-development-with-visual-studio-and-windows",
+        "type": 301
+      },
+      {
+        "source": "/blog/introduction-to-angular-2-routing",
+        "destination": "/blog/introduction-to-angular-routing",
+        "type": 301
+      },
+      {
+        "source": "/blog/comparing-angular-1-components-to-angular-2-components",
+        "destination": "/blog/comparing-angular-1-components-to-the-latest-angular-components",
+        "type": 301
+      },
+      {
+        "source": "/blog/converting-angular-1-services-to-angular-2-services",
+        "destination": "/blog/converting-angular-1-services-to-the-latest-angular-services",
+        "type": 301
+      },
+      {
+        "source": "/blog/deploy-angular-2-cli-apps-to-firebase",
+        "destination": "/blog/deploy-angular-cli-apps-to-firebase",
+        "type": 301
+      },
+      {
+        "source": "/blog/introduction-to-the-angular-2-cli",
+        "destination": "/blog/introduction-to-the-angular-cli",
+        "type": 301
+      },
+      {
+        "source": "/blog/angular-2-upgrade-strategies-with-proxies",
+        "destination": "/blog/angular-upgrade-strategies-with-proxies",
+        "type": 301
+      },
+      {
+        "source": "/blog/angular-2-cli-adding-third-party-libraries",
+        "destination": "/blog/angular-cli-adding-third-party-libraries",
+        "type": 301
       }
     ],
     "headers": [

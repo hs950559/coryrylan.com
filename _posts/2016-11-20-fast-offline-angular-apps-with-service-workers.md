@@ -1,17 +1,20 @@
 ---
 layout: post
-title: Fast Offline Angular 2 Apps with Service Workers
-description: Learn how to build a offline Angular 2 app with service workers & sw-precache.
+title: Fast Offline Angular Apps with Service Workers
+description: Learn how to build a offline Angular app with service workers & sw-precache.
 keywords: Cory Rylan, Angular 2, Angular, Service Workers, Offline, Progressive Web App
 tags: angular, pwa
 date: 2016-11-20
+updated: 2016-12-19
 permalink: /blog/fast-offline-angular-apps-with-service-workers
 demo: https://ng-pokedex.firebaseapp.com/
 ---
 
-With the release of Angular 2 and the recent rise of "Progressive Web Apps" there is a lot to be 
+{% include ng-version.html %}
+
+With the release of the latest Angular (2.x+) and the recent rise of "Progressive Web Apps" there is a lot to be 
 excited about when it comes to building on the web today. In this post we will cover how to make
-a simple Hello World Angular 2 app and leverage Service Workers to make our app lightning fast and offline capable.
+a simple Hello World Angular app and leverage Service Workers to make our app lightning fast and offline capable.
 Then we will look at a small more useful app and how Service Workers improved it's performance. 
 
 ## Service Workers
@@ -52,16 +55,16 @@ This allows the browser to use our application shell by default. Instead of requ
 we use the cache every time even when there is no network connection.
 This in turn speeds up our app startup and allows our app to work better offline.
 
-So now that we have a rough idea of what we are wanting to accomplish, let's create a simple Angular 2 app to get started.
+So now that we have a rough idea of what we are wanting to accomplish, let's create a simple Angular app to get started.
 
 ## Angular CLI
 
 To create, scaffold, and build my Angular app I'm going to use the [Angular CLI](https://cli.angular.io).
-The Angular CLI (Command Line Interface) is a great tool that allows us to quickly create and build Angular 2 apps
+The Angular CLI (Command Line Interface) is a great tool that allows us to quickly create and build Angular apps
 without having to get deep into tooling and build processes. 
 
 So first you will want to have the CLI installed via NPM/NodeJS. To install run the following `npm install -g angular-cli@latest`.
-Once installed you can run `ng new my-app`. This will create a new Angular 2 project and install all the related tooling
+Once installed you can run `ng new my-app`. This will create a new Angular project and install all the related tooling
 needed to get up and running. 
 
 Once everything is installed (it may take a little bit) you can cd into your 
@@ -70,7 +73,7 @@ code files for changes to compile. Once running, browse to `localhost:4200` and 
 
 <img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/app-start.png" alt="App Start" bp-layout="full-width 4--max float-center" style="border: 1px solid #ccc;" />
 
-So now we have a working Angular 2 app. I won't get too deep into the details of the CLI, but it does create a lot of files for
+So now we have a working Angular app. I won't get too deep into the details of the CLI, but it does create a lot of files for
 us to use and test our project with. Next we are going to add a simple Service Worker to our app. First in your 
 app directory we are going to add the following code to our `index.html`:
 
@@ -227,7 +230,7 @@ Let's go to the network tab and click the offline check mark and reload the page
 
 <img src="/assets/images/posts/2016-11-20-fast-offline-angular-apps-with-service-workers/offline-angular-app.png" alt="Offline Angular App" bp-layout="full-width 9--max float-center" />
  
-We can see our app still works! Congrats you have created your first offline capable Angular 2 application!
+We can see our app still works! Congrats you have created your first offline capable Angular application!
 We can see in the network response times they are very fast since we immediately serve the content from memory 
 instead of trying to go to the network. This makes our Angular app more resilient to bad network connections.
 So next let's look at a slightly larger app that has some Angular performance knobs turned on.
@@ -289,7 +292,7 @@ first time renders. Subsequent views render in just a second or two thanks to ou
 One piece missing from this demo that I would like to add sometime down the road is the 
 [Angular Universal](https://universal.angular.io) server rendering to improve first time render and SEO quality.
 
-We can see with Service Workers and Angular 2 we can create fast offline progressive web app experiences.
+We can see with Service Workers and Angular we can create fast offline progressive web app experiences.
 What is great about these results is that the Angular Framework is still evolving and improving it's performance.
 We can likely see these performance metrics improving even more. We were also able to get fantastic performance 
 features with the Angular CLI with little configuration work minus our SW Precache.

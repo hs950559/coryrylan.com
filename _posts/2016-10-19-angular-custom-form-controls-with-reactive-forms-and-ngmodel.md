@@ -1,13 +1,16 @@
 ---
 layout: post
-title: Angular 2 Custom Form Controls with Reactive Forms and NgModel
-description: Learn how to build your own Angular 2 custom form input with reactive forms and ngModel.
+title: Angular Custom Form Controls with Reactive Forms and NgModel
+description: Learn how to build your own Angular custom form input with reactive forms and ngModel.
 keywords: Cory Rylan, Angular 2, Angular, Forms, NgModel
-tags: Angular, Angular2
+tags: angular
 date: 2016-10-19
+updated: 2016-12-19
 permalink: /blog/angular-custom-form-controls-with-reactive-forms-and-ngmodel
 demo: http://plnkr.co/edit/Yj93mh5ZnX6ONtaMQPAQ?p=preview
 ---
+
+{% include ng-version.html %}
 
 Custom form controls/inputs are a common pattern in complex front end applications. Its common to want to encapsulate
 HTML, CSS and accessibility in a component to make it easier to use in forms throughout the application. Common examples
@@ -17,13 +20,13 @@ with other form inputs.
 
 In this post we will show how to create a switch component (`app-switch`) which is essentially 
 a checkbox with additional CSS and markup to get a physical switch effect. This component will easily
-integrate into the new Angular 2 Reactive Forms and ngModel. So first lets take a look at what our final
+integrate into the new Angular Reactive Forms and ngModel. So first lets take a look at what our final
 output will look like.
 
 <video src="/assets/video/posts/2016-10-15-angular-custom-form-controls-with-reactive-forms-and-ngmodel/angular-custom-form-control.mp4" autoplay loop controls bp-layout="float-center 4--max" style="border: 2px solid #ccc;"></video>
 
 So our switch component is essentially the behavior of a checkbox. It toggles a boolean value in our forms.
-In this component we will use a native checkbox and some HTML and CSS to create the switch effect. In Angular 2
+In this component we will use a native checkbox and some HTML and CSS to create the switch effect. In Angular
 there are two different ways to interact with form controls/inputs. The first recommended default is the 
 Reactive Form API and the other is the NgModel. We will use a special API Angular exposes to allow us to 
 support both API interactions with our custom switch component.
@@ -77,7 +80,7 @@ export class AppComponent {
 </pre>
 
 So we can see our custom `app-switch` work seamlessly with the Reactive Forms/Form Builder API. To learn more about this API check out this post:
-<a href="/blog/angular-2-form-builder-and-validation-management">Angular 2 Form Builder and Validation Management</a>.
+<a href="/blog/angular-form-builder-and-validation-management">Angular Form Builder and Validation Management</a>.
 
 ## Using NgModel
 

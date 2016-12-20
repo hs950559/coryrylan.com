@@ -1,15 +1,18 @@
 ---
 layout: post
-title: Angular 2 Upgrade Strategies with Proxies
-description: A overview of how to upgrade a large scale web application to Angular 2 with server side proxies.
-keywords: Cory Rylan, Angular 2, ANgular 2 upgrade, Angular CLI, Proxies
-tags: Angular2
+title: Angular Upgrade Strategies with Proxies
+description: A overview of how to upgrade a large scale web application to Angular with server side proxies.
+keywords: Cory Rylan, angular, angular 2 upgrade, angular CLI, proxies
+tags: angular
 date: 2016-08-19
-permalink: /blog/angular-2-upgrade-strategies-with-proxies
+updated: 2016-12-19
+permalink: /blog/angular-upgrade-strategies-with-proxies
 demo:
 ---
 
-Angular 2 is almost upon us and many are already starting to convert their existing apps to Angular 2. 
+{% include ng-version.html %}
+
+Angular 2.x and later is a significant change/rewrite from Angular 1.x and with it different architecture ideas.
 This post we are going to cover some ideas and techniques for upgrading a traditional server side application like ASP.NET, 
 PHP, or Rails. The following techniques we at [Vintage Software](https://vintagesoftware.com) have used in production
 with great success. These techniques are not just for Angular apps but can be applied to any web technology stack.
@@ -29,28 +32,28 @@ them to work together can cause significant context shifting and overhead.
 
 ## A solution?
 
-What if we could make two separate projects, a pure Angular 2 application and keep our existing server application?
+What if we could make two separate projects, a pure Angular application and keep our existing server application?
 There could be some significant technical advantages. So how would we go about doing this? This can be achieved with
 what is called proxies. A proxy is server that can retrieve assets and data from another server on the 
 clients behalf.
 
-<img src="/assets/images/posts/2016-08-19-angular-2-upgrade-strategies-with-reverse-proxies/proxy.svg" bp-layout="full-width 7--max float-center" alt="Server Proxy" />
+<img src="/assets/images/posts/2016-08-19-angular-upgrade-strategies-with-reverse-proxies/proxy.svg" bp-layout="full-width 7--max float-center" alt="Server Proxy" />
 
 For our use case we want a particular type a of proxy called a reverse proxy. A reverse proxy allows us to have a proxy 
 that can take in requests and route them to several different web applications. Example: `https://example.com/feature-1` 
 can route to our traditional web application and `https://example.com/feature-2` can be routed to a new feature or converted feature
-in our Angular 2 application. The client/browser stays on the same URL/Domain without ever knowing the proxy is requesting from
+in our Angular application. The client/browser stays on the same URL/Domain without ever knowing the proxy is requesting from
 multiple servers/projects. So our server set up would look similar to this:
 
-<img src="/assets/images/posts/2016-08-19-angular-2-upgrade-strategies-with-reverse-proxies/reverse-proxy.svg" bp-layout="full-width 7--max float-center" alt="Reverse Server Proxy"/>
+<img src="/assets/images/posts/2016-08-19-angular-upgrade-strategies-with-reverse-proxies/reverse-proxy.svg" bp-layout="full-width 7--max float-center" alt="Reverse Server Proxy"/>
 
 ### Benefits
 
 This set up has some great advantages and some disadvantages. The first advantage is that our projects are separated
-so we don't have conflicting technology stacks which means less overhead. Webforms/MVC mixed with Angular 2? No thanks. 
+so we don't have conflicting technology stacks which means less overhead. Webforms/MVC mixed with Angular? No thanks. 
 Second, one of the biggest advantages, is that we can convert feature by feature and update URLs in our app as needed. 
-This allows us to continually ship our app without a big rewrite. We can convert a old feature to Angular 2 and keep the 
-original in production. If the new Angular 2 feature is shipped and stable in production we can then delete the old
+This allows us to continually ship our app without a big rewrite. We can convert a old feature to Angular and keep the 
+original in production. If the new Angular feature is shipped and stable in production we can then delete the old
 version. We also have more flexibility and can now independently deploy each separate project as needed.
 
 ### Downsides
@@ -65,7 +68,7 @@ having to duplicate the CSS in each project.
 
 At [Vintage Software](https://vintagesoftware.com) we have used these techniques to be able to divide a large monolithic
 UI web app into three smaller micro UI web apps. We have used this breaking our large app into three smaller independently deployable apps 
-consisting of ASP.NET, Angular 1.x and now Angular 2. This has allowed us to continue to iterate and ship while upgrading
+consisting of ASP.NET, Angular 1.x and now Angular latest. This has allowed us to continue to iterate and ship while upgrading
 our UI tech stack. We use .NET and IIS (Internet Information Services) to achieve this set up. 
 Most backend technologies support this type of proxy setup. To read more of how to set this up with .NET check out
 [this article](http://www.iis.net/learn/extensions/url-rewrite-module/reverse-proxy-with-url-rewrite-v2-and-application-request-routing).

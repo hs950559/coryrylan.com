@@ -1,20 +1,22 @@
 ---
 layout: post
-title: Build a Angular 2 modal dialog with Angular Animate
-description: Learn how to build your own Angular 2 modal dialog with Angular Animate
+title: Build a Angular modal dialog with Angular Animate
+description: Learn how to build your own Angular modal dialog with Angular Animate
 keywords: Cory Rylan, Angular 2, Angular, Animate
-tags: Angular, Angular2
+tags: angular
 date: 2016-09-19
 permalink: /blog/build-a-angular-modal-dialog-with-angular-animate
 demo: http://plnkr.co/edit/AuFMJVHpk9OaLr62puS1?p=preview
 ---
 
+{% include ng-version.html %}
+
 Angular is full fledged framework which provides a lot of functionality for developers right out of the box.
-In this post we are going to build our own modal dialog in the latest Angular 2.x. This will be simplistic example compared to 
+In this post we are going to build our own modal dialog in the latest Angular. This will be simplistic example compared to 
 a modal dialog from a UI kit like [Kendo UI](http://www.telerik.com/kendo-angular-ui/). In our example 
 we will learn how to use Angular Animate, two way data binding, and ngContent for easy integration into our application.
 If you want to skip to the live code example check out the link at the bottom of the page. This post is slightly 
-more advanced and assumes the basic knowledge of Angular 2 and its template syntax.
+more advanced and assumes the basic knowledge of Angular (latest 2.x+) and its template syntax.
 Here is a brief look at what our final component will look like.
 
 <video src="/assets/video/posts/2016-15-09-build-a-angular-modal-dialog-with-angular-animate/angular-modal-dialog.mp4" autoplay loop controls bp-layout="float-center 5--max" style="border: 2px solid #ccc;"></video>
@@ -176,7 +178,7 @@ app component with just the `[property]` syntax? Well if we keep it two way usin
 we can set the app `showDialog` property when the close button is clicked. This allows 
 the `showDialog` property to stay in sync whether its the app component or the dialog component setting it. 
 The `visibleChange` follows the Angular convention adding `Change` to the end for properties that are for 
-two way data binding. If you are unfamiliar with the Angular 2 template syntax
+two way data binding. If you are unfamiliar with the Angular template syntax
 I recommend checking out the [documentation](https://angular.io).
 
 ## Conclusion

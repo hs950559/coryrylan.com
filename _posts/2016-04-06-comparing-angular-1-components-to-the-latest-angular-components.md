@@ -1,19 +1,21 @@
 ---
 layout: post
-title: Comparing Angular 1 Components to Angular 2 Components
-description: A comparison of Angular 1 components to Angular 2 components and migration strategies.
-keywords: Cory Rylan, Angular2, AngularJS, Components
-tags: angular2, angularjs
+title: Comparing Angular 1 Components to the latest Angular Components
+description: A comparison of Angular 1 components to Angular 2+ components and migration strategies.
+keywords: Cory Rylan, Angular, Components
+tags: angular
 date: 2016-04-06
-updated: 2016-08-10
-permalink: /blog/comparing-angular-1-components-to-angular-2-components
+updated: 2016-12-19
+permalink: /blog/comparing-angular-1-components-to-the-latest-angular-components
 demo:
 ---
 
-With Angular 2 fast approaching, Angular 1.5 introduced a new component syntax that mimics similar
-behavior to Angular 2 components. In this example we will take an Angular 1 component and compare it to 
-an Angular 2 component. By the end of this post you should have a better idea of what it takes to convert an
-Angular 1.x component to Angular 2.x. First we are going to take a look at a simple Angular 1 component
+{% include ng-version.html %}
+
+With Angular 2.x and later components are the primary building blocks for our apps. With Angular 1.5, Angular introduced a new component syntax that mimics similar
+behavior to Angular 2+ components. In this example we will take an Angular 1 component and compare it to 
+an Angular 2+ component. By the end of this post you should have a better idea of what it takes to convert an
+Angular 1.x component to Angular 2 and later. First we are going to take a look at a simple Angular 1 component
 how it accepts inputs and emits output events to other Angular 1 components.
 
 ## Angular 1 Component
@@ -25,7 +27,7 @@ Lets take a look at what the rendered output will look like.
 
 <video src="/assets/video/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component.mp4" autoplay loop controls bp-layout="float-center 4--max"></video>
 
-Now lets take a look at the app component source code. Our Angular 1 code is in ES5 while our Angular 2 code will
+Now lets take a look at the app component source code. Our Angular 1 code is in ES5 while our Angular 2.x and later code will
 be written in ES6/TypeScript.
 
 <pre class="language-javascript">
@@ -96,14 +98,14 @@ So when we click a buy button we call the `onSelect` and pass back the selected 
 data flow is common and encouraged in Angular 2. We can visualize how the data flows through our app
 with the diagram below. 
 
-<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication.svg" alt="Example of Angular 2 component data flow" bp-layout="full-width float-center 6--max" />
+<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-the-latest-angular-components/angular-component-comunication.svg" alt="Example of Angular component data flow" bp-layout="full-width float-center 6--max" />
 
 So we can see we pass data along down to child components and the child components use events to notify their parent of 
 a change or user action. We will see how this pattern is reenforced in our Angular 2 version.
 
-## Angular 2 Component
+## Angular 2.x and newer Component
 
-So now lets take a look at an Angular 2 component that has the exact same functionality as our Angular 1 component. 
+So now lets take a look at the newer Angular 2.x and later component that has the exact same functionality as our Angular 1 component. 
 First we will look at our root app component.
 
 <pre class="language-javascript">
@@ -140,10 +142,10 @@ export class AppComponent {
 </code>
 </pre>
 
-In our Angular 2 app we are taking advantage of ES6 and TypeScript to give us a nice clean syntax with improved
-IDE tooling. I wont be covering setup on an Angular 2 project but you can check out the running demos and any 
-number of Angular 2 seed projects. First we are importing
-Angular 2 modules and our `ProductItemComponent` using ES6 module syntax. 
+In our Angular app we are taking advantage of ES6 and TypeScript to give us a nice clean syntax with improved
+IDE tooling. I wont be covering setup on an Angular project but you can check out the running demos and any 
+number of Angular seed projects. First we are importing
+Angular modules and our `ProductItemComponent` using ES6 module syntax. 
 
 <pre class="language-javascript">
 <code>
@@ -194,13 +196,13 @@ Next look at the `product-item` component.
 
 This is where things get a bit strange but it actually is a great improvement over Angular 1. First is our `[]` notation
 we see wrapped around `[product]`. This means we are passing in a product to our `product-item` component via a 
-custom property. So in Angular 2 when we want to pass data into components we use the brackets to signify that we are
+custom property. So in Angular when we want to pass data into components we use the brackets to signify that we are
 passing in data `[product]`. 
 
 Next is the `(onSelect)` on the `product-item`. The `onSelect` is a custom event our `product-item` component raises to 
 notify it's parent component. When we want to hook into events we reference using the `()` parens syntax. This 
 applies to all events even browser events like click, ex: `(click)`. We will see more of this once we go over our `product-item`
-component. One thing to note our `(onSelect)` uses camel casing vs dashes. This is because of Angular 2's new
+component. One thing to note our `(onSelect)` uses camel casing vs dashes. This is because of Angular's new
 HTML parser that allows our HTML to be case-sensitive. This removes the need of case conversions that we had in Angular 1.x.
 
 So whats the benefit of this syntax? Well we can easily describe our components API. Data flows in as **inputs** to the component
@@ -305,9 +307,9 @@ event which will be our selected product. The `select` method is called in our `
 
 ## Conclusion
 
-So lets take another look at our data flow diagram now with the updated Angular 2 syntax.
+So lets take another look at our data flow diagram now with the updated Angular syntax.
 
-<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-angular-2-components/angular-component-comunication-2.svg" alt="Example of Angular 2 component data flow" bp-layout="full-width float-center 6--max" />
+<img src="/assets/images/posts/2016-04-06-comparing-angular-1-components-to-the-latest-angular-components/angular-component-comunication-2.svg" alt="Example of Angular component data flow" bp-layout="full-width float-center 6--max" />
 
 As we can see the new Angular 2 syntax directly corresponds to how data flows in our application making it 
 easier to understand and debug. Here is a code snippet of our component with the Angular 1 and Angular 2 versions.
@@ -332,7 +334,7 @@ angular
     controller: function () { }
   });
        
-// Angular 2    
+// Angular 2 and later
 import { Component, Input, Output, EventEmitter } from &#39;@angular/core&#39;;
 
 @Component({
@@ -363,18 +365,18 @@ export class ProductItemComponent {
 ## Migration Strategies
 
 Many existing Angular 1 apps are not using components but controllers and directives. My recommendation
-is to convert controllers over to components if you are concerned about upgrading to Angular 2 in the future.
-Another stepping stone to a Angular 2 migration is using ES6 or TypeScript in your Angular 1 applications.
-Angular 2 will be very component centric and by using components in 1.x it will help guide your app
-closer to the vision of Angular 2.
+is to convert controllers over to components if you are concerned about upgrading to Angular in the future.
+Another stepping stone to a Angular migration is using ES6 or TypeScript in your Angular 1 applications.
+Angular 2 and later will be very component centric and by using components in 1.5+ it will help guide your app
+closer to the vision of Angular.
 
 You can check out both versions of the demo below.
 
 <div bp-layout="row center">
     <div bp-layout="col 3">
-        <a href="http://plnkr.co/edit/O2DSd7dH7akOgXD1pD0P?p=preview" target="_blank" class="btn--raised">Angular 1 Example</a>
+        <a href="http://plnkr.co/edit/O2DSd7dH7akOgXD1pD0P?p=preview" target="_blank" class="btn--raised">Angular 1.x Example</a>
     </div>
     <div bp-layout="col 3">
-        <a href="http://plnkr.co/edit/ISusP30dkrA8rJJ6aQjG?p=preview" target="_blank" class="btn--raised">Angular 2 Example</a>
+        <a href="http://plnkr.co/edit/ISusP30dkrA8rJJ6aQjG?p=preview" target="_blank" class="btn--raised">Latest Angular Example</a>
     </div>
 </div>

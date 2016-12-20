@@ -1,17 +1,19 @@
 ---
 layout: post
-title: Angular 2 CLI - Adding Third Party Libraries
-description: Learn how to add third party libraries to your Angular 2 application using the Angular CLI.
-keywords: Cory Rylan, Angular 2, CLI, Angular CLI
-tags: Angular2, Angularjs
+title: Angular CLI - Adding Third Party Libraries
+description: Learn how to add third party libraries to your Angular application using the Angular CLI.
+keywords: Cory Rylan, Angular, Angular 2, CLI, Angular CLI
+tags: angular
 date: 2016-05-24
 updated: 2016-09-15
-permalink: /blog/angular-2-cli-adding-third-party-libraries
+permalink: /blog/angular-cli-adding-third-party-libraries
 demo:
 ---
 
+{% include ng-version.html %}
+
 The [Angular CLI](https://cli.angular.io/) is a command line interface tool that allows us to quickly build and run our
-Angular 2 applications. The CLI can help us quickly scaffold components
+Angular applications. The CLI can help us quickly scaffold components
 and services in our app while following the best practices out of the box.
 
 The CLI currently uses [Webpack](https://webpack.github.io/) under the hood to handle module bundling in our apps.

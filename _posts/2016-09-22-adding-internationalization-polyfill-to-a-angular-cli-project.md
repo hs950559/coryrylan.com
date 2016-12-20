@@ -1,19 +1,22 @@
 ---
 layout: post
-title: Adding the Internationalization Polyfill to a Angular 2 CLI Project
-description: Learn how to add Intl support to your Angular 2 applications
-keywords: Cory Rylan, Angular 2, Angular, Forms, NgModel
-tags: Angular, Angular2, Intl
+title: Adding the Internationalization Polyfill to a Angular CLI Project
+description: Learn how to add Intl support to your Angular applications
+keywords: Cory Rylan, Angular 2, Angular, Intl
+tags: angular, Intl
 date: 2016-09-22
+updated: 2016-12-19
 permalink: /blog/adding-the-internationalization-polyfill-to-a-angular-cli-project
 ---
 
-Angular 2 has great features out of the box that make developing web applications much easier. 
+{% include ng-version.html %}
+
+Angular has great features out of the box that make developing web applications much easier. 
 One of the great abilities of Angular is Internationalization (Intl) support. Many of Angular features such 
 as the built in currency and date pipes use Internationalization to automatically display the appropriate 
 currency format to users in different geo locations/regions.
 
-If you have played with Angular 2 at all you may of run into a strange error about `Intl` being undefined in certain browsers.
+If you have played with Angular latest (2.x+) at all you may of run into a strange error about `Intl` being undefined in certain browsers.
 This is because under the hood Angular uses the new [Internationalization](https://github.com/andyearnshaw/Intl.js) 
 standard built into JavaScript and the browser. The benefits
 of this is that Angular doesn't have to bloat itself with Intl specific code and can use the Intl API provided by

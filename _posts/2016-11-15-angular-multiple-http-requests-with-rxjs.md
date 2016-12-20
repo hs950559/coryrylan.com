@@ -1,21 +1,24 @@
 ---
 layout: post
-title: Angular 2 Multiple HTTP Requests with RxJS
-description: Learn how to handle multiple http requests with the Angular 2 Http service and RxJS mergeMap.
+title: Angular Multiple HTTP Requests with RxJS
+description: Learn how to handle multiple http requests with the Angular Http service and RxJS mergeMap.
 keywords: Cory Rylan, Angular 2, Angular, RxJS, Observables, Http
 tags: Angular, RxJS
 date: 2016-11-15
+updated: 2016-12-19
 permalink: /blog/angular-multiple-http-requests-with-rxjs
 demo: http://plnkr.co/edit/w5MmyF4G3Hg1ivstU6Ev?p=preview
 ---
 
+{% include ng-version.html %}
+
 A common pattern we run into with single page apps is to gather up data from multiple API endpoints and 
 then display the gathered data to the user. Fetching multiple asynchronous requests and managing them
-can be tricky but with the Angular 2's Http service and a little help from the included RxJS library 
+can be tricky but with the Angular's Http service and a little help from the included RxJS library 
 it can be accomplished in just a few of lines of code. There are multiple ways to handle multiple requests, 
 they can be sequential or in parallel. In this post we will cover both.
 
-Let's start with a simple http request using the Angular 2 Http service.
+Let's start with a simple http request using the Angular Http service.
 
 <pre class="language-javascript">
 <code>
