@@ -68,8 +68,8 @@ body {
 }
 
 .site-profile-img {
-  width: 100%;
-  max-width: 130px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
@@ -168,6 +168,10 @@ video {
 
 .display-block {
   display: block;
+}
+
+.img-border {
+  border: 1px solid #ccc;
 }
 
 #carbonads {
