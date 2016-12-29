@@ -22,3 +22,5 @@ markdown: kramdown
 highlighter: null
 sass:
     style: compressed
+exclude:
+  - arbor.json

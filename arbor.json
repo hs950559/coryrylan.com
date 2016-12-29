@@ -1,0 +1,6 @@
+{
+  "name": "Cory Rylan Blog",
+  "tasks": {
+    "build": "jekyll build"
+  }
+}
