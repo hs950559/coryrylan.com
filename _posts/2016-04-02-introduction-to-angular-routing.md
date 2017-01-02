@@ -3,7 +3,7 @@ layout: post
 title: Introduction to Angular Routing
 description: Learn how to manage large Angular applications and navigation with the new component router using features such as child routing and route parameters.
 keywords: Cory Rylan, Angular, javascript, routing, router
-tags: angular, javascript
+tags: angular
 date: 2016-04-02
 updated: 2016-12-19
 permalink: /blog/introduction-to-angular-routing

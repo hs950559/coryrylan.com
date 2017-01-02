@@ -3,7 +3,7 @@ layout: post
 title: Simple Offline Page with Service Workers
 description: Learn how to add a simple offline reading view to your website using Service Workers.
 keywords: Cory Rylan, Offline, Jekyll, Service Workers
-tags: ServiceWorkers, JavaScript, Offline
+tags: service-workers javascript offline
 date: 2016-05-02
 permalink: /blog/simple-offline-page-with-service-workers
 demo:

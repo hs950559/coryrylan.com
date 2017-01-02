@@ -3,7 +3,7 @@ layout: post
 title: JavaScript Module Pattern Basics
 description: A overview on the JavaScript Module Design Pattern.
 keywords: Cory Rylan, Web, JavaScript, Module Pattern, Design Pattern
-tags: javascript, programming
+tags: javascript programming
 date: 2015-03-10
 permalink: /blog/javascript-module-pattern-basics
 ---

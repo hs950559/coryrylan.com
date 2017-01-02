@@ -3,7 +3,7 @@ layout: post
 title:  AngularJS Application Organization
 description: A overview on how to organize your AngularJS applications.
 keywords: Cory Rylan, Web, AngularJS, JavaScript, MVC
-tags: angularjs, cleancode
+tags: angularjs cleancode
 date: 2014-10-06
 permalink: /blog/angularjs-application-organization
 ---

@@ -2,90 +2,80 @@
 layout: default
 ---
 
-<!--<div class="google-ad">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-5376316241677971"
-            data-ad-slot="4165025244"
-            data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>-->
-
 <div class="carbon-ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=coryrylancom" id="_carbonads_js"></script>
 </div>
 
 <article id="PostBody" class="post" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="{{page.url}}" />
-    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <meta itemprop="url" content="{{ site.url }}/assets/images/cory-rylan.jpg">
-        <meta itemprop="width" content="258">
-        <meta itemprop="height" content="258">
-    </div>
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    
-        <p class="post-meta margin-bottom--lg">
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                {{ page.date | date: "%b %-d, %Y" }}
-            </time>
-            {% if page.updated %}
-            <br />
-            Updated
-            <time datetime="{{ page.updated | date_to_xmlschema }}" itemprop="dateModified">
-                {{ page.updated | date: "%b %-d, %Y" }}
-            </time>
-            {% else %}
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified"></time>
-            {% endif %}
-            
-            - <span id="ReadTime" class="read-time"></span>
-        </p>
-    </header>
-
-    <div class="post-content" itemprop="articleBody">
-        {{ content }}
-        
-        {% if page.demo %}
-            <p><a href="{{ page.demo }}" target="_blank" class="btn--raised btn--demo">Demo</a></p>
-        {% endif %}
-    </div>
-    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Cory Rylan</span>
-    </span>
-
-    <div bp-layout="float-right">
-        <div class="addthis_sharing_toolbox"></div>
-    </div>
-    
-    <!--<span class="float-right"><a href="https://twitter.com/share" class="twitter-share-button float-right" data-via="coryrylan" data-size="large" data-hashtags="{{ page.tags }}">Tweet</a></span>
-    <script async>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>-->
-    
-    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-        <meta itemprop="name" content="Cory Rylan" />
-        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="{{ site.url }}/assets/images/cory-rylan.jpg">
-            <meta itemprop="width" content="258">
-            <meta itemprop="height" content="258">
-        </div>
-    </div>
+  <link itemprop="mainEntityOfPage" href="{{page.url}}" />
+  <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <meta itemprop="url" content="{{ site.url }}/assets/images/cory-rylan.jpg">
+    <meta itemprop="width" content="258">
+    <meta itemprop="height" content="258">
+  </div>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+  
+    <p class="post-meta margin-bottom--lg">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
+      {% if page.updated %}
+      <br />
+      Updated
+      <time datetime="{{ page.updated | date_to_xmlschema }}" itemprop="dateModified">
+        {{ page.updated | date: "%b %-d, %Y" }}
+      </time>
+      {% else %}
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified"></time>
+      {% endif %}
+      
+      - <span id="ReadTime" class="read-time"></span>
+      <span bp-layout="float-right hide show@md">
+        {% for tag in page.tags %}
+          <a href="/tags#{{ tag }}" class="site-tag">{{ tag }}</a>
+        {% endfor %}
+      </span>
+    </p>
     <div class="clear-both"></div>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+    
+    {% if page.demo %}
+      <p><a href="{{ page.demo }}" target="_blank" class="btn--raised btn--demo">Demo</a></p>
+    {% endif %}
+  </div>
+  <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span itemprop="name">Cory Rylan</span>
+  </span>
+
+  <div bp-layout="float-right">
+    <div class="addthis_sharing_toolbox"></div>
+  </div>
+    
+  <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    <meta itemprop="name" content="Cory Rylan" />
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <meta itemprop="url" content="{{ site.url }}/assets/images/cory-rylan.jpg">
+      <meta itemprop="width" content="258">
+      <meta itemprop="height" content="258">
+    </div>
+  </div>
+  <div class="clear-both"></div>
 </article>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'splintercode';
-    (function () {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+  var disqus_shortname = 'splintercode';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 <noscript>
-    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 </noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 <div class="clear-both"></div><br /><br />
@@ -95,15 +85,15 @@ layout: default
 <script src="/assets/javascript/libraries/prism/prism.js?v={{ site.time | date: "%F %H:%M:%S %z" }}"></script>
 <script src="/assets/javascript/libraries/countable.js?v={{ site.time | date: "%F %H:%M:%S %z" }}"></script>
 <script>
-    var area = document.getElementById('PostBody');
+  var area = document.getElementById('PostBody');
 
-    Countable.once(area, function (counter) {
-        var wpm = 200;
-        var estimatedRaw = counter.words / wpm;
-        var minutes = Math.round(estimatedRaw);
-        var effectiveTime = (minutes < 1) ? "A few seconds to read" : minutes + " min read";
-        document.getElementById('ReadTime').innerHTML = effectiveTime;
-    });
+  Countable.once(area, function (counter) {
+    var wpm = 200;
+    var estimatedRaw = counter.words / wpm;
+    var minutes = Math.round(estimatedRaw);
+    var effectiveTime = (minutes < 1) ? "A few seconds to read" : minutes + " min read";
+    document.getElementById('ReadTime').innerHTML = effectiveTime;
+  });
 </script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c7a373d8cca33f" async></script>
 

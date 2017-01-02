@@ -3,7 +3,7 @@ layout: post
 title: Deploy Angular CLI Apps to Firebase
 description: Learn how to create an Angular app using the Angular CLI then deploy to a production environment with Firebase.
 keywords: Cory Rylan, Firebase, Angular, Angular CLI
-tags: firebase, angular
+tags: firebase angular
 date: 2016-07-31
 updated: 2016-12-19
 permalink: /blog/deploy-angular-cli-apps-to-firebase

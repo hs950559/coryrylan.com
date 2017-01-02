@@ -3,7 +3,7 @@ layout: post
 title: Site Performance Review 8/2014
 description: Site Performance Review 08/2014, covering web performance issues with my own site.
 keywords: Cory Rylan, Web, Development, Responsive, Performance
-tags: perfmatters, web
+tags: performance web
 date: 2014-08-01
 permalink: /blog/site-performance-review-08-2014
 ---

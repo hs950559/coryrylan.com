@@ -3,7 +3,7 @@ layout: post
 title: Thoughts On Large Mobile First Responsive Project
 description: My thoughts on a large mobile first responsive design project
 keywords: Cory Rylan, Responsive Design
-tags: web, rwd
+tags: responsive design
 date: 2013-11-11
 permalink: /blog/thoughts-on-large-mobile-first-responsive-project
 ---

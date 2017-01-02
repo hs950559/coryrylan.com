@@ -3,7 +3,7 @@ layout: post
 title: IOS Journey the Observer
 description: A short code example of observer object for IOS and Objective C
 keywords: Cory Rylan, IOS, Objective C
-tags: ios, programming
+tags: ios objective-c
 date: 2012-08-20
 permalink: /blog/ios-observer
 ---

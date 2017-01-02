@@ -3,7 +3,7 @@ layout: post
 title: Angular Debugging Tips and Tricks
 description: Learn helpful tips and tricks to debug Angular apps.
 keywords: Cory Rylan, Angular 2, Angular, Debugging
-tags: angular, typescript
+tags: angular typescript
 date: 2016-12-28
 permalink: /blog/angular-debugging-tips-and-tricks
 ---

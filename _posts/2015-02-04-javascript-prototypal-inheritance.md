@@ -3,7 +3,7 @@ layout: post
 title: JavaScript Prototypal Inheritance
 description: A beginner overview on JavaScript prototypal inheritance.
 keywords: Cory Rylan, Web, JavaScript, JavaScript Prototype, JavaScript Pattern
-tags: javascript, programming
+tags: javascript programming
 date: 2015-02-04
 updated: 2016-01-10
 permalink: /blog/javascript-prototypal-inheritance

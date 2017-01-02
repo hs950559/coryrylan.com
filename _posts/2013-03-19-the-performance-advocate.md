@@ -3,7 +3,7 @@ layout: post
 title: The Performance Advocate
 description: The Performance Advocate, web performance
 keywords: Cory Rylan, Web Performance
-tags: perfmatters, web
+tags: performance
 date: 2013-03-19
 permalink: /blog/the-performance-advocate
 ---

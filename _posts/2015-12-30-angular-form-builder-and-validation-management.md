@@ -3,7 +3,7 @@ layout: post
 title: Angular Form Builder and Validation Management
 description: Learn about the new FormBuilder and create a custom component to manage form validation in Angular.
 keywords: Cory Rylan, Angular, TypeScript, JavaScript
-tags: angular, typescript
+tags: angular typescript
 date: 2015-12-30
 updated: 2016-12-19
 permalink: /blog/angular-form-builder-and-validation-management

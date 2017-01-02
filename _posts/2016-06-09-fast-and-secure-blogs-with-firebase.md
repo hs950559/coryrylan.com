@@ -3,7 +3,7 @@ layout: post
 title: Fast and Secure Blogs with Firebase
 description: Learn how to create your own fast and secure blog using the static site generator Jekyll and Firebase.
 keywords: Cory Rylan, Firebase, Jekyll, Blog, Hosting
-tags: Firebase, Jekyll
+tags: firebase jekyll
 date: 2016-06-09
 permalink: /blog/fast-and-secure-blogs-with-firebase
 demo:

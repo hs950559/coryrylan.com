@@ -3,7 +3,7 @@ layout: post
 title: Introduction to Angular Pipes
 description: Learn Angular pipes and how to create your own custom pipe.
 keywords: Cory Rylan, Angular, TypeScript, JavaScript
-tags: angular, typescript
+tags: angular typescript
 date: 2016-01-21
 updated: 2016-12-19
 permalink: /blog/introduction-to-angular-pipes

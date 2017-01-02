@@ -3,7 +3,7 @@ layout: post
 title:  Angular ngFor syntax
 description: A quick look into the new Angular ngFor syntax.
 keywords: Cory Rylan, Web, Angular, JavaScript, ng-repeat, ngFor
-tags: angular, javascript
+tags: angular
 date: 2015-06-22
 updated: 2016-12-19
 demo: http://plnkr.co/edit/0s3qtC0TvHdiJLmz4H3m?p=preview

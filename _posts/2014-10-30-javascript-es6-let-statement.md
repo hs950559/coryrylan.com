@@ -3,7 +3,7 @@ layout: post
 title: JavaScript ES6 let
 description: Details on the new ES6 let statement coming to JavaScript
 keywords: Cory Rylan, Web, JavaScript, ES6
-tags: javascript, es6
+tags: javascript es2015
 date: 2014-10-30
 permalink: /blog/javascript-es6-let-statement
 ---

@@ -3,7 +3,7 @@ layout: post
 title: ES2015 Class in AngularJS Controllers and Services
 description: Learn how to use ES2015 Classes in you Angular 1.x Controllers and Services.
 keywords: Cory Rylan, AngularJS, AngularJS, JavaScript
-tags: angularjs, es2015
+tags: angularjs es2015
 date: 2016-02-02
 permalink: /blog/es2015-class-in-angularjs-controllers-and-services
 demo: http://plnkr.co/edit/D9MEJZe4pF6oztf7DP31?p=preview

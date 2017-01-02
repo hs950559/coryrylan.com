@@ -3,7 +3,7 @@ layout: post
 title: CSS BEM Syntax Basics
 description: A beginner overview on the CSS BEM naming syntax.
 keywords: Cory Rylan, Web, CSS, Sass, Software Development
-tags: CSS, BEM, cleancode
+tags: css cleancode
 date: 2015-03-16
 permalink: /blog/css-bem-syntax-basics
 ---

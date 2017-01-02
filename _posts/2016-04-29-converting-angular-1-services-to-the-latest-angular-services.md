@@ -3,7 +3,7 @@ layout: post
 title: Converting Angular 1 Services to the latest Angular Services
 description: Learn how to convert Angular 1 service factories the most common Angular 1 service pattern to Angular 2.x and later services.
 keywords: Cory Rylan, angular, TypeScript
-tags: angular, typescript
+tags: angular typescript
 date: 2016-04-29
 updated: 2016-12-19
 permalink: /blog/converting-angular-1-services-to-the-latest-angular-services

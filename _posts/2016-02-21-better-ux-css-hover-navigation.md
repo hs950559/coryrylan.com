@@ -3,7 +3,7 @@ layout: post
 title: Better UX CSS Hover Navigation
 description: Improve CSS hover based navigations with CSS transforms and Pseudo-elements
 keywords: Cory Rylan, CSS, Sass
-tags: ux, css
+tags: ux css
 date: 2016-02-21
 permalink: /blog/better-ux-css-hover-navigation
 demo: http://codepen.io/coryrylan/pen/rxQbzg

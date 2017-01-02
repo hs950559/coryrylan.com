@@ -3,7 +3,7 @@ layout: post
 title: Introduction To Web Components
 description: A intro to the new web component spec by building a simple tab component.
 keywords: Cory Rylan, Web, HTML5, JavaScript, Software Development, Web Components, Shadow DOM
-tags: html5, javascript, webcomponents
+tags: html5 javascript web-components
 date: 2015-05-26
 permalink: /blog/introduction-to-web-components
 ---

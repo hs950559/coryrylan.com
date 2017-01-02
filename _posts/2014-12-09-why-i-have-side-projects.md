@@ -3,7 +3,7 @@ layout: post
 title: Why I Have Side Projects
 description: Why I have side projects/code, benefits and experiences.
 keywords: Cory Rylan, Web, Software Development
-tags: programming, code
+tags: programming code
 date: 2014-12-09
 permalink: /blog/why-i-have-side-projects
 ---

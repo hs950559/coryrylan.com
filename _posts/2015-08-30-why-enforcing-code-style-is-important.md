@@ -3,7 +3,7 @@ layout: post
 title: Why Enforcing Code Style is Important
 description: Why code automated code style checks are important and how to handle introducing them.
 keywords: Cory Rylan, Web, HTML5, JavaScript, Development, Code Styles, Code Linting
-tags: cleancode, programming
+tags: cleancode programming
 date: 2015-08-30
 permalink: /blog/why-enforcing-code-style-is-important
 ---

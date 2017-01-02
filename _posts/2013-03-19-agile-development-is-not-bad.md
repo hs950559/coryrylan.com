@@ -3,7 +3,7 @@ layout: post
 title:  Agile Development Is Not Bad
 description: My thoughts about Agile Development
 keywords: Cory Rylan, Web, Development, Agile
-tags: agile, programming
+tags: agile programming
 date: 2013-03-19
 permalink: /blog/agile-development-is-not-bad
 ---

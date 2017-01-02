@@ -3,7 +3,7 @@ layout: post
 title: IOS Web Service
 description: A short code example of a web service for IOS and Objective C
 keywords: Cory Rylan, IOS, Objective C
-tags: ios, programming
+tags: ios objective-c
 date: 2012-08-08
 permalink: /blog/ios-web-service
 ---

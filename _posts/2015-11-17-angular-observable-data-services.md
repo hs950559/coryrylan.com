@@ -3,7 +3,7 @@ layout: post
 title: Angular Observable Data Services
 description: A look into Observables and how they can improve your Angular data services.
 keywords: Cory Rylan, Angular, JavaScript, Observables, Flux, TypeScript
-tags: angular, rxjs
+tags: angular rxjs
 date: 2015-11-17
 updated: 2016-12-19
 permalink: /blog/angular-observable-data-services

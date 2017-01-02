@@ -3,7 +3,7 @@ layout: post
 title: JavaScript ES6 Template Strings
 description: A look into the new ES2015/ES6 JavaScript template string syntax.
 keywords: Cory Rylan, Web, HTML5, JavaScript, Software Development, ES6, ES2015, Template Strings
-tags: javascript, es6
+tags: javascript es2015
 date: 2015-06-03
 permalink: /blog/javascript-es6-template-strings
 ---

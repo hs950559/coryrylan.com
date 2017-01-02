@@ -3,7 +3,7 @@ layout: post
 title: SVG gzip in Windows Azure
 description: SVG gzip in Windows Azure
 keywords: Cory Rylan, SVG, Windows, Azure
-tags: angular2, typescript
+tags: azure .net
 date: 2014-08-04
 updated: 2014-08-05
 permalink: /blog/svg-gzip-windows-azure

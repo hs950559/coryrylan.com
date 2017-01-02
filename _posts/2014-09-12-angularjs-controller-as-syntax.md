@@ -3,7 +3,7 @@ layout: post
 title:  AngularJS Controller As Syntax
 description: A brief overview on the benefits of the Controller As Syntax in AngularJS
 keywords: Cory Rylan, Web, AngularJS, JavaScript, MVC
-tags: angularjs, cleancode
+tags: angularjs cleancode
 date: 2014-09-12
 permalink: /blog/angularjs-controller-as-syntax
 ---

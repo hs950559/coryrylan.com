@@ -3,7 +3,7 @@ layout: post
 title: Multiple Sources in GulpJS
 description: How to build a GulpJS setup for large scale projects with multiple source support.
 keywords: Cory Rylan, Web, GulpJS, JavaScript, automation
-tags: gulpjs, javascript
+tags: gulpjs javascript
 date: 2015-12-11
 permalink: /blog/multiple-sources-in-gulpjs
 ---

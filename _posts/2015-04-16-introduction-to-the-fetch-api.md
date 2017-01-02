@@ -3,7 +3,7 @@ layout: post
 title: Introduction to the Fetch API
 description: A intro to the Fetch API with some simple use cases.
 keywords: Cory Rylan, Web, HTML5, JavaScript, Software Development, Fetch, API
-tags: html5, javascript
+tags: html5 javascript
 date: 2015-04-16
 permalink: /blog/introduction-to-the-fetch-api
 ---

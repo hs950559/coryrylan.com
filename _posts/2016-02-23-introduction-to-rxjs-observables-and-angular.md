@@ -3,7 +3,7 @@ layout: post
 title: Introduction to RxJS Observables and Angular
 description: A intro to RxJS Observables along with how they integrate in the latest Angular
 keywords: Cory Rylan, RxJS, Angular
-tags: rxjs, angular
+tags: rxjs angular
 date: 2016-02-23
 updated: 2016-12-19
 permalink: /blog/introduction-to-rxjs-observables-and-angular

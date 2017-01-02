@@ -3,7 +3,7 @@ layout: post
 title: Improve Your Technical Reading Skills
 description: Some of my personal tips on how to improve your technical reading skills as a Software Engineer
 keywords: Cory Rylan, Programming, Development, Reading, Learning
-tags: outlier, programming
+tags: outlier programming
 date: 2015-11-09
 permalink: /blog/improve-your-technical-reading-skills
 ---

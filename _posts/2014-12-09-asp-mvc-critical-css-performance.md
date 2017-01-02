@@ -3,7 +3,7 @@ layout: post
 title:  ASP MVC Critical CSS Performance
 description: ASP MVC Critical CSS Performance, how to improve CSS and HTML render time in the browser.
 keywords: Cory Rylan, Web, Development, CSS, HTML, Web Performance
-tags: mvc, CSS, perfmatters
+tags: mvc css performance
 date: 2014-08-06
 permalink: /blog/asp-mvc-critical-css-performance
 ---

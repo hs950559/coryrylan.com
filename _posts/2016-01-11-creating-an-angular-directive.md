@@ -3,7 +3,7 @@ layout: post
 title: Creating an Angular Directive
 description: Learn about the new Directive API and build a text snippet directive.
 keywords: Cory Rylan, Angular, TypeScript, JavaScript
-tags: angular, typescript
+tags: angular typescript
 date: 2016-01-11
 updated: 2016-12-19
 permalink: /blog/creating-an-angular-directive

@@ -3,7 +3,7 @@ layout: post
 title: Web Font Performance A Case Study
 description: Web font performance a case study on EstateSales.NET
 keywords: Cory Rylan, Web, Development, EstateSales.NET, Performance, Font
-tags: perfmatters, web
+tags: performance web
 date: 2015-01-02
 permalink: /blog/web-font-performance-a-case-study
 ---

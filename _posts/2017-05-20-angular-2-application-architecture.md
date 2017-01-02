@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Angular 2 Application Architecture
-description: Learn the various architecture patterns we can use in Angular 2 to organize data and application state.
+title: Angular Application Architecture
+description: Learn the various architecture patterns we can use in Angular to organize data and application state.
 keywords: Cory Rylan, Angular 2, Redux, Components, RxJS
-tags: Angular2, Angularjs
+tags: angular typescript
 date: 2017-05-20
 permalink: /blog/angular-2-application-architecture
 demo:

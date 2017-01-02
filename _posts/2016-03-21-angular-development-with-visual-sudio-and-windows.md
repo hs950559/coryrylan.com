@@ -3,7 +3,7 @@ layout: post
 title: Angular Development with Visual Studio and Windows
 description: A top down intro to developing Angular applications with Visual Studio and Windows. This will cover from downloading Visual Studio to installing NodeJS for JavaScript tooling support.
 keywords: Cory Rylan, Angular, Visual Studio
-tags: VisualStudio, angular
+tags: visual-studio angular
 date: 2016-03-21
 updated: 2016-12-19
 permalink: /blog/angular-development-with-visual-studio-and-windows

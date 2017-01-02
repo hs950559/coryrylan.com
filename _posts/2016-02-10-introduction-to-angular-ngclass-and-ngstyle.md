@@ -3,7 +3,7 @@ layout: post
 title: Introduction to Angular ngClass and ngStyle
 description: Learn how to dynamically control CSS and CSS classes and in Angular
 keywords: Cory Rylan, Angular, CSS
-tags: angular, css
+tags: angular css
 date: 2016-02-10
 updated: 2016-12-19
 permalink: /blog/introduction-to-angular-ngclass-and-ngstyle

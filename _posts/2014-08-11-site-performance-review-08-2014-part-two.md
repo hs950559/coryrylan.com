@@ -3,7 +3,7 @@ layout: post
 title: Site Performance Review 8/2014 Part Two
 description: Part two of my site performance review
 keywords: Cory Rylan, Web, Performance, CSS, JavaScript
-tags: perfmatters, web
+tags: performance web
 date: 2014-08-11
 permalink: /blog/site-performance-review-08-2014-part-two
 ---

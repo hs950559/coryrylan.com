@@ -3,7 +3,7 @@ layout: post
 title: JavaScript ES6 Class Syntax
 description: A beginner overview on the new ES6 ES2015 JavaScript Class syntax.
 keywords: Cory Rylan, Web, JavaScript, ES6, ES2015, Class, Prototype, Inheritance
-tags: javascript, es6
+tags: javascript es2015
 date: 2015-02-15
 permalink: /blog/javascript-es6-class-syntax
 ---

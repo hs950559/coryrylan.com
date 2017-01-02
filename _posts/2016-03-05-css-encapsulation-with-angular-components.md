@@ -3,7 +3,7 @@ layout: post
 title: CSS Encapsulation with Angular Components
 description: A intro on how to better encapsulate your CSS in Angular components. Also learn the different encapsulation techniques and CSS best practices.
 keywords: Cory Rylan, Angular, CSS
-tags: CSS, angular
+tags: css angular
 date: 2016-03-05
 updated: 2016-12-19
 permalink: /blog/css-encapsulation-with-angular-components

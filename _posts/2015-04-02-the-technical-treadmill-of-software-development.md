@@ -3,7 +3,7 @@ layout: post
 title: The Technical Treadmill of Software Development
 description: Tips to keep your skills up to date in software and web development while keeping your sanity.
 keywords: Cory Rylan, Web, Software, Software Development
-tags: programming, code
+tags: programming code
 date: 2015-04-02
 permalink: /blog/the-technical-treadmill-of-software-development
 ---

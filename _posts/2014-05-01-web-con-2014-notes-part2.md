@@ -3,7 +3,7 @@ layout: post
 title: Web Con Notes Part 2
 description: Notes on Web Con 2014 Programming Languages
 keywords: Cory Rylan, Software, Development, Programming
-tags: webcon, web
+tags: webcon web
 date: 2014-05-01
 permalink: /blog/web-con-2014-notes-part2
 ---

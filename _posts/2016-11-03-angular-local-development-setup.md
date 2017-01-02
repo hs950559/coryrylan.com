@@ -3,7 +3,7 @@ layout: post
 title: Angular Local Development Setup
 description: A quick overview of my personal local development setup when building Angular applications
 keywords: Cory Rylan, Angular 2, Angular, Development, Editor
-tags: Angular, Angular2
+tags: angular visual-studio
 date: 2016-11-03
 updated: 2016-12-19
 permalink: /blog/angular-local-development-setup

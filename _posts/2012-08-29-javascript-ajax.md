@@ -3,7 +3,7 @@ layout: post
 title: Javascript JQuery Ajax
 description: A short code example of a Javascript Ajax call.
 keywords: Cory Rylan, Javascript, Ajax, JSON
-tags: javascript, jquery
+tags: javascript jquery
 date: 2012-08-29
 permalink: /blog/javascript-ajax
 ---
