@@ -52,11 +52,13 @@ Lets take a look at the `app-dialog` template.
 
 <pre class="language-html">
 <code>
+{% raw %}
 &lt;div [@dialog] *ngIf=&quot;visible&quot; class=&quot;dialog&quot;&gt;
   &lt;ng-content&gt;&lt;/ng-content&gt;
   &lt;button *ngIf=&quot;closable&quot; (click)=&quot;close()&quot; aria-label=&quot;Close&quot; class=&quot;dialog__close-btn&quot;&gt;X&lt;/button&gt;
 &lt;/div&gt;
 &lt;div *ngIf=&quot;visible&quot; class=&quot;overlay&quot; (click)=&quot;close()&quot;&gt;&lt;/div&gt;
+{% endraw %}
 </code>
 </pre>
 
@@ -70,6 +72,7 @@ that when clicked toggle the visible property on the dialog component. Next lets
 
 <pre class="language-javascript">
 <code>
+{% raw %}
 import { 
   Component, OnInit, Input, Output, OnChanges, EventEmitter, 
   trigger, state, style, animate, transition } from &#39;@angular/core&#39;;
@@ -104,6 +107,7 @@ export class DialogComponent implements OnInit {
     this.visibleChange.emit(this.visible);
   }
 }
+{% endraw %}
 </code>
 </pre>
 
@@ -116,6 +120,7 @@ at the `animations` property on the component decorator.
 
 <pre>
 <code class="language-javascript">
+{% raw %}
 animations: [
   trigger(&#39;dialog&#39;, [
     transition(&#39;void =&gt; *&#39;, [
@@ -127,6 +132,7 @@ animations: [
     ])
   ])
 ]
+{% endraw %}
 </code>
 </pre>
 
@@ -151,6 +157,7 @@ Now lets look at the last half of our `app-dialog` component.
 
 <pre class="language-javascript">
 <code>
+{% raw %}
 export class DialogComponent implements OnInit {
   @Input() closable = true;
   @Input() visible: boolean;
@@ -165,6 +172,7 @@ export class DialogComponent implements OnInit {
     this.visibleChange.emit(this.visible);
   }
 }
+{% endraw %}
 </code>
 </pre>
 
