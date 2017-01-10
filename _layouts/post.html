@@ -17,6 +17,10 @@ layout: default
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
   
     <p class="post-meta margin-bottom--lg">
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Cory Rylan</span>
+      </span><br />
+
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
@@ -31,6 +35,7 @@ layout: default
       {% endif %}
       
       - <span id="ReadTime" class="read-time"></span>
+
       <span bp-layout="float-right hide show@md">
         {% for tag in page.tags %}
           <a href="/tags#{{ tag }}" class="site-tag">{{ tag }}</a>
@@ -46,9 +51,6 @@ layout: default
       <p><a href="{{ page.demo }}" target="_blank" class="btn--raised btn--demo">Demo</a></p>
     {% endif %}
   </div>
-  <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <span itemprop="name">Cory Rylan</span>
-  </span>
 
   <div bp-layout="float-right">
     <div class="addthis_sharing_toolbox"></div>
@@ -62,6 +64,10 @@ layout: default
       <meta itemprop="height" content="258">
     </div>
   </div>
+
+  {% if page.tags contains 'angular' %}
+    {% include ng-training.html %}
+  {% endif %}
   <div class="clear-both"></div>
 </article>
 

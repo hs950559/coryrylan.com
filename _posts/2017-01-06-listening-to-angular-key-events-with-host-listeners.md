@@ -127,4 +127,3 @@ our `keyEvent()` method passing in the event. Once we have the event we can chec
 `KeyboardEvent` for the key code. For our counter component we created a simple TypeScript interface
 to hold the key codes we care about. When the appropriate key code is returned we call
 the `increment()` or `decrement()` methods.
-
