@@ -5,14 +5,15 @@ description: Learn how to build a offline Angular app with service workers & sw-
 keywords: Cory Rylan, Angular 2, Angular, Service Workers, Offline, Progressive Web App
 tags: angular pwa
 date: 2016-11-20
-updated: 2016-12-19
+updated: 2017-01-17
 permalink: /blog/fast-offline-angular-apps-with-service-workers
 demo: https://ng-pokedex.firebaseapp.com/
 ---
 
 {% include ng-version.html %}
 
-With the release of the latest Angular 2.x+ and the recent rise of "Progressive Web Apps" there is a lot to be 
+With the release of the latest Angular 2.x+ and the recent rise of 
+<a href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Apps</a> there is a lot to be 
 excited about when it comes to building on the web today. In this post we will cover how to make
 a simple Hello World Angular app and leverage Service Workers to make our app lightning fast and offline capable.
 Then we will look at a small more useful app and how Service Workers improved it's performance. 
