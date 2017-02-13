@@ -96,12 +96,12 @@ we want to route to on the view. Next lets take a look at our route config file 
 <pre class="language-javascript">
 <code>
 {% raw %}
-import { RouterConfig } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { AboutComponent } from 'app/about.component';
 import { HomeComponent } from 'app/home.component';
 
-export const routes: RouterConfig = [
+export const routes: Routes = [
   { path: '', component: HomeComponent }
   { path: 'about', component: AboutComponent }
 ];
@@ -228,12 +228,12 @@ components to the `declarations` in our `AppModule`.  Lets now take a look at th
 <pre class="language-javascript">
 <code>
 {% raw %}
-import { RouterConfig } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { AboutComponent, AboutHomeComponent, AboutItemComponent } from 'app/about.component';
 import { HomeComponent } from 'app/home.component';
 
-export const routes: RouterConfig = [
+export const routes: Routes = [
   { path: '', component: HomeComponent }
   {
     path: 'about',
@@ -290,7 +290,7 @@ updated route config.
 <pre class="language-javascript">
 <code>
 {% raw %}
-export const routes: RouterConfig = [
+export const routes: Routes = [
   { path: '', component: HomeComponent }
   {
     path: 'about',
