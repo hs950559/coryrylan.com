@@ -1,6 +1,18 @@
 {
   "name": "Cory Rylan Blog",
   "tasks": {
-    "build": "jekyll build"
-  }
+    "start": "jekyll serve",
+    "install": "yarn install",
+    "lint": "",
+    "test": "",
+    "build": "jekyll build",
+    "build--prod": "jekyll build",
+    "deploy": "firebase deploy"
+  },
+  "external": [
+    "https://jekyllrb.com/",
+    "https://firebase.google.com/",
+    "https://yarnpkg.com/en/"
+  ],
+  "dependencies": []
 }
