@@ -7,7 +7,7 @@
     "test": "",
     "build": "jekyll build",
     "build--prod": "jekyll build",
-    "deploy": "firebase deploy"
+    "deploy": "yarn run build--prod && firebase deploy"
   },
   "external": [
     "https://jekyllrb.com/",

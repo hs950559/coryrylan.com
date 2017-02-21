@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/splintercode/coryrylan.com#readme",
   "dependencies": {
-    "blueprint-css": "2.0.0-beta.5"
+    "blueprint-css": "2.1.0"
   }
 }
