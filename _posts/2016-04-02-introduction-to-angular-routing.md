@@ -7,7 +7,7 @@ tags: angular
 date: 2016-04-02
 updated: 2016-12-19
 permalink: /blog/introduction-to-angular-routing
-demo: http://plnkr.co/edit/RPvgcUdiLFP4Mtig9Q7n?p=preview
+demo: https://embed.plnkr.co/RPvgcUdiLFP4Mtig9Q7n/
 ---
 
 {% include ng-version.html %}

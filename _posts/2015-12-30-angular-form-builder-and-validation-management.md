@@ -7,7 +7,7 @@ tags: angular typescript
 date: 2015-12-30
 updated: 2016-12-19
 permalink: /blog/angular-form-builder-and-validation-management
-demo: http://plnkr.co/edit/WTu5G9db3p4pKzs0WvW6?p=preview
+demo: https://embed.plnkr.co/WTu5G9db3p4pKzs0WvW6/
 ---
 
 {% include ng-version.html %}

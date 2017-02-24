@@ -7,7 +7,7 @@ tags: angular rxjs
 date: 2015-11-17
 updated: 2016-12-19
 permalink: /blog/angular-observable-data-services
-demo: http://plnkr.co/edit/jgDTXknPzAaqcg9XA9zq?p=preview
+demo: https://embed.plnkr.co/jgDTXknPzAaqcg9XA9zq/
 ---
 
 {% include ng-version.html %}

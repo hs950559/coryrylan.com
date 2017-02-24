@@ -6,7 +6,7 @@ keywords: Cory Rylan, Angular 2, Angular, key events
 tags: angular
 date: 2017-01-06
 permalink: /blog/listening-to-angular-key-events-with-host-listeners
-demo: http://plnkr.co/edit/M6O4YVAmNY9Qi9m8ef33?p=preview
+demo: https://embed.plnkr.co/M6O4YVAmNY9Qi9m8ef33/
 ---
 
 {% include ng-version.html %}

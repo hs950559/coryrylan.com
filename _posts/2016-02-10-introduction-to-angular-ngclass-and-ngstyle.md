@@ -7,7 +7,7 @@ tags: angular css
 date: 2016-02-10
 updated: 2016-12-19
 permalink: /blog/introduction-to-angular-ngclass-and-ngstyle
-demo: http://plnkr.co/edit/HyB1rg7xxWqCNwTuZCYV?p=preview
+demo: https://embed.plnkr.co/HyB1rg7xxWqCNwTuZCYV/
 ---
 
 {% include ng-version.html %}

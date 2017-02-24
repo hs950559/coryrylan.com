@@ -6,7 +6,7 @@ keywords: Cory Rylan, AngularJS, AngularJS, JavaScript
 tags: angularjs es2015
 date: 2016-02-02
 permalink: /blog/es2015-class-in-angularjs-controllers-and-services
-demo: http://plnkr.co/edit/D9MEJZe4pF6oztf7DP31?p=preview
+demo: https://embed.plnkr.co/D9MEJZe4pF6oztf7DP31/
 ---
 
 Angular 1.x still has a long life ahead of it even with the beta launch of Angular 2. If you have a large existing Angular 1 application you 
@@ -136,6 +136,6 @@ Also note our controller and services are registered after the class is defined.
 before we define them we get a reference error.
 
 Now our controllers and services are using ES2015 classes and are that much closer to looking like Angular 2 style components and services. 
-A working demo of this post can be found at this <a href="http://plnkr.co/edit/D9MEJZe4pF6oztf7DP31?p=preview" target="_blank">plnkr</a>.
+A working demo of this post can be found by clicking the demo link below.
 Note using native non transpiled classes, this is not supported in Angular 1 just yet but it is in the works. 
 See this <a href="https://github.com/angular/angular.js/issues/13510" target="_blank">GitHub Issue</a>.

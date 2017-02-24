@@ -374,9 +374,9 @@ You can check out both versions of the demo below.
 
 <div bp-layout="row center">
     <div bp-layout="col 3">
-        <a href="http://plnkr.co/edit/O2DSd7dH7akOgXD1pD0P?p=preview" target="_blank" class="btn--raised">Angular 1.x Example</a>
+        <a href="https://embed.plnkr.co/O2DSd7dH7akOgXD1pD0P/" target="_blank" class="btn--raised">Angular 1.x Example</a>
     </div>
     <div bp-layout="col 3">
-        <a href="http://plnkr.co/edit/ISusP30dkrA8rJJ6aQjG?p=preview" target="_blank" class="btn--raised">Latest Angular Example</a>
+        <a href="https://embed.plnkr.co/ISusP30dkrA8rJJ6aQjG/" target="_blank" class="btn--raised">Latest Angular Example</a>
     </div>
 </div>

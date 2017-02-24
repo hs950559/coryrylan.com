@@ -7,7 +7,7 @@ tags: css angular
 date: 2016-03-05
 updated: 2016-12-19
 permalink: /blog/css-encapsulation-with-angular-components
-demo: http://plnkr.co/edit/JYbmizTKUd29zfmmMmLc?p=preview
+demo: https://embed.plnkr.co/JYbmizTKUd29zfmmMmLc/
 ---
 
 {% include ng-version.html %}

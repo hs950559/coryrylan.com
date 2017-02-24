@@ -6,7 +6,7 @@ keywords: Cory Rylan, Angular 2, Angular, Animate
 tags: angular
 date: 2016-09-19
 permalink: /blog/build-a-angular-modal-dialog-with-angular-animate
-demo: http://plnkr.co/edit/AuFMJVHpk9OaLr62puS1?p=preview
+demo: https://embed.plnkr.co/AuFMJVHpk9OaLr62puS1/
 ---
 
 {% include ng-version.html %}

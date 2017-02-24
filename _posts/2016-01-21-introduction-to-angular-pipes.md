@@ -7,7 +7,7 @@ tags: angular typescript
 date: 2016-01-21
 updated: 2016-12-19
 permalink: /blog/introduction-to-angular-pipes
-demo: http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview
+demo: https://embed.plnkr.co/3WnMwD56lEAOUh1jIgn2/
 ---
 
 {% include ng-version.html %}
@@ -133,5 +133,5 @@ export class App {
 
 So our output for the long string above would be `Bacon ipsum dolor amet bacon t-bone tongue ball ti...`.
 
-Take a look a this <a href="http://plnkr.co/edit/3WnMwD56lEAOUh1jIgn2?p=preview" target="_blank">Plnkr</a> for a working demo of the ellipsis pipe. Angular 2 pipes are not much different from AngularJS 1.x filters
+Take a look at the demo link below of the ellipsis pipe. Angular 2 pipes are not much different from AngularJS 1.x filters
 but align with new EcmaScript2015 and EcmaScript2016 syntax used in Angular.

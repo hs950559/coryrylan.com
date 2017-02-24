@@ -7,7 +7,7 @@ tags: angular typescript
 date: 2016-01-11
 updated: 2016-12-19
 permalink: /blog/creating-an-angular-directive
-demo: http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview
+demo: https://embed.plnkr.co/Rky2LTRAfke0339fDFBp/
 ---
 
 {% include ng-version.html %}
@@ -211,5 +211,4 @@ Once we have the input value we use regular expressions and a little logic to it
 If a snippet name is matched we replace it with the corresponding snippet's content and set the inputs value with the new text.
 As of RC 5 your directives will need to be registered with your `AppModule`. Read more about [@NgModule](https://angular.io/docs/ts/latest/guide/ngmodule.html).
 
-The new Directive API in Angular is much simpler than what was know in Angular 1.x. See a working demo of the `uiSnippet` Directive here on 
-<a href="http://plnkr.co/edit/Rky2LTRAfke0339fDFBp?p=preview" target="_blank">plnkr.co</a>.
+The new Directive API in Angular is much simpler than what was know in Angular 1.x. See a working demo of the `uiSnippet` Directive here below.

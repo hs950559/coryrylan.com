@@ -7,7 +7,7 @@ tags: angular rxjs
 date: 2016-11-15
 updated: 2016-12-19
 permalink: /blog/angular-multiple-http-requests-with-rxjs
-demo: http://plnkr.co/edit/w5MmyF4G3Hg1ivstU6Ev?p=preview
+demo: http://embed.plnkr.co/w5MmyF4G3Hg1ivstU6Ev/
 ---
 
 {% include ng-version.html %}

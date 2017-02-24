@@ -6,7 +6,7 @@ keywords: Cory Rylan, Web, Angular, JavaScript, ng-repeat, ngFor
 tags: angular
 date: 2015-06-22
 updated: 2016-12-19
-demo: http://plnkr.co/edit/0s3qtC0TvHdiJLmz4H3m?p=preview
+demo: https://embed.plnkr.co/0s3qtC0TvHdiJLmz4H3m/
 permalink: /blog/angular-ng-for-syntax
 ---
 

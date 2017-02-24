@@ -7,7 +7,7 @@ tags: angular
 date: 2016-10-19
 updated: 2016-12-19
 permalink: /blog/angular-custom-form-controls-with-reactive-forms-and-ngmodel
-demo: http://plnkr.co/edit/Yj93mh5ZnX6ONtaMQPAQ?p=preview
+demo: https://embed.plnkr.co/Yj93mh5ZnX6ONtaMQPAQ/
 ---
 
 {% include ng-version.html %}
