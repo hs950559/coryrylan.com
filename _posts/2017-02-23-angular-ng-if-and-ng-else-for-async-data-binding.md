@@ -5,6 +5,7 @@ description: Learn how to use the ngIf and ngElse statement to easily bind async
 keywords: Cory Rylan, Angular 4, Angular, RxJS
 tags: angular rxjs
 date: 2017-02-23
+updated: 2016-03-04
 permalink: /blog/angular-async-data-binding-with-ng-if-and-ng-else
 demo: https://embed.plnkr.co/Q2Gqn5aq6YYISS5cn9M1/
 ---
@@ -124,7 +125,7 @@ ceremony in our templates. Lets take a look at the updated component template us
     &lt;dd&gt;{{user.homeWorld}}&lt;/dd&gt;
   &lt;/dl&gt;
 &lt;/div&gt;
-&lt;template #loading&gt;Loading User Data...&lt;/template&gt;
+&lt;ng-template #loading&gt;Loading User Data...&lt;/ng-template&gt;
 {% endraw %}
 </code>
 </pre>
@@ -147,7 +148,7 @@ that Angular assigns the value from the Observable. This allows us to interact d
 user Object without having to use the `async` pipe over and over.
 
 The last statement `else loading` tells Angular if the condition is not met to 
-show the loading template. The loading template is denoted using the `template` tag with a 
+show the loading template. The loading template is denoted using the `ng-template` tag with a 
 `#loading` template reference name.
 
 <pre class="language-html">
@@ -158,7 +159,7 @@ show the loading template. The loading template is denoted using the `template` 
 </code>
 </pre>
 
-Template tags are ignored and not rendered by the browser. When the 
+Angular template tags are not rendered in the browser until needed. When the 
 user is not loaded Angular will show the loading template.
 Once loaded it will render the div element with the user content.
 
