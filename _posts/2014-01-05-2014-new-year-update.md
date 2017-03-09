@@ -19,5 +19,5 @@ focusing on some new topics.
 - Resilient web design
 - Off-line support on web applications
 
-Look for me on [Github](https://github.com/splintercode) & [codepen.io](https://codepen.io/coryrylan) for any new projects or want to collaborate just 
+Look for me on [Github](https://github.com/coryrylan) & [codepen.io](https://codepen.io/coryrylan) for any new projects or want to collaborate just 
 tweet me [@coryrylan](https://twitter.com/coryrylan) Happy new year!

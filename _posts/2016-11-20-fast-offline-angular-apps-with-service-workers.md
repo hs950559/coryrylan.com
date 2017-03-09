@@ -298,7 +298,7 @@ What is great about these results is that the Angular Framework is still evolvin
 We can likely see these performance metrics improving even more. We were also able to get fantastic performance 
 features with the Angular CLI with little configuration work minus our SW Precache.
 
-Please feel free to check out the demo app on [Github](https://github.com/splintercode/ng-pokedex). 
+Please feel free to check out the demo app on [Github](https://github.com/coryrylan/ng-pokedex). 
 The live demo is located here [NG-Pokédex](https://ng-pokedex.firebaseapp.com/).
 
 Below are some great resources for learning more about Service Workers and Progressive Web Apps:

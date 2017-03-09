@@ -195,5 +195,5 @@ If any file in that list changes then run the associated task. If I change a Sas
 project will recompile. If I update a TypeScript file only the TypeScript will compile.
 
 Gulp can be a powerful tool but like any codebase can become unwieldy if not careful.
-To see a full gulpfile I personally use you can look at this <a href="https://github.com/splintercode/gulp-start-up" target="_blank">repo on GitHub</a>.
+To see a full gulpfile I personally use you can look at this <a href="https://github.com/coryrylan/gulp-start-up" target="_blank">repo on GitHub</a>.
 It includes a example gulpfile and two area config files.

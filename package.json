@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/splintercode/coryrylan.com.git"
+    "url": "git+https://github.com/coryrylan/coryrylan.com.git"
   },
   "author": "Cory Rylan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/splintercode/coryrylan.com/issues"
+    "url": "https://github.com/coryrylan/coryrylan.com/issues"
   },
-  "homepage": "https://github.com/splintercode/coryrylan.com#readme",
+  "homepage": "https://github.com/coryrylan/coryrylan.com#readme",
   "dependencies": {
     "blueprint-css": "2.1.0"
   }

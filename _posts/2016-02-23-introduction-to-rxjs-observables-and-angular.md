@@ -7,7 +7,7 @@ tags: rxjs angular
 date: 2016-02-23
 updated: 2016-12-19
 permalink: /blog/introduction-to-rxjs-observables-and-angular
-demo: https://github.com/splintercode/observable-rxjs-demos
+demo: https://github.com/coryrylan/observable-rxjs-demos
 ---
 
 {% include ng-version.html %}

@@ -6,7 +6,7 @@ keywords: Cory Rylan, Angular 2, Angular, Protractor, E2E
 tags: angular protractor
 date: 2017-01-31
 permalink: /blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
-demo: https://github.com/splintercode/ng-pokedex
+demo: https://github.com/coryrylan/ng-pokedex
 ---
 
 {% include ng-version.html %}

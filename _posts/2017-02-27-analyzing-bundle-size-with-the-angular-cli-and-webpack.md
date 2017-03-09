@@ -6,7 +6,7 @@ keywords: Cory Rylan, Angular 2, Angular, Webpack, Performance
 tags: angular AngularCLI
 date: 2017-03-01
 permalink: /blog/analyzing-bundle-size-with-the-angular-cli-and-webpack
-demo: https://github.com/splintercode/ng-pokedex
+demo: https://github.com/coryrylan/ng-pokedex
 ---
 
 {% include ng-version.html %}
