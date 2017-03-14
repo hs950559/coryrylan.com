@@ -5,7 +5,7 @@ description: Learn how to use the ngIf and ngElse statement to easily bind async
 keywords: Cory Rylan, Angular 4, Angular, RxJS
 tags: angular rxjs
 date: 2017-02-23
-updated: 2016-03-04
+updated: 2016-03-13
 permalink: /blog/angular-async-data-binding-with-ng-if-and-ng-else
 demo: https://embed.plnkr.co/Q2Gqn5aq6YYISS5cn9M1/
 ---
@@ -19,17 +19,25 @@ a special added syntax to the `ngIf` statement to make it easier to bind async d
 templates.
 
 When building Angular applications its likely you are working with Observables (specifically RxJS)
-to handle asynchronous data. Typically we get this async data through Angular's Http service which returns
-a Observable with our data response.
+to handle asynchronous data. Typically we get this async data through Angular's Http service which returns a Observable with our data response. We will cover three different ways of data binding and 
+the last being the new ngIf / ngElse feature.
 
-In this next example we are going to bind some user data to a component from a artificially created
-Observable that emulates a slow api connection instead of calling an API directly. 
+-  <a href="/blog/angular-async-data-binding-with-ng-if-and-ng-else#manual-subscription-management">Manual Subscription Management<a>
+-  <a href="/blog/angular-async-data-binding-with-ng-if-and-ng-else#async-pipe-and-the-share-operator">Async Pipe and the Share Operator<a>
+-  <a href="/blog/angular-async-data-binding-with-ng-if-and-ng-else#ngfor-and-ngelse">NgFor and NgElse<a>
+
+## Manual Subscription Management
+
+In this first example we are going to bind some user data to a component from a artificially created
+Observable that emulates a slow api connection instead of calling an API directly. We will also cover
+the various ways we can bind to an Observable.
 
 <pre class="language-typescript">
 <code>
 {% raw %}
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 
@@ -38,20 +46,31 @@ import 'rxjs/add/operator/delay';
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
-  user: Observable&lt;any&gt;;
+  user: {};
+  subscription: Subscription;
   
   constructor() { }
   
-  ngOnInit() {
-    // Fake Slow Async Data
-    this.user = Observable.of({
+  ngOnInit() {    
+    // Manual subscription handling
+    this.subscription = this.getAsyncData().subscribe(u => this.user = u);
+  }
+  
+  ngOnDestroy() {
+    // Only need to unsubscribe if its a multi event Observable
+    this.subscription.unsubscribe();
+  }
+  
+  getAsyncData() {
+     // Fake Slow Async Data
+    return Observable.of({
       firstName: 'Luke',
       lastName: 'Skywalker',
       age: 65,
       height: 172,
       mass: 77,
-      homeWorld: 'Tatooine'
-    }).delay(2000); // Delay the response for 2 seconds
+      homeworld: 'Tatooine'
+    }).delay(2000);
   }
 }
 {% endraw %}
@@ -61,16 +80,92 @@ export class AppComponent {
 In this component we have and Observable that emits some async data and using RxJS operators.
 We are causing the data to slow down by a couple of seconds to emulate a slow network connection. 
 This code has nothing to do with our `ngElse` feature just note we are binding a user property
-on our component as an Observable containing a User Object.
+on our component as a plain JavaScript Object.
 
-With our data being an Observable we need to subscribe to it to retrieve the data. We could 
-do this in our component or we can use a special Angular pipe called the `async` pipe.
-This pipe automatically subscribes to the Observable for us. Lets take a look at our template.
+In this example we subscribe to our Observable. Once we receive the data we will assign 
+the data to our `user` property. Note we also must unsubscribe from our Observable when
+our component is destroyed. We must manually unsubscribe to any Observable that may emit 
+multiple values. In our template we can simply bind directly to our `user` property.
 
 <pre class="language-html">
 <code>
 {% raw %}
-&lt;h2&gt;Without ngIf and ngElse&lt;/h2&gt;
+&lt;div&gt;
+  &lt;h2&gt;{{user?.firstName}} {{user?.lastName}}&lt;/h2&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Age:&lt;/dt&gt;
+    &lt;dd&gt;{{user?.age}}&lt;/dd&gt;
+
+    &lt;dt&gt;Height:&lt;/dt&gt;
+    &lt;dd&gt;{{user?.height}}&lt;/dd&gt;
+
+    &lt;dt&gt;Mass:&lt;/dt&gt;
+    &lt;dd&gt;{{user?.mass}}&lt;/dd&gt;
+
+    &lt;dt&gt;Homeworld:&lt;/dt&gt;
+    &lt;dd&gt;{{user?.homeworld}}&lt;/dd&gt;
+  &lt;/dl&gt;
+&lt;/div&gt;
+{% endraw %}
+</code>
+</pre>
+
+Note we must use the elvis operator `?` when accessing a property. This is because at initialization
+time the data does not exist causing our user to be undefined. The elvis operator allows 
+us to lazily evaluate the properties on our object without throwing a error.
+
+## Async Pipe and the Share Operator
+
+Another way to bind to async data in Angular is to use the `async` pipe. With the Async pipe we get the benefit of Angular auto subscribing and unsubscribing with our Observables when the component
+is created and destroyed. To use the `async` pipe we bind our Observable directly to our component.
+
+<pre class="language-typescript">
+<code>
+{% raw %}
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/delay';
+
+@Component({
+  selector: 'demo-app',
+  templateUrl: 'app/app.component.html'
+})
+export class AppComponent {
+  user: Observable<{}>;
+  
+  constructor() { }
+  
+  ngOnInit() {
+    this.user = this.getAsyncData().share();
+  }
+  
+  getAsyncData() {
+     // Fake Slow Async Data
+    return Observable.of({
+      firstName: 'Luke',
+      lastName: 'Skywalker',
+      age: 65,
+      height: 172,
+      mass: 77,
+      homeworld: 'Tatooine'
+    }).delay(2000);
+  }
+}
+{% endraw %}
+</code>
+</pre>
+
+Unfortunately by itself we must use the pipe on every property we want to 
+access. This creates a subscription each time the `async` pipe is used. To counter this we
+use the RxJS `share()` operator to share the subscription with multiple subscribers preventing 
+duplicate work.
+
+<pre class="language-html">
+<code>
+{% raw %}
+&lt;h2&gt;Async Pipe and share()&lt;/h2&gt;
 &lt;div&gt;
   &lt;h2&gt;{{(user | async)?.firstName}} {{(user | async)?.lastName}}&lt;/h2&gt;
   &lt;dl&gt;
@@ -91,19 +186,14 @@ This pipe automatically subscribes to the Observable for us. Lets take a look at
 </code>
 </pre>
 
-So notice we can bind our Observable to our template with the `async` pipe but we have a couple 
-syntax pain points. First, every time we want to display a property we have to pipe the User Observable
-into the Async Pipe each time `user | async`. The next issue is since the data is async we have to use
-a special Elvis operator `?` every time we access a property. The elvis operator only checks the property
-if it exists on the object and the object is loaded. `(user | async)?.firstName`.
-
 As you can see this is really verbose and not exactly terse. Nor does this template handle a 
-loading message while the data loads into our template. Lets now look at the new `ngElse` feature.
+loading message while the data loads into our template. Lets now look at the new `ngIf` / `ngElse` feature.
 
-<h2>NgFor and NgElse</h2>
+## NgFor and NgElse
 
 We would really like to be able to subscribe to our Async Pipe once and avoid the extra 
-ceremony in our templates. Lets take a look at the updated component template using the new ngElse feature.
+ceremony in our templates. Just like before we bind our Observable directly to our component
+without subscribing nor handling unsubscribing. Lets take a look at the updated component template using the new ngElse feature.
 
 <pre class="language-html">
 <code>
@@ -140,8 +230,7 @@ Lets break down what is happening in our template. The first line has several pa
 </code>
 </pre>
 
-First we are using a traditional `*ngIf` in combination with the `async` pipe to show our element if the user
-is loaded.
+First we are using a traditional `*ngIf` in combination with the `async` pipe to show our element if the user is loaded.
 
 Next is the `let user;` statement in the `*ngIf`. Here we are creating a local template variable
 that Angular assigns the value from the Observable. This allows us to interact directly with our
